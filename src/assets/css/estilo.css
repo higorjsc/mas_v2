@@ -1,0 +1,12 @@
+:root{
+    color: black;
+    --cor-tema: #650505d6;
+    --cor-hover: #300202d6;
+    --borda-simples: 1pt solid black;
+    --shadow-input: -5px 0 5px  rgb(0 0 0 / 95%);
+    --shadow-hover: 0 0 10px blue;
+    font-size: 11pt;
+    line-height: 1.5;
+    --body-height: 500px;
+}
+
