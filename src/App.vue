@@ -19,7 +19,6 @@
 
 
 <style scoped>
-
     #main-nav {
       display: block;
       position: relative;

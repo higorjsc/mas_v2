@@ -84,7 +84,6 @@ export default {
         border-radius: 20px;
         overflow: hidden;
         height: var(--body-height);
-        margin: var(--section-margin);
     }
 
     nav{    

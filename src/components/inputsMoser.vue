@@ -3,6 +3,7 @@
     <section>
         <!-- TITULO SEÇÃO -->
         <h2>{{ $t('tituloInputsMoser') }}</h2>
+        
         <!--LOGISTICA-->
         <h3>{{ $t('logisticaTitulo') }}</h3>
         <div class='parametros-container'>
@@ -126,11 +127,9 @@
         padding: 0;
     }
     section{
-        grid-column: 2/3;
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
         border: var(--borda-simples);
-        margin: var(--section-margin)
     }
 
     h3{

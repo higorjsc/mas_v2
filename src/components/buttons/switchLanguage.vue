@@ -1,12 +1,15 @@
 <template>
 
-    <input type="checkbox" v-model="switchLanguage" id="checkbox-switch" />
-    <label for="checkbox-switch" class="switch-label" id="switch-label">
-        <span id="switch-texto">{{ $t('ptSwitchLanguage') }}</span>
-        <span id="switch-texto">{{ $t('enSwitchLanguage') }}</span>
-    </label>
-
+    <div classs="switch-container">
+        <input type="checkbox" v-model="switchLanguage" class="switch" />
+        <label for="switch" class="switch-label">
+            <span id="texto">{{ $t('ptSwitchLanguage') }}</span>
+            <span id="texto">{{ $t('enSwitchLanguage') }}</span>
+        </label>
+    </div>
+    
 </template>
+
 <script>
 
     export default {
@@ -24,12 +27,14 @@
     }
     
 </script>
+
 <style scoped>
-    #checkbox-switch {
+
+    .switch {
         display: none;
     }
     
-    #switch-texto {
+    #texto {
         color: white;
         font: normal 8pt;
         position: inherit;
@@ -73,7 +78,7 @@
         font-weight: bold;
     }
 
-    #checkbox-switch:checked + .switch-label::after {
+    #switch:checked + .switch-label::after {
         transform: translateX(30px);
     }
 
