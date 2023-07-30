@@ -1,14 +1,15 @@
 <template>
 
-  <RouterLink class= 'link' to="/cardozo"></RouterLink>
   <RouterView></RouterView>
-
-
-
 </template>
   
 <script>
+  import NavBar from '@/components/mainNavBar.vue'
   export default {
+    components: {
+      NavBar
+    }
+    ,
     data(){
       return {
       }

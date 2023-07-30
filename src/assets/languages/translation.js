@@ -1,16 +1,28 @@
-export default {
+// translation.js
 
-    en: {
-        hello: 'Hello',
-        goodbye: 'Goodbye',
-        // Adicione outras traduções em inglês
-      },
-      pt: {
-        hello: 'Olá',
-        goodbye: 'Adeus',
-        // Adicione outras traduções em português
-      },
-      // Adicione mais idiomas conforme necessário
+const translation = {
+  en: {
+    // GERAL
+    selectMethod: 'SELECT THE METHOD',
+    ptSwitchLanguage: '',
+    enSwitchLanguage: 'EN',
 
-    
-}
+    // MOSER
+    tituloInputsMoser: 'PARÂMETROS DE ESCOLHA',
+  },
+  pt: {
+    // GERAL
+    ptSwitchLanguage: 'PT',
+    enSwitchLanguage: '',
+    selectMethod: 'SELECIONE O MÉTODO',
+    sim: 'Sim',
+    nao: 'Não',
+
+    // MOSER
+    tituloInputsMoser: 'PARÂMETROS DE ESCOLHA',
+    labelCoberturaSuperficialMoser: 'Cobertura superficial'
+  },
+  // Adicione mais idiomas conforme necessário
+};
+
+export default translation;

@@ -8,5 +8,18 @@
     font-size: 11pt;
     line-height: 1.5;
     --body-height: 500px;
+    --section-margin: 2.5px
 }
 
+h2 {
+    border-bottom: var(--borda-simples);
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    align-content: center;
+    font-weight: bold;
+    position: relative;
+    width: 96%;
+    left: 2%;
+    font-size: 11pt;
+}

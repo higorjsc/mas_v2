@@ -1,86 +1,76 @@
-
+Copy code
 <template>
-    <section>
-        <nav>
-            <ul class="ul-parent">
-                <li class="li-titulo">{{selecioneMetodo}}</li>
-                <ul class="menu-option">
-                    <li class="escolhida">
-                        <span class= 'link' id='pagina-atual'>{{ presente.titulo }}</span>
-                    </li> 
-                    <li class="option">
-                        <RouterLink class= 'link'  :to="option1.path"> {{ option1.titulo }} </RouterLink>
-                    </li>
-                    <li class="option">
-                        <RouterLink class= 'link' :to="option2.path"> {{ option2.titulo }} </RouterLink>
-                    </li>
-                </ul>            
-            </ul>
-        </nav>
-        <p>
-            <slot id="paragrafo-explicacao"></slot>
-        </p>
-
-    </section>
-   
-  
+  <section>
+    <nav>
+      <ul class="ul-parent">
+        <li class="li-titulo">{{ $t('selectMethod') }}</li>
+        <ul class="menu-option">
+          <li class="escolhida">
+            <span class= 'link' id='pagina-atual'>{{ presente.titulo }}</span>
+          </li> 
+          <li class="option">
+            <RouterLink class= 'link' :to="option1.path">{{ option1.titulo }}</RouterLink>
+          </li>
+          <li class="option">
+            <RouterLink class= 'link' :to="option2.path">{{ option2.titulo }}</RouterLink>
+          </li>
+        </ul>            
+      </ul>
+    </nav>
+    <p>
+      <slot id="paragrafo-explicacao"></slot>
+    </p>
+  </section>
 </template>
 
 <script>
-
-    export default {
-        name: 'navBar',
-        data(){
-            return{
-                selecioneMetodo: 'SELECIONE O MÉTODO',
-                presente: {
-                    titulo: '',
-                    path: ''
-                },
-                option1: {
-                    titulo: '',
-                    path: ''
-                },
-                option2: {
-                    titulo: '',
-                    path: ''
-                },
-                cardozo: {
-                    titulo: 'Cardozo (2023)',
-                    path: '/cardozo'
-                },
-                vergne: {
-                    titulo: 'La Vergne (2003)',
-                    path: '/vergne'
-                },
-                moser: {
-                    titulo: 'Moser (1996)',
-                    path: '/moser'
-                }
-            }
-        },
-        mounted(){
-            let url = window.location.href
-            if(url.includes('cardozo')){
-                this.presente = this.cardozo
-                this.option1 = this.vergne
-                this.option2 = this.moser
-            }
-            if(url.includes('vergne')){
-                this.presente = this.vergne
-                this.option1 = this.cardozo
-                this.option2 = this.moser
-            }
-            if(url.includes('moser')){
-                this.presente = this.moser
-                this.option1 = this.cardozo
-                this.option2 = this.vergne
-            }
-
-        }
-            
+export default {
+  name: 'navBar',
+  data() {
+    return {
+      presente: {
+        titulo: '',
+        path: ''
+      },
+      option1: {
+        titulo: '',
+        path: ''
+      },
+      option2: {
+        titulo: '',
+        path: ''
+      },
+      cardozo: {
+        titulo: 'Cardozo (2023)',
+        path: '/cardozo'
+      },
+      vergne: {
+        titulo: 'La Vergne (2003)',
+        path: '/vergne'
+      },
+      moser: {
+        titulo: 'Moser (1996)',
+        path: '/moser'
+      }
     }
-
+  },
+  mounted() {
+    let url = window.location.href
+    if (url.includes('cardozo')) {
+      this.presente = this.cardozo
+      this.option1 = this.vergne
+      this.option2 = this.moser
+    } else if (url.includes('vergne')) {
+      this.presente = this.vergne
+      this.option1 = this.cardozo
+      this.option2 = this.moser
+    } else if (url.includes('moser')) {
+      this.presente = this.moser
+      this.option1 = this.cardozo
+      this.option2 = this.vergne
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -94,7 +84,7 @@
         border-radius: 20px;
         overflow: hidden;
         height: var(--body-height);
-        margin: 2.5px;
+        margin: var(--section-margin);
     }
 
     nav{    
