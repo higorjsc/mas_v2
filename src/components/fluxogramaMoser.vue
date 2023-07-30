@@ -4,29 +4,45 @@
         <h2>{{ $t('tituloFluxogramaMoser') }}</h2>
   
         <div class="container">
+
             <div 
                 v-for="(item, index) in itensFluxograma" 
-                :key="index" class="itens" :id="item.id" 
+                :key="index" 
+                class="itens" 
+                :id="item.id" 
                 :style="{ top: item.top, left: item.left, background: item.background }"
-                
             >
-            {{ $t(item.text) }}
+                {{ $t(item.text) }}
             </div>
-            <div 
-                v-for="(item, index) in setasFluxograma" 
-                :key="index" class="setas" :id="item.id" 
-                :style="{ top: item.top, left: item.left, background: item.background, width:item.width, height:item.height }"
-            >
-            </div>
+
+            <Seta 
+                v-for="item in setasFluxograma"
+                class="setas"
+                :key="item.id"  
+                :id="item.id" 
+                :Head="item.head" 
+                :Body="item.body" 
+                :Color="item.color" 
+                :Top="item.top" 
+                :Left="item.left"
+                :Width="item.width"
+                :Transform="item.transform"  
+            ></Seta>
+
+
         </div>
+       
   
     </section>
 </template>
   
 <script>
-import { handleError } from 'vue';
+    import Seta from '@/components/ilustrations/seta.vue';
 
   export default {
+    components:{
+        Seta
+    },
     data() {
       return {
         itensFluxograma: [
@@ -39,54 +55,54 @@ import { handleError } from 'vue';
             },
             { 
                 id: 'rock-mass', 
-                top: '60px', left: 'var(--IDENT)', 
+                top: '80px', left: 'var(--IDENT)', 
                 text: 'rmFluxoMoser' 
             },
             { 
                 id: 'surface-material', 
-                top: '120px', left: 'var(--IDENT)', 
+                top: '150px', left: 'var(--IDENT)', 
                 text: 'smFluxoMoser' 
             },
             { 
                 id: 'open-pit', 
-                top: '180px', 
+                top: '220px', 
                 left: 'var(--IDENT)', 
                 text: 'opFluxoMoser' 
             },
             { 
                 id: 'depth-center', 
-                top: '180px', 
+                top: '220px', 
                 left: 'calc(var(--IDENT) + 150px)', 
                 text: 'depthCenterFluxoMoser' 
             },
             { 
                 id: 'shaft', 
-                top: '180px', 
+                top: '220px', 
                 left: 'calc(var(--IDENT) + 300px)', 
                 background: 'rgba(40, 212, 212, 0.5)', 
                 text: 'shaftFluxoMoser' 
             },
             { 
                 id: 'prod-center', 
-                top: '240px', 
+                top: '290px', 
                 left: 'calc(var(--IDENT) + 150px)', 
                 text: 'prodFluxoMoser' 
             },
             { 
                 id: 'depth-left', 
-                top: '240px', 
+                top: '290px', 
                 left: 'var(--IDENT)', 
                 text: 'depthLeftFluxoMoser' 
             },
             { 
                 id: 'prod-left', 
-                top: '300px', 
+                top: '360px', 
                 left: 'var(--IDENT)', 
                 text: 'prodLeftFluxoMoser' 
             },
             { 
                 id: 'ramp', 
-                top: '300px', 
+                top: '360px', 
                 left: 'calc(var(--IDENT) + 150px)', 
                 background: 'rgba(40, 212, 212, 0.5)', 
                 text: 'rampFluxoMoser' 
@@ -94,24 +110,129 @@ import { handleError } from 'vue';
         ],
         setasFluxograma: [
             {   
-                id: 'seta-1', 
+                id: 'seta-1', //horizontal do start-shaft
+                head: false,
+                color: 'black',
                 top: '25px', 
-                left: '120px',
-                background:  'var(--cor-tema)',
-                width: '250px',
-                height: '2px'
+                left: '110px',
+                width: '256px',
+                transform: 'rotate(0deg)'
             },
             {   
-                id: 'seta-2', 
-                top: '25px', 
-                left: '360px',
-                background:  'var(--cor-tema)',
-                width: '2px',
-                height: '150px'
+                id: 'seta-12', //horizontal de rm-shaft
+                head: false,
+                color: 'black',
+                top: '95px', 
+                left: '110px',
+                width: '256px',
+                transform: 'rotate(0deg)'
             },
+            {   
+                id: 'seta-13', //horizontal de sm-shaft
+                head: false,
+                color: 'black',
+                top: '164px', 
+                left: '110px',
+                width: '256px',
+                transform: 'rotate(0deg)'
+            },
+            {   
+                id: 'seta-12', //vertical start-shaft
+                head: true,
+                color: 'black',
+                top: '118px', 
+                left: '268px',
+                width: '185px',
+                transform: 'rotate(90deg)'
+                
+            },
+            {   
+                id: 'seta-3', //vertical start-rm
+                head: true,
+                body: true,
+                color: 'black',
+                top: '55px', 
+                left: '47px',
+                width: '30px',
+                transform: 'rotate(90deg)',
+            },
+            {   
+                id: 'seta-4', //vertical rm-sm
+                head: true,
+                body: true,
+                color: 'black',
+                top: 'calc(55px + 1 * 70px)', 
+                left: '47px',
+                width: '30px',
+                transform: 'rotate(90deg)',
+            },
+            {   
+                id: 'seta-5', //vertical sm-op
+                head: true,
+                body: true,
+                color: 'black',
+                top: 'calc(55px + 2 * 70px)', 
+                left: '47px',
+                width: '30px',
+                transform: 'rotate(90deg)',
+            },
+            {   
+                id: 'seta-6', //vertical op-depthLeft
+                head: true,
+                body: true,
+                color: 'black',
+                top: 'calc(55px + 3 * 70px)', 
+                left: '47px',
+                width: '30px',
+                transform: 'rotate(90deg)',
+            },
+            {   
+                id: 'seta-7', //vertical depthLeft-prodLeft
+                head: true,
+                body: true,
+                color: 'black',
+                top: 'calc(55px + 4 * 70px)', 
+                left: '47px',
+                width: '30px',
+                transform: 'rotate(90deg)',
+            },
+            {   
+                id: 'seta-8', 
+                head: true,
+                body: true,
+                color: 'black',
+                top: 'calc(55px + 3 * 70px)', 
+                left: '197px',
+                width: '30px',
+                transform: 'rotate(90deg)',
+            },
+            {   
+                id: 'seta-9', 
+                head: true,
+                body: true,
+                color: 'black',
+                top: 'calc(55px + 4 * 70px)', 
+                left: '197px',
+                width: '30px',
+                transform: 'rotate(90deg)',
+            },
+            {   
+                id: 'seta-10', 
+                head: true,
+                body: true,
+                color: 'black',
+                top: '372px', 
+                left: '110px',
+                width: '50px',
+                transform: 'rotate(0deg)',
+            },
+        
 
         ]
       }
+    },
+    methods:{
+
     }
   }
 </script>
@@ -122,9 +243,10 @@ import { handleError } from 'vue';
         padding: 0;
         --IDENT: 20px;
         --WIDTH: 80px;
-        --SPACING: 60px
+        --SPACING: 70px
     }
     section{
+        position: relative;
         grid-column: 3/4;
         border-top: var(--borda-simples);
         border-bottom: var(--borda-simples);
@@ -133,9 +255,10 @@ import { handleError } from 'vue';
     .container{
         position: relative;
         margin: auto;
-        margin-top: 8%;
+        margin-top: 1%;
         width: 450px;
         height: 420px;
+        background-color: antiquewhite;
     }
     .itens{
         position: absolute;
@@ -147,15 +270,15 @@ import { handleError } from 'vue';
         left: var(--IDENT);
         width: var(--WIDTH);
         z-index: 2;
+        text-align: center;
+        font-size: 9pt;
     }
     .itens:hover{
         cursor: pointer;
         box-shadow: var(--shadow-hover);
     }
-    .setas{
+    .container .setas {
         position: absolute;
-        cursor: default;
-        z-index: 1;
     }
 
 </style>

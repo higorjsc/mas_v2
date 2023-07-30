@@ -1,10 +1,10 @@
 <template>
 
-    <div classs="switch-container">
-        <input type="checkbox" v-model="switchLanguage" class="switch" />
-        <label for="switch" class="switch-label">
-            <span id="texto">{{ $t('ptSwitchLanguage') }}</span>
-            <span id="texto">{{ $t('enSwitchLanguage') }}</span>
+    <div class="switch-container">
+        <input type="checkbox" v-model="switchLanguage" class="switch" id="switch"/>
+        <label for="switch">
+            <span>{{ $t('ptSwitchLanguage') }}</span>
+            <span>{{ $t('enSwitchLanguage') }}</span>
         </label>
     </div>
     
@@ -21,7 +21,8 @@
         },
         watch:{
             switchLanguage(){
-                this.$store.commit('setLanguage', this.switchLanguage)
+                this.$store.dispatch('changeLanguage', this.switchLanguage)
+                console.log(this.switchLanguage)
             }
         }
     }
@@ -34,7 +35,7 @@
         display: none;
     }
     
-    #texto {
+    span {
         color: white;
         font: normal 8pt;
         position: inherit;
@@ -43,7 +44,8 @@
         margin-right: 5px;
         z-index: 2;
     }
-    .switch-label {
+
+    label {
         display: inline-block;
         cursor: pointer;
         width: 50px;
@@ -55,12 +57,12 @@
         right: 2%;
         box-shadow: var(--shadow-tema)
     }
-    .switch-label:hover {
+    label:hover {
         box-shadow: 0 0 20px var(--cor-tema);
         font: 12pt;
         font-weight: bold;
     }
-    .switch-label::after {
+    label::after {
         content: '';
         display: block;
         width: 19px;
@@ -72,13 +74,13 @@
         transition: transform 0.2s ease-in-out;
     }
 
-    .switch-label:hover::after {
+    label:hover::after {
         box-shadow: 0 0 20px var(--cor-tema);
         font: 12pt;
         font-weight: bold;
     }
 
-    #switch:checked + .switch-label::after {
+    #switch:checked + label::after {
         transform: translateX(30px);
     }
 

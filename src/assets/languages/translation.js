@@ -20,7 +20,9 @@ const translation = {
 
     // MOSER
     tituloInputsMoser: 'PARÂMETROS DE ESCOLHA',
-    labelCoberturaSuperficialMoser: 'Cobertura superficial'
+    labelCoberturaSuperficialMoser: 'Cobertura superficial',
+    // fluxograma
+    startFluxoMoser: 'START',
   },
   // Adicione mais idiomas conforme necessário
 };
