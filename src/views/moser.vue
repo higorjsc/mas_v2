@@ -26,7 +26,7 @@
 
     </body>
     
-  </template>
+</template>
 
   <script>
     import NavBar from '@/components/compartilhado/navbar.vue'
@@ -54,6 +54,7 @@
       }
     }
   </script>
+
   <style scoped>
     body{
         position: relative;

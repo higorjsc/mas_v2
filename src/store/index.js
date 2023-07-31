@@ -4,6 +4,14 @@ import { coresDefault } from '@/assets/javascript/constants.js'
 export default createStore({
     state: {
         language: 'pt', // Idioma padrão
+        moser:{
+            logistica: '',
+            rockMass: '',
+            surfaceMaterial: '',
+            openPit: '',
+            prod: '',
+            depth: '',
+        }, 
         colorMoser: {
             logistica: coresDefault.fluxoGreen,
             rockMass: 'Transparent',
@@ -17,19 +25,28 @@ export default createStore({
             shaft: coresDefault.fluxoBlue,
         }, 
         cardozo:{
-
+            surfaceMaterial: '',
+            rockMass: '',
+            prod: '',
+            depth: '',
         },
+        colorCardozo: {
+            start: coresDefault.fluxoGreen,
+            rockMass: 'Transparent',
+            surfaceMaterial: 'Transparent',
+            prodCenter: 'Transparent',
+            prodLeft: 'Transparent',
+            depthCenter: 'Transparent',
+            depthLeft: 'Transparent',
+            correia: coresDefault.fluxoBlue,
+            rampa: coresDefault.fluxoBlue,
+            shaft: coresDefault.fluxoBlue,
+        },
+
         vergne:{
 
         },
-        moser:{
-            logistica: '',
-            rockMass: '',
-            surfaceMaterial: '',
-            openPit: '',
-            prod: '',
-            depth: '',
-        }  
+         
     },
      mutations: {
         setLanguage(state, data) {
