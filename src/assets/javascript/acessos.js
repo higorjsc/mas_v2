@@ -25,9 +25,3 @@ export function enableObjects(id){
         element.disabled = false
     })
 }
-
-export function transparentObeject(ids=[]){
-    ids.forEach((id) =>{
-        document.querySelector(`#${id}`).style.background = "transparent"
-    })
-}

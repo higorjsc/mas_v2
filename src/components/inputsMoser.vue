@@ -156,13 +156,7 @@
             },
             newValue(){
                 
-                // Desabilita os inputs e altera a opacidade das divs
-                disableObject(['rm', 'sm', 'op', 'depth', 'prod'])
-                // Muda a cor de todos os elementos para vermelho.
-                this.setDefaultColor()
-                
                 let resultado
-                
                 // LOGISTICA
                 if(this.moser.logistica == 'sim'){
                     enableObjects('rm')
@@ -226,14 +220,19 @@
         watch:{
             moser:{
                 handler(){
+                    // Desabilita os inputs e altera a opacidade das divs
+                    disableObject(['rm', 'sm', 'op', 'depth', 'prod'])
+                    // Muda a cor de todos os elementos para vermelho.
+                    this.setDefaultColor()
+                    // Chama a função com a lógica do fluxograma
                     this.newValue()
+                    // Altera o valor de moser na store VueExe
                     this.$store.commit('setMoser', this.moser)
                 },
                 deep: true //deep: true → O que estiver dentro da variável será observado
             },
             colorMoser:{
                 handler(){
-                    console.log('setted')
                     this.$store.dispatch('changeColorMoser', this.colorMoser)
                 },
                 deep: true //deep: true → O que estiver dentro da variável será observado

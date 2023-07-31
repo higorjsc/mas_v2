@@ -6,12 +6,15 @@
 
         <main>
 
-            <switchLanguage class="main-elements switch-language"></switchLanguage>
-            
-            <navBar class="main-elements navbar">
+          
+            <NavBar class="main-elements navbar">
                 {{ $t('pragrafoExplicacao') }}
-            </navBar>
+            </NavBar>
 
+            <switchLanguage class="main-elements switch-language">
+
+            </switchLanguage>
+          
             <inputs class="main-elements inputs"></inputs>
 
             <Fluxograma class="main-elements Fluxograma"></Fluxograma>
@@ -26,17 +29,17 @@
   </template>
 
   <script>
-    import Header from '@/components/header.vue'
-    import switchLanguage from '@/components/buttons/switchLanguage.vue'
-    import navBar from '@/components/navbar.vue'
+    import NavBar from '@/components/compartilhado/navbar.vue'
+    import Header from '@/components/compartilhado/header.vue'
+    import Footer from '@/components/compartilhado/footer.vue'
+    import switchLanguage from '@/components/compartilhado/switchLanguage.vue'
     import inputs from '@/components/inputsMoser.vue'
-    import Footer from '@/components/footer.vue'
     import Fluxograma from '@/components/fluxogramaMoser.vue'
     export default {
       name: 'moser',
       props: '',
       components:{
-        navBar,
+        NavBar,
         switchLanguage,
         inputs,
         Fluxograma,

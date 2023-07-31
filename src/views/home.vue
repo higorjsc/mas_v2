@@ -1,20 +1,20 @@
 <template>
     <Header></Header>
-    <navBar
+    <NavBar
       metodo1.name="Cardozo (2023)"
-    ></navBar>
+    ></NavBar>
     <Footer></Footer>
   
   </template>
   <script>
-    import navBar from '@/components/navbar.vue'
-    import Header from '@/components/header.vue'
-    import Footer from '@/components/footer.vue'
+    import NavBar from '@/components/compartilhado/navbar.vue'
+    import Header from '@/components/compartilhado/header.vue'
+    import Footer from '@/components/compartilhado/footer.vue'
     export default {
       name: 'cardozo',
       props: '',
       components:{
-        navBar,
+        NavBar,
         Header,
         Footer,
       },

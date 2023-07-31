@@ -1,27 +1,27 @@
 <template>
   <Header></Header>
-  <navBar></navBar>
+  <NavBar></NavBar>
   <Footer></Footer>
 
 </template>
 <script>
-  import navBar from '@/components/navbar.vue'
-  import Header from '@/components/header.vue'
-  import Footer from '@/components/footer.vue'
-  export default {
-    name: 'cardozo',
-    props: '',
-    components:{
-      navBar,
-      Header,
-      Footer,
-    },
-    data(){
-      return {
-        paragrafoExplicacao: 'aaaaa '
+    import NavBar from '@/components/compartilhado/navbar.vue'
+    import Header from '@/components/compartilhado/header.vue'
+    import Footer from '@/components/compartilhado/footer.vue'
+    export default {
+      name: 'cardozo',
+      props: '',
+      components:{
+        NavBar,
+        Header,
+        Footer,
+      },
+      data(){
+        return {
+          paragrafoExplicacao: 'aaaaa '
+        }
       }
     }
-  }
 </script>
 <style scoped>
 
