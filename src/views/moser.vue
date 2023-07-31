@@ -33,8 +33,10 @@
     import Header from '@/components/compartilhado/header.vue'
     import Footer from '@/components/compartilhado/footer.vue'
     import switchLanguage from '@/components/compartilhado/switchLanguage.vue'
-    import inputs from '@/components/inputsMoser.vue'
-    import Fluxograma from '@/components/fluxogramaMoser.vue'
+
+    import inputs from '@/components/moser/inputsMoser.vue'
+    import Fluxograma from '@/components/moser/fluxogramaMoser.vue'
+
     export default {
       name: 'moser',
       props: '',
