@@ -131,6 +131,8 @@
         },
         data() {
         return {
+
+            
             wayFluxograma:[
                 {   //logistica - shaft
                     top: '45px',
