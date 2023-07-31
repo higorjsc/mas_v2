@@ -2,12 +2,12 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import "@/assets/css/estilo.css";
-import translation from "@/assets/languages/translation.js";
+import translation from "@/assets/javascript/translation.js";
 import store from './store'; // Importe o arquivo de configuração do store
 
 const app = createApp(App);
 
-app.use(store); // Use o Vuex antes de criar a instância do Vue Router
+app.use(store); // Usa o Vuex antes de criar a instância do Vue Router
 
 app.use(router);
 

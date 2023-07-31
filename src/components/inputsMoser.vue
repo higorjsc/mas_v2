@@ -5,8 +5,8 @@
         <h2>{{ $t('tituloInputsMoser') }}</h2>
         
         <!--LOGISTICA-->
-        <h3>{{ $t('logisticaTitulo') }}</h3>
-        <div class='parametros-container'>
+        <div class='parametros-container' id="logistica">
+            <h3>{{ $t('logisticaTitulo') }}</h3>
             <span>{{ $t('logisticaDescription') }}</span>
             <div class="radio-container">
                 <!-- SIM -->
@@ -20,55 +20,55 @@
             </div>
         </div>
         <!--ROCK CONDITIONS-->
-        <h3>{{$t('rmTitulo')}}</h3>
-        <div class='parametros-container'>
+        <div class='parametros-container' id="rm">
+            <h3>{{$t('rmTitulo')}}</h3>
             <span>{{ $t('rmDescription') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
-                <input type="radio" v-model="moser.rockMass" value="menor" id="rm-menor">
+                <input type="radio" class="rm" v-model="moser.rockMass" value="menor" id="rm-menor">
                 <label for="rm-menor" class="radio-label"></label> 
                 <span>{{ $t('rmMenor') }}</span>
                 <!-- MAIOR -->
-                <input type="radio"  v-model="moser.rockMass" value="maior" id="rm-maior">
+                <input type="radio" class="rm" v-model="moser.rockMass" value="maior" id="rm-maior">
                 <label for="rm-maior" class="radio-label"></label>
                 <span>{{ $t('rmMaior') }}</span> 
             </div>
         </div>
-        <!-- ROCK CONDITIONS -->
-        <h3>{{$t('csTitulo')}}</h3>
-        <div class='parametros-container'>
+        <!-- SURFACE MATERIALS-->
+        <div class='parametros-container' id="sm">
+            <h3>{{$t('csTitulo')}}</h3>
             <span>{{ $t('csDescription') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
-                <input type="radio" v-model="moser.coberturaSuperficial" value="menor" id="cm-menor">
-                <label for="cm-menor" class="radio-label"></label> 
-                <span>{{ $t('cmMenor') }}</span>
+                <input type="radio" v-model="moser.surfaceMaterial" value="menor" id="sm-menor">
+                <label for="sm-menor" class="radio-label"></label> 
+                <span>{{ $t('smMenor') }}</span>
                 <!-- MAIOR -->
-                <input type="radio"  v-model="moser.coberturaSuperficial" value="maior" id="cm-maior">
-                <label for="cm-maior" class="radio-label"></label>
-                <span>{{ $t('cmMaior') }}</span> 
+                <input type="radio"  v-model="moser.surfaceMaterial" value="maior" id="sm-maior">
+                <label for="sm-maior" class="radio-label"></label>
+                <span>{{ $t('smMaior') }}</span> 
             </div>
         </div>
         <!-- OPEN PIT -->
-        <h3>{{$t('opTitulo')}}</h3>
-        <div class='parametros-container'>
+        <div class='parametros-container' id="op">
+            <h3>{{$t('opTitulo')}}</h3>
             <span>{{ $t('opDescription') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
-                <input type="radio" v-model="moser.openPit" value="sim" id="op-sim">
+                <input type="radio" class="op" v-model="moser.openPit" value="sim" id="op-sim">
                 <label for="op-sim" class="radio-label"></label> 
                 <span>{{ $t('sim') }}</span>
                 <!-- MAIOR -->
-                <input type="radio"  v-model="moser.openPit" value="nao" id="op-nao">
+                <input type="radio" class="op" v-model="moser.openPit" value="nao" id="op-nao">
                 <label for="op-nao" class="radio-label"></label>
                 <span>{{ $t('nao') }}</span> 
             </div>
         </div>
         <!-- PROFUNDIDADE -->
-        <h3>{{ $t('prodTitulo') }}</h3>
-        <div class='parametros-container'>
+        <div class='parametros-container' id="depth">
+            <h3>{{ $t('prodTitulo') }}</h3>
             <span> {{ $t('prodDescription') }}</span>
-            <select v-model="moser.prod">
+            <select v-model="moser.prod" class="depth">
                 <option value=""></option>
                 <option value="menor">{{('prodMenor')}}</option>
                 <option value="entre">{{('prodEntre')}}</option>
@@ -76,10 +76,10 @@
             </select>
         </div>
         <!-- PRODUÇÃO -->
-        <h3>{{ $t('depthTitulo') }}</h3>
-        <div class='parametros-container'>
+        <div class='parametros-container' id="prod">
+            <h3>{{ $t('depthTitulo') }}</h3>
             <span>{{ $t('depthDescription') }}</span>
-            <select v-model="moser.depth">
+            <select v-model="moser.depth" class="prod">
                 <option value=""></option>
                 <option value="menor">{{('depthMenor')}}</option>
                 <option value="entre">{{('depthEntre')}}</option>
@@ -95,6 +95,8 @@
 
 <script>
 
+    import {disableObject, enableObjects} from '@/assets/javascript/acessos.js'
+    
     export default {
         name: 'navBar',
         data(){
@@ -102,21 +104,58 @@
                 moser:{
                     logistica: '',
                     rockMass: '',
-                    coberturaSuperficial: '',
+                    surfaceMaterial: '',
                     openPit: '',
                     prod: '',
                     depth: '',
-                }            
+                },
+                colorMoser: {
+                    logistica: '',
+                    rockMass: '',
+                    surfaceMaterial: '',
+                    openPit: '',
+                    prodCenter: '',
+                    prodLeft: '',
+                    depthCenter: '',
+                    depthLeft: '',
+                }           
+            }
+        },
+        // create(){
+        //     document.querySelectorAll('select').forEach((element) =>{
+        //         element.addEventListener('change', this.newValue)
+        //     })}
+
+        methods:{      
+            newValue(){
+                disableObject(['rm', 'sm', 'op', 'depth', 'prod'])
+                if(this.moser.logistica == 'sim'){
+                    enableObjects('rm')
+                    this.colorMoser.logistica = 'green'
+                    this.colorMoser.rockMass = 'black'
+                }
+                if(this.moser.logistica == 'nao'){
+                    this.colorMoser.logistica = 'transparent'
+                    this.colorMoser.rockMass = 'transparent'
+                }
             }
         },
         watch:{
             moser:{
                 handler(){
+                    this.newValue()
                     this.$store.commit('setMoser', this.moser)
                 },
                 deep: true //deep: true → O que estiver dentro da variável será observado
+            },
+            colorMoser:{
+                handler(){
+                    console.log('setted')
+                    this.$store.dispatch('changeColorMoser', this.colorMoser)
+                },
+                deep: true //deep: true → O que estiver dentro da variável será observado
             }
-        }
+        },
     }
 
 </script>
@@ -133,10 +172,11 @@
     }
 
     h3{
-        padding-left: 3%;
-        margin-top: 15px;
+        grid-column: 1/3;
+        margin-top: 0;
     }
     .parametros-container {
+        margin-top: 15px;
         width: 100%;
         display: grid;
         grid-template-columns: 1.5fr 1fr;

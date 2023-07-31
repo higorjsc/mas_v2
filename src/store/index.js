@@ -1,8 +1,18 @@
-import { createStore } from 'vuex';
+import { createStore } from 'vuex'
 
 export default createStore({
     state: {
         language: 'pt', // Idioma padrão
+        colorMoser: {
+            logistica: 'white',
+            rockMass: '',
+            surfaceMaterial: '',
+            openPit: '',
+            prodCenter: '',
+            prodLeft: '',
+            depthCenter: '',
+            depthLeft: '',
+        }, 
         cardozo:{
 
         },
@@ -12,7 +22,7 @@ export default createStore({
         moser:{
             logistica: '',
             rockMass: '',
-            coberturaSuperficial: '',
+            surfaceMaterial: '',
             openPit: '',
             prod: '',
             depth: '',
@@ -25,6 +35,9 @@ export default createStore({
         setMoser(state, data) {
             state.moser = data;
         },
+        setColorMoser(state, data) {
+            state.colorMoser = data;
+        },
     },
     getters: {
         currentLanguage(state) {
@@ -32,12 +45,18 @@ export default createStore({
         },
         currentMoser(state){
             return state.moser
-        }
+        },
+        currentColorMoser(state){
+            return state.colorMoser
+        },
     },
     actions: {
         changeLanguage(context, data) {
             data == false ? 'pt': 'en'
             context.commit('setLanguage', data);
         },
+        changeColorMoser(context, data){
+            context.commit('setColorMoser', data);
+        }
   },
 })
