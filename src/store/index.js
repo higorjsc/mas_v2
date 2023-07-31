@@ -1,20 +1,20 @@
 import { createStore } from 'vuex'
+import { coresDefault } from '@/assets/javascript/constants.js'
 
 export default createStore({
     state: {
         language: 'pt', // Idioma padrão
         colorMoser: {
-            logistica: '',
-            rockMass: '',
-            surfaceMaterial: '',
-            openPit: '',
-            prodCenter: '',
-            prodLeft: '',
-            depthCenter: '',
-            depthLeft: '',
-            rampa: '',
-            shaft: '',
-
+            logistica: coresDefault.fluxoGreen,
+            rockMass: 'Transparent',
+            surfaceMaterial: 'Transparent',
+            openPit: 'Transparent',
+            prodCenter: 'Transparent',
+            prodLeft: 'Transparent',
+            depthCenter: 'Transparent',
+            depthLeft: 'Transparent',
+            rampa: coresDefault.fluxoBlue,
+            shaft: coresDefault.fluxoBlue,
         }, 
         cardozo:{
 

@@ -22,7 +22,17 @@ const translation = {
     tituloInputsMoser: 'PARÂMETROS DE ESCOLHA',
     labelCoberturaSuperficialMoser: 'Cobertura superficial',
     // fluxograma
-    startFluxoMoser: 'START',
+    logisticaFluxoMoser: 'USE TRUCKS',
+    rmFluxoMoser: 'ROCK MASS',
+    smFluxoMoser: 'SURFACE MATERIAL',
+    opFluxoMoser: 'ACESS BY OPEN PIT',
+    depthLeftFluxoMoser: 'DEEPEST POINT',
+    prodLeftFluxoMoser: 'PRODUCTION',
+    depthCenterFluxoMoser: 'DEEPEST POINT',
+    prodCenterFluxoMoser: 'PRODUCTION',
+    rampFluxoMoser: 'RAMP',
+    shaftFluxoMoser: 'SHAFT',
+
   },
 };
 

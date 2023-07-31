@@ -96,6 +96,7 @@
 <script>
 
     import {disableObject, enableObjects} from '@/assets/javascript/acessos.js'
+    import {coresDefault} from '@/assets/javascript/constants.js'
     
     export default {
         name: 'navBar',
@@ -120,21 +121,37 @@
                     depthLeft: '',
                     rampa: '',
                     shaft: '',
+                } ,
+                defaultColorMoser: {
+                    logistica: coresDefault.fluxoGreen,
+                    rockMass: 'Transparent',
+                    surfaceMaterial: 'Transparent',
+                    openPit: 'Transparent',
+                    prodCenter: 'Transparent',
+                    prodLeft: 'Transparent',
+                    depthCenter: 'Transparent',
+                    depthLeft: 'Transparent',
+                    rampa: coresDefault.fluxoBlue,
+                    shaft: coresDefault.fluxoBlue,
                 }           
             }
         },
-        create(){
-            disableObject(['rm', 'sm', 'op', 'depth', 'prod'])
+        created(){
+            // disableObject(['rm', 'sm', 'op', 'depth', 'prod'])
         },
         methods:{
-            setColorRed() {
+            setDefaultColor() {
                 for (const key in this.colorMoser) {
-                    this.colorMoser[key] = 'Red';
+                    this.colorMoser[key] = this.defaultColorMoser[key];
+                } 
+            },setColorRed() {
+                for (const key in this.colorMoser) {
+                    this.colorMoser[key] = ' rgba(236, 22, 22, 0.8)';
                 } 
             },
             setColorGreen(objetos = []){
                 objetos.forEach((objeto)=>{
-                    this.colorMoser[objeto] = `green`
+                    this.colorMoser[objeto] = coresDefault.fluxoGreen
                 })
             },
             newValue(){
@@ -142,7 +159,7 @@
                 // Desabilita os inputs e altera a opacidade das divs
                 disableObject(['rm', 'sm', 'op', 'depth', 'prod'])
                 // Muda a cor de todos os elementos para vermelho.
-                this.setColorRed()
+                this.setDefaultColor()
                 
                 let resultado
                 
@@ -230,6 +247,8 @@
     *{
         margin: 0;
         padding: 0;
+        --cor-fluxoBlue: rgba(31, 191, 219, 0.493);
+        --cor-fluxoGreen: rgba(14, 224, 49, 0.8);
     }
     section{
         border-top-left-radius: 20px;

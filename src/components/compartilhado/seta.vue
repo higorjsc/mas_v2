@@ -52,7 +52,7 @@
             },
             Width: {
                 type: String,
-                default: '200px'
+                default: '30px'
             },
             Top: {
                 type: String,
