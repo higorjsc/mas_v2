@@ -7,9 +7,7 @@
   </template>
     
   <script>
-    import NavBar from '@/components/compartilhado/navbar.vue'
-    import Header from '@/components/compartilhado/header.vue'
-    import Footer from '@/components/compartilhado/footer.vue'
+    import NavBar from '@/components/mainNavBar.vue'
     export default {
       components: {
         NavBar
