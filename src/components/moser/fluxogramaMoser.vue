@@ -418,6 +418,7 @@
 
     .container .setas {
         position: absolute;
+        z-index: 1;
     }
 
     .container .way {
