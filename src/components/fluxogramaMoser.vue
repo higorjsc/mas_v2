@@ -24,24 +24,63 @@
             <div 
                 class="itens" 
                 id="surface-material" 
-                :style="{background: this.$store.getters.currentColorMoser.rockMass}"
+                :style="{background: this.$store.getters.currentColorMoser.surfaceMaterial}"
             >
                 {{ $t('smFluxoMoser') }}
             </div>
             
-            <div class="itens" id="open-pit" :style="{background: this.$store.getters.currentColorMoser.rockMass}">{{ $t('opFluxoMoser') }} </div>
+            <div 
+                class="itens" 
+                id="open-pit" 
+                :style="{background: this.$store.getters.currentColorMoser.openPit}"
+            >
+                {{ $t('opFluxoMoser') }} 
+            </div>
             
-            <div class="itens" id="depth-center" :style="{background: this.$store.getters.currentColorMoser.rockMass}">{{ $t('depthCenterFluxoMoser') }} </div>
+            <div 
+                class="itens" 
+                id="depth-center" 
+                :style="{background: this.$store.getters.currentColorMoser.depthCenter}"
+            >
+                {{ $t('depthCenterFluxoMoser') }}
+            </div>
             
-            <div class="itens" id="shaft" >{{ $t('shaftFluxoMoser') }} </div>
+            <div 
+                class="itens" 
+                id="shaft" 
+                :style="{background: this.$store.getters.currentColorMoser.shaft}"
+            >
+                {{ $t('shaftFluxoMoser') }}
+            </div>
             
-            <div class="itens" id="prod-center" >{{ $t('prodFluxoMoser') }} </div>
+            <div
+                class="itens" 
+                id="prod-center"
+                :style="{background: this.$store.getters.currentColorMoser.prodCenter}"
+            >{{ $t('prodFluxoMoser') }} </div>
             
-            <div class="itens" id="depth-left" >{{ $t('depthLeftFluxoMoser') }} </div>
+            <div 
+                class="itens" 
+                id="depth-left"
+                :style="{background: this.$store.getters.currentColorMoser.depthLeft}" 
+                >{{ $t('depthLeftFluxoMoser') }} 
+            </div>
             
-            <div class="itens" id="prod-left" >{{ $t('prodLeftFluxoMoser') }} </div>
+            <div 
+                class="itens" 
+                id="prod-left" 
+                :style="{background: this.$store.getters.currentColorMoser.prodLeft}"
+            >
+            {{ $t('prodLeftFluxoMoser') }} 
+            </div>
             
-            <div class="itens" id="ramp" >{{ $t('rampFluxoMoser') }} </div>
+            <div 
+                class="itens"
+                id="rampa" 
+                :style="{background: this.$store.getters.currentColorMoser.rampa}"
+            >
+            {{ $t('rampFluxoMoser') }} 
+            </div>
 
             <Seta 
                 v-for="item in setasFluxograma"
@@ -281,7 +320,7 @@
         top: 360px;
         left: var(--IDENT);
     }
-    #ramp{
+    #rampa{
         top: 360px;
         left: calc(var(--IDENT) + 150px);
     }

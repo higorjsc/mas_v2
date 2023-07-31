@@ -4,7 +4,7 @@ export default createStore({
     state: {
         language: 'pt', // Idioma padrão
         colorMoser: {
-            logistica: 'white',
+            logistica: '',
             rockMass: '',
             surfaceMaterial: '',
             openPit: '',
@@ -12,6 +12,9 @@ export default createStore({
             prodLeft: '',
             depthCenter: '',
             depthLeft: '',
+            rampa: '',
+            shaft: '',
+
         }, 
         cardozo:{
 

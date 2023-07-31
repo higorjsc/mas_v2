@@ -118,26 +118,92 @@
                     prodLeft: '',
                     depthCenter: '',
                     depthLeft: '',
+                    rampa: '',
+                    shaft: '',
                 }           
             }
         },
-        // create(){
-        //     document.querySelectorAll('select').forEach((element) =>{
-        //         element.addEventListener('change', this.newValue)
-        //     })}
-
-        methods:{      
+        create(){
+            disableObject(['rm', 'sm', 'op', 'depth', 'prod'])
+        },
+        methods:{
+            setColorRed() {
+                for (const key in this.colorMoser) {
+                    this.colorMoser[key] = 'Red';
+                } 
+            },
+            setColorGreen(objetos = []){
+                objetos.forEach((objeto)=>{
+                    this.colorMoser[objeto] = `green`
+                })
+            },
             newValue(){
+                
+                // Desabilita os inputs e altera a opacidade das divs
                 disableObject(['rm', 'sm', 'op', 'depth', 'prod'])
+                // Muda a cor de todos os elementos para vermelho.
+                this.setColorRed()
+                
+                let resultado
+                
+                // LOGISTICA
                 if(this.moser.logistica == 'sim'){
                     enableObjects('rm')
-                    this.colorMoser.logistica = 'green'
-                    this.colorMoser.rockMass = 'black'
+                    this.setColorGreen(['logistica'])
+                }else if(this.moser.logistica == 'nao'){
+                    resultado = 'shaft'
+                    this.setColorRed()
+                    this.setColorGreen(['logistica', 'shaft'])
                 }
-                if(this.moser.logistica == 'nao'){
-                    this.colorMoser.logistica = 'transparent'
-                    this.colorMoser.rockMass = 'transparent'
+
+                // SURFACE MATERIAL
+                if (this.moser.logistica == "sim" && this.moser.rockMass == "maior") {
+                    resultado = "shaft"
+                } else if (this.moser.logistica == "sim" && this.moser.rockMass == "menor") {
+                    enableObjects("sm")
                 }
+
+                // ROCK MASS
+                if (this.moser.logistica == "sim" && this.moser.rockMass == "menor" && this.moser.surfaceMaterial == "menor") {
+                    enableObjects("open-pit")
+                } else if (this.moser.logistica == "sim" && this.moser.rockMass == "menor" && this.moser.surfaceMaterial == "maior") {
+                    resultado = "shaft"
+                }
+
+                // OPEN PIT
+                if (this.moser.logistica == "sim" && this.moser.rockMass == "menor" && this.moser.surfaceMaterial == "menor" && (this.moser.openPit == "sim" || this.moser.openPit == "nao")) {
+                    enableObjects("depth")
+                }
+
+                // PROFUNDIDADE OPEN PIT NÃO
+                if (this.moser.logistica == "sim" && this.moser.rockMass == "menor" && this.moser.surfaceMaterial == "menor" && this.moser.openPit == "nao" && (this.moser.depth == "entre" || this.moser.depth == "maior")) {
+                    resultado = "shaft"
+                } else if (this.moser.logistica == "sim" && this.moser.rockMass == "menor" && this.moser.surfaceMaterial == "menor" && this.moser.openPit == "nao" && this.moser.depth == "menor") {
+                    enableObjects("prod")
+                }
+
+                // PRODUÇÃO OPEN PIT NÃO
+                if (this.moser.logistica == "sim" && this.moser.rockMass == "menor" && this.moser.surfaceMaterial == "menor" && this.moser.depth == "menor" && this.moser.prod == "menor") {
+                    resultado = "rampa"
+                } else if (this.moser.logistica == "sim" && this.moser.rockMass == "menor" && this.moser.surfaceMaterial == "menor" && this.moser.depth == "menor" && (this.moser.prod == "entre" || this.moser.prod == "maior")) {
+                    resultado = "shaft"
+                }
+
+                // PROFUNDIDADE OPEN PIT NÃO
+                if (this.moser.logistica == "sim" && this.moser.rockMass == "menor" && this.moser.surfaceMaterial == "menor" && this.moser.openPit == "sim" && this.moser.depth == "maior") {
+                    resultado = "shaft"
+                } else if (this.moser.logistica == "sim" && this.moser.rockMass == "menor" && this.moser.surfaceMaterial == "menor" && this.moser.openPit == "sim" && (this.moser.depth == "menor" || this.moser.depth == "entre")) {
+                    enableObjects("prod")
+                }
+
+                // PRODUÇÃO OPEN PIT SIM
+                if (this.moser.logistica == "sim" && this.moser.rockMass == "menor" && this.moser.surfaceMaterial == "menor" && this.moser.openPit == "sim" && (this.moser.depth == "menor" || this.moser.depth == "entre") && (this.moser.prod == "menor" || this.moser.prod == "entre")) {
+                    resultado = "rampa"
+                } else if (this.moser.logistica == "sim" && this.moser.rockMass == "menor" && this.moser.surfaceMaterial == "menor" && this.moser.openPit == "sim" && (this.moser.depth == "menor" || this.moser.depth == "entre") && this.moser.prod == "maior") {
+                    resultado = "shaft"
+                }
+
+
             }
         },
         watch:{
