@@ -77,7 +77,7 @@
                     prod: '',
                     depth: '',
                 },
-                colorcardozo: {
+                colorCardozo: {
                     rockMass: '',
                     surfaceMaterial: '',
                     prodCenter: '',
@@ -102,22 +102,22 @@
                 }           
             }
         },
-        created(){
-            // disableObject(['rm', 'sm', 'op', 'depth', 'prod'])
+        mounted(){
+            disableObject(['rm', 'depth', 'prod'])
         },
         methods:{
             setDefaultColor() {
-                for (const key in this.colorcardozo) {
-                    this.colorcardozo[key] = this.defaultColorcardozo[key];
+                for (const key in this.colorCardozo) {
+                    this.colorCardozo[key] = this.defaultColorCardozo[key];
                 } 
             },setColorRed() {
-                for (const key in this.colorcardozo) {
-                    this.colorcardozo[key] = ' rgba(236, 22, 22, 0.8)';
+                for (const key in this.colorCardozo) {
+                    this.colorCardozo[key] = ' rgba(236, 22, 22, 0.8)';
                 } 
             },
             setColorGreen(objetos = []){
                 objetos.forEach((objeto)=>{
-                    this.colorcardozo[objeto] = coresDefault.fluxoGreen
+                    this.colorCardozo[objeto] = coresDefault.fluxoGreen
                 })
             },
             newValue(){
@@ -129,19 +129,19 @@
             cardozo:{
                 handler(){
                     // Desabilita os inputs e altera a opacidade das divs
-                    disableObject(['rm', 'sm', 'op', 'depth', 'prod'])
+                    disableObject(['rm', 'depth', 'prod'])
                     // Muda a cor de todos os elementos para vermelho.
                     this.setDefaultColor()
                     // Chama a função com a lógica do fluxograma
                     this.newValue()
                     // Altera o valor de cardozo na store VueExe
-                    this.$store.commit('setcardozo', this.cardozo)
+                    this.$store.commit('setCardozo', this.cardozo)
                 },
                 deep: true //deep: true → O que estiver dentro da variável será observado
             },
-            colorcardozo:{
+            colorCardozo:{
                 handler(){
-                    this.$store.dispatch('changeColorcardozo', this.colorCardozo)
+                    this.$store.dispatch('changecolorCardozo', this.colorCardozo)
                 },
                 deep: true //deep: true → O que estiver dentro da variável será observado
             }

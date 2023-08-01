@@ -124,20 +124,20 @@
                 } ,
                 defaultColorMoser: {
                     logistica: coresDefault.fluxoGreen,
-                    rockMass: 'Transparent',
-                    surfaceMaterial: 'Transparent',
-                    openPit: 'Transparent',
-                    prodCenter: 'Transparent',
-                    prodLeft: 'Transparent',
-                    depthCenter: 'Transparent',
-                    depthLeft: 'Transparent',
+                    rockMass: 'white',
+                    surfaceMaterial: 'white',
+                    openPit: 'white',
+                    prodCenter: 'white',
+                    prodLeft: 'white',
+                    depthCenter: 'white',
+                    depthLeft: 'white',
                     rampa: coresDefault.fluxoBlue,
                     shaft: coresDefault.fluxoBlue,
                 }           
             }
         },
-        created(){
-            // disableObject(['rm', 'sm', 'op', 'depth', 'prod'])
+        mounted(){
+            disableObject(['rm', 'sm', 'op', 'depth', 'prod'])
         },
         methods:{
             setDefaultColor() {
@@ -297,7 +297,7 @@
         width: 14px;
         height: 14px;
         border-radius: 50%;
-        background-color: transparent;
+        background-color: white;
         position: relative;
         display: flex;
         margin: auto;

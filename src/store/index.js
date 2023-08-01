@@ -51,8 +51,14 @@ export default createStore({
         setMoser(state, data) {
             state.moser = data;
         },
+        setCardozo(state, data) {
+            state.cardozo = data;
+        },
         setColorMoser(state, data) {
             state.colorMoser = data;
+        },
+        setColorCardozo(state, data) {
+            state.colorCardozo = data;
         },
     },
     getters: {
@@ -65,6 +71,9 @@ export default createStore({
         currentColorMoser(state){
             return state.colorMoser
         },
+        currentColorCardozo(state){
+            return state.colorCardozo
+        },
     },
     actions: {
         changeLanguage(context, data) {
@@ -73,6 +82,9 @@ export default createStore({
         },
         changeColorMoser(context, data){
             context.commit('setColorMoser', data);
+        },
+        changeColorCardozo(context, data){
+            context.commit('setColorCardozo', data);
         }
   },
 })
