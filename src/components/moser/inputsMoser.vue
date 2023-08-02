@@ -1,13 +1,13 @@
 
 <template>
+    
     <section>
         <!-- TITULO SEÇÃO -->
-        <h2>{{ $t('tituloInputsMoser') }}</h2>
-        
+        <h2>{{ $t('tituloInputs') }}</h2>
         <!--LOGISTICA-->
         <div class='parametros-container' id="logistica">
-            <h3>{{ $t('logisticaTitulo') }}</h3>
-            <span>{{ $t('logisticaDescription') }}</span>
+            <h3>{{ $t('logisticaTituloMoser') }}</h3>
+            <span>{{ $t('logisticaDescriptionMoser') }}</span>
             <div class="radio-container">
                 <!-- SIM -->
                 <input type="radio" v-model="moser.logistica" value="sim" id="logistica-sim">
@@ -21,38 +21,38 @@
         </div>
         <!--ROCK CONDITIONS-->
         <div class='parametros-container' id="rm">
-            <h3>{{$t('rmTitulo')}}</h3>
-            <span>{{ $t('rmDescription') }}</span>
+            <h3>{{$t('rmTituloMoser')}}</h3>
+            <span>{{ $t('rmDescriptionMoser') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
                 <input type="radio" class="rm" v-model="moser.rockMass" value="menor" id="rm-menor">
                 <label for="rm-menor" class="radio-label"></label> 
-                <span>{{ $t('rmMenor') }}</span>
+                <span>{{ $t('rmMenorMoser') }}</span>
                 <!-- MAIOR -->
                 <input type="radio" class="rm" v-model="moser.rockMass" value="maior" id="rm-maior">
                 <label for="rm-maior" class="radio-label"></label>
-                <span>{{ $t('rmMaior') }}</span> 
+                <span>{{ $t('rmMaiorMoser') }}</span> 
             </div>
         </div>
         <!-- SURFACE MATERIALS-->
         <div class='parametros-container' id="sm">
-            <h3>{{$t('csTitulo')}}</h3>
-            <span>{{ $t('csDescription') }}</span>
+            <h3>{{$t('smTituloMoser')}}</h3>
+            <span>{{ $t('smDescriptionMoser') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
                 <input type="radio" v-model="moser.surfaceMaterial" value="menor" id="sm-menor">
                 <label for="sm-menor" class="radio-label"></label> 
-                <span>{{ $t('smMenor') }}</span>
+                <span>{{ $t('smMenorMoser') }}</span>
                 <!-- MAIOR -->
                 <input type="radio"  v-model="moser.surfaceMaterial" value="maior" id="sm-maior">
                 <label for="sm-maior" class="radio-label"></label>
-                <span>{{ $t('smMaior') }}</span> 
+                <span>{{ $t('smMaiorMoser') }}</span> 
             </div>
         </div>
         <!-- OPEN PIT -->
         <div class='parametros-container' id="op">
-            <h3>{{$t('opTitulo')}}</h3>
-            <span>{{ $t('opDescription') }}</span>
+            <h3>{{$t('opTituloMoser')}}</h3>
+            <span>{{ $t('opDescriptionMoser') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
                 <input type="radio" class="op" v-model="moser.openPit" value="sim" id="op-sim">
@@ -66,30 +66,27 @@
         </div>
         <!-- PROFUNDIDADE -->
         <div class='parametros-container' id="depth">
-            <h3>{{ $t('prodTitulo') }}</h3>
-            <span> {{ $t('prodDescription') }}</span>
+            <h3>{{ $t('prodTituloMoser') }}</h3>
+            <span> {{ $t('prodDescriptionMoser') }}</span>
             <select v-model="moser.prod" class="depth">
                 <option value=""></option>
-                <option value="menor">{{('prodMenor')}}</option>
-                <option value="entre">{{('prodEntre')}}</option>
-                <option value="maior">{{('prodMaior')}}</option>
+                <option value="menor">{{('prodMenorMoser')}}</option>
+                <option value="entre">{{('prodEntreMoser')}}</option>
+                <option value="maior">{{('prodMaiorMoser')}}</option>
             </select>
         </div>
         <!-- PRODUÇÃO -->
         <div class='parametros-container' id="prod">
-            <h3>{{ $t('depthTitulo') }}</h3>
-            <span>{{ $t('depthDescription') }}</span>
+            <h3>{{ $t('depthTituloMoser') }}</h3>
+            <span>{{ $t('depthDescriptionMoser') }}</span>
             <select v-model="moser.depth" class="prod">
                 <option value=""></option>
-                <option value="menor">{{('depthMenor')}}</option>
-                <option value="entre">{{('depthEntre')}}</option>
-                <option value="maior">{{('depthMaior')}}</option>
+                <option value="menor">{{('depthMenorMoser')}}</option>
+                <option value="entre">{{('depthEntreMoser')}}</option>
+                <option value="maior">{{('depthMaiorMoser')}}</option>
             </select>
         </div>
-
-
     </section>
-   
   
 </template>
 

@@ -80,31 +80,36 @@ export default {
     }
     section{
         width: 250px;
-        border: var(--borda-simples);
+        border-left: var(--borda-simples);
+        border-right: var(--borda-simples);
+        border-bottom: var(--borda-simples);
         border-radius: 20px;
-        overflow: hidden;
         height: var(--body-height);
-    }
-
+      }
+      
     nav{    
-        width: 100%;
-        text-align: center;
-
+      width: 100%;
+      text-align: center;
+      
     }
-
+  
     ul{
-        list-style-type: none;
+      overflow: hidden;
+      list-style-type: none;
     }
 
     li{
-        background: var(--cor-tema);
-        color: white;
+      background: var(--cor-tema);
+      color: white;
     }
-
+    
     .li-titulo{
-        background-color: white;
-        color: var(--cor-tema);
-        font-weight: bold;
+      background-color: white;
+      color: var(--cor-tema);
+      font-weight: bold;
+      border: var(--borda-simples);
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
     }
 
     .escolhida{

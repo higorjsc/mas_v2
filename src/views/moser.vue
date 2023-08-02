@@ -2,26 +2,41 @@
 
     <body>
 
-        <Header  class="header">{{ $t('tituloMoser') }}</Header>
+        <Header 
+          class="header"
+        >
+          {{ $t('tituloMoser') }}
+        </Header>
 
         <main>
-
           
-            <NavBar class="main-elements navbar">
-                {{ $t('pragrafoExplicacao') }}
+            <NavBar 
+              class="main-elements navbar"
+            >
+                {{ $t('pragrafoExplicacaoCardozo') }}
             </NavBar>
 
-            <switchLanguage class="main-elements switch-language">
-
+            <switchLanguage 
+              class="main-elements switch-language"
+            >
             </switchLanguage>
           
-            <inputs class="main-elements inputs"></inputs>
+            <inputs
+              class="main-elements inputs"
+            >
+            </inputs>
 
-            <Fluxograma class="main-elements Fluxograma"></Fluxograma>
+            <Fluxograma
+              class="main-elements Fluxograma"
+            >
+            </Fluxograma>
 
         </main>
 
-        <Footer class="footer"></Footer>
+        <Footer
+          class="footer"
+        >
+        </Footer>
 
 
     </body>

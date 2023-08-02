@@ -1,8 +1,8 @@
 <template>
     <section>
         <!-- TITULO SEÇÃO -->
-        <h2>{{ $t('tituloFluxogramaCardozo') }}</h2>
-  
+        <h2>{{ $t('tituloFluxograma') }}</h2>
+        <!-- CONTAINER DE OBJETOS -->
         <div class="container">
             <!-- START -->
             <div 
@@ -11,14 +11,17 @@
                 class="itens" 
                 id="start" 
                 :style="{
-                    top: objetos[index]['top'],
-                    left: objetos[index]['left'],
-                    background: this.$store.getters.currentColorCardozo[`${item.id}`]
-                }"
+                    top: item.top,
+                    left: item.left,
+                    background: this.$store.getters.currentColorCardozo[`${item.id}`],
+                    transform: item.transform,
+                    width: item.width,
+                    height: item.height
+               }"
             >
-                {{ $t('startFluxoCardozo') }} 
+                {{ $t(`${objetos[index]['Text']}`) }} 
             </div>
-           
+           <!-- CONTAINER DE SETAS -->
             <Seta 
                 v-for="(item, index) in setasFluxograma"
                 class="setas"
@@ -31,7 +34,7 @@
                 :Transform="item.transform"  
             >
             </Seta>
-
+            <!-- CONTAINER DE TEXTOS OVERSETAS -->
             <Way 
                 v-for="(item, index) in wayFluxograma"
                 class="way"
@@ -70,70 +73,157 @@
                     {   
                         id: 'start',
                         top: '10px',
-                        left: '20px',
-                    },
-                    {   
-                        id: 'rockMass',
-                        top: '70px',
-                        left: '20px',
+                        left: '180px',
+                        Text: 'startFluxoCardozo'
                     },
                     {   
                         id: 'surfaceMaterial',
-                        top: '135px',
-                        left: '20px',
+                        top: '70px',
+                        left: '140px',
+                        width: '150px',
+                        Text: 'smFluxoCardozo'
+                    },
+                    {   
+                        id: 'rockMass',
+                        top: '130px',
+                        left: '180px',
+                        Text: 'rmFluxoCardozo'
                     },
                     {   
                         id: 'depthCenter',
-                        top: '218px',
-                        left: '170px',
+                        top: '190px',
+                        left: '140px',
+                        width: '150px',
+                        Text: 'depthCenterFluxoCardozo'
                     },
                     {   
                         id: 'prodCenter',
-                        top:'305px',
-                        left: '170px',
+                        top:'250px',
+                        left: '140px',
+                        width: '150px',
+                        Text: 'prodCenterFluxoCardozo'
                     },
                     {   
                         id: 'depthLeft',
-                        top: '300px',
-                        left: '20px',
+                        top: '310px',
+                        left: '140px',
+                        width: '150px',
+                        Text: 'depthLeftFluxoCardozo',
                     },
                     {   
                         id: 'prodLeft',
-                        top: '382px',
-                        left: '20px',
+                        top: '300px',
+                        left: '32px',
+                        Text: 'prodLeftFluxoCardozo',
+                        transform: 'rotate(-90deg)'
                     },
                     {   
                         id: 'rampa',
-                        top: '420px',
-                        left: '170px',
+                        top: '385px',
+                        left: '60px',
+                        width: '180px',
+                        Text: 'correiaFluxoCardozo',
+                        transform: 'rotate(-12deg)'
                     },
                     {   
-                        id:'correia',
-                        top: '220px',
-                        left: '320px',
+                        id:'shaft',
+                        top: '132px',
+                        left: '-15px',
+                        width: '170px',
+                        Text: 'shaftFluxoCardozo',
+                        transform: 'rotate(-90deg)'
                     },
                     {   
-                        id: 'shaft',
-                        top: '220px',
-                        left: '320px',
+                        id: 'correia',
+                        top: '250px',
+                        left: '270px',
+                        width: '200px',
+                        Text: 'rampaFluxoCardozo',
+                        transform: 'rotate(-70deg)'
                     },
             ],
             wayFluxograma:[
-                {   //logistica - shaft
-                    top: '45px',
-                    left: '358px',
+                {   //prodLeft - shaft
+                    top: '345px',
+                    left: '0px',
                     Text: 'NO',
                 }, 
 
             ],
             setasFluxograma: [
 
-                {   //logistica - rockMass
-                    top: '50px', 
-                    left: '47px',
-                    width: '20px',
+                {   //start - surfaceMaterial
+                    top: '47px', 
+                    left: '207px',
+                    width: '27px',
                     transform: 'rotate(90deg)',
-                }
+                },
+                {   //surfaceMaterial - rockMass
+                    top: '107px', 
+                    left: '207px',
+                    width: '27px',
+                    transform: 'rotate(90deg)',
+                },
+                {   //rockMass - depthCenter
+                    top: '167px', 
+                    left: '207px',
+                    width: '27px',
+                    transform: 'rotate(90deg)',
+                },
+                {   //depthCenter - prodCenter
+                    top: '227px', 
+                    left: '207px',
+                    width: '26px',
+                    transform: 'rotate(90deg)',
+                },
+                {   //prodCenter - depthLeft
+                    top: '287px', 
+                    left: '207px',
+                    width: '27px',
+                    transform: 'rotate(90deg)',
+                },
+                {   //depthLeft - rampa
+                    top: '347px', 
+                    left: '206px',
+                    width: '29px',
+                    transform: 'rotate(90deg)',
+                },
+                {   //prodLeft - rampa
+                    top: '378px', 
+                    left: '58px',
+                    width: '30px',
+                    transform: 'rotate(90deg)',
+                },
+                {   //depthLeft - prodLeft 1
+                    top: '249px', 
+                    left: '57px',
+                    width: '29px',
+                    transform: 'rotate(-90deg)',
+                },
+                {   //depthLeft - prodLeft
+                    top: '350px', 
+                    left: '57px',
+                    width: '29px',
+                    transform: 'rotate(0deg)',
+                },
+                {   //depthCenter - shaft
+                    top: '197px', 
+                    left: '87px',
+                    width: '44px',
+                    transform: 'rotate(-180deg)',
+                },
+                {   //rockMass - shaft
+                    top: '137px', 
+                    left: '87px',
+                    width: '85px',
+                    transform: 'rotate(-180deg)',
+                },
+                {   //prodLeft - shaft
+                    top: '77px', 
+                    left: '87px',
+                    width: '44px',
+                    transform: 'rotate(-180deg)',
+                },
 
 
             ]
@@ -160,6 +250,8 @@
     }
     .container{
         position: relative;
+        display: flex;
+        align-items: center;
         margin: auto;
         margin-top: 1%;
         width: 430px;
@@ -167,7 +259,9 @@
     }
     .itens{
         position: absolute;
-        display: block;
+        display: flex;
+        align-content: center;
+        justify-content: center;
         background-color: white;
         padding: 5px;
         border: var(--borda-simples);
@@ -177,7 +271,8 @@
         z-index: 2;
         text-align: center;
         font-size: 9pt;
-        /* background-color: rgba(12, 187, 12, 0.719); */
+        font-weight: bold;
+        line-height: 1;
     }
     .itens:hover{
         cursor: pointer;

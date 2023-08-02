@@ -2,13 +2,13 @@
 
     <body>
 
-        <Header  class="header">{{ $t('tituloMoser') }}</Header>
+        <Header  class="header">{{ $t('tituloCardozo') }}</Header>
 
         <main>
 
           
             <NavBar class="main-elements navbar">
-                {{ $t('pragrafoExplicacao') }}
+                {{ $t('pragrafoExplicacaoCardozo') }}
             </NavBar>
 
             <switchLanguage class="main-elements switch-language">

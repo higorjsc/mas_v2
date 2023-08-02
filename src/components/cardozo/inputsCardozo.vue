@@ -2,41 +2,41 @@
 <template>
     <section>
         <!-- TITULO SEÇÃO -->
-        <h2>{{ $t('tituloInputscardozo') }}</h2>
+        <h2>{{ $t('tituloInputs') }}</h2>
         <!-- SURFACE MATERIALS-->
         <div class='parametros-container' id="sm">
-            <h3>{{$t('csTitulo')}}</h3>
-            <span>{{ $t('csDescription') }}</span>
+            <h3>{{$t('smTituloCardozo')}}</h3>
+            <span>{{ $t('smDescriptionCardozo') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
                 <input type="radio" v-model="cardozo.surfaceMaterial" value="menor" id="sm-menor">
                 <label for="sm-menor" class="radio-label"></label> 
-                <span>{{ $t('smMenor') }}</span>
+                <span>{{ $t('smMenorCardozo') }}</span>
                 <!-- MAIOR -->
                 <input type="radio"  v-model="cardozo.surfaceMaterial" value="maior" id="sm-maior">
                 <label for="sm-maior" class="radio-label"></label>
-                <span>{{ $t('smMaior') }}</span> 
+                <span>{{ $t('smMaiorCardozo') }}</span> 
             </div>
         </div>
         <!--ROCK CONDITIONS-->
         <div class='parametros-container' id="rm">
-            <h3>{{$t('rmTitulo')}}</h3>
-            <span>{{ $t('rmDescription') }}</span>
+            <h3>{{$t('rmTituloCardozo')}}</h3>
+            <span>{{ $t('rmDescriptionCardozo') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
                 <input type="radio" class="rm" v-model="cardozo.rockMass" value="menor" id="rm-menor">
                 <label for="rm-menor" class="radio-label"></label> 
-                <span>{{ $t('rmMenor') }}</span>
+                <span>{{ $t('rmMenorCardozo') }}</span>
                 <!-- MAIOR -->
                 <input type="radio" class="rm" v-model="cardozo.rockMass" value="maior" id="rm-maior">
                 <label for="rm-maior" class="radio-label"></label>
-                <span>{{ $t('rmMaior') }}</span> 
+                <span>{{ $t('rmMaiorCardozo') }}</span> 
             </div>
         </div>
         <!-- PROFUNDIDADE -->
         <div class='parametros-container' id="depth">
-            <h3>{{ $t('prodTitulo') }}</h3>
-            <span> {{ $t('prodDescription') }}</span>
+            <h3>{{ $t('prodTituloCardozo') }}</h3>
+            <span> {{ $t('prodDescriptionCardozo') }}</span>
             <select v-model="cardozo.prod" class="depth">
                 <option value=""></option>
                 <option value="menor">{{('prodMenor')}}</option>
@@ -46,13 +46,13 @@
         </div>
         <!-- PRODUÇÃO -->
         <div class='parametros-container' id="prod">
-            <h3>{{ $t('depthTitulo') }}</h3>
-            <span>{{ $t('depthDescription') }}</span>
+            <h3>{{ $t('depthTituloCardozo') }}</h3>
+            <span>{{ $t('depthDescriptionCardozo') }}</span>
             <select v-model="cardozo.depth" class="prod">
                 <option value=""></option>
-                <option value="menor">{{('depthMenor')}}</option>
-                <option value="entre">{{('depthEntre')}}</option>
-                <option value="maior">{{('depthMaior')}}</option>
+                <option value="menor">{{('depthMenorCardozo')}}</option>
+                <option value="entre">{{('depthEntreCardozo')}}</option>
+                <option value="maior">{{('depthMaiorCardozo')}}</option>
             </select>
         </div>
 
@@ -161,6 +161,7 @@
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
         border: var(--borda-simples);
+        max-width: 280px;
     }
 
     h3{

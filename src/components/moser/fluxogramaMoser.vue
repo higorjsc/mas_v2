@@ -1,89 +1,24 @@
 <template>
+
     <section>
         <!-- TITULO SEÇÃO -->
-        <h2>{{ $t('tituloFluxogramaMoser') }}</h2>
-  
+        <h2>{{ $t('tituloFluxograma') }}</h2>
         <div class="container">
-            <!-- START -->
+            <!-- CONTAINER DE OBJETOS -->
             <div 
+                v-for ="(item, index) in objetos"
+                :key="index"
                 class="itens" 
                 id="start" 
-                :style="{background: this.$store.getters.currentColorMoser.logistica}"
+                :style="{
+                    top: objetos[index]['top'],
+                    left: objetos[index]['left'],
+                    background: this.$store.getters.currentColorMoser[`${item.id}`]
+                }"
             >
-                {{ $t('logisticaFluxoMoser') }} 
+                {{ $t(`${objetos[index]['Text']}`) }} 
             </div>
-            <!-- ROCKMASS -->
-            <div 
-                class="itens" 
-                id="rock-mass" 
-                :style="{background: this.$store.getters.currentColorMoser.rockMass}" 
-            >
-                {{ $t('rmFluxoMoser') }} 
-            </div>
-            <!-- SURFACE MATERIALS -->
-            <div 
-                class="itens" 
-                id="surface-material" 
-                :style="{background: this.$store.getters.currentColorMoser.surfaceMaterial}"
-            >
-                {{ $t('smFluxoMoser') }}
-            </div>
-            <!-- ACESS BY OPEN PIT -->
-            <div 
-                class="itens" 
-                id="open-pit" 
-                :style="{background: this.$store.getters.currentColorMoser.openPit}"
-            >
-                {{ $t('opFluxoMoser') }} 
-            </div>
-            <!-- PROFUNDIDADE DO CENTRO DO FLUXOGRAMA -->
-            <div 
-                class="itens" 
-                id="depth-center" 
-                :style="{background: this.$store.getters.currentColorMoser.depthCenter}"
-            >
-                {{ $t('depthCenterFluxoMoser') }}
-            </div>
-            <!-- UTILIZAR SHAFT -->
-            <div 
-                class="itens" 
-                id="shaft" 
-                :style="{background: this.$store.getters.currentColorMoser.shaft}"
-            >
-                {{ $t('shaftFluxoMoser') }}
-            </div>
-            <!-- PRODUÇÃO DO CENTRO DO FLUXOGRAMA -->
-            <div
-                class="itens" 
-                id="prod-center"
-                :style="{background: this.$store.getters.currentColorMoser.prodCenter}"
-            >
-                {{ $t('prodCenterFluxoMoser') }}
-            </div>
-            <!-- PROFUNDIDADE DA ESQUERDA DO FLUXOGRAMA -->
-            <div 
-                class="itens" 
-                id="depth-left"
-                :style="{background: this.$store.getters.currentColorMoser.depthLeft}" 
-                >{{ $t('depthLeftFluxoMoser') }} 
-            </div>
-            <!-- PRODUÇÃO DA ESQUERDA DO FLUXOGRAMA -->
-            <div 
-                class="itens" 
-                id="prod-left" 
-                :style="{background: this.$store.getters.currentColorMoser.prodLeft}"
-            >
-                {{ $t('prodLeftFluxoMoser') }} 
-            </div>
-            <!-- UTILIZAR RAMPA -->
-            <div 
-                class="itens"
-                id="rampa" 
-                :style="{background: this.$store.getters.currentColorMoser.rampa}"
-            >
-                {{ $t('rampFluxoMoser') }} 
-            </div>
-
+            <!-- CONTAINER DE SETAS -->
             <Seta 
                 v-for="(item, index) in setasFluxograma"
                 class="setas"
@@ -96,7 +31,7 @@
                 :Transform="item.transform"  
             >
             </Seta>
-
+            <!-- CONTAINER DE TEXTOS OVERSETAS -->
             <Way 
                 v-for="(item, index) in wayFluxograma"
                 class="way"
@@ -113,11 +48,9 @@
             >
                 {{ item.Text }}
             </Way>
-
-
         </div>
-         
     </section>
+
 </template>
   
 <script>
@@ -130,8 +63,69 @@
             Way
         },
         data() {
-        return {
-
+        return {    
+            objetos:[
+                {   
+                    id: 'logistica',
+                    top: '10px',
+                    left: '20px',
+                    Text: 'logisticaFluxoMoser'
+                },
+                {   
+                    id: 'rockMass',
+                    top: '70px',
+                    left: '20px',
+                    Text: 'rmFluxoMoser'
+                },
+                {   
+                    id: 'surfaceMaterial',
+                    top: '135px',
+                    left: '20px',
+                    Text: 'smFluxoMoser'
+                },
+                {   
+                    id: 'depthCenter',
+                    top: '218px',
+                    left: '170px',
+                    Text: 'depthCenterFluxoMoser'
+                },
+                {   
+                    id: 'prodCenter',
+                    top:'305px',
+                    left: '170px',
+                    Text: 'prodCenterFluxoMoser'
+                },
+                {   
+                    id:'openPit',
+                    top: '218px',
+                    left: '20px',
+                    Text: 'opFluxoMoser'
+                },
+                {   
+                    id: 'depthLeft',
+                    top: '300px',
+                    left: '20px',
+                    Text: 'depthLeftFluxoMoser'
+                },
+                {   
+                    id: 'prodLeft',
+                    top: '382px',
+                    left: '20px',
+                    Text: 'prodLeftFluxoMoser'
+                },
+                {   
+                    id: 'rampa',
+                    top: '420px',
+                    left: '170px',
+                    Text: 'rampaFluxoMoser'
+                },
+                {   
+                    id: 'shaft',
+                    top: '220px',
+                    left: '320px',
+                    Text: 'shaftMoser'
+                },
+            ],
             wayFluxograma:[
                 {   //logistica - shaft
                     top: '45px',
@@ -366,55 +360,6 @@
     .itens:hover{
         cursor: pointer;
         box-shadow: var(--shadow-hover);
-    }
-    #start{
-        top: 10px;
-        left: var(--IDENT)
-    }
-
-    #rock-mass{
-        top: 70px;
-        left: var(--IDENT);
-        background: rgba(236, 22, 22, 0.5);
-    }
-
-    #surface-material{
-        top: 135px;
-        left: var(--IDENT)
-    }
-
-    #open-pit{
-        top: 218px;
-        left: var(--IDENT)
-    }
-
-    #depth-center{
-        top: 218px;
-        left: calc(var(--IDENT) + 150px)
-    }
-
-    #shaft{
-        top: 220px;
-        left: calc(var(--IDENT) + 300px)
-    }
-
-    #prod-center{
-        top: 305px;
-        left: calc(var(--IDENT) + 150px);
-    }
-
-    #depth-left{
-        top: 300px;
-        left: var(--IDENT);
-    }
-
-    #prod-left{
-        top: 382px;
-        left: var(--IDENT);
-    }
-    #rampa{
-        top: 420px;
-        left: calc(var(--IDENT) + 150px);
     }
 
     .container .setas {
