@@ -33,9 +33,9 @@
     import Header from '@/components/compartilhado/header.vue'
     import Footer from '@/components/compartilhado/footer.vue'
     import switchLanguage from '@/components/compartilhado/switchLanguage.vue'
+    import Fluxograma from '@/components/compartilhado/fluxograma.vue'
 
     import inputs from '@/components/cardozo/inputsCardozo.vue'
-    import Fluxograma from '@/components/cardozo/fluxogramaCardozo.vue'
 
     export default {
         name: 'moser',

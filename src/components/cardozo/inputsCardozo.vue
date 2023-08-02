@@ -120,8 +120,7 @@
                     this.colorCardozo[objeto] = coresDefault.fluxoGreen
                 })
             },
-            newValue(){
-                
+            newValue(){  
                 
             }
         },

@@ -12,35 +12,11 @@ export default createStore({
             prod: '',
             depth: '',
         }, 
-        colorMoser: {
-            logistica: coresDefault.fluxoGreen,
-            rockMass: 'white',
-            surfaceMaterial: 'white',
-            openPit: 'white',
-            prodCenter: 'white',
-            prodLeft: 'white',
-            depthCenter: 'white',
-            depthLeft: 'white',
-            rampa: coresDefault.fluxoBlue,
-            shaft: coresDefault.fluxoBlue,
-        }, 
         cardozo:{
             surfaceMaterial: '',
             rockMass: '',
             prod: '',
             depth: '',
-        },
-        colorCardozo: {
-            start: coresDefault.fluxoGreen,
-            rockMass: 'white',
-            surfaceMaterial: 'white',
-            prodCenter: 'white',
-            prodLeft: 'white',
-            depthCenter: 'white',
-            depthLeft: 'white',
-            correia: coresDefault.fluxoBlue,
-            rampa: coresDefault.fluxoBlue,
-            shaft: coresDefault.fluxoBlue,
         },
         vergne:{
             surfaceMaterial: '',
@@ -48,19 +24,44 @@ export default createStore({
             prod: '',
             depth: '',
         },
-        colorVergne: {
-            start: coresDefault.fluxoGreen,
-            rockMass: 'white',
-            surfaceMaterial: 'white',
-            prodCenter: 'white',
-            prodLeft: 'white',
-            depthCenter: 'white',
-            depthLeft: 'white',
-            correia: coresDefault.fluxoBlue,
-            rampa: coresDefault.fluxoBlue,
-            shaft: coresDefault.fluxoBlue,
-        },
-         
+        color:{
+            cardozo: {
+                start: coresDefault.fluxoGreen,
+                rockMass: 'white',
+                surfaceMaterial: 'white',
+                prodCenter: 'white',
+                prodLeft: 'white',
+                depthCenter: 'white',
+                depthLeft: 'white',
+                correia: coresDefault.fluxoBlue,
+                rampa: coresDefault.fluxoBlue,
+                shaft: coresDefault.fluxoBlue,
+            },
+            vergne: {
+                start: coresDefault.fluxoGreen,
+                rockMass: 'white',
+                surfaceMaterial: 'white',
+                prodCenter: 'white',
+                prodLeft: 'white',
+                depthCenter: 'white',
+                depthLeft: 'white',
+                correia: coresDefault.fluxoBlue,
+                rampa: coresDefault.fluxoBlue,
+                shaft: coresDefault.fluxoBlue,
+            },
+            moser: {
+                logistica: coresDefault.fluxoGreen,
+                rockMass: 'white',
+                surfaceMaterial: 'white',
+                openPit: 'white',
+                prodCenter: 'white',
+                prodLeft: 'white',
+                depthCenter: 'white',
+                depthLeft: 'white',
+                rampa: coresDefault.fluxoBlue,
+                shaft: coresDefault.fluxoBlue,
+            }, 
+        }
     },
      mutations: {
         setLanguage(state, data) {
@@ -76,13 +77,13 @@ export default createStore({
             state.vergne = data;
         },
         setColorMoser(state, data) {
-            state.colorMoser = data;
+            state.color.moser = data;
         },
         setColorCardozo(state, data) {
-            state.colorCardozo = data;
+            state.color.cardozo = data;
         },
         setColorVergne(state, data) {
-            state.colorVergne = data;
+            state.color.vergne = data;
         },
     },
     getters: {
@@ -98,14 +99,17 @@ export default createStore({
         currentVergne(state){
             return state.vergne
         },
+        currentColor(state){
+            return state.color
+        }, 
         currentColorMoser(state){
-            return state.colorMoser
+            return state.color.moser
         },
         currentColorCardozo(state){
-            return state.colorCardozo
+            return state.color.cardozo
         },
         currentColorVergne(state){
-            return state.colorVergne
+            return state.color.vergne
         },
     },
     actions: {
