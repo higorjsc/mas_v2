@@ -13,7 +13,7 @@
                 :style="{
                     top: item.top,
                     left: item.left,
-                    background: this.$store.getters.currentColorCardozo[`${item.id}`],
+                    background: this.$store.getters.currentColorVergne[`${item.id}`],
                     transform: item.transform,
                     width: item.width,
                     height: item.height
@@ -74,47 +74,47 @@
                         id: 'start',
                         top: '10px',
                         left: '180px',
-                        Text: 'startFluxoCardozo'
+                        Text: 'startFluxoVergne'
                     },
                     {   
-                        id: 'surfaceMaterial',
+                        id: 'shallowOverburden',
                         top: '70px',
                         left: '140px',
                         width: '150px',
-                        Text: 'smFluxoCardozo'
+                        Text: 'smFluxoVergne'
                     },
                     {   
-                        id: 'rockMass',
+                        id: 'soundRock',
                         top: '130px',
                         left: '180px',
-                        Text: 'rmFluxoCardozo'
+                        Text: 'rmFluxoVergne'
                     },
                     {   
                         id: 'depthCenter',
                         top: '190px',
                         left: '140px',
                         width: '150px',
-                        Text: 'depthCenterFluxoCardozo'
+                        Text: 'depthCenterFluxoVergne'
                     },
                     {   
                         id: 'prodCenter',
                         top:'250px',
                         left: '140px',
                         width: '150px',
-                        Text: 'prodCenterFluxoCardozo'
+                        Text: 'prodCenterFluxoVergne'
                     },
                     {   
                         id: 'depthLeft',
                         top: '310px',
                         left: '140px',
                         width: '150px',
-                        Text: 'depthLeftFluxoCardozo',
+                        Text: 'depthLeftFluxoVergne',
                     },
                     {   
                         id: 'prodLeft',
                         top: '300px',
                         left: '32px',
-                        Text: 'prodLeftFluxoCardozo',
+                        Text: 'prodLeftFluxoVergne',
                         transform: 'rotate(-90deg)'
                     },
                     {   
@@ -122,7 +122,7 @@
                         top: '385px',
                         left: '60px',
                         width: '180px',
-                        Text: 'correiaFluxoCardozo',
+                        Text: 'correiaFluxoVergne',
                         transform: 'rotate(-12deg)'
                     },
                     {   
@@ -130,7 +130,7 @@
                         top: '132px',
                         left: '-15px',
                         width: '170px',
-                        Text: 'shaftFluxoCardozo',
+                        Text: 'shaftFluxoVergne',
                         transform: 'rotate(-90deg)'
                     },
                     {   
@@ -138,21 +138,21 @@
                         top: '250px',
                         left: '270px',
                         width: '200px',
-                        Text: 'rampaFluxoCardozo',
+                        Text: 'rampaFluxoVergne',
                         transform: 'rotate(-70deg)'
                     },
             ],
             wayFluxograma:[
 
-                {   //surfaceMaterial - rockMass
+                {   //shallowOverburden - soundRock
                     top: '95px',
-                    left: '210px',
-                    Text: '<70 m',
+                    left: '213px',
+                    Text: 'YES',
                 },  
-                {   //rockMass - depthCenter
+                {   //soundRock - depthCenter
                     top: '155px',
-                    left: '180px',
-                    Text: 'Class I-IV (good-poor)',
+                    left: '213px',
+                    Text: 'YES',
                 }, 
                 {   //depthCenter - prodCenter
                     top: '215px',
@@ -194,17 +194,12 @@
                     left: '110px',
                     Text: 'NO',
                 },  
-                {   //rockMass - shaft
+                {   //soundRock - shaft
                     top: '124px',
-                    left: '120px',
-                    Text: 'Class V',
-                },   
-                {   //rockMass - shaft
-                    top: '139px',
-                    left: '100px',
-                    Text: '(very poor-soil)',
-                },   
-                {   //surfaceMaterial - shaft
+                    left: '134px',
+                    Text: 'NO',
+                },
+                {   //shallowOverburden - shaft
                     top: '71px',
                     left: '102px',
                     Text: '>70 m',
@@ -213,19 +208,19 @@
             ],
             setasFluxograma: [
 
-                {   //start - surfaceMaterial
+                {   //start - shallowOverburden
                     top: '47px', 
                     left: '207px',
                     width: '27px',
                     transform: 'rotate(90deg)',
                 },
-                {   //surfaceMaterial - rockMass
+                {   //shallowOverburden - soundRock
                     top: '107px', 
                     left: '207px',
                     width: '27px',
                     transform: 'rotate(90deg)',
                 },
-                {   //rockMass - depthCenter
+                {   //soundRock - depthCenter
                     top: '167px', 
                     left: '207px',
                     width: '27px',
@@ -278,7 +273,7 @@
                     width: '44px',
                     transform: 'rotate(-180deg)',
                 },
-                {   //rockMass - shaft
+                {   //soundRock - shaft
                     top: '137px', 
                     left: '87px',
                     width: '85px',

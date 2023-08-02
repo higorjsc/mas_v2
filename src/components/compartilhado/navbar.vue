@@ -79,14 +79,19 @@ export default {
         padding: 0;
     }
     section{
-        width: 250px;
         border-left: var(--borda-simples);
         border-right: var(--borda-simples);
         border-bottom: var(--borda-simples);
+        max-width: 250px;
         border-radius: 20px;
-        height: var(--body-height);
-      }
       
+    }
+    p{
+        display: flex;
+        padding: 2%;
+        text-align: justify;
+        font-size: 9pt;
+    }  
     nav{    
       width: 100%;
       text-align: center;

@@ -224,7 +224,7 @@
                     // Chama a função com a lógica do fluxograma
                     this.newValue()
                     // Altera o valor de moser na store VueExe
-                    this.$store.commit('setMoser', this.moser)
+                    this.$store.dispatch('changeMoser', this.moser)
                 },
                 deep: true //deep: true → O que estiver dentro da variável será observado
             },

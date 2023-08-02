@@ -135,7 +135,7 @@
                     // Chama a função com a lógica do fluxograma
                     this.newValue()
                     // Altera o valor de cardozo na store VueExe
-                    this.$store.commit('setCardozo', this.cardozo)
+                    this.$store.dispatch('changeCardozo', this.cardozo)
                 },
                 deep: true //deep: true → O que estiver dentro da variável será observado
             },

@@ -80,6 +80,8 @@
         width: 100%;
         margin: 0;
         padding: 0;
+        height: auto;
+
     }
     main{
       display: grid;

@@ -42,6 +42,24 @@ export default createStore({
             rampa: coresDefault.fluxoBlue,
             shaft: coresDefault.fluxoBlue,
         },
+        vergne:{
+            surfaceMaterial: '',
+            rockMass: '',
+            prod: '',
+            depth: '',
+        },
+        colorVergne: {
+            start: coresDefault.fluxoGreen,
+            rockMass: 'white',
+            surfaceMaterial: 'white',
+            prodCenter: 'white',
+            prodLeft: 'white',
+            depthCenter: 'white',
+            depthLeft: 'white',
+            correia: coresDefault.fluxoBlue,
+            rampa: coresDefault.fluxoBlue,
+            shaft: coresDefault.fluxoBlue,
+        },
          
     },
      mutations: {
@@ -54,11 +72,17 @@ export default createStore({
         setCardozo(state, data) {
             state.cardozo = data;
         },
+        setVergne(state, data) {
+            state.vergne = data;
+        },
         setColorMoser(state, data) {
             state.colorMoser = data;
         },
         setColorCardozo(state, data) {
             state.colorCardozo = data;
+        },
+        setColorVergne(state, data) {
+            state.colorVergne = data;
         },
     },
     getters: {
@@ -68,11 +92,20 @@ export default createStore({
         currentMoser(state){
             return state.moser
         },
+        currentCardozo(state){
+            return state.cardozo
+        },
+        currentVergne(state){
+            return state.vergne
+        },
         currentColorMoser(state){
             return state.colorMoser
         },
         currentColorCardozo(state){
             return state.colorCardozo
+        },
+        currentColorVergne(state){
+            return state.colorVergne
         },
     },
     actions: {
@@ -80,11 +113,23 @@ export default createStore({
             data == false ? 'pt': 'en'
             context.commit('setLanguage', data);
         },
+        changeMoser(state){
+            return state.moser
+        },
+        changeCardozo(state){
+            return state.cardozo
+        },
+        changeVergne(state){
+            return state.vergne
+        },
         changeColorMoser(context, data){
             context.commit('setColorMoser', data);
         },
         changeColorCardozo(context, data){
             context.commit('setColorCardozo', data);
+        },
+        changeColorVergne(context, data){
+            context.commit('setColorVergne', data);
         }
   },
 })

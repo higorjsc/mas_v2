@@ -14,9 +14,9 @@ const translation = {
     pragrafoExplicacaoCardozo: ""
       + "The Cardozo method (2023) for selecting underground mine acess is a combination and update of the procedures proposed by Moser (1996) and La Vergne (2003)."
       + "In this method, Cardozo incorporates  some of the parameters proposed by Moser into the flowchart layout presented by La Vergne, and updates the proposed values as limits for depth and production according to the reality of 2023.  "
-      + "\n\n<strong>Notes:</strong>\n"
+      + "<br><br><strong>Notes:</strong><br>"
       + "- The proposed model does not replace detailed feasibility studies, but aims to significantly reduce the amount of work in the early stages of mining planning."
-      + "\n\nReferênces:\n"
+      + "<br><br>Referênces:<br>"
       + "<a href ='http://dx.doi.org/10.1590/0370-44672021760094' target ='_blank'>- CARDOZO, F. A. C. et al. Choice of access for underground mining for feasibility studies. REM-International Engineering Journal, v. 76, p. 187-193, 2023.<br/></a>"
       + "<a href ='http://hdl.handle.net/10183/262393' target ='_blank'>- CARDOZO, F. A. C. Modelagem de Escavações Subterrâneas: Contribuições para Escolha de Acessos de Mina. Doutorado—Porto Alegre: Universidade Federal do Rio Grande do Sul, 3 mar. 2023.</a>"
     ,        
@@ -77,6 +77,31 @@ const translation = {
     prodTituloMoser: "Produção",
     prodDescriptionMoser: "Projected production for the mine in kt per year:",
 
+
+    // VERGNE
+    tituloVergne: "SELECTION OF ACESS FOR UNDERGROUND MINING: La Vergne Method (2003)",
+    pragrafoExplicacaoVergne: ""
+     ,  
+    // Inputs vergne
+    smTituloVergne: "Surface material",
+    smDescriptionVergne: "Narrow layer of unconsolidated materials?",
+    rmTituloVergne: "Rock mass conditions",
+    rmDescriptionVergne: "Is the rock intact and of good quality/strength?",
+    depthTituloVergne: "Depth",
+    depthDescriptionVergne: "Orebody deepest point:",
+    prodTituloVergne: "Production",
+    prodDescriptionVergne: "Projected production for the mine in kt per day:",
+    // Fluxograma vergne
+    startFluxoVergne: 'START',
+    smFluxoVergne: 'SURFACE MATERIAL',
+    rmFluxoVergne: 'ROCK MASS',
+    depthCenterFluxoVergne: 'OREBODY <500 m DEEP',
+    prodCenterFluxoVergne: 'PRODUCTION <5 kt/d',
+    depthLeftFluxoVergne: 'OREBODY <300 m DEEP',
+    prodLeftFluxoVergne: 'PRODUCTION <2.5 kt/d',
+    shaftFluxoVergne: 'VERTICAL SHAFT HOISTING',
+    correiaFluxoVergne: 'RAMP HAULAGE BY TRUCK',
+    rampaFluxoVergne: 'INCLINED BELT CONVEYOR',
 },
 
   pt: {
@@ -157,6 +182,30 @@ const translation = {
     prodTituloMoser: "Produção",
     prodDescriptionMoser: "Produção prevista para a mina em kt por ano:",
 
+    // VERGNE
+    tituloVergne: "SELEÇÃO DE ACESSOS PARA MINAS SUBTERRÂNEAS: Método La Vergne (2003)",
+    pragrafoExplicacaoVergne: ""
+    ,  
+    // Inputs vergne
+    smTituloVergne: "Cobertura superficial",
+    smDescriptionVergne: "Camada estreita de materiais inconsolidados?",
+    rmTituloVergne: "Condições do Maciço",
+    rmDescriptionVergne: "Rocha íntegra e de boa qualidade/resitencia?",
+    depthTituloVergne: "Profundidade",
+    depthDescriptionVergne: "Ponto mais profundo do corpo de minério:",
+    prodTituloVergne: "Produção",
+    prodDescriptionVergne: "Produção prevista para a mina em kt por dia:",
+    // Fluxograma vergne
+    startFluxoVergne: 'START',
+    smFluxoVergne: 'SURFACE MATERIAL',
+    rmFluxoVergne: 'ROCK MASS',
+    depthCenterFluxoVergne: 'OREBODY <500 m DEEP',
+    prodCenterFluxoVergne: 'PRODUCTION <5 kt/d',
+    depthLeftFluxoVergne: 'OREBODY <300 m DEEP',
+    prodLeftFluxoVergne: 'PRODUCTION <2.5 kt/d',
+    shaftFluxoVergne: 'VERTICAL SHAFT HOISTING',
+    correiaFluxoVergne: 'RAMP HAULAGE BY TRUCK',
+    rampaFluxoVergne: 'INCLINED BELT CONVEYOR',
   },
 };
 
