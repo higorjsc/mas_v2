@@ -5,24 +5,24 @@
     align-items: flex-start;
     flex-direction: column;
     width: 100%;
-    margin: 0;
-    padding: 0;
 }
 .main-container{
     display: grid;
-    grid-column-gap: 0cap;
-    grid-template-columns: 1fr 1fr 1.3fr 1fr;
-}
-.header{
-    margin: 0.2%;
-}
-.main-elements{
+    grid-template-columns: 5fr 5fr 9fr 7fr;
+    height: 660px;
+    margin: 0.1%;
     box-sizing: border-box;
 }
-.navbar{
-    grid-column: 1/2;
-    margin-left: 0%;
+.header{
+    overflow: hidden;
+    box-sizing: border-box;
 }
+
+main .navbar{
+    grid-column: 1/2;
+    margin-right: 0.8%;
+}
+
 .inputs{
     grid-column: 2/3;
 }
@@ -40,5 +40,6 @@
 }
 
 .footer{
-    margin: 0.2%;
+    overflow: hidden;
+    box-sizing: border-box;
 }

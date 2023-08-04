@@ -30,11 +30,11 @@
             <span>{{ $t('rmDescriptionCardozo') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
-                <input type="radio" class="rm" v-model="cardozo.rockMassMass" value="menor" id="rm-menor">
+                <input type="radio" class="rm" v-model="cardozo.rockMass" value="menor" id="rm-menor">
                 <label for="rm-menor" class="radio-label"></label> 
                 <span>{{ $t('rmMenorCardozo') }}</span>
                 <!-- MAIOR -->
-                <input type="radio" class="rm" v-model="cardozo.rockMassMass" value="maior" id="rm-maior">
+                <input type="radio" class="rm" v-model="cardozo.rockMass" value="maior" id="rm-maior">
                 <label for="rm-maior" class="radio-label"></label>
                 <span>{{ $t('rmMaiorCardozo') }}</span> 
             </div>
@@ -83,14 +83,14 @@
             return{
                 cardozo:{
                     surfaceMaterial: '',
-                    rockMassMass: '',
+                    rockMass: '',
                     prod: '',
                     depth: '',
                     resultado: '',
                 },
                 colorCardozo: {
                     start: '',
-                    rockMassMass: '',
+                    rockMass: '',
                     surfaceMaterial: '',
                     prodCenter: '',
                     prodLeft: '',
@@ -102,7 +102,7 @@
                 },
                 defaultColorCardozo: {
                     start: coresDefault.fluxoGreen,
-                    rockMassMass: 'Transparent',
+                    rockMass: 'Transparent',
                     surfaceMaterial: 'Transparent',
                     prodCenter: 'Transparent',
                     prodLeft: 'Transparent',
@@ -145,43 +145,43 @@
                 }
 
                 // ROCK MASS
-                if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMassMass == "maior") {
+                if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "maior") {
                     this.cardozo.resultado = "shaft"
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "shaft"])
-                } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMassMass == "menor") {
+                } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor") {
                     enableObjects("depth")
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass"])
                 }
 
                 // PROFUNDIDADE
-                if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMassMass == "menor" && this.cardozo.depth == "maior") {
+                if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor" && this.cardozo.depth == "maior") {
                     this.cardozo.resultado = "shaft"
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "shaft"])
 
-                } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMassMass == "menor" && (this.cardozo.depth == "entre" || this.cardozo.depth == "menor")) {
+                } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor" && (this.cardozo.depth == "entre" || this.cardozo.depth == "menor")) {
                     enableObjects("prod")
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter"])
                 }
 
                 // PRODUÇÃO
-                if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMassMass == "menor" && (this.cardozo.depth == "entre" || this.cardozo.depth == "menor") && this.cardozo.prod == "maior") {
+                if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor" && (this.cardozo.depth == "entre" || this.cardozo.depth == "menor") && this.cardozo.prod == "maior") {
                     this.cardozo.resultado = "correia"
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "correia"])
 
-                } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMassMass == "menor" && (this.cardozo.depth == "entre" || this.cardozo.depth == "menor") && (this.cardozo.prod == "menor" || this.cardozo.prod == "entre") && this.cardozo.depth == "menor") {
+                } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor" && (this.cardozo.depth == "entre" || this.cardozo.depth == "menor") && (this.cardozo.prod == "menor" || this.cardozo.prod == "entre") && this.cardozo.depth == "menor") {
                     this.cardozo.resultado = "rampa"
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "rampa"])
 
-                } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMassMass == "menor" && (this.cardozo.depth == "entre" || this.cardozo.depth == "menor") && this.cardozo.prod == "menor" && this.cardozo.depth == "entre") {
+                } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor" && (this.cardozo.depth == "entre" || this.cardozo.depth == "menor") && this.cardozo.prod == "menor" && this.cardozo.depth == "entre") {
                     this.cardozo.resultado = "rampa"
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "prodLeft", "rampa"])
 
-                } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMassMass == "menor" && (this.cardozo.depth == "entre" || this.cardozo.depth == "menor") && this.cardozo.prod == "entre" && this.cardozo.depth == "entre") {
+                } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor" && (this.cardozo.depth == "entre" || this.cardozo.depth == "menor") && this.cardozo.prod == "entre" && this.cardozo.depth == "entre") {
                     this.cardozo.resultado = "shaft"
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "prodLeft", "shaft"])

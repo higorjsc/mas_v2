@@ -90,7 +90,9 @@ Copy code
         border-left: var(--borda-simples);
         border-right: var(--borda-simples);
         border-bottom: var(--borda-simples);
+        border-top: var(--borda-simples);
         border-radius: 20px;
+        overflow: hidden;
     }
 
     p{
@@ -103,7 +105,6 @@ Copy code
     nav{    
       width: 100%;
       text-align: center;
-      
     }
   
     ul{
@@ -120,17 +121,19 @@ Copy code
       background-color: white;
       color: var(--cor-tema);
       font-weight: bold;
-      border: var(--borda-simples);
+      /* border: var(--borda-simples);
       border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
+      border-top-right-radius: 20px; */
     }
 
     .escolhida{
         display: block;
+        border-bottom: 1pt solid white;
     }
 
     .option{
         display: none;
+        border-bottom: 1pt solid white;
     }
 
     ul:hover .option{

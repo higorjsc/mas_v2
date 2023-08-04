@@ -60,7 +60,7 @@
 <script>
     import Seta from '@/components/compartilhado/seta.vue';
     import Way from '@/components/compartilhado/way.vue';
-    import { objetos } from '@/assets/javascript/constants.js';
+    import { objetosFluxograma } from '@/assets/javascript/constants.js';
 
     export default {
         components:{
@@ -82,19 +82,19 @@
         },
         mounted() {
             // Carregar os dados necessários assim que o componente for criado
-            this.objetos = objetos['objeto'][`${this.metodo}`];
-            this.way = objetos['way'][`${this.metodo}`];
-            this.setas = objetos['setas'][`${this.metodo}`];
+            this.objetos = objetosFluxograma['objeto'][`${this.metodo}`];
+            this.way = objetosFluxograma['way'][`${this.metodo}`];
+            this.setas = objetosFluxograma['setas'][`${this.metodo}`];
         },
         computed:{
             valoresObjetos(){
-                return objetos['objeto'][`${this.metodo}`]
+                return objetosFluxograma['objeto'][`${this.metodo}`]
             },
             valoresWay(){
-                return objetos['way'][`${this.metodo}`]
+                return objetosFluxograma['way'][`${this.metodo}`]
             },
             valoresSetas(){
-                return objetos['setas'][`${this.metodo}`]
+                return objetosFluxograma['setas'][`${this.metodo}`]
             }
         },
 };
@@ -121,7 +121,7 @@
         display: flex;
         margin: auto;
         margin-top: 1%;
-        width: 420px;
+        width: 430px;
         height: 500px;
         overflow: hidden;
     }

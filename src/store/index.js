@@ -66,6 +66,18 @@ export default createStore({
                 rampa: coresDefault.fluxoBlue,
                 shaft: coresDefault.fluxoBlue,
             }, 
+        },
+        ilustrations:{
+            orebody: true,
+            superficie: true,
+            superficie_pit: false,
+            ventilacao: true,
+            usina: true,
+            shaft: false,
+            rampa: false,
+            truck: false,
+            correia: false,
+            pit: false,
         }
     },
      mutations: {
@@ -100,6 +112,9 @@ export default createStore({
         },
         currentColor(state){
             return state.color
+        },
+        currentIlustrations(state){
+            return state.ilustrations
         }
     },
     actions: {
