@@ -4,10 +4,11 @@ const translation = {
     
     // GERAL
     selectMethod: 'SELECT THE METHOD',
-    ptSwitchLanguage: '',
+    ptSwitchLanguage: 'PT',
     enSwitchLanguage: 'EN',
     tituloFluxograma: "FLOWCHART",
     tituloInputs: "SELECTION PARAMETERS",
+    tituloIlustration: "ILUSTRATION",
 
     // CARDOZO
     tituloCardozo: "SELECTION OF ACESS FOR UNDERGROUND MINING: Cardozo Method (2023)",
@@ -57,7 +58,7 @@ const translation = {
     prodLeftFluxoMoser: 'PRODUCTION',
     depthCenterFluxoMoser: 'DEEPEST POINT',
     prodCenterFluxoMoser: 'PRODUCTION',
-    rampFluxoMoser: 'RAMP',
+    rampaFluxoMoser: 'RAMP',
     shaftFluxoMoser: 'SHAFT',
     // Inputs moser
     logisticaTituloMoser: "Logistics",
@@ -107,12 +108,14 @@ const translation = {
   pt: {
     // GERAL
     ptSwitchLanguage: 'PT',
-    enSwitchLanguage: '',
+    enSwitchLanguage: 'EN',
     selectMethod: 'SELECIONE O MÉTODO',
     sim: 'Sim',
     nao: 'Não',
     tituloFluxograma: 'FLUXOGRAMA',
     tituloInputs: 'PARÂMETROS DE ESCOLHA',
+    tituloIlustration: "ILUSTRAÇÃO",
+
 
     // CARDOZO
     tituloCardozo: "SELEÇÃO DE ACESSOS PARA MINAS SUBTERRÂNEAS: Método Cardozo (2023)",
@@ -162,7 +165,7 @@ const translation = {
     prodLeftFluxoMoser: 'PRODUCTION',
     depthCenterFluxoMoser: 'DEEPEST POINT',
     prodCenterFluxoMoser: 'PRODUCTION',
-    rampFluxoMoser: 'RAMP',
+    rampaFluxoMoser: 'RAMP',
     shaftFluxoMoser: 'SHAFT',
     // Inputs moser
     logisticaTituloMoser: "Logística",

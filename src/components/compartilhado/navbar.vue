@@ -74,6 +74,7 @@ export default {
 </script>
 
 <style scoped>
+
     *{
         margin: 0;
         padding: 0;
@@ -82,16 +83,16 @@ export default {
         border-left: var(--borda-simples);
         border-right: var(--borda-simples);
         border-bottom: var(--borda-simples);
-        max-width: 250px;
         border-radius: 20px;
-      
     }
+
     p{
         display: flex;
         padding: 2%;
         text-align: justify;
         font-size: 9pt;
-    }  
+    }
+      
     nav{    
       width: 100%;
       text-align: center;
@@ -138,4 +139,5 @@ export default {
         text-decoration: none;
         color: white;
     }
+
 </style>

@@ -1,24 +1,37 @@
 <template>
 
-    <body>
+    <body
+        class="main-body"
+    >
 
-        <Header  class="header">{{ $t('tituloCardozo') }}</Header>
+        <Header
+            class="header"
+        >
+            {{ $t('tituloCardozo') }}
+        </Header>
 
-        <main>
+        <main
+            class="main-container"
+        >
 
           
-            <NavBar class="main-elements navbar">
+            <NavBar 
+                class="main-elements navbar"
+            >
                 {{ $t('pragrafoExplicacaoCardozo') }}
             </NavBar>
 
-            <switchLanguage class="main-elements switch-language">
-
-            </switchLanguage>
-          
             <inputs class="main-elements inputs"></inputs>
 
-            <Fluxograma class="main-elements Fluxograma"></Fluxograma>
-
+            <Fluxograma
+                class="main-elements fluxograma"
+                metodo = "cardozo"
+            />
+            
+            <Resultados 
+                class="main-elements resultados"
+            />
+        
         </main>
 
         <Footer class="footer"></Footer>
@@ -32,21 +45,21 @@
     import NavBar from '@/components/compartilhado/navbar.vue'
     import Header from '@/components/compartilhado/header.vue'
     import Footer from '@/components/compartilhado/footer.vue'
-    import switchLanguage from '@/components/compartilhado/switchLanguage.vue'
     import Fluxograma from '@/components/compartilhado/fluxograma.vue'
+    import Resultados from '@/components/compartilhado/resultadosAcessos.vue'
 
-    import inputs from '@/components/cardozo/inputsCardozo.vue'
+    import inputs from '@/components/inputsCardozo.vue'
 
     export default {
         name: 'moser',
         props: '',
         components:{
             NavBar,
-            switchLanguage,
             inputs,
             Fluxograma,
             Header,
             Footer,
+            Resultados,
         },
         data(){
             return {
@@ -56,45 +69,3 @@
 </script>
 
 
-<style scoped>
-    body{
-        position: relative;
-        display: flex;
-        justify-content: left;
-        align-items: flex-start;
-        flex-direction: column;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-    main{
-    display: grid;
-    }
-    .header{
-        margin: 0.2%;
-    }
-    .main-elements{
-        box-sizing: border-box;
-    }
-    .navbar{
-        grid-column: 1/2;
-        margin-left: 0%;
-    }
-    .inputs{
-        grid-column: 2/3;
-        margin-left: 1%;
-    }
-    .switch-language{
-        position: absolute;
-        left: 41%;
-        top: 6.5%;
-    }
-    .Fluxograma{
-        grid-column: 3/4;
-    }
-
-    .footer{
-        margin: 0.2%;
-    }
-
-</style>

@@ -22,7 +22,6 @@
         watch:{
             switchLanguage(){
                 this.$store.dispatch('changeLanguage', this.switchLanguage)
-                console.log(this.switchLanguage)
             }
         }
     }

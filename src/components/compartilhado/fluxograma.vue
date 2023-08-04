@@ -104,7 +104,6 @@
   
 <style scoped>
    *{
-        margin: 0;
         padding: 0;
         --IDENT: 20px;
         --WIDTH: 80px;
@@ -112,7 +111,7 @@
     }
     section{
         position: relative;
-        grid-column: 3/4;
+        margin: 0;
         border-top: var(--borda-simples);
         border-bottom: var(--borda-simples);
         border-right: var(--borda-simples);
@@ -120,11 +119,11 @@
     .container{
         position: relative;
         display: flex;
-        align-items: center;
         margin: auto;
         margin-top: 1%;
-        width: 430px;
-        height: 420px;
+        width: 420px;
+        height: 500px;
+        overflow: hidden;
     }
     .itens{
         position: absolute;
@@ -147,7 +146,7 @@
         cursor: pointer;
         box-shadow: var(--shadow-hover);
     }
-
+    
     .container .setas {
         position: absolute;
     }

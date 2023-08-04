@@ -1,0 +1,44 @@
+.main-body{
+    position: relative;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.main-container{
+    display: grid;
+    grid-column-gap: 0cap;
+    grid-template-columns: 1fr 1fr 1.3fr 1fr;
+}
+.header{
+    margin: 0.2%;
+}
+.main-elements{
+    box-sizing: border-box;
+}
+.navbar{
+    grid-column: 1/2;
+    margin-left: 0%;
+}
+.inputs{
+    grid-column: 2/3;
+}
+.switch-language{
+    position: absolute;
+    left: 41%;
+    top: 6.5%;
+}
+.fluxograma{
+    grid-column: 3/4;
+}
+
+.resultados{
+    grid-column: 4/5;
+}
+
+.footer{
+    margin: 0.2%;
+}

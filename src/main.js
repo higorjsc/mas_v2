@@ -1,7 +1,9 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
-import "@/assets/css/estilo.css";
+import "@/assets/css/rootAcessos.css";
+import "@/assets/css/mainAcessos.css";
+import "@/assets/css/inputsAcessos.css";
 import translation from "@/assets/javascript/translation.js";
 import store from './store'; // Importe o arquivo de configuração do store
 

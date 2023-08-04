@@ -1,6 +1,6 @@
 <template>
 
-    <!-- ARROW CONTAINER -->
+    <!-- WAY CONTAINER-->
     <div 
         class="container"
         :style="{ 
@@ -14,8 +14,10 @@
             color: FontColor, 
         }"
     >
-        <!-- ARROW BODY -->
-        <slot></slot>
+        <!-- WAY TEXT -->
+        <slot
+            class="texto-way"
+        />
 
     </div>
 
@@ -83,10 +85,13 @@
     .container{
         position: absolute;
         border-radius: 20;
-        z-index: 3;
+        z-index: 5;
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .texto-way{
+        z-index: 8;
     }
 
 
