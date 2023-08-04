@@ -5,11 +5,18 @@
         <!-- TITULO SEÇÃO -->
         <h2>{{ $t('tituloIlustration') }}</h2>
 
-        <span 
-        >
-            {{  }}
-        </span>
 
+        <div
+            class="resultados-container"
+        >
+            <span 
+                :class="`resultado ${tema}`"
+            >
+                {{ $t(this.$store.getters.currentInputsAcesso[this.metodo]['resultado']) }}
+            </span>
+
+        </div>
+        
     </section>
 </template>
   
@@ -20,7 +27,14 @@
         
         },
         props:{
-        
+            metodo:{
+                type: String,
+                default: 'cardozo'
+            },
+            tema:{
+                type: String,
+                default: ''
+            },
         },
         data() {
             return {
@@ -68,7 +82,21 @@
         display: flex;
         align-items: center;
         margin: auto;
-  
     }
+
+    .resultados-container{
+        display: flex;
+        position: absolute;
+        width: 80%;
+        height: 10%;
+        bottom: 20%;
+        left: 10%;
+        border-radius: 10px;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--cor-tema);
+        color: white;
+    }
+
 </style>
   

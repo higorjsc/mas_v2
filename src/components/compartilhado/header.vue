@@ -19,7 +19,12 @@
 <script>
     export default {
         name: '',
-        props: '',
+        props: {
+            tema:{
+                type: String,
+                default: ''
+            },
+        },
         data (){
             return{
 

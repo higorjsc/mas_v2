@@ -22,33 +22,31 @@
 
             <inputs
               class="main-elements inputs"
-            >
-            </inputs>
+            />
+            
 
             <Fluxograma
                 class="main-elements Fluxograma"
                 metodo = "moser"
-            >
-            </Fluxograma>
+            />
+           
 
+            <Resultados 
+                class ="main-elements resultados"
+                metodo = "moser"
+            />
 
         </main>
 
         <Footer
           class="footer"
-        >
-        </Footer>
-
-        <Resultados 
-                class="main-elements resultados"
         />
-
 
     </body>
     
 </template>
 
-  <script>
+<script>
     import NavBar from '@/components/compartilhado/navbar.vue'
     import Header from '@/components/compartilhado/header.vue'
     import Footer from '@/components/compartilhado/footer.vue'
@@ -58,19 +56,19 @@
     import Resultados from '@/components/compartilhado/resultadosAcessos.vue'
 
     export default {
-      name: 'moser',
-      props: '',
-      components:{
-        NavBar,
-        inputs,
-        Fluxograma,
-        Header,
-        Footer,
-        Resultados,
-      },
-      data(){
-        return {
+        name: 'moser',
+        props: '',
+        components:{
+            NavBar,
+            inputs,
+            Fluxograma,
+            Header,
+            Footer,
+            Resultados,
+        },
+        data(){
+            return {
+            }
         }
-      }
     }
-  </script>
+</script>

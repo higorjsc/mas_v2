@@ -19,3 +19,11 @@ h2 {
     left: 2%;
     font-size: 11pt;
 }
+
+.tema-acessos{
+    --cor-tema: #650505d6;
+    --cor-hover: #300202d6;
+    --borda-simples: 1pt solid black;
+    --shadow-input: -5px 0 5px  rgb(0 0 0 / 95%);
+    --shadow-hover: 0 0 10px #650505d6;
+}

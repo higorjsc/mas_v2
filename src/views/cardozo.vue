@@ -30,6 +30,7 @@
             
             <Resultados 
                 class="main-elements resultados"
+                metodo = "cardozo"
             />
         
         </main>
@@ -47,7 +48,6 @@
     import Footer from '@/components/compartilhado/footer.vue'
     import Fluxograma from '@/components/compartilhado/fluxograma.vue'
     import Resultados from '@/components/compartilhado/resultadosAcessos.vue'
-
     import inputs from '@/components/inputsCardozo.vue'
 
     export default {

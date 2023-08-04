@@ -6,7 +6,7 @@
         <Header
             class="header"
         >
-        {{ $t('tituloCardozo') }}
+        {{ $t('tituloVergne') }}
         </Header>
 
         <main 
@@ -18,19 +18,19 @@
                 {{ $t('pragrafoExplicacaoVergne') }}
             </NavBar>
 
-            <switchLanguage 
-                class="main-elements switch-language"
-            />
-
-            
-            
-            <inputs 
-                class="main-elements inputs"
-            />
+            <inputs
+              class="main-elements inputs"
+            >
+            </inputs>
 
             <Fluxograma
                 class="main-elements Fluxograma"
                 metodo = "vergne"
+            />
+            
+            <Resultados 
+                    class="main-elements resultados"
+                    metodo = "vergne"
             />
 
         </main>
@@ -43,26 +43,29 @@
     </body>
 
 </template>
+
 <script>
     import NavBar from '@/components/compartilhado/navbar.vue'
     import Header from '@/components/compartilhado/header.vue'
     import Footer from '@/components/compartilhado/footer.vue'
     import Fluxograma from '@/components/compartilhado/fluxograma.vue'
-    import switchLanguage from '@/components/compartilhado/switchLanguage.vue'
+    import Resultados from '@/components/compartilhado/resultadosAcessos.vue'
+    import inputs from '@/components/inputsVergne.vue'
 
-  export default {
-    name: 'vergne',
-    props: '',
-    components:{
-      NavBar,
-      Header,
-      Footer,
-      switchLanguage,
-      Fluxograma,
-    },
-    data(){
-      return {
-      }
+    export default {
+        name: 'vergne',
+        props: '',
+        components:{
+            NavBar,
+            inputs,
+            Fluxograma,
+            Header,
+            Footer,
+            Resultados,
+        },
+        data(){
+            return {
+            }
+        }
     }
-  }
 </script>

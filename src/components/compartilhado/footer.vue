@@ -28,7 +28,12 @@
 <script>
     export default {
         name: '',
-        props: '',
+        props: {
+            tema:{
+                type: String,
+                default: ''
+            },
+        },
         data (){
             return{
                 src_symbol: './src/assets/Imagens/mining_symbol.png',
