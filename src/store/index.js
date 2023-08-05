@@ -69,8 +69,8 @@ export default createStore({
         },
         ilustrations:{
             orebody: true,
-            superficie: true,
-            superficie_pit: false,
+            superficie: false,
+            superficie_pit: true,
             ventilacao: true,
             usina: true,
             shaft: false,
@@ -101,6 +101,9 @@ export default createStore({
         },
         setColorVergne(state, data) {
             state.color.vergne = data
+        },
+        setIlustrations(state, data) {
+            state.ilustrations = data
         },
     },
     getters: {
@@ -139,6 +142,9 @@ export default createStore({
         },
         changeColorVergne(context, data){
             context.commit('setColorVergne', data)
+        },
+        changeIlustrations(context, data){
+            context.commit('setIlustrations', data)
         }
   },
 })

@@ -111,6 +111,30 @@
                     correia: coresDefault.fluxoBlue,
                     rampa: coresDefault.fluxoBlue,
                     shaft: coresDefault.fluxoBlue,
+                },     
+                ilustrations:{
+                    orebody: true,
+                    superficie: true,
+                    superficie_pit: false,
+                    ventilacao: true,
+                    usina: true,
+                    shaft: false,
+                    rampa: false,
+                    truck: false,
+                    correia: false,
+                    pit: false,
+                },
+                defaultIlustrations:{
+                    orebody: true,
+                    superficie: true,
+                    superficie_pit: false,
+                    ventilacao: true,
+                    usina: true,
+                    shaft: false,
+                    rampa: false,
+                    truck: false,
+                    correia: false,
+                    pit: false,
                 }           
             }
         },
@@ -122,7 +146,8 @@
                 for (const key in this.colorCardozo) {
                     this.colorCardozo[key] = this.defaultColorCardozo[key];
                 } 
-            },setColorRed() {
+            },
+            setColorRed() {
                 for (const key in this.colorCardozo) {
                     this.colorCardozo[key] = ' rgba(236, 22, 22, 0.8)';
                 } 
@@ -132,11 +157,20 @@
                     this.colorCardozo[objeto] = coresDefault.fluxoGreen
                 })
             },
+            defaultImages(){
+                this.ilustrations = JSON.parse(JSON.stringify(this.defaultIlustrations));
+            },
+            showImages(itens){
+                itens.forEach(item =>{
+                    this.ilustrations[item] = true
+                })
+            },
             newValue(){  
 
                 // SURFACE MATERIAL
                 if (this.cardozo.surfaceMaterial == "maior") {
                     this.cardozo.resultado = "shaft"
+                    this.showImages(['shaft', 'vent'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "shaft"])
                 } else if (this.cardozo.surfaceMaterial == "menor") {
@@ -147,6 +181,7 @@
                 // ROCK MASS
                 if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "maior") {
                     this.cardozo.resultado = "shaft"
+                    this.showImages(['shaft', 'vent'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "shaft"])
                 } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor") {
@@ -157,6 +192,8 @@
                 // PROFUNDIDADE
                 if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor" && this.cardozo.depth == "maior") {
                     this.cardozo.resultado = "shaft"
+                    this.showImages(['shaft', 'vent'])
+
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "shaft"])
 
@@ -168,21 +205,25 @@
                 // PRODUÇÃO
                 if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor" && (this.cardozo.depth == "entre" || this.cardozo.depth == "menor") && this.cardozo.prod == "maior") {
                     this.cardozo.resultado = "correia"
+                    this.showImages(['correia', 'vent'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "correia"])
 
                 } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor" && (this.cardozo.depth == "entre" || this.cardozo.depth == "menor") && (this.cardozo.prod == "menor" || this.cardozo.prod == "entre") && this.cardozo.depth == "menor") {
                     this.cardozo.resultado = "rampa"
+                    this.showImages(['rampa', 'vent'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "rampa"])
 
                 } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor" && (this.cardozo.depth == "entre" || this.cardozo.depth == "menor") && this.cardozo.prod == "menor" && this.cardozo.depth == "entre") {
                     this.cardozo.resultado = "rampa"
+                    this.showImages(['rampa', 'vent'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "prodLeft", "rampa"])
 
                 } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor" && (this.cardozo.depth == "entre" || this.cardozo.depth == "menor") && this.cardozo.prod == "entre" && this.cardozo.depth == "entre") {
                     this.cardozo.resultado = "shaft"
+                    this.showImages(['shaft', 'vent'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "prodLeft", "shaft"])
                 }
@@ -193,8 +234,10 @@
                 handler(){
                     // Desabilita os inputs e altera a opacidade das divs
                     disableObject(['rm', 'depth', 'prod'])
-                    // Muda a cor de todos os elementos para vermelho.
+                    // Define a cor de todos os elementos para o padrão.
                     this.setDefaultColor()
+                    // Oculta as todas as imagens não default
+                    this.defaultImages()
                     // Chama a função com a lógica do fluxograma
                     this.newValue()
                     // Altera o valor de cardozo na store VueExe
@@ -205,6 +248,12 @@
             colorCardozo:{
                 handler(){
                     this.$store.dispatch('changeColorCardozo', this.colorCardozo)
+                },
+                deep: true //deep: true → O que estiver dentro da variável será observado
+            },
+            ilustrations:{
+                handler(){
+                    this.$store.dispatch('changeIlustrations', this.ilustrations)
                 },
                 deep: true //deep: true → O que estiver dentro da variável será observado
             }

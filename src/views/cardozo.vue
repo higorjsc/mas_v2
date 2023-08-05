@@ -28,7 +28,7 @@
                 metodo = "cardozo"
             />
             
-            <Resultados 
+            <Ilustrations 
                 class="main-elements resultados"
                 metodo = "cardozo"
             />
@@ -47,7 +47,7 @@
     import Header from '@/components/compartilhado/header.vue'
     import Footer from '@/components/compartilhado/footer.vue'
     import Fluxograma from '@/components/compartilhado/fluxograma.vue'
-    import Resultados from '@/components/compartilhado/resultadosAcessos.vue'
+    import Ilustrations from '@/components/compartilhado/ilustrationsAcessos.vue'
     import inputs from '@/components/inputsCardozo.vue'
 
     export default {
@@ -59,7 +59,7 @@
             Fluxograma,
             Header,
             Footer,
-            Resultados,
+            Ilustrations,
         },
         data(){
             return {
