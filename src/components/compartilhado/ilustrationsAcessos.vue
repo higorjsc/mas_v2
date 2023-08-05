@@ -19,6 +19,12 @@
                 src="@\assets\Imagens\rampa.png" 
                 alt="imagem shaft vertical"
             >
+            <img 
+                id="rampa-pit" 
+                v-if="this.$store.getters.currentIlustrations['rampa_pit']"
+                src="@\assets\Imagens\rampa.png" 
+                alt="imagem shaft vertical"
+            >
             <!-- <img 
                 id="shaft" 
                 v-if="ilustrations['shaft']"
@@ -27,7 +33,7 @@
                 > -->
             <img 
                 id="vent" 
-                v-if="this.$store.getters.currentIlustrations['vent']"
+                v-if="this.$store.getters.currentIlustrations['ventilacao']"
                 src="@\assets\Imagens\vent.png" 
                 alt="imagem shaft vertical"
             >
@@ -122,32 +128,55 @@
         position: absolute;
         top: 5%;
         height: 65%;
-        width: 98%;
+        width: 360px;
         overflow: hidden;
     }
     img{
         position: absolute;
     }
     #shaft{
-        top: 20%
+        top: 16%;
+        left: 12%;
+        height: 230px;
     }
     #orebody{
-        top: 40%;
-        left: 3%
+        top: 50%;
+        left: 3%;
     }
-
     #usina{
-        top: -4%;
-        right: -20%;
+        top: -2%;
+        right: -11%;
         transform: rotate(-3deg);
     }
     #superficie{
-        top: 10%;
-        left: 4%
+        top: 14%;
+        left: 4%;
+        z-index: -1;
     }
     #superficie-pit{
-        top: 10%;
-        left: 4%
+        top: 12%;
+        left: -11%;
+        z-index: -1;
+    }
+    #vent{
+        height: 240px;
+        top: 15%;
+        left: 69%
+    }
+    #rampa-pit{
+        top: 25.8%;
+        left: 37%;
+        height: 200px;
+    }
+    #rampa{
+        top: 16.5%;
+        left: 35%;
+        height: 250px;
+    }
+    #truck{
+        top: 11.8%;
+        left: 10%;
+        transform: rotate(3deg);
     }
 
 </style>

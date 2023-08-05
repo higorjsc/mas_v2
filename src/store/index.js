@@ -69,15 +69,15 @@ export default createStore({
         },
         ilustrations:{
             orebody: true,
-            superficie: false,
-            superficie_pit: true,
+            superficie: true,
+            superficie_pit: false,
             ventilacao: true,
             usina: true,
-            shaft: false,
-            rampa: false,
-            truck: false,
+            shaft: true,
+            rampa: true,
+            rampa_pit: true,
+            truck: true,
             correia: false,
-            pit: false,
         }
     },
      mutations: {
