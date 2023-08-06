@@ -6,65 +6,6 @@ const coresDefault = {
 
 }
 
-// const ilustrations = [
-//     {
-//         key:'shaft',
-//         top: '20px',
-//         left: '20px',
-//         transform: 'rotate(0deg)',
-//         src:'@\\assets\\Imagens\\shaft.png',
-//     },
-//     {
-//         key:'rampa',
-//         top: '20px',
-//         left: '20px',
-//         transform: 'rotate(0deg)',
-//         src:'@\\assets\\Imagens\\rampa.png',
-//     },
-//     {
-//         key:'correia',
-//         top: '20px',
-//         left: '20px',
-//         transform: 'rotate(0deg)',
-//         src:'@\\assets\\Imagens\\correia.png',
-//     },
-//     {
-//         key:'ventilacao',
-//         top: '20px',
-//         left: '20px',
-//         transform: 'rotate(0deg)',
-//         src:'@\\assets\\Imagens\\vent.png',
-//     },
-//     {
-//         key:'usina',
-//         top: '20px',
-//         left: '20px',
-//         transform: 'rotate(0deg)',
-//         src:'@\\assets\\Imagens\\usina.png',
-//     },
-//     {
-//         key:'superficie',
-//         top: '20px',
-//         left: '20px',
-//         transform: 'rotate(0deg)',
-//         src:'@\\assets\\Imagens\\superficie.png',
-//     },
-//     {
-//         key:'orebody',
-//         top: '20px',
-//         left: '20px',
-//         transform: 'rotate(0deg)',
-//         src:'@\\assets\\Imagens\\orebody.png',
-//     },
-//     {
-//         key:'pit',
-//         top: '20px',
-//         left: '20px',
-//         transform: 'rotate(0deg)',
-//         src:'@\\assets\\Imagens\\superficie_pit.png',
-//     },
-// ]
-
 const objetosFluxograma = {
     
     objeto: {

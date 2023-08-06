@@ -48,15 +48,15 @@ Copy code
                 path: ''
             },
             cardozo: {
-                titulo: 'Cardozo (2023)',
+                titulo: 'CARDOZO (2023)',
                 path: '/cardozo'
             },
             vergne: {
-                titulo: 'La Vergne (2003)',
+                titulo: 'LA VERGNE (2003)',
                 path: '/vergne'
             },
             moser: {
-                titulo: 'Moser (1996)',
+                titulo: 'MOSER (1996)',
                 path: '/moser'
             }
             }
@@ -121,23 +121,29 @@ Copy code
       background-color: white;
       color: var(--cor-tema);
       font-weight: bold;
-      /* border: var(--borda-simples);
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px; */
     }
 
     .escolhida{
         display: block;
-        border-bottom: 1pt solid white;
+        border-top: 2pt solid white;
+        border-bottom: 2pt solid white;
+    }
+    .escolhida:hover{
+        cursor:pointer;
     }
 
     .option{
         display: none;
-        border-bottom: 1pt solid white;
+        border-top: 2pt solid white;
+        border-bottom: 2pt solid white;
     }
 
     ul:hover .option{
         display: block;
+        box-shadow: var(--shadow-hover);
+    }
+    ul:hover{
+        box-shadow: var(--shadow-hover);
     }
 
     .option:hover{
