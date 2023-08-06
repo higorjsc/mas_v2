@@ -80,12 +80,12 @@
         },  
         data(){
             return{
+                resultado: '',
                 vergne:{
                     surfaceMaterial: '',
                     rockMass: '',
                     prod: '',
                     depth: '',
-                    resultado: '',
                 },
                 colorVergne: {
                     start: '',
@@ -110,7 +110,33 @@
                     correia: coresDefault.fluxoBlue,
                     rampa: coresDefault.fluxoBlue,
                     shaft: coresDefault.fluxoBlue,
-                }           
+                },     
+                ilustrations:{
+                    orebody: true,
+                    superficie: true,
+                    superficie_pit: false,
+                    ventilacao: true,
+                    usina: true,
+                    shaft: false,
+                    rampa: false,
+                    rampa_pit: false,
+                    truck: false,
+                    correia: false,
+                    pit: false,
+                },
+                defaultIlustrations:{
+                    orebody: true,
+                    superficie: true,
+                    superficie_pit: false,
+                    ventilacao: true,
+                    usina: true,
+                    shaft: false,
+                    rampa: false,
+                    rampa_pit: false,
+                    truck: false,
+                    correia: false,
+                    pit: false,
+                }             
             }
         },
         mounted(){
@@ -132,11 +158,20 @@
                     this.colorVergne[objeto] = coresDefault.fluxoGreen
                 })
             },
+            defaultImages(){
+                this.ilustrations = JSON.parse(JSON.stringify(this.defaultIlustrations));
+            },
+            showImages(itens){
+                itens.forEach(item =>{
+                    this.ilustrations[item] = true
+                })
+            },
             newValue(){  
 
                 // SURFACE MATERIAL
                 if (this.vergne.surfaceMaterial == "maior") {
-                    this.vergne.resultado = "shaft"
+                    this.resultado = "shaft"
+                    this.showImages(['shaft'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "shaft"])
                 } else if (this.vergne.surfaceMaterial == "menor") {
@@ -146,7 +181,8 @@
 
                 // ROCK MASS
                 if (this.vergne.surfaceMaterial == "menor" && this.vergne.rockMass == "maior") {
-                    this.vergne.resultado = "shaft"
+                    this.resultado = "shaft"
+                    this.showImages(['shaft'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "shaft"])
                 } else if (this.vergne.surfaceMaterial == "menor" && this.vergne.rockMass == "menor") {
@@ -156,7 +192,8 @@
 
                 // PROFUNDIDADE
                 if (this.vergne.surfaceMaterial == "menor" && this.vergne.rockMass == "menor" && this.vergne.depth == "maior") {
-                    this.vergne.resultado = "shaft"
+                    this.resultado = "shaft"
+                    this.showImages(['shaft'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "shaft"])
 
@@ -167,22 +204,26 @@
 
                 // PRODUÇÃO
                 if (this.vergne.surfaceMaterial == "menor" && this.vergne.rockMass == "menor" && (this.vergne.depth == "entre" || this.vergne.depth == "menor") && this.vergne.prod == "maior") {
-                    this.vergne.resultado = "correia"
+                    this.resultado = "correia"
+                    this.showImages(['correia'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "correia"])
 
                 } else if (this.vergne.surfaceMaterial == "menor" && this.vergne.rockMass == "menor" && (this.vergne.depth == "entre" || this.vergne.depth == "menor") && (this.vergne.prod == "menor" || this.vergne.prod == "entre") && this.vergne.depth == "menor") {
-                    this.vergne.resultado = "rampa"
+                    this.resultado = "rampa"
+                    this.showImages(['rampa', 'truck'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "rampa"])
 
                 } else if (this.vergne.surfaceMaterial == "menor" && this.vergne.rockMass == "menor" && (this.vergne.depth == "entre" || this.vergne.depth == "menor") && this.vergne.prod == "menor" && this.vergne.depth == "entre") {
-                    this.vergne.resultado = "rampa"
+                    this.resultado = "rampa"
+                    this.showImages(['rampa', 'truck'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "prodLeft", "rampa"])
 
                 } else if (this.vergne.surfaceMaterial == "menor" && this.vergne.rockMass == "menor" && (this.vergne.depth == "entre" || this.vergne.depth == "menor") && this.vergne.prod == "entre" && this.vergne.depth == "entre") {
-                    this.vergne.resultado = "shaft"
+                    this.resultado = "shaft"
+                    this.showImages(['shaft'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "prodLeft", "shaft"])
                 }
@@ -193,6 +234,8 @@
                 handler(){
                     // Desabilita os inputs e altera a opacidade das divs
                     disableObject(['rm', 'depth', 'prod'])
+                    // Oculta as todas as imagens não default
+                    this.defaultImages()
                     // Muda a cor de todos os elementos para vermelho.
                     this.setDefaultColor()
                     // Chama a função com a lógica do fluxograma
@@ -207,7 +250,16 @@
                     this.$store.dispatch('changeColorVergne', this.colorVergne)
                 },
                 deep: true //deep: true → O que estiver dentro da variável será observado
-            }
+            },
+            ilustrations:{
+                handler(){
+                    this.$store.dispatch('changeIlustrations', this.ilustrations)
+                },
+                deep: true //deep: true → O que estiver dentro da variável será observado
+            },
+            resultado(){
+                this.$store.dispatch('changeResultado', this.resultado)
+            }  
         },
     }
 

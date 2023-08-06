@@ -86,8 +86,8 @@
                     rockMass: '',
                     prod: '',
                     depth: '',
-                    resultado: '',
                 },
+                resultado: '',
                 colorCardozo: {
                     start: '',
                     rockMass: '',
@@ -120,6 +120,7 @@
                     usina: true,
                     shaft: false,
                     rampa: false,
+                    rampa_pit: false,
                     truck: false,
                     correia: false,
                     pit: false,
@@ -132,6 +133,7 @@
                     usina: true,
                     shaft: false,
                     rampa: false,
+                    rampa_pit: false,
                     truck: false,
                     correia: false,
                     pit: false,
@@ -169,8 +171,8 @@
 
                 // SURFACE MATERIAL
                 if (this.cardozo.surfaceMaterial == "maior") {
-                    this.cardozo.resultado = "shaft"
-                    this.showImages(['shaft', 'vent'])
+                    this.resultado = "shaft"
+                    this.showImages(['shaft'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "shaft"])
                 } else if (this.cardozo.surfaceMaterial == "menor") {
@@ -180,8 +182,8 @@
 
                 // ROCK MASS
                 if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "maior") {
-                    this.cardozo.resultado = "shaft"
-                    this.showImages(['shaft', 'vent'])
+                    this.resultado = "shaft"
+                    this.showImages(['shaft'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "shaft"])
                 } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor") {
@@ -191,9 +193,8 @@
 
                 // PROFUNDIDADE
                 if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor" && this.cardozo.depth == "maior") {
-                    this.cardozo.resultado = "shaft"
-                    this.showImages(['shaft', 'vent'])
-
+                    this.resultado = "shaft"
+                    this.showImages(['shaft'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "shaft"])
 
@@ -204,26 +205,26 @@
 
                 // PRODUÇÃO
                 if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor" && (this.cardozo.depth == "entre" || this.cardozo.depth == "menor") && this.cardozo.prod == "maior") {
-                    this.cardozo.resultado = "correia"
-                    this.showImages(['correia', 'vent'])
+                    this.resultado = "correia"
+                    this.showImages(['correia'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "correia"])
 
                 } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor" && (this.cardozo.depth == "entre" || this.cardozo.depth == "menor") && (this.cardozo.prod == "menor" || this.cardozo.prod == "entre") && this.cardozo.depth == "menor") {
-                    this.cardozo.resultado = "rampa"
-                    this.showImages(['rampa', 'vent'])
+                    this.resultado = "rampa"
+                    this.showImages(['rampa', 'truck'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "rampa"])
 
                 } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor" && (this.cardozo.depth == "entre" || this.cardozo.depth == "menor") && this.cardozo.prod == "menor" && this.cardozo.depth == "entre") {
-                    this.cardozo.resultado = "rampa"
-                    this.showImages(['rampa', 'vent'])
+                    this.resultado = "rampa"
+                    this.showImages(['rampa', 'truck'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "prodLeft", "rampa"])
 
                 } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor" && (this.cardozo.depth == "entre" || this.cardozo.depth == "menor") && this.cardozo.prod == "entre" && this.cardozo.depth == "entre") {
-                    this.cardozo.resultado = "shaft"
-                    this.showImages(['shaft', 'vent'])
+                    this.resultado = "shaft"
+                    this.showImages(['shaft'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "prodLeft", "shaft"])
                 }
@@ -256,7 +257,10 @@
                     this.$store.dispatch('changeIlustrations', this.ilustrations)
                 },
                 deep: true //deep: true → O que estiver dentro da variável será observado
-            }
+            },
+            resultado(){
+                this.$store.dispatch('changeResultado', this.resultado)
+            }   
         },
     }
 

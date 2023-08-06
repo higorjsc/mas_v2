@@ -109,6 +109,7 @@
         },  
         data(){
             return{
+                resultado: '',
                 moser:{
                     logistica: '',
                     rockMass: '',
@@ -141,7 +142,33 @@
                     depthLeft: 'white',
                     rampa: coresDefault.fluxoBlue,
                     shaft: coresDefault.fluxoBlue,
-                }           
+                },     
+                ilustrations:{
+                    orebody: true,
+                    superficie: true,
+                    superficie_pit: false,
+                    ventilacao: true,
+                    usina: true,
+                    shaft: false,
+                    rampa: false,
+                    rampa_pit: false,
+                    truck: false,
+                    correia: false,
+                    pit: false,
+                },
+                defaultIlustrations:{
+                    orebody: true,
+                    superficie: true,
+                    superficie_pit: false,
+                    ventilacao: true,
+                    usina: true,
+                    shaft: false,
+                    rampa: false,
+                    rampa_pit: false,
+                    truck: false,
+                    correia: false,
+                    pit: false,
+                }             
             }
         },
         mounted(){
@@ -163,6 +190,14 @@
                     this.colorMoser[objeto] = coresDefault.fluxoGreen
                 })
             },
+            defaultImages(){
+                this.ilustrations = JSON.parse(JSON.stringify(this.defaultIlustrations));
+            },
+            showImages(itens){
+                itens.forEach(item =>{
+                    this.ilustrations[item] = true
+                })
+            },
             newValue(){
 
                 // LOGISTICA
@@ -171,7 +206,8 @@
                     this.setColorGreen(['logistica'])
                 }else
                 if(this.moser.logistica == 'nao'){
-                    this.moser.resultado = 'shaft'
+                    this.resultado = 'shaft'
+                    this.showImages(['shaft', 'superficie'])
                     this.setColorRed()
                     this.setColorGreen(['logistica', 'shaft'])
                 }
@@ -182,14 +218,16 @@
                     this.setColorGreen(['logistica', 'rockMass'])
                 }else
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'maior'){
-                    this.moser.resultado = 'shaft'
+                    this.resultado = 'shaft'
+                    this.showImages(['shaft'])
                     this.setColorRed()
                     this.setColorGreen(['logistica', 'rockMass', 'shaft'])
                 }
                 
                 // SURFACE MATERIAL
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'menor'  && this.moser.surfaceMaterial == 'maior'){
-                    this.moser.resultado = 'shaft'
+                    this.resultado = 'shaft'
+                    this.showImages(['shaft'])
                     this.setColorRed()
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'shaft'])
                 }else 
@@ -203,10 +241,15 @@
                     enableObjects('depth')
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'openPit'])
                 }
+
+                if(this.moser.openPit == 'sim'){
+                    this.showImages(['superficie_pit']) 
+                }
                 
                 // PROFUNDIDADE OPEN PIT NÃO
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'menor'  && this.moser.surfaceMaterial == 'menor' && this.moser.openPit == 'nao'  && (this.moser.depth == 'entre'||this.moser.depth == 'maior')){
-                    this.moser.resultado = 'shaft'
+                    this.resultado = 'shaft'
+                    this.showImages(['shaft'])
                     this.setColorRed()
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'openPit', 'depthCenter', 'shaft'])
                 }else
@@ -217,7 +260,8 @@
 
                 // PROFUNDIDADE OPEN PIT SIM
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'menor'  && this.moser.surfaceMaterial == 'menor' && this.moser.openPit == 'sim'  && this.moser.depth == 'maior'){
-                    this.moser.resultado = 'shaft'
+                    this.resultado = 'shaft'
+                    this.showImages(['shaft'])
                     this.setColorRed()
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'openPit', 'depthLeft', 'shaft'])
                 }else
@@ -228,24 +272,28 @@
 
                 //PRODUCTION OPEN PIT NÃO
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'menor'  && this.moser.surfaceMaterial == 'menor' && this.moser.openPit == 'nao'  && this.moser.depth == 'menor' && this.moser.prod == 'menor'){
-                    this.moser.resultado == 'rampa'
+                    this.resultado == 'rampa'
+                    this.showImages(['rampa', 'truck'])
                     this.setColorRed()
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'openPit', 'depthCenter', 'prodCenter', 'rampa'])
                 }else
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'menor'  && this.moser.surfaceMaterial == 'menor' && this.moser.openPit == 'nao'  && this.moser.depth == 'menor' && (this.moser.prod == 'entre'||this.moser.prod == 'maior')){
-                    this.moser.resultado == 'rampa'
+                    this.resultado == 'rampa'
+                    this.showImages(['rampa', 'truck'])
                     this.setColorRed()
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'openPit', 'depthCenter', 'prodCenter', 'shaft'])
                 }
 
                 //PRODUCTION OPEN PIT SIM
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'menor'  && this.moser.surfaceMaterial == 'menor' && this.moser.openPit == 'sim'  && (this.moser.depth == 'menor'||this.moser.depth == 'entre') && (this.moser.prod == 'menor'||this.moser.prod == 'entre') ){
-                    this.moser.resultado == 'rampa'
+                    this.resultado == 'rampa'
+                    this.showImages(['rampa_pit', 'truck'])
                     this.setColorRed()
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'openPit', 'depthLeft', 'prodLeft', 'rampa'])
                 }else
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'menor'  && this.moser.surfaceMaterial == 'menor' && this.moser.openPit == 'sim'  && (this.moser.depth == 'menor'||this.moser.depth == 'entre') && this.moser.prod == 'maior'){
-                    this.moser.resultado == 'shaft'
+                    this.resultado == 'shaft'
+                    this.showImages(['shaft'])
                     this.setColorRed()
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'openPit', 'depthLeft', 'prodLeft', 'shaft'])
                 }
@@ -258,6 +306,8 @@
                     disableObject(['rm', 'sm', 'op', 'depth', 'prod'])
                     // Muda a cor de todos os elementos para vermelho.
                     this.setDefaultColor()
+                    // Oculta as todas as imagens não default
+                    this.defaultImages()
                     // Chama a função com a lógica do fluxograma
                     this.newValue()
                     // Altera o valor de moser na store VueExe
@@ -272,7 +322,16 @@
                     this.$store.dispatch('changeColorMoser', this.colorMoser)
                 },
                 deep: true //deep: true → O que estiver dentro da variável será observado
-            }
+            },
+            ilustrations:{
+                handler(){
+                    this.$store.dispatch('changeIlustrations', this.ilustrations)
+                },
+                deep: true //deep: true → O que estiver dentro da variável será observado
+            },
+            resultado(){
+                this.$store.dispatch('changeResultado', this.resultado)
+            }  
         },
     }
 

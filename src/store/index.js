@@ -4,6 +4,7 @@ import { coresDefault } from '@/assets/javascript/constants.js'
 export default createStore({
     state: {
         language: 'pt', // Idioma padrão
+        resultado: '', // Idioma padrão
         inputsAcessos:{
             moser:{
                 logistica: '',
@@ -12,21 +13,18 @@ export default createStore({
                 openPit: '',
                 prod: '',
                 depth: '',
-                resultado: '',
             }, 
             cardozo:{
                 surfaceMaterial: '',
                 rockMass: '',
                 prod: '',
                 depth: '',
-                resultado:'',
             },
             vergne:{
                 surfaceMaterial: '',
                 rockMass: '',
                 prod: '',
                 depth: '',
-                resultado:'',
             },
         },
         color:{
@@ -73,10 +71,10 @@ export default createStore({
             superficie_pit: false,
             ventilacao: true,
             usina: true,
-            shaft: true,
-            rampa: true,
-            rampa_pit: true,
-            truck: true,
+            shaft: false,
+            rampa: false,
+            rampa_pit: false,
+            truck: false,
             correia: false,
         }
     },
@@ -105,6 +103,9 @@ export default createStore({
         setIlustrations(state, data) {
             state.ilustrations = data
         },
+        setResultado(state, data) {
+            state.resultado = data
+        },
     },
     getters: {
         currentLanguage(state) {
@@ -118,6 +119,9 @@ export default createStore({
         },
         currentIlustrations(state){
             return state.ilustrations
+        },
+        currentResultado(state){
+            return state.resultado
         }
     },
     actions: {
@@ -145,6 +149,9 @@ export default createStore({
         },
         changeIlustrations(context, data){
             context.commit('setIlustrations', data)
+        },
+        changeResultado(context, data){
+            context.commit('setResultado', data)
         }
   },
 })

@@ -1,33 +1,33 @@
 <template>
 
     <NavBar>
-      
+    
     </NavBar>
   
-  </template>
-    
-  <script>
-    import NavBar from '@/components/mainNavBar.vue'
-    export default {
-      components: {
-        NavBar
-      }
-      ,
-      data(){
-        return {
+</template>
+
+    <script>
+        import NavBar from '@/components/mainNavBar.vue'
+        export default {
+        components: {
+            NavBar
         }
-      }
-    }
-  </script>
+        ,
+        data(){
+            return {
+            }
+        }
+        }
+    </script>
+    
   
-  
-  <style scoped>
-  
-      #main-nav {
-        display: block;
-        position: relative;
-        margin: auto;
-      }
-  
-  </style>
+    <style scoped>
+    
+        #main-nav {
+            display: block;
+            position: relative;
+            margin: auto;
+        }
+    
+    </style>
   

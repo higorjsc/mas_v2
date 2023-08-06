@@ -6,7 +6,7 @@
         <span 
             :class="`resultado ${tema}`"
         >
-            {{ $t(this.$store.getters.currentInputsAcesso[this.metodo]['resultado']) }}
+            {{ $t(this.$store.getters.currentResultado) }}
         </span>
 
     </div>
@@ -17,33 +17,11 @@
 
     export default {
         props:{
-            metodo:{
-                type: String,
-                default: 'cardozo'
-            },
             tema:{
                 type: String,
                 default: ''
             },
         },
-
-        computed:{
-            resultadoFluxograma() {
-                let resultado = this.$store.getters.currentResult[this.metodo]['resultado'];
-                switch (resultado) {
-                    case 'shaft':
-                        resultado = 'textoShaft';
-                        break;
-                    case 'outroValor':
-                        resultado = 'textoOutroValor';
-                        break;
-                    // Adicione mais casos conforme necessário
-                    default:
-                        resultado = ''; // Defina um valor padrão se não houver correspondência
-                }
-                return resultado;
-            },
-        }
 }
 
 

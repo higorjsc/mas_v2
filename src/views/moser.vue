@@ -31,7 +31,7 @@
             />
            
 
-            <Resultados 
+            <Ilustrations 
                 class ="main-elements resultados"
                 metodo = "moser"
             />
@@ -53,7 +53,7 @@
 
     import inputs from '@/components/inputsMoser.vue'
     import Fluxograma from '@/components/compartilhado/fluxograma.vue'
-    import Resultados from '@/components/compartilhado/resultadosAcessos.vue'
+    import Ilustrations from '@/components/compartilhado/ilustrationsAcessos.vue'
 
     export default {
         name: 'moser',
@@ -64,7 +64,7 @@
             Fluxograma,
             Header,
             Footer,
-            Resultados,
+            Ilustrations,
         },
         data(){
             return {

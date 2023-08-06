@@ -25,12 +25,11 @@
                 src="@\assets\Imagens\rampa.png" 
                 alt="imagem shaft vertical"
             >
-            <!-- <img 
-                id="shaft" 
-                v-if="ilustrations['shaft']"
-                src="@\assets\Imagens\correia.png" 
-                alt="imagem shaft vertical"
-                > -->
+            <div
+                id="correia" 
+                v-if="this.$store.getters.currentIlustrations['correia']"
+            >
+            </div>
             <img 
                 id="vent" 
                 v-if="this.$store.getters.currentIlustrations['ventilacao']"
@@ -69,7 +68,9 @@
             >
 
         </div>
-        <Resultados />
+        <Resultados
+        
+        />
 
     </section>
 
@@ -86,27 +87,8 @@
                 type: String,
                 default: ''
             },
-        },
-        computed:{
-            resultadoFluxograma() {
-                let resultado = this.$store.getters.currentResult[this.metodo]['resultado'];
-                switch (resultado) {
-                    case 'shaft':
-                        resultado = 'textoShaft';
-                        break;
-                    case 'outroValor':
-                        resultado = 'textoOutroValor';
-                        break;
-                    // Adicione mais casos conforme necessário
-                    default:
-                        resultado = ''; // Defina um valor padrão se não houver correspondência
-                }
-                return resultado;
-            },
-
-        },
-};
-
+        }
+}
 
 </script>
   
@@ -125,8 +107,8 @@
         border-bottom-right-radius: 20px;
     }
     .ilustration-container{
-        position: absolute;
-        top: 5%;
+        position: relative;
+        margin: auto;
         height: 65%;
         width: 360px;
         overflow: hidden;
@@ -135,7 +117,7 @@
         position: absolute;
     }
     #shaft{
-        top: 16%;
+        top: 15%;
         left: 12%;
         height: 230px;
     }
@@ -144,12 +126,12 @@
         left: 3%;
     }
     #usina{
-        top: -2%;
+        top: -1.5%;
         right: -11%;
         transform: rotate(-3deg);
     }
     #superficie{
-        top: 14%;
+        top: 12%;
         left: 4%;
         z-index: -1;
     }
@@ -157,10 +139,11 @@
         top: 12%;
         left: -11%;
         z-index: -1;
+        transform: rotate(1deg);
     }
     #vent{
         height: 240px;
-        top: 15%;
+        top: 15.6%;
         left: 69%
     }
     #rampa-pit{
@@ -169,9 +152,18 @@
         height: 200px;
     }
     #rampa{
-        top: 16.5%;
+        top: 14.7%;
         left: 35%;
         height: 250px;
+    }
+    #correia{
+        position: absolute;
+        top: 42%;
+        left: 18%;
+        background-color: black;
+        width: 350px;
+        height: 2px;
+        transform: rotate(-20deg);
     }
     #truck{
         top: 11.8%;
