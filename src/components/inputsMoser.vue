@@ -99,17 +99,19 @@
 <script>
 
     import {disableObject, enableObjects} from '@/assets/javascript/acessos.js'
-    import {coresDefault} from '@/assets/javascript/constants.js'
     import switchLanguage from '@/components/compartilhado/switchLanguage.vue'
+    import methodsAcessos from '@/components/compartilhado/mixinAcessos.vue'
 
     export default {
         name: 'navBar',
         components:{
             switchLanguage
-        },  
+        },
+        mixins:[
+            methodsAcessos
+        ],
         data(){
             return{
-                resultado: '',
                 moser:{
                     logistica: '',
                     rockMass: '',
@@ -118,86 +120,13 @@
                     prod: '',
                     depth: '',
                     resultado:'',
-                },
-                colorMoser: {
-                    logistica: '',
-                    rockMass: '',
-                    surfaceMaterial: '',
-                    openPit: '',
-                    prodCenter: '',
-                    prodLeft: '',
-                    depthCenter: '',
-                    depthLeft: '',
-                    rampa: '',
-                    shaft: '',
-                } ,
-                defaultColorMoser: {
-                    logistica: coresDefault.fluxoGreen,
-                    rockMass: 'white',
-                    surfaceMaterial: 'white',
-                    openPit: 'white',
-                    prodCenter: 'white',
-                    prodLeft: 'white',
-                    depthCenter: 'white',
-                    depthLeft: 'white',
-                    rampa: coresDefault.fluxoBlue,
-                    shaft: coresDefault.fluxoBlue,
-                },     
-                ilustrations:{
-                    orebody: true,
-                    superficie: true,
-                    superficie_pit: false,
-                    ventilacao: true,
-                    usina: true,
-                    shaft: false,
-                    rampa: false,
-                    rampa_pit: false,
-                    truck: false,
-                    correia: false,
-                    pit: false,
-                },
-                defaultIlustrations:{
-                    orebody: true,
-                    superficie: true,
-                    superficie_pit: false,
-                    ventilacao: true,
-                    usina: true,
-                    shaft: false,
-                    rampa: false,
-                    rampa_pit: false,
-                    truck: false,
-                    correia: false,
-                    pit: false,
-                }             
+                },      
             }
         },
         mounted(){
             disableObject(['rm', 'sm', 'op', 'depth', 'prod'])
         },
         methods:{
-            setDefaultColor() {
-                for (const key in this.colorMoser) {
-                    this.colorMoser[key] = this.defaultColorMoser[key];
-                } 
-            },setColorRed() {
-                for (const key in this.colorMoser) {
-                    this.colorMoser[key] = ' rgba(236, 22, 22, 0.8)';
-                } 
-            },
-            setColorGreen(objetos = []){
-                // Muda a cor dos objetos do array para verde
-                objetos.forEach((objeto)=>{
-                    this.colorMoser[objeto] = coresDefault.fluxoGreen
-                })
-            },
-            defaultImages(){
-                this.ilustrations = JSON.parse(JSON.stringify(this.defaultIlustrations));
-            },
-            showImages(itens){
-                itens.forEach(item =>{
-                    this.ilustrations[item] = true
-                })
-            },
             newValue(){
 
                 // LOGISTICA
@@ -316,23 +245,8 @@
                     console.log(this.moser.depth)
                 },
                 deep: true //deep: true → O que estiver dentro da variável será observado
-            },
-            colorMoser:{
-                handler(){
-                    this.$store.dispatch('changeColorMoser', this.colorMoser)
-                },
-                deep: true //deep: true → O que estiver dentro da variável será observado
-            },
-            ilustrations:{
-                handler(){
-                    this.$store.dispatch('changeIlustrations', this.ilustrations)
-                },
-                deep: true //deep: true → O que estiver dentro da variável será observado
-            },
-            resultado(){
-                this.$store.dispatch('changeResultado', this.resultado)
-            }  
-        },
+            }
+        }
     }
 
 </script>

@@ -28,42 +28,18 @@ export default createStore({
             },
         },
         color:{
-            cardozo: {
-                start: coresDefault.fluxoGreen,
-                rockMass: 'white',
-                surfaceMaterial: 'white',
-                prodCenter: 'white',
-                prodLeft: 'white',
-                depthCenter: 'white',
-                depthLeft: 'white',
-                correia: coresDefault.fluxoBlue,
-                rampa: coresDefault.fluxoBlue,
-                shaft: coresDefault.fluxoBlue,
-            },
-            vergne: {
-                start: coresDefault.fluxoGreen,
-                rockMass: 'white',
-                surfaceMaterial: 'white',
-                prodCenter: 'white',
-                prodLeft: 'white',
-                depthCenter: 'white',
-                depthLeft: 'white',
-                correia: coresDefault.fluxoBlue,
-                rampa: coresDefault.fluxoBlue,
-                shaft: coresDefault.fluxoBlue,
-            },
-            moser: {
-                logistica: coresDefault.fluxoGreen,
-                rockMass: 'white',
-                surfaceMaterial: 'white',
-                openPit: 'white',
-                prodCenter: 'white',
-                prodLeft: 'white',
-                depthCenter: 'white',
-                depthLeft: 'white',
-                rampa: coresDefault.fluxoBlue,
-                shaft: coresDefault.fluxoBlue,
-            }, 
+            start: coresDefault.fluxoGreen,
+            logistica: coresDefault.fluxoGreen,
+            rockMass: 'white',
+            surfaceMaterial: 'white',
+            openPit: 'white',
+            prodCenter: 'white',
+            prodLeft: 'white',
+            depthCenter: 'white',
+            depthLeft: 'white',
+            correia: coresDefault.fluxoBlue,
+            rampa: coresDefault.fluxoBlue,
+            shaft: coresDefault.fluxoBlue,
         },
         ilustrations:{
             orebody: true,
@@ -91,14 +67,8 @@ export default createStore({
         setInputsAcessosVergne(state, data) {
             state.inputsAcessos.vergne = data
         },
-        setColorMoser(state, data) {
-            state.color.moser = data
-        },
-        setColorCardozo(state, data) {
-            state.color.cardozo = data
-        },
-        setColorVergne(state, data) {
-            state.color.vergne = data
+        setColor(state, data) {
+            state.color = data
         },
         setIlustrations(state, data) {
             state.ilustrations = data
@@ -138,14 +108,8 @@ export default createStore({
         changeInputsAcessosMoser(context, data){
             context.commit('setInputsAcessosMoser', data)
         },
-        changeColorMoser(context, data){
-            context.commit('setColorMoser', data)
-        },
-        changeColorCardozo(context, data){
-            context.commit('setColorCardozo', data)
-        },
-        changeColorVergne(context, data){
-            context.commit('setColorVergne', data)
+        changeColor(context, data){
+            context.commit('setColor', data)
         },
         changeIlustrations(context, data){
             context.commit('setIlustrations', data)

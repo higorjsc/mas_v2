@@ -12,7 +12,7 @@
                 :style="{
                     top: item.top,
                     left: item.left,
-                    background: this.$store.getters.currentColor[this.metodo][`${item.id}`],
+                    background: this.$store.getters.currentColor[`${item.id}`],
                     transform: item.transform,
                     width: item.width,
                     height: item.height

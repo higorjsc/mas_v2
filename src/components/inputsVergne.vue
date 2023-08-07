@@ -68,104 +68,31 @@
 </template>
 
 <script>
-
     import {disableObject, enableObjects} from '@/assets/javascript/acessos.js'
-    import {coresDefault} from '@/assets/javascript/constants.js'
     import switchLanguage from '@/components/compartilhado/switchLanguage.vue'
+    import methodsAcessos from '@/components/compartilhado/mixinAcessos.vue'
 
     export default {
-        name: 'navBar',
         components:{
             switchLanguage
-        },  
+        },
+        mixins:[
+            methodsAcessos
+        ],
         data(){
             return{
-                resultado: '',
                 vergne:{
                     surfaceMaterial: '',
                     rockMass: '',
                     prod: '',
                     depth: '',
-                },
-                colorVergne: {
-                    start: '',
-                    rockMass: '',
-                    surfaceMaterial: '',
-                    prodCenter: '',
-                    prodLeft: '',
-                    depthCenter: '',
-                    depthLeft: '',
-                    correia: '',
-                    rampa: '',
-                    shaft: '',
-                },
-                defaultColorVergne: {
-                    start: coresDefault.fluxoGreen,
-                    rockMass: 'Transparent',
-                    surfaceMaterial: 'Transparent',
-                    prodCenter: 'Transparent',
-                    prodLeft: 'Transparent',
-                    depthCenter: 'Transparent',
-                    depthLeft: 'Transparent',
-                    correia: coresDefault.fluxoBlue,
-                    rampa: coresDefault.fluxoBlue,
-                    shaft: coresDefault.fluxoBlue,
                 },     
-                ilustrations:{
-                    orebody: true,
-                    superficie: true,
-                    superficie_pit: false,
-                    ventilacao: true,
-                    usina: true,
-                    shaft: false,
-                    rampa: false,
-                    rampa_pit: false,
-                    truck: false,
-                    correia: false,
-                    pit: false,
-                },
-                defaultIlustrations:{
-                    orebody: true,
-                    superficie: true,
-                    superficie_pit: false,
-                    ventilacao: true,
-                    usina: true,
-                    shaft: false,
-                    rampa: false,
-                    rampa_pit: false,
-                    truck: false,
-                    correia: false,
-                    pit: false,
-                }             
             }
         },
         mounted(){
             disableObject(['rm', 'depth', 'prod'])
         },
         methods:{
-            setDefaultColor() {
-                for (const key in this.colorVergne) {
-                    this.colorVergne[key] = this.defaultColorVergne[key];
-                } 
-            }
-            ,setColorRed() {
-                for (const key in this.colorVergne) {
-                    this.colorVergne[key] = 'rgba(236, 22, 22, 0.8)';
-                } 
-            },
-            setColorGreen(objetos = []){
-                objetos.forEach((objeto)=>{
-                    this.colorVergne[objeto] = coresDefault.fluxoGreen
-                })
-            },
-            defaultImages(){
-                this.ilustrations = JSON.parse(JSON.stringify(this.defaultIlustrations));
-            },
-            showImages(itens){
-                itens.forEach(item =>{
-                    this.ilustrations[item] = true
-                })
-            },
             newValue(){  
 
                 // SURFACE MATERIAL
@@ -245,22 +172,7 @@
                 },
                 deep: true //deep: true → O que estiver dentro da variável será observado
             },
-            colorVergne:{
-                handler(){
-                    this.$store.dispatch('changeColorVergne', this.colorVergne)
-                },
-                deep: true //deep: true → O que estiver dentro da variável será observado
-            },
-            ilustrations:{
-                handler(){
-                    this.$store.dispatch('changeIlustrations', this.ilustrations)
-                },
-                deep: true //deep: true → O que estiver dentro da variável será observado
-            },
-            resultado(){
-                this.$store.dispatch('changeResultado', this.resultado)
-            }  
-        },
+        }
     }
 
 </script>

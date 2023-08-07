@@ -71,14 +71,17 @@
 <script>
 
     import {disableObject, enableObjects} from '@/assets/javascript/acessos.js'
-    import {coresDefault} from '@/assets/javascript/constants.js'
     import switchLanguage from '@/components/compartilhado/switchLanguage.vue'
+    import methodsAcessos from '@/components/compartilhado/mixinAcessos.vue'
 
     export default {
         name: 'navBar',
         components:{
             switchLanguage
-        },  
+        },
+        mixins:[
+            methodsAcessos
+        ],
         data(){
             return{
                 cardozo:{
@@ -87,86 +90,12 @@
                     prod: '',
                     depth: '',
                 },
-                resultado: '',
-                colorCardozo: {
-                    start: '',
-                    rockMass: '',
-                    surfaceMaterial: '',
-                    prodCenter: '',
-                    prodLeft: '',
-                    depthCenter: '',
-                    depthLeft: '',
-                    correia: '',
-                    rampa: '',
-                    shaft: '',
-                },
-                defaultColorCardozo: {
-                    start: coresDefault.fluxoGreen,
-                    rockMass: 'Transparent',
-                    surfaceMaterial: 'Transparent',
-                    prodCenter: 'Transparent',
-                    prodLeft: 'Transparent',
-                    depthCenter: 'Transparent',
-                    depthLeft: 'Transparent',
-                    correia: coresDefault.fluxoBlue,
-                    rampa: coresDefault.fluxoBlue,
-                    shaft: coresDefault.fluxoBlue,
-                },     
-                ilustrations:{
-                    orebody: true,
-                    superficie: true,
-                    superficie_pit: false,
-                    ventilacao: true,
-                    usina: true,
-                    shaft: false,
-                    rampa: false,
-                    rampa_pit: false,
-                    truck: false,
-                    correia: false,
-                    pit: false,
-                },
-                defaultIlustrations:{
-                    orebody: true,
-                    superficie: true,
-                    superficie_pit: false,
-                    ventilacao: true,
-                    usina: true,
-                    shaft: false,
-                    rampa: false,
-                    rampa_pit: false,
-                    truck: false,
-                    correia: false,
-                    pit: false,
-                }           
             }
         },
         mounted(){
             disableObject(['rm', 'depth', 'prod'])
         },
         methods:{
-            setDefaultColor() {
-                for (const key in this.colorCardozo) {
-                    this.colorCardozo[key] = this.defaultColorCardozo[key];
-                } 
-            },
-            setColorRed() {
-                for (const key in this.colorCardozo) {
-                    this.colorCardozo[key] = ' rgba(236, 22, 22, 0.8)';
-                } 
-            },
-            setColorGreen(objetos = []){
-                objetos.forEach((objeto)=>{
-                    this.colorCardozo[objeto] = coresDefault.fluxoGreen
-                })
-            },
-            defaultImages(){
-                this.ilustrations = JSON.parse(JSON.stringify(this.defaultIlustrations));
-            },
-            showImages(itens){
-                itens.forEach(item =>{
-                    this.ilustrations[item] = true
-                })
-            },
             newValue(){  
 
                 // SURFACE MATERIAL
@@ -245,23 +174,8 @@
                     this.$store.dispatch('changeInputsAcessosCardozo', this.cardozo)
                 },
                 deep: true //deep: true → O que estiver dentro da variável será observado
-            },
-            colorCardozo:{
-                handler(){
-                    this.$store.dispatch('changeColorCardozo', this.colorCardozo)
-                },
-                deep: true //deep: true → O que estiver dentro da variável será observado
-            },
-            ilustrations:{
-                handler(){
-                    this.$store.dispatch('changeIlustrations', this.ilustrations)
-                },
-                deep: true //deep: true → O que estiver dentro da variável será observado
-            },
-            resultado(){
-                this.$store.dispatch('changeResultado', this.resultado)
-            }   
-        },
+            }  
+        }
     }
 
 </script>
