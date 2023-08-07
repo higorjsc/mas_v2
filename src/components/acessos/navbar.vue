@@ -27,12 +27,6 @@ Copy code
     <script>
     export default {
         name: 'navBar',
-        props: {
-            tema:{
-                type: String,
-                default: 'acessos'
-            },
-        },
         data() {
             return {
             presente: {
@@ -62,7 +56,6 @@ Copy code
             }
         },
         mounted() {
-            this.liClasse()
             let url = window.location.href
             if (url.includes('cardozo')) {
             this.presente = this.cardozo
@@ -76,18 +69,6 @@ Copy code
             this.presente = this.moser
             this.option1 = this.cardozo
             this.option2 = this.vergne
-            }
-        },
-        methods:{
-            liClasse(){
-                const lis = document.getElementsByTagName('li')
-                for (let i = 0; i < lis.length; i++) {
-                    lis[i].classList.add(
-                        this.$store.getters.currentTema[`${this.tema}`]['mainColor'],
-                        this.$store.getters.currentTema[`${this.tema}`]['colorHover'],
-                        this.$store.getters.currentTema[`${this.tema}`]['shadowHover'],
-                    )
-                }
             }
         }
         }
@@ -139,6 +120,7 @@ Copy code
         display: block;
         border-top: 2pt solid white;
         border-bottom: 2pt solid white;
+        background-color: var(--cor-tema);
     }
     .escolhida:hover{
         cursor:pointer;
@@ -148,6 +130,7 @@ Copy code
         display: none;
         border-top: 2pt solid white;
         border-bottom: 2pt solid white;
+        background-color: var(--cor-tema);
     }
 
     ul:hover .option{
@@ -157,9 +140,10 @@ Copy code
     ul:hover{
         box-shadow: var(--shadow-hover);
     }
-
+    
     .option:hover{
         text-decoration: underline;
+        background-color: var(--cor-hover); 
     }
 
     .link{

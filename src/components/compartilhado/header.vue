@@ -19,12 +19,6 @@
 <script>
     export default {
         name: '',
-        props: {
-            tema:{
-                type: String,
-                default: ''
-            },
-        },
         data (){
             return{
 
