@@ -76,7 +76,7 @@
             switchLanguage
         },
         mixins:[
-        inputsMixin
+            inputsMixin
         ],
         data(){
             return{

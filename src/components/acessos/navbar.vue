@@ -5,15 +5,15 @@ Copy code
       <ul class="ul-parent">
         <li class="li-titulo">{{ $t('selectMethod') }}</li>
         <ul class="menu-option">
-          <li class="escolhida">
-            <span class= 'link' id='pagina-atual'>{{ presente.titulo }}</span>
-          </li> 
-          <li class="option">
-            <RouterLink class= 'link' :to="option1.path">{{ option1.titulo }}</RouterLink>
-          </li>
-          <li class="option">
-            <RouterLink class= 'link' :to="option2.path">{{ option2.titulo }}</RouterLink>
-          </li>
+            <li class="escolhida">
+                <span class= 'link' id='pagina-atual'>{{ presente.titulo }}</span>
+            </li> 
+            <li class="option">
+                <RouterLink class= 'link' :to="option1.path">{{ option1.titulo }}</RouterLink>
+            </li>
+            <li class="option">
+                <RouterLink class= 'link' :to="option2.path">{{ option2.titulo }}</RouterLink>
+            </li>
         </ul>            
       </ul>
     </nav>
@@ -28,11 +28,11 @@ Copy code
     export default {
         name: 'navBar',
         props: {
-                    tema:{
-                        type: String,
-                        default: ''
-                    },
-                },
+            tema:{
+                type: String,
+                default: 'acessos'
+            },
+        },
         data() {
             return {
             presente: {
@@ -62,6 +62,7 @@ Copy code
             }
         },
         mounted() {
+            this.liClasse()
             let url = window.location.href
             if (url.includes('cardozo')) {
             this.presente = this.cardozo
@@ -75,6 +76,18 @@ Copy code
             this.presente = this.moser
             this.option1 = this.cardozo
             this.option2 = this.vergne
+            }
+        },
+        methods:{
+            liClasse(){
+                const lis = document.getElementsByTagName('li')
+                for (let i = 0; i < lis.length; i++) {
+                    lis[i].classList.add(
+                        this.$store.getters.currentTema[`${this.tema}`]['mainColor'],
+                        this.$store.getters.currentTema[`${this.tema}`]['colorHover'],
+                        this.$store.getters.currentTema[`${this.tema}`]['shadowHover'],
+                    )
+                }
             }
         }
         }
@@ -113,13 +126,12 @@ Copy code
     }
 
     li{
-      background: var(--cor-tema);
       color: white;
     }
     
     .li-titulo{
       background-color: white;
-      color: var(--cor-tema);
+      color: black;
       font-weight: bold;
     }
 
@@ -147,7 +159,6 @@ Copy code
     }
 
     .option:hover{
-        background-color: var(--cor-hover);
         text-decoration: underline;
     }
 
