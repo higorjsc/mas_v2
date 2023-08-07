@@ -10,6 +10,17 @@
     width: 100%;
     padding-bottom: 5%
 }
+
+h2 {
+    border-bottom: var(--borda-simples);
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+    width: 96%;
+    left: 2%;
+    font-size: 11pt;
+}
+
 .switch-language{
     position: absolute;
     top:-3%;

@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
-import "@/assets/css/rootAcessos.css";
+import "@/assets/css/root.css";
 import "@/assets/css/mainAcessos.css";
 import "@/assets/css/inputsAcessos.css";
 import translation from "@/assets/javascript/translation.js";
