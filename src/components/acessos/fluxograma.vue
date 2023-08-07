@@ -6,7 +6,7 @@
         <div class="container">
             <!-- START -->
             <div 
-                v-for ="(item, index) in objetos"
+                v-for ="(item, index) in objeto"
                 :key="index"
                 class="itens" 
                 :style="{
@@ -18,11 +18,11 @@
                     height: item.height
                }"
             >
-                {{ $t(`${objetos[index]['Text']}`) }} 
+                {{ $t(`${objeto[index]['Text']}`) }} 
             </div>
            <!-- CONTAINER DE SETAS -->
             <Seta 
-                v-for="(item, index) in setas"
+                v-for="(item, index) in seta"
                 class="setas"
                 :key="index"  
                 :Head="item.head" 
@@ -58,15 +58,19 @@
 </template>
   
 <script>
-    import Seta from '@/components/compartilhado/seta.vue';
-    import Way from '@/components/compartilhado/way.vue';
-    import { objetosFluxograma } from '@/assets/javascript/constants.js';
+
+    import Seta from './seta.vue';
+    import Way from './way.vue';
+    import  fluxoDataMixin  from './fluxoDataMixin.vue';
 
     export default {
         components:{
             Seta,
             Way
         },
+        mixins:[
+            fluxoDataMixin
+        ],
         props:{
             metodo: {
                 type: String,
@@ -75,26 +79,25 @@
         },
         data() {
             return {
-                objetos: '',
+                objeto: '',
                 way: '',
-                setas: ''
+                seta: ''
             }
         },
         mounted() {
-            // Carregar os dados necessários assim que o componente for criado
-            this.objetos = objetosFluxograma['objeto'][`${this.metodo}`];
-            this.way = objetosFluxograma['way'][`${this.metodo}`];
-            this.setas = objetosFluxograma['setas'][`${this.metodo}`];
+            this.objeto = this.objetos[`${this.metodo}`]
+            this.way = this.ways[`${this.metodo}`]
+            this.seta = this.setas[`${this.metodo}`]
         },
         computed:{
             valoresObjetos(){
-                return objetosFluxograma['objeto'][`${this.metodo}`]
+                return this.objetos[`${this.metodo}`]
             },
             valoresWay(){
-                return objetosFluxograma['way'][`${this.metodo}`]
+                return this.ways[`${this.metodo}`]
             },
             valoresSetas(){
-                return objetosFluxograma['setas'][`${this.metodo}`]
+                return this.setas[`${this.metodo}`]
             }
         },
 };

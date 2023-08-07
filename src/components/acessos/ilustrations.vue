@@ -77,7 +77,8 @@
 </template>
   
 <script>
-    import Resultados from '@/components/compartilhado/resultadosAcessos.vue'
+    import Resultados from './resultados.vue'
+
     export default {
         components:{
             Resultados

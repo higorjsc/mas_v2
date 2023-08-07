@@ -1,9 +1,6 @@
 
 <script>
 
-    import {disableObject} from '@/assets/javascript/acessos.js'
-    import {coresDefault} from '@/assets/javascript/constants.js'
-
     export default {
         data(){
             return{
@@ -23,8 +20,8 @@
                     shaft: '',
                 } ,
                 defaultColor: {
-                    start: 'coresDefault.fluxoGreen',
-                    logistica: coresDefault.fluxoGreen,
+                    start: 'rgba(14, 224, 49, 0.8)',
+                    logistica: 'rgba(14, 224, 49, 0.8)',
                     rockMass: 'white',
                     surfaceMaterial: 'white',
                     openPit: 'white',
@@ -32,9 +29,9 @@
                     prodLeft: 'white',
                     depthCenter: 'white',
                     depthLeft: 'white',
-                    correia: coresDefault.fluxoBlue,
-                    rampa: coresDefault.fluxoBlue,
-                    shaft: coresDefault.fluxoBlue,
+                    correia: 'rgba(31, 191, 219, 0.493)',
+                    rampa: 'rgba(31, 191, 219, 0.493)',
+                    shaft: 'rgba(31, 191, 219, 0.493)',
                 },     
                 ilustrations:{
                     orebody: true,
@@ -64,9 +61,6 @@
                 }             
             }
         },
-        mounted(){
-            disableObject(['rm', 'sm', 'op', 'depth', 'prod'])
-        },
         methods:{
             setDefaultColor() {
                 for (const key in this.color) {
@@ -75,13 +69,13 @@
             },
             setColorRed() {
                 for (const key in this.color) {
-                    this.color[key] = ' rgba(236, 22, 22, 0.8)';
+                    this.color[key] = 'rgba(236, 22, 22, 0.8)'
                 } 
             },
             setColorGreen(objetos = []){
                 // Muda a cor dos objetos do array para verde
                 objetos.forEach((objeto)=>{
-                    this.color[objeto] = coresDefault.fluxoGreen
+                    this.color[objeto] = 'rgba(14, 224, 49, 0.8)'
                 })
             },
             defaultImages(){
@@ -92,6 +86,7 @@
                     this.ilustrations[item] = true
                 })
             },
+            // DESABILITA OS OBJETOS NA SEQUENCIA DO FLUXOGRAMA
             enableObjects(id){
                 // Altera a opacidade da div a partir do id
                 let objeto = document.querySelector(`#${id}`)
@@ -106,6 +101,7 @@
                 })
                 }
             },
+            // HABILITA O PRÓXIMO ELEMENTO DO FLUXOGRAMA
             disableObject(ids=[]){
                 ids.forEach((id) =>{
                     // Altera a opacidade da div a partir do id

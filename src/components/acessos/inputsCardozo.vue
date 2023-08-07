@@ -69,10 +69,8 @@
 </template>
 
 <script>
-
-    import {disableObject, enableObjects} from '@/assets/javascript/acessos.js'
     import switchLanguage from '@/components/compartilhado/switchLanguage.vue'
-    import methodsAcessos from '@/components/compartilhado/mixinAcessos.vue'
+    import inputsMixin from './inputsMixin.vue'
 
     export default {
         name: 'navBar',
@@ -80,7 +78,7 @@
             switchLanguage
         },
         mixins:[
-            methodsAcessos
+            inputsMixin
         ],
         data(){
             return{
@@ -93,7 +91,7 @@
             }
         },
         mounted(){
-            disableObject(['rm', 'depth', 'prod'])
+            this.disableObject(['rm', 'depth', 'prod'])
         },
         methods:{
             newValue(){  
@@ -105,7 +103,7 @@
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "shaft"])
                 } else if (this.cardozo.surfaceMaterial == "menor") {
-                    enableObjects("rm")
+                    this.enableObjects("rm")
                     this.setColorGreen(["start", "surfaceMaterial"])
                 }
 
@@ -116,7 +114,7 @@
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "shaft"])
                 } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor") {
-                    enableObjects("depth")
+                    this.enableObjects("depth")
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass"])
                 }
 
@@ -128,7 +126,7 @@
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "shaft"])
 
                 } else if (this.cardozo.surfaceMaterial == "menor" && this.cardozo.rockMass == "menor" && (this.cardozo.depth == "entre" || this.cardozo.depth == "menor")) {
-                    enableObjects("prod")
+                    this.enableObjects("prod")
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter"])
                 }
 
@@ -163,7 +161,7 @@
             cardozo:{
                 handler(){
                     // Desabilita os inputs e altera a opacidade das divs
-                    disableObject(['rm', 'depth', 'prod'])
+                    this.disableObject(['rm', 'depth', 'prod'])
                     // Define a cor de todos os elementos para o padrão.
                     this.setDefaultColor()
                     // Oculta as todas as imagens não default

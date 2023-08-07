@@ -98,9 +98,8 @@
 
 <script>
 
-    import {disableObject, enableObjects} from '@/assets/javascript/acessos.js'
     import switchLanguage from '@/components/compartilhado/switchLanguage.vue'
-    import methodsAcessos from '@/components/compartilhado/mixinAcessos.vue'
+    import inputsMixin from './inputsMixin.vue'
 
     export default {
         name: 'navBar',
@@ -108,7 +107,7 @@
             switchLanguage
         },
         mixins:[
-            methodsAcessos
+            inputsMixin
         ],
         data(){
             return{
@@ -124,14 +123,14 @@
             }
         },
         mounted(){
-            disableObject(['rm', 'sm', 'op', 'depth', 'prod'])
+            this.disableObject(['rm', 'sm', 'op', 'depth', 'prod'])
         },
         methods:{
             newValue(){
 
                 // LOGISTICA
                 if(this.moser.logistica == 'sim'){
-                    enableObjects('rm')
+                    this.enableObjects('rm')
                     this.setColorGreen(['logistica'])
                 }else
                 if(this.moser.logistica == 'nao'){
@@ -143,7 +142,7 @@
 
                 // ROCK MASS
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'menor'){
-                    enableObjects('sm')
+                    this.enableObjects('sm')
                     this.setColorGreen(['logistica', 'rockMass'])
                 }else
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'maior'){
@@ -161,13 +160,13 @@
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'shaft'])
                 }else 
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'menor'  && this.moser.surfaceMaterial == 'menor'){
-                    enableObjects('op')
+                    this.enableObjects('op')
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial'])
                 } 
                 
                 // ACESSO POR OPEN PIT
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'menor'  && this.moser.surfaceMaterial == 'menor' && (this.moser.openPit == 'sim' || this.moser.openPit == 'nao') ){
-                    enableObjects('depth')
+                    this.enableObjects('depth')
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'openPit'])
                 }
 
@@ -183,7 +182,7 @@
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'openPit', 'depthCenter', 'shaft'])
                 }else
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'menor'  && this.moser.surfaceMaterial == 'menor' && this.moser.openPit == 'nao'  && this.moser.depth == 'menor'){
-                    enableObjects('prod')
+                    this.enableObjects('prod')
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'openPit', 'depthCenter'])
                 }
 
@@ -195,7 +194,7 @@
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'openPit', 'depthLeft', 'shaft'])
                 }else
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'menor'  && this.moser.surfaceMaterial == 'menor' && this.moser.openPit == 'sim'  && (this.moser.depth == 'menor'||this.moser.depth == 'entre')){
-                    enableObjects('prod')
+                    this.enableObjects('prod')
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'openPit', 'depthLeft'])
                 }
 
@@ -232,7 +231,7 @@
             moser:{
                 handler(){
                     // Desabilita os inputs e altera a opacidade das divs
-                    disableObject(['rm', 'sm', 'op', 'depth', 'prod'])
+                    this.disableObject(['rm', 'sm', 'op', 'depth', 'prod'])
                     // Muda a cor de todos os elementos para vermelho.
                     this.setDefaultColor()
                     // Oculta as todas as imagens não default

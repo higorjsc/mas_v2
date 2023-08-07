@@ -1,5 +1,8 @@
 import { createStore } from 'vuex'
-import { coresDefault } from '@/assets/javascript/constants.js'
+
+// const fluxoRed  ='rgba(31, 191, 219, 0.493)'
+// const fluxoGreen = 'rgba(14, 224, 49, 0.8)'
+// const fluxoBlue  ='rgba(31, 191, 219, 0.493)'
 
 export default createStore({
     state: {
@@ -28,8 +31,8 @@ export default createStore({
             },
         },
         color:{
-            start: coresDefault.fluxoGreen,
-            logistica: coresDefault.fluxoGreen,
+            start: 'rgba(14, 224, 49, 0.8)',
+            logistica: 'rgba(14, 224, 49, 0.8)',
             rockMass: 'white',
             surfaceMaterial: 'white',
             openPit: 'white',
@@ -37,9 +40,9 @@ export default createStore({
             prodLeft: 'white',
             depthCenter: 'white',
             depthLeft: 'white',
-            correia: coresDefault.fluxoBlue,
-            rampa: coresDefault.fluxoBlue,
-            shaft: coresDefault.fluxoBlue,
+            correia: 'rgba(31, 191, 219, 0.493)',
+            rampa: 'rgba(31, 191, 219, 0.493)',
+            shaft: 'rgba(31, 191, 219, 0.493)',
         },
         ilustrations:{
             orebody: true,

@@ -50,10 +50,10 @@
     import NavBar from '@/components/compartilhado/navbar.vue'
     import Header from '@/components/compartilhado/header.vue'
     import Footer from '@/components/compartilhado/footer.vue'
-
-    import inputs from '@/components/inputsMoser.vue'
-    import Fluxograma from '@/components/compartilhado/fluxograma.vue'
-    import Ilustrations from '@/components/compartilhado/ilustrationsAcessos.vue'
+    
+    import Fluxograma from '@/components/acessos/fluxograma.vue'
+    import Ilustrations from '@/components/acessos/ilustrations.vue'
+    import inputs from '@/components/acessos/inputsMoser.vue'
 
     export default {
         name: 'moser',

@@ -28,9 +28,9 @@
                 metodo = "vergne"
             />
             
-            <Resultados 
-                    class="main-elements resultados"
-                    metodo = "vergne"
+            <Ilustrations 
+                class="main-elements resultados"
+                metodo = "cardozo"
             />
 
         </main>
@@ -48,9 +48,10 @@
     import NavBar from '@/components/compartilhado/navbar.vue'
     import Header from '@/components/compartilhado/header.vue'
     import Footer from '@/components/compartilhado/footer.vue'
-    import Fluxograma from '@/components/compartilhado/fluxograma.vue'
-    import Resultados from '@/components/compartilhado/resultadosAcessos.vue'
-    import inputs from '@/components/inputsVergne.vue'
+    
+    import Fluxograma from '@/components/acessos/fluxograma.vue'
+    import Ilustrations from '@/components/acessos/ilustrations.vue'
+    import inputs from '@/components/acessos/inputsVergne.vue'
 
     export default {
         name: 'vergne',
@@ -59,9 +60,9 @@
             NavBar,
             inputs,
             Fluxograma,
+            Ilustrations,
             Header,
             Footer,
-            Resultados,
         },
         data(){
             return {
