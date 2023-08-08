@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import { TEMAS, CORES } from '@/assets/javascript/globalConstants.js'
 
 // const fluxoRed  ='rgba(31, 191, 219, 0.493)'
 // const fluxoGreen = 'rgba(14, 224, 49, 0.8)'
@@ -30,9 +31,11 @@ export default createStore({
                 depth: '',
             },
         },
+        temaMAS: TEMAS.temaVermelho,
+        temaMMS: TEMAS.temaVermelho,
         color:{
-            start: 'rgba(14, 224, 49, 0.8)',
-            logistica: 'rgba(14, 224, 49, 0.8)',
+            start: CORES.fluxoVerde,
+            logistica: CORES.fluxoVerde,
             rockMass: 'white',
             surfaceMaterial: 'white',
             openPit: 'white',
@@ -40,9 +43,9 @@ export default createStore({
             prodLeft: 'white',
             depthCenter: 'white',
             depthLeft: 'white',
-            correia: 'rgba(31, 191, 219, 0.493)',
-            rampa: 'rgba(31, 191, 219, 0.493)',
-            shaft: 'rgba(31, 191, 219, 0.493)',
+            correia: CORES.fluxoAzul,
+            rampa: CORES.fluxoAzul,
+            shaft: CORES.fluxoAzul,
         },
         ilustrations:{
             orebody: true,
@@ -95,6 +98,12 @@ export default createStore({
         },
         currentResultado(state){
             return state.resultado
+        },
+        currentTemaMAS(state){
+            return state.temaMAS
+        },
+        currentTemaMMS(state){
+            return state.temaMMS
         }
     },
     actions: {

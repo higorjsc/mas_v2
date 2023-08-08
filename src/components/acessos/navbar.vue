@@ -1,4 +1,3 @@
-Copy code
 <template>
   <section>
     <nav>
@@ -17,58 +16,79 @@ Copy code
         </ul>            
       </ul>
     </nav>
-    <p>
-      <slot id="paragrafo-explicacao"></slot>
-    </p>
+    <Description
+        :metodo="`${enviaMetodo}`"
+    ></Description>
+    
 </section>
 
 </template>
 
-    <script>
+<script>
+    import Description from './metodoDescription.vue'
+
     export default {
         name: 'navBar',
+        components:{
+            Description,
+        },
         data() {
             return {
-            presente: {
-                titulo: '',
-                path: ''
-            },
-            option1: {
-                titulo: '',
-                path: ''
-            },
-            option2: {
-                titulo: '',
-                path: ''
-            },
-            cardozo: {
-                titulo: 'CARDOZO (2023)',
-                path: '/cardozo'
-            },
-            vergne: {
-                titulo: 'LA VERGNE (2003)',
-                path: '/vergne'
-            },
-            moser: {
-                titulo: 'MOSER (1996)',
-                path: '/moser'
-            }
+                metodo: '',
+                presente: {
+                    titulo: '',
+                    path: ''
+                },
+                option1: {
+                    titulo: '',
+                    path: ''
+                },
+                option2: {
+                    titulo: '',
+                    path: ''
+                },
+                cardozo: {
+                    titulo: 'CARDOZO (2023)',
+                    path: '/cardozo'
+                },
+                vergne: {
+                    titulo: 'VERGNE (2003)',
+                    path: '/vergne'
+                },
+                moser: {
+                    titulo: 'MOSER (1996)',
+                    path: '/moser'
+                }
             }
         },
         mounted() {
-            let url = window.location.href
-            if (url.includes('cardozo')) {
-            this.presente = this.cardozo
-            this.option1 = this.vergne
-            this.option2 = this.moser
-            } else if (url.includes('vergne')) {
-            this.presente = this.vergne
-            this.option1 = this.cardozo
-            this.option2 = this.moser
-            } else if (url.includes('moser')) {
-            this.presente = this.moser
-            this.option1 = this.cardozo
-            this.option2 = this.vergne
+            // Chama a função que ordena a navBar e retorna o método selecionado
+            this.defineMetodo()
+        },
+        methods:{
+            defineMetodo(){
+                let url = window.location.href
+                if (url.includes('cardozo')) {
+                    this.presente = this.cardozo
+                    this.option1 = this.vergne
+                    this.option2 = this.moser
+                } else if (url.includes('vergne')) {
+                    this.presente = this.vergne
+                    this.option1 = this.cardozo
+                    this.option2 = this.moser
+                } else if (url.includes('moser')) {
+                    this.presente = this.moser
+                    this.option1 = this.cardozo
+                    this.option2 = this.vergne
+                }
+                
+                // this.metodo = Cardozo || Moser || Vergne
+                this.metodo = this.presente.titulo.split(' ')[0].toLocaleLowerCase().charAt(0).toUpperCase() + this.presente.titulo.slice(1).toLocaleLowerCase().split(' ')[0];
+            }
+        },
+        computed:{
+            enviaMetodo(){
+                return this.metodo
             }
         }
         }
@@ -107,7 +127,7 @@ Copy code
     }
 
     li{
-      color: white;
+      color: var(--cor-texto-tema);
     }
     
     .li-titulo{
@@ -148,7 +168,7 @@ Copy code
 
     .link{
         text-decoration: none;
-        color: white;
+        color: var(--cor-texto-tema);
     }
 
 </style>

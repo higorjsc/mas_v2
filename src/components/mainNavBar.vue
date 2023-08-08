@@ -77,7 +77,7 @@
 
     li{
         background: var(--cor-tema);
-        color: white;
+        color: var(--cor-texto-tema);
     }
     .option{
         display: none;
@@ -94,6 +94,6 @@
     }
     .link{
         text-decoration: none;
-        color: white;
+        color: var(--cor-texto-tema);
     }
 </style>

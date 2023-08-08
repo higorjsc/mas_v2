@@ -35,7 +35,7 @@
     }
     
     span {
-        color: white;
+        color: var(--cor-texto-tema);
         font: normal 8pt;
         position: inherit;
         top: 22%;

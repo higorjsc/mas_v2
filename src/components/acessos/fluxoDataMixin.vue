@@ -96,60 +96,70 @@
                     moser:[
                         {   
                             id: 'logistica-moser',
+                            backgroundKey: 'logistica',
                             top: '10px',
                             left: '20px',
                             Text: 'logisticaFluxoMoser'
                         },
                         {   
                             id: 'rm-moser',
+                            backgroundKey: 'rockMass',
                             top: '70px',
                             left: '20px',
                             Text: 'rmFluxoMoser'
                         },
                         {   
                             id: 'sm-moser',
+                            backgroundKey: 'surfaceMaterial',
                             top: '135px',
                             left: '20px',
                             Text: 'smFluxoMoser'
                         },
                         {   
                             id: 'depth-center-moser',
+                            backgroundKey: 'depthCenter',
                             top: '218px',
                             left: '170px',
                             Text: 'depthCenterFluxoMoser'
                         },
                         {   
                             id: 'prod-center-moser',
+                            backgroundKey: 'prodCenter',
                             top:'305px',
                             left: '170px',
                             Text: 'prodCenterFluxoMoser'
                         },
                         {   
                             id:'op-moser',
+                            backgroundKey: 'openPit',
                             top: '218px',
                             left: '20px',
                             Text: 'opFluxoMoser'
                         },
                         {   
                             id: 'depth-left-moser',
+                            backgroundKey: 'depthLeft',
                             top: '300px',
                             left: '20px',
                             Text: 'depthLeftFluxoMoser'
                         },
                         {   
                             id: 'prod-left-moser',
+                            backgroundKey: 'prodLeft',
                             top: '382px',
                             left: '20px',
                             Text: 'prodLeftFluxoMoser'
                         },
                         {   
                             id: 'rampa-moser',
+                            backgroundKey: 'rampa',
                             top: '420px',
                             left: '170px',
                             Text: 'rampaFluxoMoser'
                         },
                         {   
                             id: 'shaft-moser',
+                            backgroundKey: 'shaft',
                             top: '220px',
                             left: '320px',
                             Text: 'shaftFluxoMoser'
@@ -158,12 +168,14 @@
                     vergne:[
                         {   
                             id: 'start-vergne',
+                            backgroundKey: 'start',
                             top: '10px',
                             left: '180px',
                             Text: 'startFluxoVergne'
                         },
                         {   
                             id: 'sm-vergne',
+                            backgroundKey: 'surfaceMaterial',
                             top: '70px',
                             left: '140px',
                             width: '150px',
@@ -171,12 +183,14 @@
                         },
                         {   
                             id: 'rm-vergne',
+                            backgroundKey: 'rockMass',
                             top: '130px',
                             left: '180px',
                             Text: 'rmFluxoVergne'
                         },
                         {   
                             id: 'depth-center-vergne',
+                            backgroundKey: 'depthCenter',
                             top: '190px',
                             left: '140px',
                             width: '150px',
@@ -184,6 +198,7 @@
                         },
                         {   
                             id: 'prod-center-vergne',
+                            backgroundKey: 'prodCenter',
                             top:'250px',
                             left: '140px',
                             width: '150px',
@@ -191,6 +206,7 @@
                         },
                         {   
                             id: 'depth-left-vergne',
+                            backgroundKey: 'depthLeft',
                             top: '310px',
                             left: '140px',
                             width: '150px',
@@ -198,6 +214,7 @@
                         },
                         {   
                             id: 'prod-left-vergne',
+                            backgroundKey: 'prodLeft',
                             top: '300px',
                             left: '32px',
                             Text: 'prodLeftFluxoVergne',
@@ -205,6 +222,7 @@
                         },
                         {   
                             id: 'rampa-vergne',
+                            backgroundKey: 'rampa',
                             top: '385px',
                             left: '60px',
                             width: '180px',
@@ -213,6 +231,7 @@
                         },
                         {   
                             id:'shaft-vergne',
+                            backgroundKey: 'shaft',
                             top: '132px',
                             left: '-15px',
                             width: '170px',
@@ -221,6 +240,7 @@
                         },
                         {   
                             id: 'correia-vergne',
+                            backgroundKey: 'correia',
                             top: '250px',
                             left: '270px',
                             width: '200px',

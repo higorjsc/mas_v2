@@ -134,7 +134,7 @@
                     this.setColorGreen(['logistica'])
                 }else
                 if(this.moser.logistica == 'nao'){
-                    this.resultado = 'shaft'
+                    this.resultado = "shaftMoser"
                     this.showImages(['shaft', 'superficie'])
                     this.setColorRed()
                     this.setColorGreen(['logistica', 'shaft'])
@@ -146,7 +146,7 @@
                     this.setColorGreen(['logistica', 'rockMass'])
                 }else
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'maior'){
-                    this.resultado = 'shaft'
+                    this.resultado = "shaftMoser"
                     this.showImages(['shaft'])
                     this.setColorRed()
                     this.setColorGreen(['logistica', 'rockMass', 'shaft'])
@@ -154,7 +154,7 @@
                 
                 // SURFACE MATERIAL
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'menor'  && this.moser.surfaceMaterial == 'maior'){
-                    this.resultado = 'shaft'
+                    this.resultado = "shaftMoser"
                     this.showImages(['shaft'])
                     this.setColorRed()
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'shaft'])
@@ -176,7 +176,7 @@
                 
                 // PROFUNDIDADE OPEN PIT NÃO
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'menor'  && this.moser.surfaceMaterial == 'menor' && this.moser.openPit == 'nao'  && (this.moser.depth == 'entre'||this.moser.depth == 'maior')){
-                    this.resultado = 'shaft'
+                    this.resultado = "shaftMoser"
                     this.showImages(['shaft'])
                     this.setColorRed()
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'openPit', 'depthCenter', 'shaft'])
@@ -188,7 +188,7 @@
 
                 // PROFUNDIDADE OPEN PIT SIM
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'menor'  && this.moser.surfaceMaterial == 'menor' && this.moser.openPit == 'sim'  && this.moser.depth == 'maior'){
-                    this.resultado = 'shaft'
+                    this.resultado = "shaftMoser"
                     this.showImages(['shaft'])
                     this.setColorRed()
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'openPit', 'depthLeft', 'shaft'])
@@ -200,13 +200,13 @@
 
                 //PRODUCTION OPEN PIT NÃO
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'menor'  && this.moser.surfaceMaterial == 'menor' && this.moser.openPit == 'nao'  && this.moser.depth == 'menor' && this.moser.prod == 'menor'){
-                    this.resultado == 'rampa'
+                    this.resultado = "rampaMoser"
                     this.showImages(['rampa', 'truck'])
                     this.setColorRed()
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'openPit', 'depthCenter', 'prodCenter', 'rampa'])
                 }else
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'menor'  && this.moser.surfaceMaterial == 'menor' && this.moser.openPit == 'nao'  && this.moser.depth == 'menor' && (this.moser.prod == 'entre'||this.moser.prod == 'maior')){
-                    this.resultado == 'rampa'
+                    this.resultado = "rampaMoser"
                     this.showImages(['rampa', 'truck'])
                     this.setColorRed()
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'openPit', 'depthCenter', 'prodCenter', 'shaft'])
@@ -214,7 +214,7 @@
 
                 //PRODUCTION OPEN PIT SIM
                 if(this.moser.logistica == 'sim' && this.moser.rockMass == 'menor'  && this.moser.surfaceMaterial == 'menor' && this.moser.openPit == 'sim'  && (this.moser.depth == 'menor'||this.moser.depth == 'entre') && (this.moser.prod == 'menor'||this.moser.prod == 'entre') ){
-                    this.resultado == 'rampa'
+                    this.resultado = "rampaMoser"
                     this.showImages(['rampa_pit', 'truck'])
                     this.setColorRed()
                     this.setColorGreen(['logistica', 'rockMass', 'surfaceMaterial', 'openPit', 'depthLeft', 'prodLeft', 'rampa'])

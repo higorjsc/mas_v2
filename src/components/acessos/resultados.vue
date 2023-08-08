@@ -58,7 +58,7 @@
         justify-content: center;
         align-items: center;
         background-color: var(--cor-tema);
-        color: white;
+        color: var(--cor-texto-tema);
     }
 </style>
   

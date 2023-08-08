@@ -1,5 +1,6 @@
 
 <script>
+    import {CORES } from '@/assets/javascript/globalConstants.js'
 
     export default {
         data(){
@@ -20,8 +21,8 @@
                     shaft: '',
                 } ,
                 defaultColor: {
-                    start: 'rgba(14, 224, 49, 0.8)',
-                    logistica: 'rgba(14, 224, 49, 0.8)',
+                    start: CORES.fluxoVerde,
+                    logistica: CORES.fluxoVerde,
                     rockMass: 'white',
                     surfaceMaterial: 'white',
                     openPit: 'white',
@@ -29,9 +30,9 @@
                     prodLeft: 'white',
                     depthCenter: 'white',
                     depthLeft: 'white',
-                    correia: 'rgba(31, 191, 219, 0.493)',
-                    rampa: 'rgba(31, 191, 219, 0.493)',
-                    shaft: 'rgba(31, 191, 219, 0.493)',
+                    correia: CORES.fluxoAzul,
+                    rampa: CORES.fluxoAzul,
+                    shaft: CORES.fluxoAzul,
                 },     
                 ilustrations:{
                     orebody: true,
@@ -69,13 +70,13 @@
             },
             setColorRed() {
                 for (const key in this.color) {
-                    this.color[key] = 'rgba(236, 22, 22, 0.8)'
+                    this.color[key] = CORES.fluxoVermelho
                 } 
             },
             setColorGreen(objetos = []){
                 // Muda a cor dos objetos do array para verde
                 objetos.forEach((objeto)=>{
-                    this.color[objeto] = 'rgba(14, 224, 49, 0.8)'
+                    this.color[objeto] = CORES.fluxoVerde
                 })
             },
             defaultImages(){

@@ -130,19 +130,19 @@
 
                 // PRODUÇÃO
                 if (this.vergne.surfaceMaterial == "menor" && this.vergne.rockMass == "menor" && (this.vergne.depth == "entre" || this.vergne.depth == "menor") && this.vergne.prod == "maior") {
-                    this.resultado = "correia"
+                    this.resultado = "correiaVergne"
                     this.showImages(['correia'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "correia"])
 
                 } else if (this.vergne.surfaceMaterial == "menor" && this.vergne.rockMass == "menor" && (this.vergne.depth == "entre" || this.vergne.depth == "menor") && (this.vergne.prod == "menor" || this.vergne.prod == "entre") && this.vergne.depth == "menor") {
-                    this.resultado = "rampa"
+                    this.resultado = "rampaVergne"
                     this.showImages(['rampa', 'truck'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "rampa"])
 
                 } else if (this.vergne.surfaceMaterial == "menor" && this.vergne.rockMass == "menor" && (this.vergne.depth == "entre" || this.vergne.depth == "menor") && this.vergne.prod == "menor" && this.vergne.depth == "entre") {
-                    this.resultado = "rampa"
+                    this.resultado = "rampaVergne"
                     this.showImages(['rampa', 'truck'])
                     this.setColorRed()
                     this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "prodLeft", "rampa"])

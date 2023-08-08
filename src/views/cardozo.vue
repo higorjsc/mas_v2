@@ -18,7 +18,6 @@
             <NavBar 
                 class="main-elements navbar"
             >
-                {{ $t('pragrafoExplicacaoCardozo') }}
             </NavBar>
 
             <inputs class="main-elements inputs"></inputs>

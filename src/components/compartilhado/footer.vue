@@ -62,7 +62,7 @@
         flex-direction: column;
         font-size: 10pt;
         opacity: 0.8;
-        color: white;
+        color: var(--cor-texto-tema);
     }
 
     .div-direita {
@@ -77,7 +77,7 @@
         display: block;
         margin: 0;
         padding: 0;
-        color: white;
+        color: var(--cor-texto-tema);
         font-size: 10pt;
     }
 

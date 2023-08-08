@@ -17,7 +17,6 @@
             <NavBar 
               class="main-elements navbar"
             >
-                {{ $t('pragrafoExplicacaoCardozo') }}
             </NavBar>
 
             <inputs

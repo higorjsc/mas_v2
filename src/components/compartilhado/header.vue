@@ -45,7 +45,7 @@
 
     h1 {
         font-size: 14pt;
-        color: white;
+        color: var(--cor-texto-tema);
         text-align: center;
         width: 100%;
     }
