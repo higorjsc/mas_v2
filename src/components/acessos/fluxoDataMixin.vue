@@ -10,7 +10,7 @@
             return{
                 // DEFINE AS PROPRIEDADES DOS OBJETOS DE CADA FLUXOGRAMA 
                 objetos: {
-                    cardozo: [
+                    Cardozo: [
                         {   
                             id: 'start-cardozo',
                             backgroundKey: 'start',
@@ -93,7 +93,7 @@
                             transform: 'rotate(-70deg)'
                         },
                     ],
-                    moser:[
+                    Moser:[
                         {   
                             id: 'logistica-moser',
                             backgroundKey: 'logistica',
@@ -165,7 +165,7 @@
                             Text: 'shaftFluxoMoser'
                         },
                     ],
-                    vergne:[
+                    Vergne:[
                         {   
                             id: 'start-vergne',
                             backgroundKey: 'start',
@@ -251,7 +251,7 @@
                 },
                 // DEFINE AS PROPRIEDADES DOS TEXTOS DO CAMINHO DE CADA FLUXOGRAMA (EM CIMA DAS SETAS)
                 ways: {
-                    cardozo: [
+                    Cardozo: [
                         {   //surfaceMaterial - rockMass
                             top: '95px',
                             left: '210px',
@@ -319,7 +319,7 @@
                         }, 
                         
                     ],
-                    moser:[
+                    Moser:[
                         {   //logistica - shaft
                             top: '45px',
                             left: '358px',
@@ -415,7 +415,7 @@
                             width: '20px',
                         },
                     ],
-                    vergne:[
+                    Vergne:[
                         {   //shallowOverburden - soundRock
                             top: '95px',
                             left: '213px',
@@ -480,7 +480,7 @@
                 },
                 // DEFINE AS PROPRIEDADES DAS SETAS DE CADA FLUXOGRAMA
                 setas: {
-                    cardozo:[
+                    Cardozo:[
                         {   //start - surfaceMaterial
                             top: '47px', 
                             left: '207px',
@@ -559,7 +559,7 @@
                             transform: 'rotate(-180deg)',
                         },
                     ],
-                    moser: [
+                    Moser: [
                         {   //logistica - shaft 1
                             head: false,
                             top: '25px', 
@@ -572,29 +572,29 @@
                             width: '185px',
                             transform: 'rotate(90deg)'
                         },
-                        {   //rockMass - shaft 
-                            head: false,
-                            top: '84px', 
-                            left: '110px',
-                            width: '256px',
-                        },
-                        {   //surfaceMaterial - shaft
-                            head: false,
-                            top: '158px', 
-                            left: '110px',
-                            width: '256px',
-                        },
                         {   //logistica - rockMass
                             top: '50px', 
                             left: '47px',
                             width: '20px',
                             transform: 'rotate(90deg)',
                         },
+                        {   //rockMass - shaft 
+                            head: false,
+                            top: '84px', 
+                            left: '110px',
+                            width: '256px',
+                        },
                         {   //rockMass - surfaceMaterial
                             top: '112px', 
                             left: '46px',
                             width: '25px',
                             transform: 'rotate(90deg)',
+                        },
+                        {   //surfaceMaterial - shaft
+                            head: false,
+                            top: '158px', 
+                            left: '110px',
+                            width: '256px',
                         },
                         {   //surfaceMaterial - openPith
                             top: '196px', 
@@ -608,32 +608,16 @@
                             width: '25px',
                             transform: 'rotate(90deg)',
                         },
+                        {   //openPit - depthCenter
+                            top: '230px', 
+                            left: '112px',
+                            width: '50px',
+                        },
                         {   //depthLeft - prodLeft
                             top: '360px', 
                             left: '46px',
                             width: '25px',
                             transform: 'rotate(90deg)',
-                        },
-                        {   //depthCenter - prodCenter
-                            top: '280px', 
-                            left: '197px',
-                            transform: 'rotate(90deg)',
-                        },
-                        {   //prodCenter - Rampa
-                            top: '372px', 
-                            left: '175px',
-                            width: '75px',
-                            transform: 'rotate(90deg)',
-                        },
-                        {   //prodCenter - shaft
-                            top: '312px', 
-                            left: '262px',
-                            width: '94px',
-                        },
-                        {   //openPit - depthCenter
-                            top: '230px', 
-                            left: '112px',
-                            width: '50px',
                         },
                         {   //depthLeft - shaft 1
                             head: false,
@@ -648,11 +632,27 @@
                             width: '42px',
                             transform: 'rotate(90deg)'
                         },
+                        {   //depthCenter - prodCenter
+                            top: '280px', 
+                            left: '197px',
+                            transform: 'rotate(90deg)',
+                        },
                         {   //depthLeft - shaft 3
                             head: false,
                             top: '365px', 
                             left: '160px',
                             width: '207px',
+                        },
+                        {   //prodCenter - Rampa
+                            top: '372px', 
+                            left: '175px',
+                            width: '75px',
+                            transform: 'rotate(90deg)',
+                        },
+                        {   //prodCenter - shaft
+                            top: '312px', 
+                            left: '262px',
+                            width: '94px',
                         },
                         {   //depthCenter - shaft
                             top: '230px', 
@@ -685,7 +685,7 @@
                         },
 
                     ],
-                    vergne: [
+                    Vergne: [
                         {   //start - shallowOverburden
                             top: '47px', 
                             left: '207px',

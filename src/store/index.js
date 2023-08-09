@@ -8,7 +8,8 @@ import { TEMAS, CORES } from '@/assets/javascript/globalConstants.js'
 export default createStore({
     state: {
         language: 'pt', // Idioma padrão
-        resultado: '', // Idioma padrão
+        resultado: '', // resultado do fluxograma de escolha de acessos
+        metodo: '', // Metodo/view atual 
         inputsAcessos:{
             moser:{
                 logistica: '',
@@ -82,6 +83,9 @@ export default createStore({
         setResultado(state, data) {
             state.resultado = data
         },
+        setMetodo(state, data) {
+            state.metodo = data
+        },
     },
     getters: {
         currentLanguage(state) {
@@ -98,6 +102,9 @@ export default createStore({
         },
         currentResultado(state){
             return state.resultado
+        },
+        currentMetodo(state){
+            return state.metodo
         },
         currentTemaMAS(state){
             return state.temaMAS
@@ -128,6 +135,9 @@ export default createStore({
         },
         changeResultado(context, data){
             context.commit('setResultado', data)
+        },
+        changeMetodo(context, data){
+            context.commit('setMetodo', data)
         }
   },
 })

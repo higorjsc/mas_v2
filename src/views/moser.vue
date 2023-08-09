@@ -26,13 +26,11 @@
 
             <Fluxograma
                 class="main-elements Fluxograma"
-                metodo = "moser"
             />
            
 
             <Ilustrations 
                 class ="main-elements resultados"
-                metodo = "moser"
             />
 
         </main>
@@ -65,9 +63,8 @@
             Footer,
             Ilustrations,
         },
-        data(){
-            return {
-            }
+        beforeMount(){
+            this.$store.dispatch('changeMetodo', 'Moser')
         }
     }
 </script>

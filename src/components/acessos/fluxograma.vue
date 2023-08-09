@@ -71,35 +71,19 @@
         mixins:[
             fluxoDataMixin
         ],
-        props:{
-            metodo: {
-                type: String,
-                default: 'cardozo'
-            }
-        },
-        data() {
-            return {
-                objeto: '',
-                way: '',
-                seta: ''
-            }
-        },
-        mounted() {
-            this.objeto = this.objetos[`${this.metodo}`]
-            this.way = this.ways[`${this.metodo}`]
-            this.seta = this.setas[`${this.metodo}`]
-        },
         computed:{
-            valoresObjetos(){
-                return this.objetos[`${this.metodo}`]
+            objeto(){
+                return this.objetos[`${this.$store.getters.currentMetodo}`]
             },
-            valoresWay(){
-                return this.ways[`${this.metodo}`]
+            way(){
+                return this.ways[`${this.$store.getters.currentMetodo}`]
             },
-            valoresSetas(){
-                return this.setas[`${this.metodo}`]
+            seta(){
+                return this.setas[`${this.$store.getters.currentMetodo}`]
             }
-        },
+        }
+
+
 };
 
 

@@ -17,11 +17,11 @@
                 <!-- MENOR -->
                 <input type="radio" v-model="vergne.surfaceMaterial" value="menor" id="sm-menor">
                 <label for="sm-menor" class="radio-label"></label> 
-                <span>{{ $t('smMenorVergne') }}</span>
+                <span>{{ $t('sim') }}</span>
                 <!-- MAIOR -->
                 <input type="radio"  v-model="vergne.surfaceMaterial" value="maior" id="sm-maior">
                 <label for="sm-maior" class="radio-label"></label>
-                <span>{{ $t('smMaiorVergne') }}</span> 
+                <span>{{ $t('nao') }}</span> 
             </div>
         </div>
         <!--rockMass CONDITIONS-->
@@ -32,11 +32,11 @@
                 <!-- MENOR -->
                 <input type="radio" class="rm" v-model="vergne.rockMass" value="menor" id="rm-menor">
                 <label for="rm-menor" class="radio-label"></label> 
-                <span>{{ $t('rmMenorVergne') }}</span>
+                <span>{{ $t('sim') }}</span>
                 <!-- MAIOR -->
                 <input type="radio" class="rm" v-model="vergne.rockMass" value="maior" id="rm-maior">
                 <label for="rm-maior" class="radio-label"></label>
-                <span>{{ $t('rmMaiorVergne') }}</span> 
+                <span>{{ $t('nao') }}</span> 
             </div>
         </div>
         <!-- PROFUNDIDADE -->

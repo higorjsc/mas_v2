@@ -68,9 +68,8 @@
             >
 
         </div>
-        <Resultados
-        
-        />
+
+        <Resultados/>
 
     </section>
 
@@ -83,12 +82,6 @@
         components:{
             Resultados
         },
-        props:{
-            tema:{
-                type: String,
-                default: ''
-            },
-        }
 }
 
 </script>

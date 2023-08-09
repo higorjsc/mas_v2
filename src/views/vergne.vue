@@ -24,12 +24,10 @@
 
             <Fluxograma
                 class="main-elements Fluxograma"
-                metodo = "vergne"
             />
             
             <Ilustrations 
                 class="main-elements resultados"
-                metodo = "cardozo"
             />
 
         </main>
@@ -63,9 +61,8 @@
             Header,
             Footer,
         },
-        data(){
-            return {
-            }
+        beforeMount(){
+            this.$store.dispatch('changeMetodo', 'Vergne')
         }
     }
 </script>

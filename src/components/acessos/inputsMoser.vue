@@ -76,9 +76,9 @@
             <span>{{ $t('depthDescriptionMoser') }}</span>
             <select v-model="moser.depth" class="depth">
                 <option value=""></option>
-                <option value="menor">{{('depthMenorMoser')}}</option>
-                <option value="entre">{{('depthEntreMoser')}}</option>
-                <option value="maior">{{('depthMaiorMoser')}}</option>
+                <option value="menor">{{ $t('depthMenorMoser') }}</option>
+                <option value="entre">{{ $t('depthEntreMoser') }}</option>
+                <option value="maior">{{ $t('depthMaiorMoser') }}</option>
             </select>
         </div>
         <!-- PRODUÇÃO -->
@@ -87,9 +87,9 @@
             <span> {{ $t('prodDescriptionMoser') }}</span>
             <select v-model="moser.prod" class="prod">
                 <option value=""></option>
-                <option value="menor">{{('prodMenorMoser')}}</option>
-                <option value="entre">{{('prodEntreMoser')}}</option>
-                <option value="maior">{{('prodMaiorMoser')}}</option>
+                <option value="menor">{{ $t('prodMenorMoser') }}</option>
+                <option value="entre">{{ $t('prodEntreMoser') }}</option>
+                <option value="maior">{{ $t('prodMaiorMoser') }}</option>
             </select>
         </div>
     </section>

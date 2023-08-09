@@ -24,14 +24,11 @@
 
             <Fluxograma
                 class="main-elements fluxograma"
-                metodo = "cardozo"
             />
             
             <Ilustrations 
                 class="main-elements resultados"
-                metodo = "cardozo"
             />
-        
         </main>
 
         <Footer class="footer"></Footer>
@@ -61,9 +58,8 @@
             Footer,
             Ilustrations,
         },
-        data(){
-            return {
-            }
+        beforeMount(){
+            this.$store.dispatch('changeMetodo', 'Cardozo')
         }
     }
 </script>

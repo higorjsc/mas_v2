@@ -16,25 +16,21 @@
         </ul>            
       </ul>
     </nav>
-    <Description
-        :metodo="`${enviaMetodo}`"
-    ></Description>
+    <p
+        v-html="`${$t('paragrafoExplicacao'+ metodo)}`"
+    >
+    </p>
     
 </section>
 
 </template>
 
 <script>
-    import Description from './metodoDescription.vue'
 
     export default {
         name: 'navBar',
-        components:{
-            Description,
-        },
         data() {
             return {
-                metodo: '',
                 presente: {
                     titulo: '',
                     path: ''
@@ -67,28 +63,28 @@
         },
         methods:{
             defineMetodo(){
-                let url = window.location.href
-                if (url.includes('cardozo')) {
-                    this.presente = this.cardozo
-                    this.option1 = this.vergne
-                    this.option2 = this.moser
-                } else if (url.includes('vergne')) {
-                    this.presente = this.vergne
-                    this.option1 = this.cardozo
-                    this.option2 = this.moser
-                } else if (url.includes('moser')) {
-                    this.presente = this.moser
-                    this.option1 = this.cardozo
-                    this.option2 = this.vergne
+                switch(this.metodo){
+                    case 'Cardozo':
+                        this.presente = this.cardozo
+                        this.option1 = this.vergne
+                        this.option2 = this.moser
+                        break
+                    case 'Vergne':
+                        this.presente = this.vergne
+                        this.option1 = this.cardozo
+                        this.option2 = this.moser
+                        break
+                    case 'Moser':
+                        this.presente = this.moser
+                        this.option1 = this.cardozo
+                        this.option2 = this.vergne
+                        break
                 }
-                
-                // this.metodo = Cardozo || Moser || Vergne
-                this.metodo = this.presente.titulo.split(' ')[0].toLocaleLowerCase().charAt(0).toUpperCase() + this.presente.titulo.slice(1).toLocaleLowerCase().split(' ')[0];
             }
         },
         computed:{
-            enviaMetodo(){
-                return this.metodo
+            metodo(){
+                return this.$store.getters.currentMetodo
             }
         }
         }
@@ -111,6 +107,7 @@
 
     p{
         display: flex;
+        flex-direction: column;
         padding: 2%;
         text-align: justify;
         font-size: 9pt;

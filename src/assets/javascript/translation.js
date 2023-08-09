@@ -14,10 +14,6 @@ const translation = {
 
     // CARDOZO
     tituloCardozo: "SELECTION OF ACESS FOR UNDERGROUND MINING: Cardozo Method (2023)",
-    paragrafoDescriptionCardozo: ""
-    + "The Cardozo method (2023) for selecting underground mine acess is a combination and update of the procedures proposed by Moser (1996) and La Vergne (2003)."
-    + "In this method, Cardozo incorporates  some of the parameters proposed by Moser into the flowchart layout presented by La Vergne, and updates the proposed values as limits for depth and production according to the reality of 2023.  "
-    ,
     pragrafoExplicacaoCardozo: ""
       + "The Cardozo method (2023) for selecting underground mine acess is a combination and update of the procedures proposed by Moser (1996) and La Vergne (2003)."
       + "In this method, Cardozo incorporates  some of the parameters proposed by Moser into the flowchart layout presented by La Vergne, and updates the proposed values as limits for depth and production according to the reality of 2023.  "
@@ -53,8 +49,19 @@ const translation = {
     rampaFluxoCardozo: 'INCLINED BELT CONVEYOR',
 
     // MOSER
+    tituloMoser: "SELECTION OF ACESS FOR UNDERGROUND MINING: Moser Method (1996)",
     tituloInputsMoser: 'SELECTION PARAMETERS',
     labelCoberturaSuperficialMoser: 'Surface material',
+    paragrafoExplicacaoMoser: ""
+        + "The Moser (1996) method for selecting underground mine access was developed over several projects of hard rock mines around the world."
+        + "<br><br><strong>Notes:</strong>"
+        + "- Moser did not take into account any data from soft rock mining operations.<br>"
+        + "- The author’s proposed limits for each parameter have been surpassed by advancements in technology.<br>"
+        + "- The model does not consider the use of inclined belt conveyors as a viable option for transporting ore.<br>"
+        + "- The proposed model does not replace detailed feasibility studies, but aims to significantly reduce the amount of work in the early stages of mining planning."
+        + "<br><br><strong>References:</strong>"
+        + "- MOSER, P. Primary development of underground hard rock mines. In: Symposium On Mine Planning And Equipment Selection. 1996. São Paulo. Proceedings […]. São Paulo, 1996. p. 31-3."
+    ,
     // Fluxograma moser
     logisticaFluxoMoser: 'USE TRUCKS',
     rmFluxoMoser: 'ROCK MASS',
@@ -81,14 +88,26 @@ const translation = {
     opDescriptionMoser: "Acess from open pit mining?",
     depthTituloMoser: "Depth",
     depthDescriptionMoser: "Orebody deepest point:",
+    depthMenorMoser: '<500 m',
+    depthEntreMoser: '500-600 m',
+    depthMaiorMoser: '>600 m',
     prodTituloMoser: "Produção",
     prodDescriptionMoser: "Projected production for the mine in kt per year:",
-
-
+    prodMenorMoser: '<400 kt/y',
+    prodEntreMoser: '400-600 kt/y',
+    prodMaiorMoser: '>600 kt/y',
+    
     // VERGNE
     tituloVergne: "SELECTION OF ACESS FOR UNDERGROUND MINING: La Vergne Method (2003)",
-    pragrafoExplicacaoVergne: ""
-     ,  
+    paragrafoExplicacaoVergne: ""
+        + "The method developed by La Verne (2003) for selecting underground mine access was presented as a 'roughly guide' to determine a  viable access in early stages of mining planning."
+        + "<br><br><strong>Notes:</strong><br>"
+        + "- The model is based upon golden rules of the time of its creation.<br>"
+        + "- The author’s proposed limits for each parameter have been surpassed by advancements in technology.<br>"
+        + "- The proposed model does not replace detailed feasibility studies, but aims to significantly reduce the amount of work in the early stages of mining planning."
+        + "<br><br><strong>Reference:</strong><br>"
+        + "- LA VERGNE, Jack. Hard rock miner's handbook. Tempe/North Bay: McIntosh engineering. ISBN 0-968006-1-6, 2003."
+    ,
     // Inputs vergne
     smTituloVergne: "Surface material",
     smDescriptionVergne: "Narrow layer of unconsolidated materials?",
@@ -121,21 +140,17 @@ const translation = {
     tituloFluxograma: 'FLUXOGRAMA',
     tituloInputs: 'PARÂMETROS DE ESCOLHA',
     tituloIlustration: "ILUSTRAÇÃO",
-    observations: "OBSERVAÇÕES",
-    references: `REFERÊNCIAS`+'\n'+'\n'+'\n',
 
 
     // CARDOZO
     tituloCardozo: "SELEÇÃO DE ACESSOS PARA MINAS SUBTERRÂNEAS: Método Cardozo (2023)",
-
-    paragrafoDescriptionCardozo: ""
+    paragrafoExplicacaoCardozo: ""
     + "O método de Cardozo (2023) para seleção de acessos a minas subterrâneas é uma combinação e atualização dos procedimentos propostos por Moser (1996) e La Vergne (2003)."
     + " Nesse método, Cardozo incorpora alguns dos parâmetros propostos por Moser ao layout do fluxograma apresentado por La Vergne, além de atualizar os valores propostos como limites para profundidade e produção de acordo com a realidade de 2023."
-    ,
-    paragrafoObservationsCardozo: "- O método não dispensa estudos detalhados de viabilidade, mas objetiva diminuir a quantidade de esforços nas etapas inicias do planejamento da mina.<br>"   
-    ,
-    paragrafoReferencesCardozo: ""
-    + "- CARDOZO, F. A. C. et al. Choice of access for underground mining for feasibility studies. REM-International Engineering Journal, v. 76, p. 187-193, 2023.\n\n"
+    + "<br><br><strong>OBSERVAÇÕES:</strong>"
+    + "- O método não dispensa estudos detalhados de viabilidade, mas objetiva diminuir a quantidade de esforços nas etapas inicias do planejamento da mina.<br>"   
+    + "<br><br><strong>REFERÊNCIAS:</strong>"
+    + "- CARDOZO, F. A. C. et al. Choice of access for underground mining for feasibility studies. REM-International Engineering Journal, v. 76, p. 187-193, 2023.<br>"
     + "- CARDOZO, F. A. C. Modelagem de Escavações Subterrâneas: Contribuições para Escolha de Acessos de Mina. Doutorado—Porto Alegre: Universidade Federal do Rio Grande do Sul, 3 mar. 2023."
     ,
     // Inputs cardozo
@@ -164,8 +179,19 @@ const translation = {
     rampaFluxoCardozo: 'INCLINED BELT CONVEYOR',
 
     // MOSER
+    tituloMoser: "SELEÇÃO DE ACESSOS PARA MINAS SUBTERRÂNEAS: Método Moser (1996)",
     tituloInputsMoser: 'PARÂMETROS DE ESCOLHA',
     labelCoberturaSuperficialMoser: 'Cobertura superficial',
+    paragrafoExplicacaoMoser: ""
+        + "O método de Moser (1996) para a seleção de acesso a minas subterrâneas foi desenvolvido a partir da análise de dados de várias minas de 'rochas duras' (hard rock) em escala global."
+        + "<br><br><strong>Observações:</strong>"
+        + "- Moser não analisou minas de rochas brandas (soft rock) para a elaboração de seu modelo.<br>"
+        + "- O método de Moser não considera como opção o transporte de minérios por correias transportadoras.<br>"
+        + "- Os limites propostos para profundidade e produção foram superados por avanços tecnológicos.<br>"
+        + "- O método não dispensa estudos detalhados de viabilidade, mas objetiva diminuir a quantidade de esforços nas etapas inicias do planejamento da mina."
+        + "<br><br><strong>Referência:</strong>"
+        + "- MOSER, P. Primary development of underground hard rock mines. In: Symposium On Mine Planning And Equipment Selection. 1996. São Paulo. Proceedings […]. São Paulo, 1996. p. 31-3."
+    ,      
     // Fluxograma moser
     logisticaFluxoMoser: 'USE TRUCKS',
     rmFluxoMoser: 'ROCK MASS',
@@ -192,13 +218,26 @@ const translation = {
     opDescriptionMoser: "O acesso será a partir de uma mina a céu aberto?",
     depthTituloMoser: "Profundidade",
     depthDescriptionMoser: "Ponto mais profundo do corpo de minério:",
+    depthMenorMoser: '<500 m',
+    depthEntreMoser: '500-600 m',
+    depthMaiorMoser: '>600 m',
     prodTituloMoser: "Produção",
     prodDescriptionMoser: "Produção prevista para a mina em kt por ano:",
+    prodMenorMoser: '<400 kt/y',
+    prodEntreMoser: '400-600 kt/y',
+    prodMaiorMoser: '>600 kt/y',
 
     // VERGNE
     tituloVergne: "SELEÇÃO DE ACESSOS PARA MINAS SUBTERRÂNEAS: Método La Vergne (2003)",
-    pragrafoExplicacaoVergne: ""
-    ,  
+    paragrafoExplicacaoVergne: ""
+        + "O método de La Vergne (2003) para a seleção de acesso a minas subterrâneas foi apresentado pelo autor como um &rdquo;guia superfícial&ldquo; para uma análise preliminar dos possíveis acessos."
+        + "<br><br><strong>Observações:</strong><br>"
+        + "- O modelo é baseado em regras de ouro compiladas à época<br>"
+        + "- Os limites propostos para profundidade e produção foram superados por avanços tecnológicos.<br>"
+        + "- O método não dispensa estudos detalhados de viabilidade, mas objetiva diminuir a quantidade de esforços nas etapas inicias do planejamento da mina."
+        + "<br><br><strong>Referência:</strong><br>"
+        + "- LA VERGNE, Jack. Hard rock miner's handbook. Tempe/North Bay: McIntosh engineering. ISBN 0-968006-1-6, 2003."
+    , 
     // Inputs vergne
     smTituloVergne: "Cobertura superficial",
     smDescriptionVergne: "Camada estreita de materiais inconsolidados?",
