@@ -13,7 +13,6 @@
             class="main-container"
         >
 
-            
             <NavBar class="main-elements navbar">
             </NavBar>
 
