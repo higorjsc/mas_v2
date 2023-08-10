@@ -3,8 +3,19 @@
     <div class="switch-container">
         <input type="checkbox" v-model="switchLanguage" class="switch" id="switch"/>
         <label for="switch">
-            <span>{{ $t('ptSwitchLanguage') }}</span>
-            <span>{{ $t('enSwitchLanguage') }}</span>
+            <span 
+                v-if="!lang"
+                class="pt"
+            >
+                {{ $t('ptSwitchLanguage') }}
+            </span>
+            <span 
+                v-if="lang"
+                class="en"
+            >
+                {{ $t('enSwitchLanguage') }}
+            </span>
+
         </label>
     </div>
     
@@ -16,12 +27,24 @@
         name: 'switchLanguage',
         data(){
             return{
-                switchLanguage: false
+                switchLanguage: false,
+                pt: true,
+                en: true,
+            }
+        },
+        computed:{
+            lang(){
+                return this.$store.getters.currentLanguage == 'pt'? true : false
+            }
+        },
+        methods:{
+            Language(){
+                this.switchLanguage? this.$store.dispatch('changeLanguage', 'en') : this.$store.dispatch('changeLanguage', 'pt')
             }
         },
         watch:{
             switchLanguage(){
-                this.$store.dispatch('changeLanguage', this.switchLanguage)
+                this.Language()
             }
         }
     }
@@ -42,6 +65,16 @@
         margin-left: 1px;
         margin-right: 5px;
         z-index: 2;
+    }
+    .en{
+        position: absolute;
+        top: -5%;
+        right: 1%;
+    }
+    .pt{
+        position: absolute;
+        top: -5%;
+        left:5%;
     }
 
     label {

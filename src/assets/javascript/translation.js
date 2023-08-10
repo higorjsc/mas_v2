@@ -3,9 +3,9 @@ const translation = {
   en: {
     
     // GERAL
-    selectMethod: 'SELECT THE METHOD',
     ptSwitchLanguage: 'PT',
     enSwitchLanguage: 'EN',
+    selectMethod: 'SELECT THE METHOD',
     tituloFluxograma: "FLOWCHART",
     tituloInputs: "SELECTION PARAMETERS",
     tituloIlustration: "ILUSTRATION",

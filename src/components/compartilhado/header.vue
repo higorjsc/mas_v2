@@ -9,7 +9,7 @@
         <img class='mining-symbol' id='esquerda' src="@\assets\Imagens\mining_symbol.png" alt="Simbolo da mineração">
 
         <h1 class="titulo-pagina">
-            <slot class="slot-titulo-pagina"></slot>
+            <slot name='titulo'></slot>
 
         </h1>
 

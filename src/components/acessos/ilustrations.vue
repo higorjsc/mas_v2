@@ -121,7 +121,7 @@
     }
     #usina{
         top: -1.5%;
-        right: -11%;
+        right: -9%;
         transform: rotate(-3deg);
     }
     #superficie{

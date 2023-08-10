@@ -115,7 +115,6 @@ export default createStore({
     },
     actions: {
         changeLanguage(context, data) {
-            data == false ? 'pt': 'en'
             context.commit('setLanguage', data)
         },
         changeInputsAcessosCardozo(context, data){

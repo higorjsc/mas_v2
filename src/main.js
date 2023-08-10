@@ -15,7 +15,15 @@ app.use(router);
 
 // Configura a função que define o idioma como $t('variável')
 app.config.globalProperties.$t = function (key) {
-  return translation[this.$store.getters.currentLanguage][key] || key;
-};
+    const currentLanguage = this.$store.getters.currentLanguage;
+    console.log('Current Language:', currentLanguage);
+    console.log('Translation Key:', key);
+    if(translation[this.$store.getters.currentLanguage][key] != undefined){
+        return translation[this.$store.getters.currentLanguage][key] 
+    }
+    else{
+        return key
+    }
+}
 
 app.mount('#app');
