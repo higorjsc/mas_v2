@@ -17,6 +17,8 @@
                     width: item.width,
                     height: item.height
                }"
+               @mouseover="balaoEntra(item.id)"
+               @mouseout="balaoSai()"
             >
                 {{ $t(`${objeto[index]['Text']}`) }} 
             </div>
@@ -61,7 +63,8 @@
 
     import Seta from './seta.vue';
     import Way from './way.vue';
-    import  fluxoDataMixin  from './fluxoDataMixin.vue';
+    import fluxoDataMixin  from './fluxoDataMixin.vue';
+    import balaoMixin  from './balaoMixin.vue';
 
     export default {
         components:{
@@ -69,7 +72,8 @@
             Way
         },
         mixins:[
-            fluxoDataMixin
+            fluxoDataMixin,
+            balaoMixin
         ],
         computed:{
             objeto(){
