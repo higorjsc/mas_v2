@@ -10,6 +10,7 @@ export default createStore({
         language: 'pt', // Idioma padrão
         resultado: '', // resultado do fluxograma de escolha de acessos
         metodo: '', // Metodo/view atual 
+        balao: '', // Variável de texto do balao help 
         inputsAcessos:{
             moser:{
                 logistica: '',
@@ -86,6 +87,9 @@ export default createStore({
         setMetodo(state, data) {
             state.metodo = data
         },
+        setBalao(state, data) {
+            state.balao = data
+        },
     },
     getters: {
         currentLanguage(state) {
@@ -111,6 +115,9 @@ export default createStore({
         },
         currentTemaMMS(state){
             return state.temaMMS
+        },
+        currentBalao(state){
+            return state.balao
         }
     },
     actions: {
@@ -137,6 +144,9 @@ export default createStore({
         },
         changeMetodo(context, data){
             context.commit('setMetodo', data)
+        },
+        changeBalao(context, data){
+            context.commit('setBalao', data)
         }
   },
 })
