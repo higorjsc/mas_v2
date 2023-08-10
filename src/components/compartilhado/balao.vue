@@ -1,66 +1,62 @@
 <template>
     <div 
         id="balao"
-        :v-if="visibilidade"
     >
         {{ $t(texto) }}
     </div>
-
 </template>
 
 <script>
-
-    export default {
-        data(){
-            return{
-                visibilidade: '',
-                text: {
-                    type: String,
-                    default: ''
-                },
-            }
+export default {
+    name: 'balao-mixin',
+    data() {
+        return {
+            balao: null
+        }
+    },
+    methods: {
+        formataId(id){
+            // Remove os sufixos "-menor" e "-maior" que diferenciam os ids dos labels dos radio buttons
+            return id.replace(/-menor/g, '').replace(/-maior/g, '').replace(/-/g, '-')
         },
-        mounted(){
-            //POSICIONA O BALÃO DE AJUDA NA POSIÇÃO DO CURSOR
-            const balao = document.getElementById("balao")
-            document.addEventListener("mousemove", function (event) {
-                balao.style.top = event.clientY + "px"
-                balao.style.left = event.clientX + "px"
-            })
+        balaoEntra(id) {
+            this.balao.style.display = 'block';
+            id = this.formataId(id)
+            this.$store.dispatch('changeBalao', id)
+            console.log(id)
         },
-        methods:{
-            // RECEVE O ID KNBEAD-CASE E RETORNA A VARIÁVEL DA TRADUÇÃO. Exemplo: start-cardozo → start_cardozo
-            balaoEntra(id){
-                this.visibilidade = true
-                this.$store.dispatch('changeBalao', id.replace(/-/g, '_'))
-            },
-            // OCULTA O BALÃO HELP
-            balaoSai(){
-                console.log(this.visibilidade)
-                this.visibilidade = false
-                console.log(this.visibilidade)
-            }
+        balaoSai() {
+            this.balao.style.display = 'none'
         },
-        computed:{
-            texto(){
-                return this.$store.getters.currentBalao
-            },
-            vis(){
-                return this.visibilidade
+        balaoPosition(event) {
+            if (this.balao) {
+                this.balao.style.top = event.clientY + -40 + "px" 
+                this.balao.style.left = event.clientX + "px"
             }
         }
+    },
+    mounted() {
+        this.balao = document.getElementById("balao");
+        document.addEventListener("mousemove", this.balaoPosition)
+    },
+    beforeUnmount() {
+        document.removeEventListener("mousemove", this.balaoPosition)
+    },
+    computed: {
+        texto() {
+            return this.$store.getters.currentBalao
+        },
     }
-
+}
 </script>
 
 <style>
-    #balao{
-        position: absolute;
-        background-color: white;
-        border: var(--borda-simples);
-        border-radius: 10px;
-        width: 100px;
-        height: 100px;
-        z-index: 999;
-    }
+#balao {
+    position: absolute;
+    background-color: white;
+    border: var(--borda-simples);
+    border-radius: 10px;
+    z-index: 999;
+    padding: 5px;
+}
 </style>

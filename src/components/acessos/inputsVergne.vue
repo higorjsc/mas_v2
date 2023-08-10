@@ -11,31 +11,31 @@
 
         <!-- SURFACE MATERIALS-->
         <div class='parametros-container' id="sm">
-            <h3 class="subtitulo-inputs">{{$t('smTituloVergne')}}</h3>
+            <h3 class="subtitulo-inputs">{{ $t('smTituloVergne') }}</h3>
             <span>{{ $t('smDescriptionVergne') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
                 <input type="radio" v-model="vergne.surfaceMaterial" value="menor" id="sm-menor">
-                <label for="sm-menor" class="radio-label"></label> 
+                <label for="sm-menor" class="radio-label" id="sm-vergne-menor"></label> 
                 <span>{{ $t('sim') }}</span>
                 <!-- MAIOR -->
                 <input type="radio"  v-model="vergne.surfaceMaterial" value="maior" id="sm-maior">
-                <label for="sm-maior" class="radio-label"></label>
+                <label for="sm-maior" class="radio-label" id="sm-vergne-maior"></label>
                 <span>{{ $t('nao') }}</span> 
             </div>
         </div>
-        <!--rockMass CONDITIONS-->
+        <!--ROCKMASS CONDITIONS-->
         <div class='parametros-container' id="rm">
-            <h3 class="subtitulo-inputs">{{$t('rmTituloVergne')}}</h3>
+            <h3 class="subtitulo-inputs">{{ $t('rmTituloVergne') }}</h3>
             <span>{{ $t('rmDescriptionVergne') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
                 <input type="radio" class="rm" v-model="vergne.rockMass" value="menor" id="rm-menor">
-                <label for="rm-menor" class="radio-label"></label> 
+                <label for="rm-menor" class="radio-label" id="rm-vergne-menor"></label> 
                 <span>{{ $t('sim') }}</span>
                 <!-- MAIOR -->
                 <input type="radio" class="rm" v-model="vergne.rockMass" value="maior" id="rm-maior">
-                <label for="rm-maior" class="radio-label"></label>
+                <label for="rm-maior" class="radio-label" id="rm-vergne-maior"></label>
                 <span>{{ $t('nao') }}</span> 
             </div>
         </div>
@@ -43,22 +43,22 @@
         <div class='parametros-container' id="depth">
             <h3 class="subtitulo-inputs">{{ $t('depthTituloVergne') }}</h3>
             <span>{{ $t('depthDescriptionVergne') }}</span>
-            <select v-model="vergne.depth" class="depth">
+            <select v-model="vergne.depth" class="depth" id="depth-vergne">
                 <option value=""></option>
-                <option value="menor">{{('depthMenorVergne')}}</option>
-                <option value="entre">{{('depthEntreVergne')}}</option>
-                <option value="maior">{{('depthMaiorVergne')}}</option>
+                <option value="menor">{{ $t('depthMenorVergne') }}</option>
+                <option value="entre">{{ $t('depthEntreVergne') }}</option>
+                <option value="maior">{{ $t('depthMaiorVergne') }}</option>
             </select>
         </div>
         <!-- PRODUÇÃO -->
         <div class='parametros-container' id="prod">
             <h3 class="subtitulo-inputs">{{ $t('prodTituloVergne') }}</h3>
             <span> {{ $t('prodDescriptionVergne') }}</span>
-            <select v-model="vergne.prod" class="prod">
+            <select v-model="vergne.prod" class="prod" id="prod-vergne">
                 <option value=""></option>
-                <option value="menor">{{('prodMenor')}}</option>
-                <option value="entre">{{('prodEntre')}}</option>
-                <option value="maior">{{('prodMaior')}}</option>
+                <option value="menor">{{ $t('prodMenor') }}</option>
+                <option value="entre">{{ $t('prodEntre') }}</option>
+                <option value="maior">{{ $t('prodMaior') }}</option>
             </select>
         </div>
 

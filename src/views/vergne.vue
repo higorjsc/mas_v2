@@ -33,7 +33,10 @@
 
         <Footer 
             class="footer"
-        ></Footer>
+        />
+        <Balao
+            class="balao"
+        />
 
 
     </body>
@@ -44,7 +47,8 @@
     import NavBar from '@/components/acessos/navbar.vue'
     import Header from '@/components/compartilhado/header.vue'
     import Footer from '@/components/compartilhado/footer.vue'
-    
+    import Balao from '@/components/compartilhado/balao.vue'
+
     import Fluxograma from '@/components/acessos/fluxograma.vue'
     import Ilustrations from '@/components/acessos/ilustrations.vue'
     import inputs from '@/components/acessos/inputsVergne.vue'
@@ -59,6 +63,7 @@
             Ilustrations,
             Header,
             Footer,
+            Balao,
         },
         beforeMount(){
             this.$store.dispatch('changeMetodo', 'Vergne')

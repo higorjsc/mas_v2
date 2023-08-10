@@ -2,7 +2,7 @@
 const translation = {
   en: {
     
-    // GERAL
+    // GERAL ENGLISH
     ptSwitchLanguage: 'PT',
     enSwitchLanguage: 'EN',
     selectMethod: 'SELECT THE METHOD',
@@ -12,9 +12,9 @@ const translation = {
     observations: "NOTES:",
     references: "REFERENCES:",
 
-    // CARDOZO
+    // CARDOZO ENGLISH
     tituloCardozo: "SELECTION OF ACESS FOR UNDERGROUND MINING: Cardozo Method (2023)",
-    pragrafoExplicacaoCardozo: ""
+    paragrafoExplicacaoCardozo: ""
       + "The Cardozo method (2023) for selecting underground mine acess is a combination and update of the procedures proposed by Moser (1996) and La Vergne (2003)."
       + "In this method, Cardozo incorporates  some of the parameters proposed by Moser into the flowchart layout presented by La Vergne, and updates the proposed values as limits for depth and production according to the reality of 2023.  "
       + "<br><br><strong>Notes:</strong><br>"
@@ -23,7 +23,7 @@ const translation = {
       + "<a href ='http://dx.doi.org/10.1590/0370-44672021760094' target ='_blank'>- CARDOZO, F. A. C. et al. Choice of access for underground mining for feasibility studies. REM-International Engineering Journal, v. 76, p. 187-193, 2023.<br/></a>"
       + "<a href ='http://hdl.handle.net/10183/262393' target ='_blank'>- CARDOZO, F. A. C. Modelagem de Escavações Subterrâneas: Contribuições para Escolha de Acessos de Mina. Doutorado—Porto Alegre: Universidade Federal do Rio Grande do Sul, 3 mar. 2023.</a>"
     ,        
-    // Inputs cardozo
+    // INPUTS CARDOZO ENGLISH
     smTituloCardozo: "Surface material",
     smDescriptionCardozo: "Thickness of unconsolidated material:",
     smMenorCardozo: " <70 m",
@@ -34,9 +34,15 @@ const translation = {
     rmMaiorCardozo: "V",
     depthTituloCardozo: "Depth",
     depthDescriptionCardozo: "Orebody deepest point:",
+    depthMenorCardozo: '<700 m',
+    depthEntreCardozo: '700-1700 m',
+    depthMaiorCardozo: '>1700 m',
     prodTituloCardozo: "Production",
-    prodDescriptionCardozo: "Projected production for the mine in kt per year:",
-    // Fluxograma cardozo
+    prodDescriptionCardozo: "Projected production for the mine in kt per day:",
+    prodMenorCardozo: '<1.5 kt/d',
+    prodEntreCardozo: '1.5-7.5 kt/d',
+    prodMaiorCardozo: '>7.5 kt/d',
+    // FLUXOGRAMA CARDOZO ENGLISH
     startFluxoCardozo: 'START',
     smFluxoCardozo: 'SURFACE MATERIAL',
     rmFluxoCardozo: 'ROCK MASS',
@@ -47,8 +53,13 @@ const translation = {
     shaftFluxoCardozo: 'VERTICAL SHAFT HOISTING',
     correiaFluxoCardozo: 'RAMP HAULAGE BY TRUCK',
     rampaFluxoCardozo: 'INCLINED BELT CONVEYOR',
+    // RESULTADOS CARDOZO ENGLISH
+    shaftCardozo: 'VERTICAL SHAFT HOISTING',
+    rampaCardozo: 'RAMP HAULAGE BY TRUCK',
+    correiaCardozo: 'INCLINED BELT CONVEYOR',
+    // BALÕES CARDOZO PORTUGUES ENGLISH
 
-    // MOSER
+    // MOSER ENGLISH
     tituloMoser: "SELECTION OF ACESS FOR UNDERGROUND MINING: Moser Method (1996)",
     tituloInputsMoser: 'SELECTION PARAMETERS',
     labelCoberturaSuperficialMoser: 'Surface material',
@@ -62,7 +73,7 @@ const translation = {
         + "<br><br><strong>References:</strong>"
         + "- MOSER, P. Primary development of underground hard rock mines. In: Symposium On Mine Planning And Equipment Selection. 1996. São Paulo. Proceedings […]. São Paulo, 1996. p. 31-3."
     ,
-    // Fluxograma moser
+    // FLUXOGRAMA MOSER
     logisticaFluxoMoser: 'USE TRUCKS',
     rmFluxoMoser: 'ROCK MASS',
     smFluxoMoser: 'SURFACE MATERIAL',
@@ -73,7 +84,7 @@ const translation = {
     prodCenterFluxoMoser: 'PRODUCTION',
     rampaFluxoMoser: 'RAMP',
     shaftFluxoMoser: 'SHAFT',
-    // Inputs moser
+    // INPUTS MOSER ENGLISH
     logisticaTituloMoser: "Logistics",
     logisticaDescriptionMoser: "Is the mine going to use trucks?",
     rmTituloMoser: "Rock mass conditions",
@@ -97,7 +108,7 @@ const translation = {
     prodEntreMoser: '400-600 kt/y',
     prodMaiorMoser: '>600 kt/y',
     
-    // VERGNE
+    // VERGNE ENGLISH
     tituloVergne: "SELECTION OF ACESS FOR UNDERGROUND MINING: La Vergne Method (2003)",
     paragrafoExplicacaoVergne: ""
         + "The method developed by La Verne (2003) for selecting underground mine access was presented as a 'roughly guide' to determine a  viable access in early stages of mining planning."
@@ -108,7 +119,7 @@ const translation = {
         + "<br><br><strong>Reference:</strong><br>"
         + "- LA VERGNE, Jack. Hard rock miner's handbook. Tempe/North Bay: McIntosh engineering. ISBN 0-968006-1-6, 2003."
     ,
-    // Inputs vergne
+    // INPUTS VERGNE ENGLISH
     smTituloVergne: "Surface material",
     smDescriptionVergne: "Narrow layer of unconsolidated materials?",
     rmTituloVergne: "Rock mass conditions",
@@ -117,7 +128,7 @@ const translation = {
     depthDescriptionVergne: "Orebody deepest point:",
     prodTituloVergne: "Production",
     prodDescriptionVergne: "Projected production for the mine in kt per day:",
-    // Fluxograma vergne
+    // FLUXOGRAMA VERGNE ENGLISH
     startFluxoVergne: 'START',
     smFluxoVergne: 'SURFACE MATERIAL',
     rmFluxoVergne: 'ROCK MASS',
@@ -131,7 +142,7 @@ const translation = {
 },
 
   pt: {
-    // GERAL
+    // GERAL PORTUGUES
     ptSwitchLanguage: 'PT',
     enSwitchLanguage: 'EN',
     selectMethod: 'SELECIONE O MÉTODO',
@@ -140,9 +151,17 @@ const translation = {
     tituloFluxograma: 'FLUXOGRAMA',
     tituloInputs: 'PARÂMETROS DE ESCOLHA',
     tituloIlustration: "ILUSTRAÇÃO",
+    // FOOTER
+    universidadeFooter: 'Universidade Federal do Rio Grande do Sul',
+    laboratorioFooter: 'Laboratório de Processamento Mineral',
+    localizacaoFooter: 'Avenida Bento Gonçalves, 9500, Setor 6, Centro de Tecnologia, LAPROM - Porto Alegre, RS, 91501-970',
+    contatoFooter: 'ontato: email@ufrgs.com',
+    linksFooter: 'Links',
+    creditosFooter: 'Creditos',
+    referenciasFooter: '',
+    reportarErroFooter: '',
 
-
-    // CARDOZO
+    // CARDOZO PORTUGUES
     tituloCardozo: "SELEÇÃO DE ACESSOS PARA MINAS SUBTERRÂNEAS: Método Cardozo (2023)",
     paragrafoExplicacaoCardozo: ""
     + "O método de Cardozo (2023) para seleção de acessos a minas subterrâneas é uma combinação e atualização dos procedimentos propostos por Moser (1996) e La Vergne (2003)."
@@ -153,7 +172,7 @@ const translation = {
     + "- CARDOZO, F. A. C. et al. Choice of access for underground mining for feasibility studies. REM-International Engineering Journal, v. 76, p. 187-193, 2023.<br>"
     + "- CARDOZO, F. A. C. Modelagem de Escavações Subterrâneas: Contribuições para Escolha de Acessos de Mina. Doutorado—Porto Alegre: Universidade Federal do Rio Grande do Sul, 3 mar. 2023."
     ,
-    // Inputs cardozo
+    // INPUTS CARDOZO PORTUGUES
     smTituloCardozo: "Cobertura superficial",
     smDescriptionCardozo: "Espessura da camada de material inconsolidado:",
     smMenorCardozo: " <70 m",
@@ -164,9 +183,15 @@ const translation = {
     rmMaiorCardozo: "V",
     depthTituloCardozo: "Profundidade",
     depthDescriptionCardozo: "Ponto mais profundo do corpo de minério:",
+    depthMenorCardozo: '<700 m',
+    depthEntreCardozo: '700-1700 m',
+    depthMaiorCardozo: '>1700 m',
     prodTituloCardozo: "Produção",
     prodDescriptionCardozo: "Produção prevista para a mina em kt por dia:",
-    // Fluxograma cardozo
+    prodMenorCardozo: '<1.5 kt/d',
+    prodEntreCardozo: '1.5-7.5 kt/d',
+    prodMaiorCardozo: '>7.5 kt/d',
+    // FLUXOGRAMA CARDOZO PORTUGUES
     startFluxoCardozo: 'START',
     smFluxoCardozo: 'SURFACE MATERIAL',
     rmFluxoCardozo: 'ROCK MASS',
@@ -177,8 +202,13 @@ const translation = {
     shaftFluxoCardozo: 'VERTICAL SHAFT HOISTING',
     correiaFluxoCardozo: 'RAMP HAULAGE BY TRUCK',
     rampaFluxoCardozo: 'INCLINED BELT CONVEYOR',
+    // RESULTADOS CARDOZO PORTUGUES
+    shaftCardozo: 'POÇO VERTICAL',
+    rampaCardozo: 'RAMPA E CAMINHÕES',
+    correiaCardozo: 'PLANO INCLINADO E CORREIA TRANSPORTADORA',
+    // BALÕES CARDOZO PORTUGUES
 
-    // MOSER
+    // MOSER PORTUGUES
     tituloMoser: "SELEÇÃO DE ACESSOS PARA MINAS SUBTERRÂNEAS: Método Moser (1996)",
     tituloInputsMoser: 'PARÂMETROS DE ESCOLHA',
     labelCoberturaSuperficialMoser: 'Cobertura superficial',
@@ -192,7 +222,7 @@ const translation = {
         + "<br><br><strong>Referência:</strong>"
         + "- MOSER, P. Primary development of underground hard rock mines. In: Symposium On Mine Planning And Equipment Selection. 1996. São Paulo. Proceedings […]. São Paulo, 1996. p. 31-3."
     ,      
-    // Fluxograma moser
+    // FLUXOGRAMA MOSER
     logisticaFluxoMoser: 'USE TRUCKS',
     rmFluxoMoser: 'ROCK MASS',
     smFluxoMoser: 'SURFACE MATERIAL',
@@ -203,7 +233,7 @@ const translation = {
     prodCenterFluxoMoser: 'PRODUCTION',
     rampaFluxoMoser: 'RAMP',
     shaftFluxoMoser: 'SHAFT',
-    // Inputs moser
+    // INPUTS MOSER
     logisticaTituloMoser: "Logística",
     logisticaDescriptionMoser: "A mina utilizará caminhões?",
     rmTituloMoser: "Condições do Maciço",
@@ -238,7 +268,7 @@ const translation = {
         + "<br><br><strong>Referência:</strong><br>"
         + "- LA VERGNE, Jack. Hard rock miner's handbook. Tempe/North Bay: McIntosh engineering. ISBN 0-968006-1-6, 2003."
     , 
-    // Inputs vergne
+    // INPUTS VERGNE
     smTituloVergne: "Cobertura superficial",
     smDescriptionVergne: "Camada estreita de materiais inconsolidados?",
     rmTituloVergne: "Condições do Maciço",
@@ -247,7 +277,7 @@ const translation = {
     depthDescriptionVergne: "Ponto mais profundo do corpo de minério:",
     prodTituloVergne: "Produção",
     prodDescriptionVergne: "Produção prevista para a mina em kt por dia:",
-    // Fluxograma vergne
+    // FLUXOGRAMA VERGNE
     startFluxoVergne: 'START',
     smFluxoVergne: 'SURFACE MATERIAL',
     rmFluxoVergne: 'ROCK MASS',

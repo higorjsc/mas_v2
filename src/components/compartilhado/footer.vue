@@ -7,18 +7,17 @@
         
         <img id="ufrgs" src="@\assets\Imagens\ufrgs.png" alt="logo_ufrgs_img">
         <div class="div-esquerda">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+            <span>{{ $t('universidadeFooter') }}</span>
+            <span>{{ $t('laboratorioFooter') }}</span>
+            <span>{{ $t('LocalizacaoFooter') }}</span>
+            <span>{{ $t('contatoFooter') }}</span>
         </div>
-
         
         <div class="div-direita">
-            <h4>Links</h4>
-            <span></span>
-            <span></span>
-            <span></span>
+            <h4>{{ $t('linksFooter') }}</h4>
+            <span> {{ $t('creditosFooter') }}</span>
+            <span> {{ $t('referenciasFooter') }}</span>
+            <span> {{ $t('reportarErroFooter') }}</span>
         </div>
         <img id="laprom" src="@\assets\Imagens\laprom.png" alt="logo_laprom_png">
 

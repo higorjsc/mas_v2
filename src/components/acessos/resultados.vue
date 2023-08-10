@@ -57,6 +57,7 @@
         border-radius: 10px;
         justify-content: center;
         align-items: center;
+        text-align: center;
         background-color: var(--cor-tema);
         color: var(--cor-texto-tema);
     }

@@ -1,11 +1,16 @@
 
 <script>
     import {CORES } from '@/assets/javascript/globalConstants.js'
+    import Balao  from '@/components/compartilhado/balao.vue';
 
     export default {
+        mixins:[
+            Balao
+        ],
         data(){
             return{
                 resultado: '',
+                elementosInput: null,
                 color: {
                     start: '',
                     logistica: '',
@@ -62,6 +67,22 @@
                 }             
             }
         },
+        mounted(){
+            // ADICIONA O BALÃO DE AJUDA AOS ELEMENTOS
+            this.elementosInput = document.querySelectorAll('label, select')
+            this.elementosInput.forEach(element => {
+                element.addEventListener('mouseover', () => this.balaoEntra(element.id)); // Use an arrow function to pass the correct arguments
+                element.addEventListener('mouseleave', () => this.balaoSai());
+            });
+        },
+        beforeUnmount(){
+            // REMOVE OS OUVINTES RELACIONADOS AO BALÃO DE AJUDA
+            this.elementosInput.forEach(element => {
+                element.removeEventListener('mouseover', () => this.balaoEntra(element.name)); // Use an arrow function to pass the correct arguments
+                element.removeEventListener('mouseleave', () => this.balaoSai());
+            });
+        },
+        
         methods:{
             setDefaultColor() {
                 for (const key in this.color) {

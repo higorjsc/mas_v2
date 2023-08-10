@@ -31,10 +31,11 @@
             />
         </main>
 
-        <Footer class="footer"></Footer>
+        <Footer class="footer"/>
 
-        <Balao class="balao"></Balao>
-
+        <Balao
+            class="balao"
+        />
 
     </body>
     
@@ -45,7 +46,7 @@
     import Header from '@/components/compartilhado/header.vue'
     import Footer from '@/components/compartilhado/footer.vue'
     import Balao from '@/components/compartilhado/balao.vue'
-    
+
     import Fluxograma from '@/components/acessos/fluxograma.vue'
     import Ilustrations from '@/components/acessos/ilustrations.vue'
     import Inputs from '@/components/acessos/inputsCardozo.vue'
@@ -62,6 +63,9 @@
             Ilustrations,
             Balao,
         },
+        mixins:[
+
+        ],  
         beforeMount(){
             this.$store.dispatch('changeMetodo', 'Cardozo')
         }
