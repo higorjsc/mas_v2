@@ -17,11 +17,11 @@
             <div class="radio-container">
                 <!-- SIM -->
                 <input type="radio" v-model="moser.logistica" value="sim" id="logistica-sim">
-                <label for="logistica-sim" name='logisticaInput' class="radio-label" id='logistica-cardozo-sim'></label> 
+                <label for="logistica-sim" name='logisticaInput' class="radio-label" id='logistica-moser-sim'></label> 
                 <span>{{ $t('sim') }}</span>
                 <!-- NÃO -->
                 <input type="radio"  v-model="moser.logistica" value="nao" id="logistica-nao">
-                <label for="logistica-nao" name='logisticaInput' class="radio-label" id='logistica-cardozo-nao'></label>
+                <label for="logistica-nao" name='logisticaInput' class="radio-label" id='logistica-moser-nao'></label>
                 <span>{{ $t('nao') }}</span> 
             </div>
         </div>
@@ -32,11 +32,11 @@
             <div class="radio-container">
                 <!-- MENOR -->
                 <input type="radio" class="rm" v-model="moser.rockMass" value="menor" id="rm-menor">
-                <label for="rm-menor" class="radio-label" id='rm-cardozo-maior'></label> 
+                <label for="rm-menor" class="radio-label" id='rm-moser-maior'></label> 
                 <span>{{ $t('rmMenorMoser') }}</span>
                 <!-- MAIOR -->
                 <input type="radio" class="rm" v-model="moser.rockMass" value="maior" id="rm-maior">
-                <label for="rm-maior" class="radio-label" id='rm-cardozo-maior'></label>
+                <label for="rm-maior" class="radio-label" id='rm-moser-maior'></label>
                 <span>{{ $t('rmMaiorMoser') }}</span> 
             </div>
         </div>
@@ -47,11 +47,11 @@
             <div class="radio-container">
                 <!-- MENOR -->
                 <input type="radio" v-model="moser.surfaceMaterial" value="menor" id="sm-menor">
-                <label for="sm-menor" class="radio-label" id='sm-cardozo-menor'></label> 
+                <label for="sm-menor" class="radio-label" id='sm-moser-menor'></label> 
                 <span>{{ $t('smMenorMoser') }}</span>
                 <!-- MAIOR -->
                 <input type="radio"  v-model="moser.surfaceMaterial" value="maior" id="sm-maior">
-                <label for="sm-maior" class="radio-label" id='sm-cardozo-maior'></label>
+                <label for="sm-maior" class="radio-label" id='sm-moser-maior'></label>
                 <span>{{ $t('smMaiorMoser') }}</span> 
             </div>
         </div>

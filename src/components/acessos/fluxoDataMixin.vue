@@ -13,6 +13,7 @@
                     Cardozo: [
                         {   
                             id: 'start-cardozo',
+                            name: 'inicio',
                             backgroundKey: 'start',
                             top: '10px',
                             left: '180px',
@@ -96,6 +97,7 @@
                     Moser:[
                         {   
                             id: 'logistica-moser',
+                            name:'inicio',
                             backgroundKey: 'logistica',
                             top: '10px',
                             left: '20px',
@@ -168,6 +170,7 @@
                     Vergne:[
                         {   
                             id: 'start-vergne',
+                            name:'inicio',
                             backgroundKey: 'start',
                             top: '10px',
                             left: '180px',

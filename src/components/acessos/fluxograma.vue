@@ -8,7 +8,7 @@
             <div 
                 v-for ="(item, index) in objeto"
                 :key="index"
-                class="itens" 
+                class="itens"
                 :style="{
                     top: item.top,
                     left: item.left,
@@ -17,7 +17,6 @@
                     width: item.width,
                     height: item.height
                }"
-               @mouseover="balaoEntra(item.id)"
                @mouseout="balaoSai()"
             >
                 {{ $t(`${objeto[index]['Text']}`) }} 
@@ -75,6 +74,18 @@
             fluxoDataMixin,
             Balao
         ],
+        mounted(){
+            const objetos = document.querySelectorAll('.itens')
+            objetos.forEach( (element)=>{
+                if(element.name!='inicio'){
+                    element.addEventListener('mouseover', ()=>{
+                        this.balaoEntra(element.id)
+                    })
+                }else{
+                    console.log(element)
+                }
+            })
+        },
         computed:{
             objeto(){
                 return this.objetos[`${this.$store.getters.currentMetodo}`]

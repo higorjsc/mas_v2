@@ -69,7 +69,7 @@
         },
         mounted(){
             // ADICIONA O BALÃO DE AJUDA AOS ELEMENTOS
-            this.elementosInput = document.querySelectorAll('label, select')
+            this.elementosInput = document.querySelectorAll('label')
             this.elementosInput.forEach(element => {
                 element.addEventListener('mouseover', () => this.balaoEntra(element.id)); // Use an arrow function to pass the correct arguments
                 element.addEventListener('mouseleave', () => this.balaoSai());

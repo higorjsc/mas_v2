@@ -1,8 +1,8 @@
 <template>
     <div 
         id="balao"
+        v-html="`${$t(texto)}`"
     >
-        {{ $t(texto) }}
     </div>
 </template>
 
@@ -11,19 +11,23 @@ export default {
     name: 'balao-mixin',
     data() {
         return {
+            idObjeto: '',
             balao: null
         }
     },
     methods: {
         formataId(id){
             // Remove os sufixos "-menor" e "-maior" que diferenciam os ids dos labels dos radio buttons
-            return id.replace(/-menor/g, '').replace(/-maior/g, '').replace(/-/g, '-')
+            id = id.replace(/-menor/g, '')
+            id = id.replace(/-maior/g, '')
+            id = id.replace(/-nao/g, '')
+            id = id.replace(/-sim/g, '')
+            id = id.replace(/-/g, '_')
+            return id
         },
         balaoEntra(id) {
+            this.$store.dispatch('changeBalao', this.formataId(id))
             this.balao.style.display = 'block';
-            id = this.formataId(id)
-            this.$store.dispatch('changeBalao', id)
-            console.log(id)
         },
         balaoSai() {
             this.balao.style.display = 'none'
@@ -31,7 +35,7 @@ export default {
         balaoPosition(event) {
             if (this.balao) {
                 this.balao.style.top = event.clientY + -40 + "px" 
-                this.balao.style.left = event.clientX + "px"
+                this.balao.style.left = event.clientX + 40 + "px"
             }
         }
     },
@@ -51,11 +55,15 @@ export default {
 </script>
 
 <style>
+
 #balao {
+    display: none;
     position: absolute;
     background-color: white;
     border: var(--borda-simples);
     border-radius: 10px;
+    color: black;
+    min-width: 100px;
     z-index: 999;
     padding: 5px;
 }

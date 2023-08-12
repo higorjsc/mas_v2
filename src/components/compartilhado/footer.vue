@@ -9,7 +9,7 @@
         <div class="div-esquerda">
             <span>{{ $t('universidadeFooter') }}</span>
             <span>{{ $t('laboratorioFooter') }}</span>
-            <span>{{ $t('LocalizacaoFooter') }}</span>
+            <span>{{ $t('localizacaoFooter') }}</span>
             <span>{{ $t('contatoFooter') }}</span>
         </div>
         
@@ -43,7 +43,7 @@
         background-color: var(--cor-tema);
         border: var(--borda-simples);
         display: grid;
-        grid-template-columns: minmax(250px, 5fr) minmax(300px, 5fr) minmax(500px, 9fr) minmax(420px, 7fr);
+        grid-template-columns: 1fr 4fr 1fr 3fr;
         position: relative;
         grid-column: 1/5;
         min-width: 100%;
@@ -59,6 +59,7 @@
     .div-esquerda{
         display: flex;
         flex-direction: column;
+        grid-column: 2/3;
         font-size: 10pt;
         opacity: 0.8;
         color: var(--cor-texto-tema);

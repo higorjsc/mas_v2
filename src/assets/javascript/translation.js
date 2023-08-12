@@ -11,6 +11,15 @@ const translation = {
     tituloIlustration: "ILUSTRATION",
     observations: "NOTES:",
     references: "REFERENCES:",
+    // FOOTER ENGLISH
+    universidadeFooter: 'Universidade Federal do Rio Grande do Sul',
+    laboratorioFooter: 'Laboratório de Processamento Mineral',
+    localizacaoFooter: 'Avenida Bento Gonçalves, 9500, Setor 6, Centro de Tecnologia, LAPROM - Porto Alegre, RS, 91501-970',
+    contatoFooter: 'Contato: email@ufrgs.com',
+    linksFooter: 'Links',
+    creditosFooter: 'Credits',
+    referenciasFooter: 'References',
+    reportarErroFooter: 'Report issue',
 
     // CARDOZO ENGLISH
     tituloCardozo: "SELECTION OF ACESS FOR UNDERGROUND MINING: Cardozo Method (2023)",
@@ -126,8 +135,14 @@ const translation = {
     rmDescriptionVergne: "Is the rock intact and of good quality/strength?",
     depthTituloVergne: "Depth",
     depthDescriptionVergne: "Orebody deepest point:",
+    depthMenorVergne: '<300 m',
+    depthEntreVergne: '300-500 m',
+    depthMaiorVergne: '>500 m',
     prodTituloVergne: "Production",
     prodDescriptionVergne: "Projected production for the mine in kt per day:",
+    prodMenorVergne:'<2.0 kt/d',
+    prodEntreVergne:'2.5 kt/d',
+    prodMaiorVergne:'>5.0 kt/d',
     // FLUXOGRAMA VERGNE ENGLISH
     startFluxoVergne: 'START',
     smFluxoVergne: 'SURFACE MATERIAL',
@@ -139,6 +154,11 @@ const translation = {
     shaftFluxoVergne: 'VERTICAL SHAFT HOISTING',
     correiaFluxoVergne: 'RAMP HAULAGE BY TRUCK',
     rampaFluxoVergne: 'INCLINED BELT CONVEYOR',
+    // RESULTADOS VERGNE ENGLISH
+    shaftCardozo: 'POÇO VERTICAL',
+    rampaCardozo: 'RAMPA E CAMINHÕES',
+    correiaCardozo: 'PLANO INCLINADO E CORREIA TRANSPORTADORA',
+    // BALÕES VERGNE ENGLISH
 },
 
   pt: {
@@ -151,15 +171,15 @@ const translation = {
     tituloFluxograma: 'FLUXOGRAMA',
     tituloInputs: 'PARÂMETROS DE ESCOLHA',
     tituloIlustration: "ILUSTRAÇÃO",
-    // FOOTER
+    // FOOTER PORTUGUES
     universidadeFooter: 'Universidade Federal do Rio Grande do Sul',
     laboratorioFooter: 'Laboratório de Processamento Mineral',
     localizacaoFooter: 'Avenida Bento Gonçalves, 9500, Setor 6, Centro de Tecnologia, LAPROM - Porto Alegre, RS, 91501-970',
-    contatoFooter: 'ontato: email@ufrgs.com',
+    contatoFooter: 'Contato: email@ufrgs.com',
     linksFooter: 'Links',
     creditosFooter: 'Creditos',
-    referenciasFooter: '',
-    reportarErroFooter: '',
+    referenciasFooter: 'Referências',
+    reportarErroFooter: 'Reportar Erro',
 
     // CARDOZO PORTUGUES
     tituloCardozo: "SELEÇÃO DE ACESSOS PARA MINAS SUBTERRÂNEAS: Método Cardozo (2023)",
@@ -207,6 +227,18 @@ const translation = {
     rampaCardozo: 'RAMPA E CAMINHÕES',
     correiaCardozo: 'PLANO INCLINADO E CORREIA TRANSPORTADORA',
     // BALÕES CARDOZO PORTUGUES
+    sm_cardozo: 'A camada de materiais não consolidados<br>(solos, depósitos aluvionares, etc.)<br>sobre o depósito mineral possui<br>espessura menor que 70 m?',
+    rm_cardozo: '- Classe I-IV: rocha &ldquo;Muito boa&rdquo; a &ldquo;pobre&rdquo; (RMR 21-100)<br>- Classe V: material inconsolidado (solo), classe &ldquo;muito pobre&rdquo; (RMR 1-20)',
+    surfaceMaterial_cardozo: 'A camada de materiais não consolidados<br>(solos, depósitos aluvionares, etc.)<br>sobre o depósito mineral possui<br>espessura menor que 70 m?',
+    rockMass_cardozo: 'A classe do maciço, segundo a classificação RMR<br>de Bienawski (1989), é menor do que 4 (IV)?',
+    depth_center_cardozo: 'O ponto mais profundo do corpo de minério<br>está a menos de 1700 m da superfície?',
+    depth_left_cardozo: 'O ponto mais profundo do corpo de minério<br>está a menos de 700 m da superfície?',
+    prod_center_cardozo: 'A produção da mina será menor<br>que 7.5 mil toneladas por dia?',
+    prod_left_cardozo: 'A produção da mina será menor<br>que 1,5 mil toneladas por dia?',
+    shaft_cardozo: 'Utilizar poço',
+    rampa_cardozo: 'Utilizar rampa e caminhões',
+    correia_cardozo: 'Utilizar correia transportadora',
+    
 
     // MOSER PORTUGUES
     tituloMoser: "SELEÇÃO DE ACESSOS PARA MINAS SUBTERRÂNEAS: Método Moser (1996)",
@@ -222,18 +254,7 @@ const translation = {
         + "<br><br><strong>Referência:</strong>"
         + "- MOSER, P. Primary development of underground hard rock mines. In: Symposium On Mine Planning And Equipment Selection. 1996. São Paulo. Proceedings […]. São Paulo, 1996. p. 31-3."
     ,      
-    // FLUXOGRAMA MOSER
-    logisticaFluxoMoser: 'USE TRUCKS',
-    rmFluxoMoser: 'ROCK MASS',
-    smFluxoMoser: 'SURFACE MATERIAL',
-    opFluxoMoser: 'ACESS BY OPEN PIT',
-    depthLeftFluxoMoser: 'DEEPEST POINT',
-    prodLeftFluxoMoser: 'PRODUCTION',
-    depthCenterFluxoMoser: 'DEEPEST POINT',
-    prodCenterFluxoMoser: 'PRODUCTION',
-    rampaFluxoMoser: 'RAMP',
-    shaftFluxoMoser: 'SHAFT',
-    // INPUTS MOSER
+    // INPUTS MOSER PORTUGUÊS
     logisticaTituloMoser: "Logística",
     logisticaDescriptionMoser: "A mina utilizará caminhões?",
     rmTituloMoser: "Condições do Maciço",
@@ -256,28 +277,51 @@ const translation = {
     prodMenorMoser: '<400 kt/y',
     prodEntreMoser: '400-600 kt/y',
     prodMaiorMoser: '>600 kt/y',
+    // FLUXOGRAMA MOSER PORTUGUÊS
+    logisticaFluxoMoser: 'USE TRUCKS',
+    rmFluxoMoser: 'ROCK MASS',
+    smFluxoMoser: 'SURFACE MATERIAL',
+    opFluxoMoser: 'ACESS BY OPEN PIT',
+    depthLeftFluxoMoser: 'DEEPEST POINT',
+    prodLeftFluxoMoser: 'PRODUCTION',
+    depthCenterFluxoMoser: 'DEEPEST POINT',
+    prodCenterFluxoMoser: 'PRODUCTION',
+    rampaFluxoMoser: 'RAMP',
+    shaftFluxoMoser: 'SHAFT',
+    // RESULTADOS MOSER PORTUGUES
+    shaftMoser: 'POÇO VERTICAL',
+    rampaMoser: 'RAMPA E CAMINHÕES',
+    correiaMoser: 'PLANO INCLINADO E CORREIA TRANSPORTADORA',
+    // BALÕES MOSER PORTUGUES
 
-    // VERGNE
+
+    // VERGNE PORTUGUÊS
     tituloVergne: "SELEÇÃO DE ACESSOS PARA MINAS SUBTERRÂNEAS: Método La Vergne (2003)",
     paragrafoExplicacaoVergne: ""
-        + "O método de La Vergne (2003) para a seleção de acesso a minas subterrâneas foi apresentado pelo autor como um &rdquo;guia superfícial&ldquo; para uma análise preliminar dos possíveis acessos."
-        + "<br><br><strong>Observações:</strong><br>"
-        + "- O modelo é baseado em regras de ouro compiladas à época<br>"
-        + "- Os limites propostos para profundidade e produção foram superados por avanços tecnológicos.<br>"
-        + "- O método não dispensa estudos detalhados de viabilidade, mas objetiva diminuir a quantidade de esforços nas etapas inicias do planejamento da mina."
-        + "<br><br><strong>Referência:</strong><br>"
+    + "O método de La Vergne (2003) para a seleção de acesso a minas subterrâneas foi apresentado pelo autor como um &rdquo;guia superfícial&ldquo; para uma análise preliminar dos possíveis acessos."
+    + "<br><br><strong>Observações:</strong><br>"
+    + "- O modelo é baseado em regras de ouro compiladas à época<br>"
+    + "- Os limites propostos para profundidade e produção foram superados por avanços tecnológicos.<br>"
+    + "- O método não dispensa estudos detalhados de viabilidade, mas objetiva diminuir a quantidade de esforços nas etapas inicias do planejamento da mina."
+    + "<br><br><strong>Referência:</strong><br>"
         + "- LA VERGNE, Jack. Hard rock miner's handbook. Tempe/North Bay: McIntosh engineering. ISBN 0-968006-1-6, 2003."
     , 
-    // INPUTS VERGNE
+    // INPUTS VERGNE PORTUGUÊS
     smTituloVergne: "Cobertura superficial",
     smDescriptionVergne: "Camada estreita de materiais inconsolidados?",
     rmTituloVergne: "Condições do Maciço",
     rmDescriptionVergne: "Rocha íntegra e de boa qualidade/resitencia?",
     depthTituloVergne: "Profundidade",
     depthDescriptionVergne: "Ponto mais profundo do corpo de minério:",
+    depthMenorVergne: '<300 m',
+    depthEntreVergne: '300-500 m',
+    depthMaiorVergne: '>500 m',
     prodTituloVergne: "Produção",
     prodDescriptionVergne: "Produção prevista para a mina em kt por dia:",
-    // FLUXOGRAMA VERGNE
+    prodMenorVergne:'<2.0 kt/d',
+    prodEntreVergne:'2.5 kt/d',
+    prodMaiorVergne:'>5.0 kt/d',
+    // FLUXOGRAMA VERGNE PORTUGUÊS
     startFluxoVergne: 'START',
     smFluxoVergne: 'SURFACE MATERIAL',
     rmFluxoVergne: 'ROCK MASS',
@@ -288,7 +332,13 @@ const translation = {
     shaftFluxoVergne: 'VERTICAL SHAFT HOISTING',
     correiaFluxoVergne: 'RAMP HAULAGE BY TRUCK',
     rampaFluxoVergne: 'INCLINED BELT CONVEYOR',
-  },
+    // RESULTADOS VERGNE PORTUGUÊS
+    shaftVergne: 'POÇO VERTICAL',
+    rampaVergne: 'RAMPA E CAMINHÕES',
+    correiaVergne: 'PLANO INCLINADO E CORREIA TRANSPORTADORA',
+    // BALÕES VERGNE PORTUGUÊS
+    
+    },
 };
 
 export default translation
