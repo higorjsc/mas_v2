@@ -128,7 +128,9 @@ export default {
         }
     },
     mounted() {
-    // Desabilita todas as divs e inputs não-inicias
+        // Muda a cor de todos os elementos para o padrão definido
+        this.setDefaultColor()
+        // Desabilita todas as divs e inputs não-inicias
         this.disableObject(["rm", "depth", "prod"])
     },
     methods: {

@@ -127,14 +127,16 @@ export default {
         }
     },
     mounted() {
-    // Desabilita todas as divs e inputs não-inicias
+        // Muda a cor de todos os elementos para o padrão definido
+        this.setDefaultColor()
+        // Desabilita todas as divs e inputs não-inicias
         this.disableObject(["rm", "depth", "prod"])
     },
     methods: {
         newValue() {
             // SURFACE MATERIAL
             if (this.vergne.surfaceMaterial === "maior") {
-                this.resultado = "shaft"
+                this.resultado = "resultadoShaftVergne"
                 this.showImages(["shaft"])
                 this.setColorRed()
                 this.setColorGreen(["start", "surfaceMaterial", "shaft"])
@@ -145,7 +147,7 @@ export default {
 
             // ROCK MASS
             if (this.vergne.surfaceMaterial === "menor" && this.vergne.rockMass === "maior") {
-                this.resultado = "shaft"
+                this.resultado = "resultadoShaftVergne"
                 this.showImages(["shaft"])
                 this.setColorRed()
                 this.setColorGreen(["start", "surfaceMaterial", "rockMass", "shaft"])
@@ -156,7 +158,7 @@ export default {
 
             // PROFUNDIDADE
             if (this.vergne.surfaceMaterial === "menor" && this.vergne.rockMass === "menor" && this.vergne.depth === "maior") {
-                this.resultado = "shaft"
+                this.resultado = "resultadoShaftVergne"
                 this.showImages(["shaft"])
                 this.setColorRed()
                 this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "shaft"])
@@ -167,22 +169,22 @@ export default {
 
             // PRODUÇÃO
             if (this.vergne.surfaceMaterial === "menor" && this.vergne.rockMass === "menor" && (this.vergne.depth === "entre" || this.vergne.depth === "menor") && this.vergne.prod === "maior") {
-                this.resultado = "correiaVergne"
+                this.resultado = "resultadoCorreiVergne"
                 this.showImages(["correia"])
                 this.setColorRed()
                 this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "correia"])
             } else if (this.vergne.surfaceMaterial === "menor" && this.vergne.rockMass === "menor" && (this.vergne.depth === "entre" || this.vergne.depth === "menor") && (this.vergne.prod === "menor" || this.vergne.prod === "entre") && this.vergne.depth === "menor") {
-                this.resultado = "rampaVergne"
+                this.resultado = "resultadoRampaVergne"
                 this.showImages(["rampa", "truck"])
                 this.setColorRed()
                 this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "rampa"])
             } else if (this.vergne.surfaceMaterial === "menor" && this.vergne.rockMass === "menor" && (this.vergne.depth === "entre" || this.vergne.depth === "menor") && this.vergne.prod === "menor" && this.vergne.depth === "entre") {
-                this.resultado = "rampaVergne"
+                this.resultado = "resultadoRampaVergne"
                 this.showImages(["rampa", "truck"])
                 this.setColorRed()
                 this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "prodLeft", "rampa"])
             } else if (this.vergne.surfaceMaterial === "menor" && this.vergne.rockMass === "menor" && (this.vergne.depth === "entre" || this.vergne.depth === "menor") && this.vergne.prod === "entre" && this.vergne.depth === "entre") {
-                this.resultado = "shaft"
+                this.resultado = "resultadoShaftVergne"
                 this.showImages(["shaft"])
                 this.setColorRed()
                 this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "prodLeft", "shaft"])

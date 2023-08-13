@@ -153,7 +153,7 @@ export default {
             handler() {
                 // Desabilita os inputs e altera a opacidade das divs
                 this.disableObject(["rm", "sm", "op", "depth", "prod"])
-                // Muda a cor de todos os elementos para vermelho.
+                // Muda a cor de todos os elementos para o padrão definido
                 this.setDefaultColor()
                 // Oculta as todas as imagens não default
                 this.defaultImages()
@@ -161,14 +161,14 @@ export default {
                 this.newValue()
                 // Altera o valor de moser na store VueExe
                 this.$store.dispatch("changeInputsAcessosMoser", this.moser)
-
-                console.log(this.moser.depth)
             },
             deep: true // deep: true → O que estiver dentro da variável será observado
         }
     },
     mounted() {
-    // Desabilita todas as divs e inputs não-inicias
+        // Muda a cor de todos os elementos para o padrão definido
+        this.setDefaultColor()
+        // Desabilita todas as divs e inputs não-inicias
         this.disableObject(["rm", "sm", "op", "depth", "prod"])
     },
     methods: {

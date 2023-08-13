@@ -178,14 +178,15 @@ export default {
                         backgroundKey: "surfaceMaterial",
                         top: "70px",
                         left: "140px",
-                        width: "150px",
+                        width: "155px",
                         Text: "smFluxoVergne"
                     },
                     {
                         id: "rock-mass-vergne",
                         backgroundKey: "rockMass",
                         top: "130px",
-                        left: "180px",
+                        left: "172px",
+                        width: "90px",
                         Text: "rmFluxoVergne"
                     },
                     {
@@ -468,13 +469,13 @@ export default {
                         Text: "NO"
                     },
                     { // soundRock - shaft
-                        top: "124px",
+                        top: "130px",
                         left: "134px",
                         Text: "NO"
                     },
                     { // shallowOverburden - shaft
                         top: "71px",
-                        left: "102px",
+                        left: "105px",
                         Text: ">70 m"
                     }
                 ]

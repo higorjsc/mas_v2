@@ -2,7 +2,7 @@
 const CORES = {
     fluxoVerde: "rgba(14, 224, 49, 0.8)",
     fluxoAzul: "rgba(31, 191, 219, 0.493)",
-    fluxoVermelho: "Red"
+    fluxoVermelho: "rgba(227, 22, 22, 0.742)"
 }
 
 const TEMAS = {

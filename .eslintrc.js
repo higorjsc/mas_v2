@@ -74,8 +74,8 @@ module.exports = {
             ignorePropertyModificationsFor: ["state"]
         }],
 
-        // Evita o uso de console.log e outros métodos de console em produção
-        "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
+        // Evita o uso de console.log
+        "no-console": "warn",
 
         // Requer o uso de === e !== em vez de == e !=
         eqeqeq: "warn",

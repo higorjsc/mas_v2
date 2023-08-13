@@ -93,7 +93,7 @@ export default {
         })
     },
     beforeUnmount() {
-    // REMOVE OS OUVINTES RELACIONADOS AO BALÃO DE AJUDA
+        // REMOVE OS OUVINTES RELACIONADOS AO BALÃO DE AJUDA
         this.elementosInput.forEach(element => {
             element.removeEventListener("mouseover", () => this.balaoEntra(element.name)) // Use an arrow function to pass the correct arguments
             element.removeEventListener("mouseleave", () => this.balaoSai())

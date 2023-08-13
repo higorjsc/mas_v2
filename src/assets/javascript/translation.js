@@ -1,7 +1,7 @@
 // translation.js
 const translation = {
     en: {
-    // GERAL ENGLISH
+        // GERAL ENGLISH
         switchLanguage: "Change to portuguese",
         ptSwitchLanguage: "PT",
         enSwitchLanguage: "EN",
@@ -369,8 +369,8 @@ const translation = {
         prodMaiorVergne: ">5.0 kt/d",
         // FLUXOGRAMA VERGNE PORTUGUÊS
         startFluxoVergne: "START",
-        smFluxoVergne: "SURFACE MATERIAL",
-        rmFluxoVergne: "ROCK MASS",
+        smFluxoVergne: "SHALLOW OVERBURDEN",
+        rmFluxoVergne: "SOUND ROCK",
         depthCenterFluxoVergne: "OREBODY <500 m DEEP",
         prodCenterFluxoVergne: "PRODUCTION <5 kt/d",
         depthLeftFluxoVergne: "OREBODY <300 m DEEP",
