@@ -1,162 +1,162 @@
 
 <script>
-    import {CORES } from '@/assets/javascript/globalConstants.js'
-    import Balao  from '@/components/compartilhado/balao.vue';
+import { CORES } from "@/assets/javascript/globalConstants.js"
+import Balao from "@/components/compartilhado/balao.vue"
 
-    export default {
-        mixins:[
-            Balao
-        ],
-        data(){
-            return{
-                resultado: '',
-                elementosInput: null,
-                color: {
-                    start: '',
-                    logistica: '',
-                    rockMass: '',
-                    surfaceMaterial: '',
-                    openPit: '',
-                    prodCenter: '',
-                    prodLeft: '',
-                    depthCenter: '',
-                    depthLeft: '',
-                    correia: '',
-                    rampa: '',
-                    shaft: '',
-                } ,
-                defaultColor: {
-                    start: CORES.fluxoVerde,
-                    logistica: CORES.fluxoVerde,
-                    rockMass: 'white',
-                    surfaceMaterial: 'white',
-                    openPit: 'white',
-                    prodCenter: 'white',
-                    prodLeft: 'white',
-                    depthCenter: 'white',
-                    depthLeft: 'white',
-                    correia: CORES.fluxoAzul,
-                    rampa: CORES.fluxoAzul,
-                    shaft: CORES.fluxoAzul,
-                },     
-                ilustrations:{
-                    orebody: true,
-                    superficie: true,
-                    superficie_pit: false,
-                    ventilacao: true,
-                    usina: true,
-                    shaft: false,
-                    rampa: false,
-                    rampa_pit: false,
-                    truck: false,
-                    correia: false,
-                    pit: false,
-                },
-                defaultIlustrations:{
-                    orebody: true,
-                    superficie: true,
-                    superficie_pit: false,
-                    ventilacao: true,
-                    usina: true,
-                    shaft: false,
-                    rampa: false,
-                    rampa_pit: false,
-                    truck: false,
-                    correia: false,
-                    pit: false,
-                }             
+export default {
+    mixins: [
+        Balao
+    ],
+    data () {
+        return {
+            resultado: "",
+            elementosInput: null,
+            color: {
+                start: "",
+                logistica: "",
+                rockMass: "",
+                surfaceMaterial: "",
+                openPit: "",
+                prodCenter: "",
+                prodLeft: "",
+                depthCenter: "",
+                depthLeft: "",
+                correia: "",
+                rampa: "",
+                shaft: ""
+            },
+            defaultColor: {
+                start: CORES.fluxoVerde,
+                logistica: CORES.fluxoVerde,
+                rockMass: "white",
+                surfaceMaterial: "white",
+                openPit: "white",
+                prodCenter: "white",
+                prodLeft: "white",
+                depthCenter: "white",
+                depthLeft: "white",
+                correia: CORES.fluxoAzul,
+                rampa: CORES.fluxoAzul,
+                shaft: CORES.fluxoAzul
+            },
+            ilustrations: {
+                orebody: true,
+                superficie: true,
+                superficie_pit: false,
+                ventilacao: true,
+                usina: true,
+                shaft: false,
+                rampa: false,
+                rampa_pit: false,
+                truck: false,
+                correia: false,
+                pit: false
+            },
+            defaultIlustrations: {
+                orebody: true,
+                superficie: true,
+                superficie_pit: false,
+                ventilacao: true,
+                usina: true,
+                shaft: false,
+                rampa: false,
+                rampa_pit: false,
+                truck: false,
+                correia: false,
+                pit: false
+            }
+        }
+    },
+    mounted () {
+    // ADICIONA O BALÃO DE AJUDA AOS ELEMENTOS
+        this.elementosInput = document.querySelectorAll("label")
+        this.elementosInput.forEach(element => {
+            element.addEventListener("mouseover", () => this.balaoEntra(element.id)) // Use an arrow function to pass the correct arguments
+            element.addEventListener("mouseleave", () => this.balaoSai())
+        })
+    },
+    beforeUnmount () {
+    // REMOVE OS OUVINTES RELACIONADOS AO BALÃO DE AJUDA
+        this.elementosInput.forEach(element => {
+            element.removeEventListener("mouseover", () => this.balaoEntra(element.name)) // Use an arrow function to pass the correct arguments
+            element.removeEventListener("mouseleave", () => this.balaoSai())
+        })
+    },
+
+    methods: {
+        setDefaultColor () {
+            for (const key in this.color) {
+                this.color[key] = this.defaultColor[key]
             }
         },
-        mounted(){
-            // ADICIONA O BALÃO DE AJUDA AOS ELEMENTOS
-            this.elementosInput = document.querySelectorAll('label')
-            this.elementosInput.forEach(element => {
-                element.addEventListener('mouseover', () => this.balaoEntra(element.id)); // Use an arrow function to pass the correct arguments
-                element.addEventListener('mouseleave', () => this.balaoSai());
-            });
+        setColorRed () {
+            for (const key in this.color) {
+                this.color[key] = CORES.fluxoVermelho
+            }
         },
-        beforeUnmount(){
-            // REMOVE OS OUVINTES RELACIONADOS AO BALÃO DE AJUDA
-            this.elementosInput.forEach(element => {
-                element.removeEventListener('mouseover', () => this.balaoEntra(element.name)); // Use an arrow function to pass the correct arguments
-                element.removeEventListener('mouseleave', () => this.balaoSai());
-            });
+        setColorGreen (objetos = []) {
+            // Muda a cor dos objetos do array para verde
+            objetos.forEach((objeto) => {
+                this.color[objeto] = CORES.fluxoVerde
+            })
         },
-        
-        methods:{
-            setDefaultColor() {
-                for (const key in this.color) {
-                    this.color[key] = this.defaultColor[key];
-                } 
-            },
-            setColorRed() {
-                for (const key in this.color) {
-                    this.color[key] = CORES.fluxoVermelho
-                } 
-            },
-            setColorGreen(objetos = []){
-                // Muda a cor dos objetos do array para verde
-                objetos.forEach((objeto)=>{
-                    this.color[objeto] = CORES.fluxoVerde
+        defaultImages () {
+            this.ilustrations = JSON.parse(JSON.stringify(this.defaultIlustrations))
+        },
+        showImages (itens) {
+            itens.forEach(item => {
+                this.ilustrations[item] = true
+            })
+        },
+        // DESABILITA OS OBJETOS NA SEQUENCIA DO FLUXOGRAMA
+        enableObjects (id) {
+            // Altera a opacidade da div a partir do id
+            const objeto = document.querySelector(`#${id}`)
+            if (objeto) {
+                objeto.style.opacity = "1"
+            }
+            // Desabilita o input a partir da classe
+            const elementos = document.querySelectorAll(`.${id}`)
+            if (elementos) {
+                elementos.forEach(element => {
+                    element.disabled = false
                 })
-            },
-            defaultImages(){
-                this.ilustrations = JSON.parse(JSON.stringify(this.defaultIlustrations));
-            },
-            showImages(itens){
-                itens.forEach(item =>{
-                    this.ilustrations[item] = true
-                })
-            },
-            // DESABILITA OS OBJETOS NA SEQUENCIA DO FLUXOGRAMA
-            enableObjects(id){
+            }
+        },
+        // HABILITA O PRÓXIMO ELEMENTO DO FLUXOGRAMA
+        disableObject (ids = []) {
+            ids.forEach((id) => {
                 // Altera a opacidade da div a partir do id
-                let objeto = document.querySelector(`#${id}`)
-                if(objeto) {
-                    objeto.style.opacity = "1"
+                const objeto = document.querySelector(`#${id}`)
+                if (objeto) {
+                    objeto.style.opacity = "0.5"
                 }
                 // Desabilita o input a partir da classe
                 const elementos = document.querySelectorAll(`.${id}`)
-                if(elementos){
+                if (elementos) {
                     elementos.forEach(element => {
-                        element.disabled = false
-                })
+                        element.disabled = true
+                    })
                 }
+            })
+        }
+    },
+    watch: {
+        color: {
+            handler () {
+                this.$store.dispatch("changeColor", this.color)
             },
-            // HABILITA O PRÓXIMO ELEMENTO DO FLUXOGRAMA
-            disableObject(ids=[]){
-                ids.forEach((id) =>{
-                    // Altera a opacidade da div a partir do id
-                    let objeto = document.querySelector(`#${id}`)
-                    if(objeto) {
-                        objeto.style.opacity = "0.5"
-                    }
-                    // Desabilita o input a partir da classe
-                    const elementos = document.querySelectorAll(`.${id}`)
-                    if(elementos){
-                        elementos.forEach(element => {
-                            element.disabled = true
-                        })
-                    }
-                })
-            }
+            deep: true // deep: true → O que estiver dentro da variável será observado
         },
-        watch:{
-            color:{
-                handler(){
-                    this.$store.dispatch('changeColor', this.color)
-                },
-                deep: true //deep: true → O que estiver dentro da variável será observado
+        ilustrations: {
+            handler () {
+                this.$store.dispatch("changeIlustrations", this.ilustrations)
             },
-            ilustrations:{
-                handler(){
-                    this.$store.dispatch('changeIlustrations', this.ilustrations)
-                },
-                deep: true //deep: true → O que estiver dentro da variável será observado
-            },
-            resultado(){
-                this.$store.dispatch('changeResultado', this.resultado)
-            } 
+            deep: true // deep: true → O que estiver dentro da variável será observado
+        },
+        resultado () {
+            this.$store.dispatch("changeResultado", this.resultado)
         }
     }
+}
 </script>

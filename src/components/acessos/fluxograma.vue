@@ -5,7 +5,7 @@
         <!-- CONTAINER DE TODO O FLUXOGRAMA -->
         <div class="container">
             <!-- CONTAINER DOS OBJETOS PRINCIPAIS DO FLUGRAMA -->
-            <div 
+            <div
                 v-for ="(item, index) in objeto"
                 :key="index"
                 class="itens"
@@ -20,106 +20,104 @@
                }"
                @mouseout="balaoSai()"
             >
-                {{ $t(`${objeto[index]['Text']}`) }} 
+                {{ $t(`${objeto[index]['Text']}`) }}
             </div>
            <!-- CONTAINER DAS SETAS -->
-            <Seta 
+            <Seta
                 v-for="(item, index) in seta"
                 class="setas"
-                :key="index"  
-                :Head="item.head" 
-                :Color="item.color" 
-                :Top="item.top" 
+                :key="index"
+                :Cabecalho="item.head"
+                :Color="item.color"
+                :Top="item.top"
                 :Left="item.left"
                 :Width="item.width"
-                :Transform="item.transform"  
+                :Transform="item.transform"
             >
             </Seta>
             <!-- CONTAINER DE TEXTOS SOBRE AS SETAS -->
-            <Way 
+            <Way
                 v-for="(item, index) in way"
                 class="way"
-                :key="index"  
-                :BackgroundColor="item.backgroundColor" 
-                :FontColor="item.color" 
-                :FontSize="item.fontSize" 
-                :TextAlign="item.textAlign" 
-                :Top="item.top" 
+                :key="index"
+                :BackgroundColor="item.backgroundColor"
+                :FontColor="item.color"
+                :FontSize="item.fontSize"
+                :TextAlign="item.textAlign"
+                :Top="item.top"
                 :Left="item.left"
                 :Width="item.width"
                 :Height="item.height"
-                :Transform="item.transform"  
+                :Transform="item.transform"
             >
                 {{ item.Text }}
             </Way>
-
 
         </div>
 
     </section>
 </template>
-  
+
 <script>
 
-    import Seta from './seta.vue';
-    import Way from './way.vue';
-    import fluxoDataMixin  from './fluxoDataMixin.vue';
-    import Balao  from '@/components/compartilhado/balao.vue';
+import Seta from "./seta.vue"
+import Way from "./way.vue"
+import fluxoDataMixin from "./fluxoDataMixin.vue"
+import Balao from "@/components/compartilhado/balao.vue"
 
-    export default {
-        components:{
-            Seta,
-            Way,
+export default {
+    name: "vue-fluxograma-acessos",
+    components: {
+        Seta,
+        Way
+    },
+    mixins: [
+        fluxoDataMixin,
+        Balao
+    ],
+    mounted () {
+        this.adicionarEventListeners()
+        this.removerEventListeners()
+    },
+    methods: {
+        adicionarEventListeners () {
+            // Adiciona o evento do balão em mouseover a todos os ojbetos do fluxograma
+            const objetos = document.querySelectorAll(".itens")
+            objetos.forEach(element => {
+                element.addEventListener("mouseover", this.eventoMouseover)
+            })
         },
-        mixins:[
-            fluxoDataMixin,
-            Balao
-        ],
-        mounted() {
-            this.adicionarEventListeners();
-            this.removerEventListeners();
+        removerEventListeners () {
+            // Remove o evento do balão em mouseover dos objetos indesejados
+            const objetos = document.querySelectorAll("#start-cardozo, #start-vergne")
+            objetos.forEach(element => {
+                element.removeEventListener("mouseover", this.eventoMouseover)
+            })
         },
-        methods: {
-            adicionarEventListeners() {
-                // Adiciona o evento do balão em mouseover a todos os ojbetos do fluxograma
-                const objetos = document.querySelectorAll('.itens');
-                objetos.forEach(element => {
-                    element.addEventListener('mouseover', this.eventoMouseover);
-                });
-            },
-            removerEventListeners() {
-                // Remove o evento do balão em mouseover dos objetos indesejados
-                const objetos = document.querySelectorAll('#start-cardozo, #start-vergne');
-                objetos.forEach(element => {
-                    element.removeEventListener('mouseover', this.eventoMouseover);
-                });
-            },
-            eventoMouseover(event) {
-                // Chama a função balaoEntra do mixin "Balao" from /compartilhado/balao.vue
-                this.balaoEntra(event.target.id);
-            },
-        },
-        computed:{
-            objeto(){
-                // Retorna os objetos principais do fluxograma de cada método
-                return this.objetos[`${this.$store.getters.currentMetodo}`]
-            },
-            way(){
-                // Retorna os textos sobre as setas do fluxograma de cada método
-                return this.ways[`${this.$store.getters.currentMetodo}`]
-            },
-            seta(){
-                // Retorna as setas do flugrama de cada método
-                return this.setas[`${this.$store.getters.currentMetodo}`]
-            }
+        eventoMouseover (event) {
+            // Chama a função balaoEntra do mixin "Balao" from /compartilhado/balao.vue
+            this.balaoEntra(event.target.id)
         }
+    },
+    computed: {
+        objeto () {
+            // Retorna os objetos principais do fluxograma de cada método
+            return this.objetos[`${this.$store.getters.currentMetodo}`]
+        },
+        way () {
+            // Retorna os textos sobre as setas do fluxograma de cada método
+            return this.ways[`${this.$store.getters.currentMetodo}`]
+        },
+        seta () {
+            // Retorna as setas do flugrama de cada método
+            return this.setas[`${this.$store.getters.currentMetodo}`]
+        }
+    }
 
-
-};
-
+}
 
 </script>
-  
+
 <style scoped>
    *{
         padding: 0;
@@ -164,7 +162,7 @@
         cursor: pointer;
         box-shadow: var(--shadow-hover);
     }
-    
+
     .container .setas {
         position: absolute;
     }
@@ -174,4 +172,3 @@
         cursor: default;
     }
 </style>
-  

@@ -3,7 +3,7 @@
     <iframe
         class="iframe-acessos"
         id="iframe-1"
-        src="" 
+        src=""
         frameborder="0"
     >
     </iframe>
@@ -11,10 +11,10 @@
 </template>
 
 <script>
-    
-    export default{
 
-    }
+export default {
+    name: "vue-iframe"
+}
 
 </script>
 

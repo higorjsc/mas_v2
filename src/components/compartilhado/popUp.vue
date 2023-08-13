@@ -1,19 +1,19 @@
 <template>
-   
+
     <div
-        v-if="aberto!==null" 
+        v-if="aberto!==null"
         class='pop-up-container'
         id="pop-up-container"
     >
         <!--  BARRA SUPERIOR DO POP-UP -->
-        <div 
+        <div
             class='barra-pop-up'
             id="barra-pop-up"
         >
             <!-- Titulo do Pop Up -->
             <h4 class="titulo-pop-up"></h4>
             <!-- Botão Fechar Pop Up -->
-            <button 
+            <button
                 class="close-pop-up"
                 @click="closePopUp()"
             >
@@ -22,7 +22,7 @@
 
         </div>
 
-        <Frame
+        <PopUpFrame
             class="Iframe"
             :src="aberto"
         />
@@ -32,94 +32,92 @@
 </template>
 
 <script>
-    import Frame from './iframes.vue'
-    export default{
-        components:{
-            Frame
-        },
-        data(){
-            return{
-                popUpContainer:null,
-                popUpBarra: null,
-                limite:{
-                    right: 0,
-                    left: 0,
-                    top: 0,
-                    bottom: 0
-                },
-                position:{ 
-                    x: 0, 
-                    y: 0 
-                }
-            }
-        },
-        updated(){
-            this.popUpContainer = document.querySelector("#pop-up-container")
-            this.popUpBarra = document.querySelector("#barra-pop-up")
-            this.prepararMovimento()
-        },
-        methods:{
-            interromperMovimento(){
-                // Interrompe o movimento do pop up
-                document.removeEventListener("mousemove", this.moverPopUp)
+import PopUpFrame from "./iframes.vue"
+export default {
+    components: {
+        PopUpFrame
+    },
+    data () {
+        return {
+            popUpContainer: null,
+            popUpBarra: null,
+            limite: {
+                right: 0,
+                left: 0,
+                top: 0,
+                bottom: 0
             },
-            moverPopUp(event){
-                // Define a coordenada do movimento
-                let x = event.clientX - this.position.x
-                let y = event.clientY - this.position.y
-                // Conserva os limites de movimento estabelecidos caso ultrapassados
-                x = x < this.limite.left ? this.limite.left : x
-                x = x > this.limite.right ? this.limite.right : x
-                y = y < this.limite.top ? this.limite.top : y
-                y = y > this.limite.bottom ? this.limite.bottom : y
-                // Move o pop up enquanto mousedown
-                this.popUpContainer.style.left = `${x}px`
-                this.popUpContainer.style.top = `${y}px`
-            },
-            prepararMovimento() {
-                // Eventos que interromperão o movimento do pop up 
-                document.addEventListener('mouseup', this.interromperMovimento)
-                document.addEventListener('scroll', this.interromperMovimento)
-                document.addEventListener('keydown', this.interromperMovimento)
-                document.addEventListener('click', this.interromperMovimento)
-                // Adiciona o movimento à barra do pop up
-                if(this.popUpBarra){
-                    this.popUpBarra.addEventListener("mousedown", (event) => {
-                        // Impede o usuário de selecionar textos enquanto arrasta o pop up
-                        document.body.style.userSelect = "none"
-                        // Calcula a largura e altura do body. Os valores variam com o scroll da página (manter cálculo dentro desse evento)
-                        let body_height = document.body.clientHeight - 5
-                        let body_width = document.body.clientWidth
-                        // Define a posição do mouse em relação ao pop up
-                        this.position.x = event.clientX - this.popUpContainer.offsetLeft
-                        this.position.y = event.clientY - this.popUpContainer.offsetTop
-                        // Define os this.limites de movimento do pop up
-                        this.limite.right = body_width - this.popUpContainer.clientWidth
-                        this.limite.bottom = body_height - this.popUpContainer.clientHeight
-                        // Chama a função para mover
-                        document.addEventListener("mousemove", this.moverPopUp)
-                    })
-                }
-            },
-            closePopUp(){
-                // Restaurar a capacidade de seleção do usuário
-                document.body.style.userSelect = "auto";
-                // Limpar eventos adicionados durante a movimentação
-                document.removeEventListener('scroll', this.interromperMovimento);
-                document.removeEventListener('keydown', this.interromperMovimento);
-                document.removeEventListener('click', this.interromperMovimento);
-                // Fechar o pop-up
-                this.$store.dispatch('changePopUp', null);
-        
-            },
-        },   
-        computed:{
-            aberto(){
-                return this.$store.getters.currentPopUp
+            position: {
+                x: 0,
+                y: 0
             }
         }
+    },
+    updated () {
+        this.popUpContainer = document.querySelector("#pop-up-container")
+        this.popUpBarra = document.querySelector("#barra-pop-up")
+        this.prepararMovimento()
+    },
+    methods: {
+        interromperMovimento () {
+            // Interrompe o movimento do pop up
+            document.removeEventListener("mousemove", this.moverPopUp)
+        },
+        moverPopUp (event) {
+            // Define a coordenada do movimento
+            let x = event.clientX - this.position.x
+            let y = event.clientY - this.position.y
+            // Conserva os limites de movimento estabelecidos caso ultrapassados
+            x = x < this.limite.left ? this.limite.left : x
+            x = x > this.limite.right ? this.limite.right : x
+            y = y < this.limite.top ? this.limite.top : y
+            y = y > this.limite.bottom ? this.limite.bottom : y
+            // Move o pop up enquanto mousedown
+            this.popUpContainer.style.left = `${x}px`
+            this.popUpContainer.style.top = `${y}px`
+        },
+        prepararMovimento () {
+            // Eventos que interromperão o movimento do pop up
+            document.addEventListener("mouseup", this.interromperMovimento)
+            document.addEventListener("scroll", this.interromperMovimento)
+            document.addEventListener("keydown", this.interromperMovimento)
+            document.addEventListener("click", this.interromperMovimento)
+            // Adiciona o movimento à barra do pop up
+            if (this.popUpBarra) {
+                this.popUpBarra.addEventListener("mousedown", (event) => {
+                    // Impede o usuário de selecionar textos enquanto arrasta o pop up
+                    document.body.style.userSelect = "none"
+                    // Calcula a largura e altura do body. Os valores variam com o scroll da página (manter cálculo dentro desse evento)
+                    const bodyHeight = document.body.clientHeight - 5
+                    const bodyWidth = document.body.clientWidth
+                    // Define a posição do mouse em relação ao pop up
+                    this.position.x = event.clientX - this.popUpContainer.offsetLeft
+                    this.position.y = event.clientY - this.popUpContainer.offsetTop
+                    // Define os this.limites de movimento do pop up
+                    this.limite.right = bodyWidth - this.popUpContainer.clientWidth
+                    this.limite.bottom = bodyHeight - this.popUpContainer.clientHeight
+                    // Chama a função para mover
+                    document.addEventListener("mousemove", this.moverPopUp)
+                })
+            }
+        },
+        closePopUp () {
+            // Restaurar a capacidade de seleção do usuário
+            document.body.style.userSelect = "auto"
+            // Limpar eventos adicionados durante a movimentação
+            document.removeEventListener("scroll", this.interromperMovimento)
+            document.removeEventListener("keydown", this.interromperMovimento)
+            document.removeEventListener("click", this.interromperMovimento)
+            // Fechar o pop-up
+            this.$store.dispatch("changePopUp", null)
+        }
+    },
+    computed: {
+        aberto () {
+            return this.$store.getters.currentPopUp
+        }
     }
-
+}
 
 </script>
 

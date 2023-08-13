@@ -1,5 +1,5 @@
-import { createStore } from 'vuex'
-import { TEMAS, CORES } from '@/assets/javascript/globalConstants.js'
+import { createStore } from "vuex"
+import { TEMAS, CORES } from "@/assets/javascript/globalConstants.js"
 
 // const fluxoRed  ='rgba(31, 191, 219, 0.493)'
 // const fluxoGreen = 'rgba(14, 224, 49, 0.8)'
@@ -7,50 +7,50 @@ import { TEMAS, CORES } from '@/assets/javascript/globalConstants.js'
 
 export default createStore({
     state: {
-        language: 'pt', // Idioma padrão
-        resultado: '', // resultado do fluxograma de escolha de acessos
-        metodo: '', // Metodo/view atual 
+        language: "pt", // Idioma padrão
+        resultado: "", // resultado do fluxograma de escolha de acessos
+        metodo: "", // Metodo/view atual
         popUp: null, // popUp aberto (null = nenhum)
-        balao: '', // Variável de texto do balao help 
-        inputsAcessos:{
-            moser:{
-                logistica: '',
-                rockMass: '',
-                surfaceMaterial: '',
-                openPit: '',
-                prod: '',
-                depth: '',
-            }, 
-            cardozo:{
-                surfaceMaterial: '',
-                rockMass: '',
-                prod: '',
-                depth: '',
+        balao: "", // Variável de texto do balao help
+        inputsAcessos: {
+            moser: {
+                logistica: "",
+                rockMass: "",
+                surfaceMaterial: "",
+                openPit: "",
+                prod: "",
+                depth: ""
             },
-            vergne:{
-                surfaceMaterial: '',
-                rockMass: '',
-                prod: '',
-                depth: '',
+            cardozo: {
+                surfaceMaterial: "",
+                rockMass: "",
+                prod: "",
+                depth: ""
             },
+            vergne: {
+                surfaceMaterial: "",
+                rockMass: "",
+                prod: "",
+                depth: ""
+            }
         },
         temaMAS: TEMAS.temaVermelho,
         temaMMS: TEMAS.temaVermelho,
-        color:{
+        color: {
             start: CORES.fluxoVerde,
             logistica: CORES.fluxoVerde,
-            rockMass: 'white',
-            surfaceMaterial: 'white',
-            openPit: 'white',
-            prodCenter: 'white',
-            prodLeft: 'white',
-            depthCenter: 'white',
-            depthLeft: 'white',
+            rockMass: "white",
+            surfaceMaterial: "white",
+            openPit: "white",
+            prodCenter: "white",
+            prodLeft: "white",
+            depthCenter: "white",
+            depthLeft: "white",
             correia: CORES.fluxoAzul,
             rampa: CORES.fluxoAzul,
-            shaft: CORES.fluxoAzul,
+            shaft: CORES.fluxoAzul
         },
-        ilustrations:{
+        ilustrations: {
             orebody: true,
             superficie: true,
             superficie_pit: false,
@@ -60,103 +60,103 @@ export default createStore({
             rampa: false,
             rampa_pit: false,
             truck: false,
-            correia: false,
+            correia: false
         }
     },
-     mutations: {
-        setLanguage(state, data) {
+    mutations: {
+        setLanguage (state, data) {
             state.language = data
         },
-        setInputsAcessosMoser(state, data) {
+        setInputsAcessosMoser (state, data) {
             state.inputsAcessos.moser = data
         },
-        setInputsAcessosCardozo(state, data) {
+        setInputsAcessosCardozo (state, data) {
             state.inputsAcessos.cardozo = data
         },
-        setInputsAcessosVergne(state, data) {
+        setInputsAcessosVergne (state, data) {
             state.inputsAcessos.vergne = data
         },
-        setColor(state, data) {
+        setColor (state, data) {
             state.color = data
         },
-        setIlustrations(state, data) {
+        setIlustrations (state, data) {
             state.ilustrations = data
         },
-        setResultado(state, data) {
+        setResultado (state, data) {
             state.resultado = data
         },
-        setMetodo(state, data) {
+        setMetodo (state, data) {
             state.metodo = data
         },
-        setBalao(state, data) {
+        setBalao (state, data) {
             state.balao = data
-        },        
-        setPopUp(state, data) {
-            state.popUp = data
         },
+        setPopUp (state, data) {
+            state.popUp = data
+        }
     },
     getters: {
-        currentLanguage(state) {
+        currentLanguage (state) {
             return state.language
         },
-        currentInputsAcesso(state){
+        currentInputsAcesso (state) {
             return state.inputsAcessos
         },
-        currentColor(state){
+        currentColor (state) {
             return state.color
         },
-        currentIlustrations(state){
+        currentIlustrations (state) {
             return state.ilustrations
         },
-        currentResultado(state){
+        currentResultado (state) {
             return state.resultado
         },
-        currentMetodo(state){
+        currentMetodo (state) {
             return state.metodo
         },
-        currentTemaMAS(state){
+        currentTemaMAS (state) {
             return state.temaMAS
         },
-        currentTemaMMS(state){
+        currentTemaMMS (state) {
             return state.temaMMS
         },
-        currentBalao(state){
+        currentBalao (state) {
             return state.balao
         },
-        currentPopUp(state){
+        currentPopUp (state) {
             return state.popUp
         }
     },
     actions: {
-        changeLanguage(context, data) {
-            context.commit('setLanguage', data)
+        changeLanguage (context, data) {
+            context.commit("setLanguage", data)
         },
-        changeInputsAcessosCardozo(context, data){
-            context.commit('setInputsAcessosCardozo', data)
+        changeInputsAcessosCardozo (context, data) {
+            context.commit("setInputsAcessosCardozo", data)
         },
-        changeInputsAcessosVergne(context, data){
-            context.commit('setInputsAcessosVergne', data)
+        changeInputsAcessosVergne (context, data) {
+            context.commit("setInputsAcessosVergne", data)
         },
-        changeInputsAcessosMoser(context, data){
-            context.commit('setInputsAcessosMoser', data)
+        changeInputsAcessosMoser (context, data) {
+            context.commit("setInputsAcessosMoser", data)
         },
-        changeColor(context, data){
-            context.commit('setColor', data)
+        changeColor (context, data) {
+            context.commit("setColor", data)
         },
-        changeIlustrations(context, data){
-            context.commit('setIlustrations', data)
+        changeIlustrations (context, data) {
+            context.commit("setIlustrations", data)
         },
-        changeResultado(context, data){
-            context.commit('setResultado', data)
+        changeResultado (context, data) {
+            context.commit("setResultado", data)
         },
-        changeMetodo(context, data){
-            context.commit('setMetodo', data)
+        changeMetodo (context, data) {
+            context.commit("setMetodo", data)
         },
-        changeBalao(context, data){
-            context.commit('setBalao', data)
+        changeBalao (context, data) {
+            context.commit("setBalao", data)
         },
-        changePopUp(context, data){
-            context.commit('setPopUp', data)
+        changePopUp (context, data) {
+            context.commit("setPopUp", data)
         }
-  },
+    }
 })

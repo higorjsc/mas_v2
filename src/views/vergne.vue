@@ -1,14 +1,14 @@
-<template>    
+<template>
 
     <body
         class="main-body"
     >
-        <Header
+        <Cabecalho
         >
         {{ $t('tituloVergne') }}
-        </Header>
+        </Cabecalho>
 
-        <main 
+        <main
             class="main-container"
         >
 
@@ -23,48 +23,47 @@
             <Fluxograma
                 class="main-elements Fluxograma"
             />
-            
-            <Ilustrations 
+
+            <Ilustrations
                 class="main-elements resultados"
             />
 
         </main>
 
-        <Footer 
+        <Rodape
         />
         <Balao
             class="balao"
         />
-
 
     </body>
 
 </template>
 
 <script>
-    import NavBar from '@/components/acessos/navbar.vue'
-    import Header from '@/components/compartilhado/header.vue'
-    import Footer from '@/components/compartilhado/footer.vue'
-    import Balao from '@/components/compartilhado/balao.vue'
+import NavBar from "@/components/acessos/navbar.vue"
+import Cabecalho from "@/components/compartilhado/header.vue"
+import Rodape from "@/components/compartilhado/footer.vue"
+import Balao from "@/components/compartilhado/balao.vue"
 
-    import Fluxograma from '@/components/acessos/fluxograma.vue'
-    import Ilustrations from '@/components/acessos/ilustrations.vue'
-    import inputs from '@/components/acessos/inputsVergne.vue'
+import Fluxograma from "@/components/acessos/fluxograma.vue"
+import Ilustrations from "@/components/acessos/ilustrations.vue"
+import inputs from "@/components/acessos/inputsVergne.vue"
 
-    export default {
-        name: 'vergne',
-        props: '',
-        components:{
-            NavBar,
-            inputs,
-            Fluxograma,
-            Ilustrations,
-            Header,
-            Footer,
-            Balao,
-        },
-        beforeMount(){
-            this.$store.dispatch('changeMetodo', 'Vergne')
-        }
+export default {
+    name: "vue-vergne",
+    props: "",
+    components: {
+        NavBar,
+        inputs,
+        Fluxograma,
+        Ilustrations,
+        Cabecalho,
+        Rodape,
+        Balao
+    },
+    beforeMount () {
+        this.$store.dispatch("changeMetodo", "Vergne")
     }
+}
 </script>

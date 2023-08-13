@@ -1,17 +1,17 @@
 <template>
 
     <!-- WAY CONTAINER-->
-    <div 
+    <div
         class="container"
-        :style="{ 
-            top: Top, 
-            left: Left, 
-            width: Width, 
-            height: Height, 
-            transform: Transform, 
-            backgroundColor: BackgroundColor, 
-            fontSize: FontSize, 
-            color: FontColor, 
+        :style="{
+            top: Top,
+            left: Left,
+            width: Width,
+            height: Height,
+            transform: Transform,
+            backgroundColor: BackgroundColor,
+            fontSize: FontSize,
+            color: FontColor,
         }"
     >
         <!-- WAY TEXT -->
@@ -22,59 +22,58 @@
     </div>
 
 </template>
-  
-  
+
 <script>
 
-    export default {
-        props:{
-            BackgroundColor: {
-                type: String,
-                default: 'white'
-            },
-            Width: {
-                type: String,
-                default: 'auto'
-            },
-            Height: {
-                type: String,
-                default: '12px'
-            },
-            Top: {
-                type: String,
-                default: '0px'
-            },
-            Left: {
-                type: String,
-                default: '0px'
-            },
-            Transform: {
-                type: String,
-                default: 'rotate(0deg)'
-            },
-            FontSize: {
-                type: String,
-                default: '9pt'
-            },
-            FontColor: {
-                type: String,
-                default: 'black'
-            },
-            TextAlign: {
-                type: String,
-                default: 'center'
-            },
-            Text: {
-                type: String,
-                default: ''
-            },
+export default {
+    name: "vue-ways-fluxograma",
+    props: {
+        BackgroundColor: {
+            type: String,
+            default: "white"
+        },
+        Width: {
+            type: String,
+            default: "auto"
+        },
+        Height: {
+            type: String,
+            default: "12px"
+        },
+        Top: {
+            type: String,
+            default: "0px"
+        },
+        Left: {
+            type: String,
+            default: "0px"
+        },
+        Transform: {
+            type: String,
+            default: "rotate(0deg)"
+        },
+        FontSize: {
+            type: String,
+            default: "9pt"
+        },
+        FontColor: {
+            type: String,
+            default: "black"
+        },
+        TextAlign: {
+            type: String,
+            default: "center"
+        },
+        Text: {
+            type: String,
+            default: ""
         }
-        
     }
-            
-    
+
+}
+
 </script>
-  
+
 <style scoped>
 
    *{
@@ -94,6 +93,4 @@
         z-index: 8;
     }
 
-
 </style>
-  

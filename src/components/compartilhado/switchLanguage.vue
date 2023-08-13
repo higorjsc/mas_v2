@@ -3,13 +3,13 @@
     <div class="switch-container">
         <input type="checkbox" v-model="switchLanguage" class="switch" id="switch"/>
         <label for="switch" id="switchLanguage">
-            <span 
+            <span
                 v-if="!lang"
                 class="pt"
             >
                 {{ $t('ptSwitchLanguage') }}
             </span>
-            <span 
+            <span
                 v-if="lang"
                 class="en"
             >
@@ -17,37 +17,37 @@
             </span>
         </label>
     </div>
-    
+
 </template>
 
 <script>
 
-    export default {
-        name: 'switchLanguage',
-        data(){
-            return{
-                switchLanguage: false,
-                pt: true,
-                en: true,
-            }
-        },
-        computed:{
-            lang(){
-                return this.$store.getters.currentLanguage == 'pt'? true : false
-            }
-        },
-        methods:{
-            Language(){
-                this.switchLanguage? this.$store.dispatch('changeLanguage', 'en') : this.$store.dispatch('changeLanguage', 'pt')
-            }
-        },
-        watch:{
-            switchLanguage(){
-                this.Language()
-            }
+export default {
+    name: "vue-switch-language",
+    data () {
+        return {
+            switchLanguage: false,
+            pt: true,
+            en: true
+        }
+    },
+    computed: {
+        lang () {
+            return this.$store.getters.currentLanguage
+        }
+    },
+    methods: {
+        Language () {
+            this.switchLanguage ? this.$store.dispatch("changeLanguage", "en") : this.$store.dispatch("changeLanguage", "pt")
+        }
+    },
+    watch: {
+        switchLanguage () {
+            this.Language()
         }
     }
-    
+}
+
 </script>
 
 <style scoped>
@@ -55,7 +55,7 @@
     .switch {
         display: none;
     }
-    
+
     span {
         color: var(--cor-texto-tema);
         font: normal 8pt;

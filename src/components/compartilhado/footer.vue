@@ -1,12 +1,10 @@
 
-
 <template>
 
-
     <footer>
-        
-        <img 
-            id="ufrgs" src="@\assets\Imagens\ufrgs.png" 
+
+        <img
+            id="ufrgs" src="@\assets\Imagens\ufrgs.png"
             alt="logo_ufrgs_img"
         >
 
@@ -16,7 +14,7 @@
             <span>{{ $t('localizacaoFooter') }}</span>
             <span>{{ $t('contatoFooter') }}</span>
         </div>
-        
+
         <div class="div-direita">
             <h4>{{ $t('linksFooter') }}</h4>
             <span @click="abrirPopUp('creditos')">{{ $t('creditosFooter') }}</span>
@@ -27,8 +25,8 @@
 
         </div>
 
-        <img 
-            id="laprom" src="@\assets\Imagens\laprom.png" 
+        <img
+            id="laprom" src="@\assets\Imagens\laprom.png"
             alt="logo_laprom_png"
         >
 
@@ -40,28 +38,27 @@
 
 <script>
 
-    import PopUp from './popUp.vue'
-    export default {
-        name: 'Footer',
-        components:{
-            PopUp
-        },
-        data(){
-            return{
-                popUpFooter:{
-                    creditos:'@/components/acessos/creditos.vue',
-                    referencias:'@/components/acessos/referencias.vue',
-                    erro:'@/components/compartilhado/reportarErro.vue'
-                }
-            }
-        },
-        methods:{
-            abrirPopUp(frame){
-                console.log(frame)
-                this.$store.dispatch('changePopUp', this.popUpFooter[frame])
+import PopUp from "./popUp.vue"
+export default {
+    name: "vue-footer",
+    components: {
+        PopUp
+    },
+    data () {
+        return {
+            popUpFooter: {
+                creditos: "@/components/acessos/creditos.vue",
+                referencias: "@/components/acessos/referencias.vue",
+                erro: "@/components/compartilhado/reportarErro.vue"
             }
         }
+    },
+    methods: {
+        abrirPopUp (frame) {
+            this.$store.dispatch("changePopUp", this.popUpFooter[frame])
+        }
     }
+}
 
 </script>
 
@@ -101,7 +98,7 @@
         color: var(--cor-texto-tema);
     }
 
-    .div-direita h4, 
+    .div-direita h4,
     .div-direita span {
         display: block;
         margin: 0;
@@ -114,7 +111,7 @@
         cursor: pointer;
         text-decoration: underline;
     }
-    
+
     #ufrgs {
         position: absolute;
         grid-column: 1/2;

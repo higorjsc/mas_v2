@@ -4,17 +4,16 @@
         class="main-body"
     >
 
-        <Header
+        <Cabecalho
         >
             {{ $t('tituloCardozo') }}
-        </Header>
+        </Cabecalho>
 
         <main
             class="main-container"
         >
 
-          
-            <NavBar 
+            <NavBar
                 class="main-elements navbar"
             >
             </NavBar>
@@ -24,51 +23,49 @@
             <Fluxograma
                 class="main-elements fluxograma"
             />
-            
-            <Ilustrations 
+
+            <Ilustrations
                 class="main-elements resultados"
             />
         </main>
 
-        <Footer/>
+        <Rodape/>
 
         <Balao
             class="balao"
         />
 
     </body>
-    
+
 </template>
 
 <script>
-    import NavBar from '@/components/acessos/navbar.vue'
-    import Header from '@/components/compartilhado/header.vue'
-    import Footer from '@/components/compartilhado/footer.vue'
-    import Balao from '@/components/compartilhado/balao.vue'
+import NavBar from "@/components/acessos/navbar.vue"
+import Cabecalho from "@/components/compartilhado/header.vue"
+import Rodape from "@/components/compartilhado/footer.vue"
+import Balao from "@/components/compartilhado/balao.vue"
 
-    import Fluxograma from '@/components/acessos/fluxograma.vue'
-    import Ilustrations from '@/components/acessos/ilustrations.vue'
-    import Inputs from '@/components/acessos/inputsCardozo.vue'
+import Fluxograma from "@/components/acessos/fluxograma.vue"
+import Ilustrations from "@/components/acessos/ilustrations.vue"
+import Inputs from "@/components/acessos/inputsCardozo.vue"
 
-    export default {
-        name: 'view-cardozo',
-        props: '',
-        components:{
-            NavBar,
-            Inputs,
-            Fluxograma,
-            Header,
-            Footer,
-            Ilustrations,
-            Balao,
-        },
-        mixins:[
+export default {
+    name: "view-cardozo",
+    props: "",
+    components: {
+        NavBar,
+        Inputs,
+        Fluxograma,
+        Cabecalho,
+        Rodape,
+        Ilustrations,
+        Balao
+    },
+    mixins: [
 
-        ],  
-        beforeMount(){
-            this.$store.dispatch('changeMetodo', 'Cardozo')
-        }
+    ],
+    beforeMount () {
+        this.$store.dispatch("changeMetodo", "Cardozo")
     }
+}
 </script>
-
-

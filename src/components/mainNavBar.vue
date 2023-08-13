@@ -14,7 +14,7 @@
                     <li class="option option-acesso">
                         <RouterLink class= 'link' to="/moser">Moser (1996)</RouterLink>
                     </li>
-                </ul>  
+                </ul>
             </li>
             <li class="menu-lavra">{{metodoLavra}}
                 <ul class="menu">
@@ -26,32 +26,30 @@
                     </li>
                     <li class="option option-lavra">
                         <RouterLink class= 'link' to="/moser">Moser (1996)</RouterLink>
-                    </li> 
+                    </li>
                     <li class="option option-lavra">
                         <RouterLink class= 'link' to="/moser">Moser (1996)</RouterLink>
                     </li>
-                </ul>  
+                </ul>
             </li>
-                     
+
         </ul>
     </nav>
-   
-   
-  
+
 </template>
 
 <script>
 
-    export default {
-        name: 'navBar',
-        data(){
-            return{
-                metodoAcesso: 'MÉTODO DE ACESSO',
-                metodoLavra: 'MÉTODO DE LAVRA',
-            }
-        },
-            
+export default {
+    name: "navBar",
+    data () {
+        return {
+            metodoAcesso: "MÉTODO DE ACESSO",
+            metodoLavra: "MÉTODO DE LAVRA"
+        }
     }
+
+}
 
 </script>
 
@@ -62,7 +60,7 @@
         padding: 0;
     }
 
-    nav{    
+    nav{
         position: relative;
         margin: auto;
         width: 50%;

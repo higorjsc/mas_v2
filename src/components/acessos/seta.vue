@@ -1,78 +1,77 @@
 <template>
 
     <!-- ARROW CONTAINER -->
-    <div 
+    <div
         class="arrow-container"
-        :style="{ 
-            top: Top, 
-            left: Left, 
-            transform: Transform 
+        :style="{
+            top: Top,
+            left: Left,
+            transform: Transform
         }"
     >
         <!-- ARROW BODY -->
-        <div 
+        <div
             v-if="Body"
-            class="arrow-body" 
-            :style="{ 
-                backgroundColor: Color, 
-                width: Width, 
+            class="arrow-body"
+            :style="{
+                backgroundColor: Color,
+                width: Width,
             }"
         >
         </div>
         <!-- ARROW HEAD -->
-        <div 
-            v-if = "Head" 
+        <div
+            v-if = "Cabecalho"
             class="arrow-head"
             :style="{
                 'border-left-color': `${Color}`
-            }" 
+            }"
         >
         </div>
 
     </div>
 
 </template>
-  
-  
+
 <script>
 
-    export default {
-        props:{
-            Body: {
-                type: Boolean,
-                default: true
-            },
-            Head: {
-                type: Boolean,
-                default: true
-            },
-            Color: {
-                type: String,
-                default: 'black'
-            },
-            Width: {
-                type: String,
-                default: '30px'
-            },
-            Top: {
-                type: String,
-                default: '0px'
-            },
-            Left: {
-                type: String,
-                default: '0px'
-            },
-            Transform: {
-                type: String,
-                default: 'rotate(0deg)'
-            }
+export default {
+    name: "vue-setas-fluxograma",
+    props: {
+        Body: {
+            type: Boolean,
+            default: true
+        },
+        Cabecalho: {
+            type: Boolean,
+            default: true
+        },
+        Color: {
+            type: String,
+            default: "black"
+        },
+        Width: {
+            type: String,
+            default: "30px"
+        },
+        Top: {
+            type: String,
+            default: "0px"
+        },
+        Left: {
+            type: String,
+            default: "0px"
+        },
+        Transform: {
+            type: String,
+            default: "rotate(0deg)"
         }
-        
     }
-            
-    
+
+}
+
 </script>
-  
+
 <style scoped>
 
    *{
@@ -103,4 +102,3 @@
     }
 
 </style>
-  

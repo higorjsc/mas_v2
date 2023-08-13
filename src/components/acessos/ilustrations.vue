@@ -6,62 +6,62 @@
         <h2>{{ $t('tituloIlustration') }}</h2>
 
         <div class="ilustration-container">
-            <img 
-                id="shaft" 
+            <img
+                id="shaft"
                 v-if="this.$store.getters.currentIlustrations['shaft']"
-                src="@\assets\Imagens\shaft.png" 
+                src="@\assets\Imagens\shaft.png"
                 alt="imagem shaft vertical"
             >
-            <img 
-                id="rampa" 
+            <img
+                id="rampa"
                 v-if="this.$store.getters.currentIlustrations['rampa']"
-                src="@\assets\Imagens\rampa.png" 
+                src="@\assets\Imagens\rampa.png"
                 alt="imagem rampa"
             >
-            <img 
-                id="rampa-pit" 
+            <img
+                id="rampa-pit"
                 v-if="this.$store.getters.currentIlustrations['rampa_pit']"
-                src="@\assets\Imagens\rampa.png" 
+                src="@\assets\Imagens\rampa.png"
                 alt="imagem rampa a partir de mina open pit"
             >
             <div
-                id="correia" 
+                id="correia"
                 v-if="this.$store.getters.currentIlustrations['correia']"
             ></div>
-            <img 
-                id="vent" 
+            <img
+                id="vent"
                 v-if="this.$store.getters.currentIlustrations['ventilacao']"
-                src="@\assets\Imagens\vent.png" 
+                src="@\assets\Imagens\vent.png"
                 alt="imagem poço de ventilação"
             >
-            <img 
-                id="superficie" 
+            <img
+                id="superficie"
                 v-if="this.$store.getters.currentIlustrations['superficie']"
-                src="@\assets\Imagens\superficie.png" 
+                src="@\assets\Imagens\superficie.png"
                 alt="imagem superficie"
             >
-            <img 
-                id="superficie-pit" 
+            <img
+                id="superficie-pit"
                 v-if="this.$store.getters.currentIlustrations['superficie_pit']"
-                src="@\assets\Imagens\superficie_pit.png" 
+                src="@\assets\Imagens\superficie_pit.png"
                 alt="imagem superficie com mina open pit"
             >
-            <img 
+            <img
                 v-if="this.$store.getters.currentIlustrations['orebody']"
-                id="orebody" 
-                src="@\assets\Imagens\orebody.png" 
+                id="orebody"
+                src="@\assets\Imagens\orebody.png"
                 alt="imagem orebody"
             >
-            <img 
-                id="truck" 
+            <img
+                id="truck"
                 v-if="this.$store.getters.currentIlustrations['truck']"
-                src="@\assets\Imagens\truck.png" 
+                src="@\assets\Imagens\truck.png"
                 alt="imagem caminhão"
             >
-            <img 
-                id="usina" 
+            <img
+                id="usina"
                 v-if="this.$store.getters.currentIlustrations['usina']"
-                src="@\assets\Imagens\usina.png" 
+                src="@\assets\Imagens\usina.png"
                 alt="imagem usina de beneficiamento"
             >
         </div>
@@ -71,17 +71,18 @@
     </section>
 
 </template>
-  
+
 <script>
-    import Resultados from './resultados.vue'
-    export default {
-        components:{
-            Resultados
-        },
+import Resultados from "./resultados.vue"
+export default {
+    name: "vue-ilustrations-acessos",
+    components: {
+        Resultados
+    }
 }
 
 </script>
-  
+
 <style scoped>
    *{
         margin: 0;
@@ -162,4 +163,3 @@
     }
 
 </style>
-  

@@ -1,12 +1,20 @@
 
-
 <template>
 
-
     <header>
-        
-        <img class='mining-symbol' id='direita' src="@\assets\Imagens\mining_symbol.png" alt="Simbolo da mineração">
-        <img class='mining-symbol' id='esquerda' src="@\assets\Imagens\mining_symbol.png" alt="Simbolo da mineração">
+
+        <img
+            class='mining-symbol'
+            id='direita'
+            src="@\assets\Imagens\mining_symbol.png"
+            alt="Simbolo da mineração"
+        >
+        <img
+            class='mining-symbol'
+            id='esquerda'
+            src="@\assets\Imagens\mining_symbol.png"
+            alt="Simbolo da mineração"
+        >
 
         <h1 class="titulo-pagina">
             {{ $t(`titulo${this.$store.getters.currentMetodo}`) }}
@@ -16,15 +24,15 @@
 
 </template>
 <script>
-    export default {
-        name: 'Header',
-    }
+export default {
+    name: "vue-Cabecalho"
+}
 
 </script>
 
 <style scoped>
 
-    header  {
+    header{
         display: flex;
         align-items: center;
         position: relative;

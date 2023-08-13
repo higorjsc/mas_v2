@@ -3,7 +3,7 @@
     <div
         class="resultados-container"
     >
-        <span 
+        <span
             :class="`resultado ${tema}`"
         >
             {{ $t(this.$store.getters.currentResultado) }}
@@ -12,20 +12,21 @@
     </div>
 
 </template>
-  
+
 <script>
 
-    export default {
-        props:{
-            tema:{
-                type: String,
-                default: ''
-            },
-        },
+export default {
+    name: "vue-resultados",
+    props: {
+        tema: {
+            type: String,
+            default: ""
+        }
+    }
 }
 
 </script>
-  
+
 <style scoped>
    *{
         margin: 0;
@@ -62,4 +63,3 @@
         color: var(--cor-texto-tema);
     }
 </style>
-  
