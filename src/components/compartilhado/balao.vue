@@ -8,7 +8,7 @@
 
 <script>
 export default {
-    name: "balao-mixin",
+    name: "vue-balao",
     data() {
         return {
             idObjeto: "",
@@ -22,6 +22,7 @@ export default {
     },
     mounted() {
         this.balao = document.getElementById("balao")
+        // Adiciona o listner para mover o balão
         document.addEventListener("mousemove", this.balaoPosition)
     },
     beforeUnmount() {
@@ -52,10 +53,11 @@ export default {
         },
         balaoPosition(event) {
             if (this.balao) {
-                this.balao.style.top = event.clientY + -40 + "px"
+                this.balao.style.top = event.clientY + -40 + window.scrollY + "px"
                 this.balao.style.left = event.clientX + 40 + "px"
             }
         }
+
     }
 }
 </script>

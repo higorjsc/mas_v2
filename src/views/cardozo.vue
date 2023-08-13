@@ -4,33 +4,34 @@
         class="main-body"
     >
 
-        <Cabecalho>
+        <vueCabecalho>
             {{ $t('tituloCardozo') }}
-        </Cabecalho>
+        </vueCabecalho>
 
         <main
             class="main-container"
         >
 
-            <NavBar
+            <vueNavBar
                 class="main-elements navbar"
             >
-            </NavBar>
+            </vueNavBar>
 
-            <Inputs class="main-elements inputs"></Inputs>
+            <vueInputs class="main-elements inputs"></vueInputs>
 
-            <Fluxograma
+            <vueFluxograma
                 class="main-elements fluxograma"
             />
 
-            <Ilustrations
+            <vueIlustrations
                 class="main-elements resultados"
             />
+
         </main>
 
-        <Rodape/>
+        <vueRodape/>
 
-        <Balao
+        <vueBalao
             class="balao"
         />
 
@@ -39,25 +40,25 @@
 </template>
 
 <script>
-import NavBar from "@/components/acessos/navbar.vue"
-import Cabecalho from "@/components/compartilhado/header.vue"
-import Rodape from "@/components/compartilhado/footer.vue"
-import Balao from "@/components/compartilhado/balao.vue"
+import vueNavBar from "@/components/acessos/navbar.vue"
+import vueCabecalho from "@/components/compartilhado/header.vue"
+import vueRodape from "@/components/compartilhado/footer.vue"
+import vueBalao from "@/components/compartilhado/balao.vue"
 
-import Fluxograma from "@/components/acessos/fluxograma.vue"
-import Ilustrations from "@/components/acessos/ilustrations.vue"
-import Inputs from "@/components/acessos/inputsCardozo.vue"
+import vueFluxograma from "@/components/acessos/fluxograma.vue"
+import vueIlustrations from "@/components/acessos/ilustrations.vue"
+import vueInputs from "@/components/acessos/inputsCardozo.vue"
 
 export default {
     name: "view-cardozo",
     components: {
-        NavBar,
-        Inputs,
-        Fluxograma,
-        Cabecalho,
-        Rodape,
-        Ilustrations,
-        Balao
+        vueNavBar,
+        vueInputs,
+        vueFluxograma,
+        vueCabecalho,
+        vueRodape,
+        vueIlustrations,
+        vueBalao
     },
     mixins: [
 

@@ -21,16 +21,24 @@
             </button>
 
         </div>
-        <creditos v-if="aberto === 'creditos'"/>
+
+        <vueCreditos v-if="aberto === 'creditos'"/>
+        <vueReferencias v-if="aberto === 'referencias'"/>
+        <vueReportarErro v-if="aberto === 'reportarErro'"/>
+
     </div>
 
 </template>
 
 <script>
-import creditos from "@/components/acessos/creditos.vue"
+import vueCreditos from "@/components/acessos/creditos.vue"
+import vueReportarErro from "@/components/compartilhado/reportarErro.vue"
+import vueReferencias from "@/components/acessos/referencias.vue"
 export default {
     components: {
-        creditos
+        vueCreditos,
+        vueReferencias,
+        vueReportarErro
     },
     data() {
         return {
@@ -124,6 +132,7 @@ export default {
         top: 15%;
         left: 45%;
         box-shadow: 0 0 10px var(--cor-tema);
+        background-color: white;
         border: 1px solid black;
         z-index: 100;
         overflow: hidden;

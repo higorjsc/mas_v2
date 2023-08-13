@@ -11,15 +11,42 @@ const translation = {
         tituloIlustration: "ILUSTRATION",
         observations: "NOTES:",
         references: "REFERENCES:",
+        sim: "Yes",
+        nao: "No",
         // FOOTER ENGLISH
         universidadeFooter: "Universidade Federal do Rio Grande do Sul",
         laboratorioFooter: "Laboratório de Processamento Mineral",
         localizacaoFooter: "Avenida Bento Gonçalves, 9500, Setor 6, Centro de Tecnologia, LAPROM - Porto Alegre, RS, 91501-970",
-        contatoFooter: "Contato: email@ufrgs.com",
+        contatoFooter: "Contact: email@ufrgs.com",
         linksFooter: "Links",
         creditosFooter: "Credits",
         referenciasFooter: "References",
         reportarErroFooter: "Report issue",
+        // POPUP CREDITOS ENGLISH
+        tituloPopUpCreditos: "CREDITS",
+        universidadeCreditos: "UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL",
+        laboratorioCreditos: "LABORATÓRIO DE PROCESSAMENTO MINERAL",
+        versaoCreditos: "VERSION: 2.0",
+        tituloFerramentaCreditos: "SELECTION OF ACESS FOR UNDERGROUND MINING",
+        tituloAutoresCreditos: "AUTHORS",
+        nomeAutoresCreditos: "CARDOZO, F. &ensp; CAMPOS, H.",
+        tituloApoioCreditos: "APOIO",
+        apoioUmCreditos: "EQUIPE MAFMINE",
+        localizacaoCreditos: "Porto Alegre, Rio Grande do Sul, Brasil",
+        dataCreditos: "2023",
+        // POPUP REFERENCIAS ENGLISH
+        tituloPopUpReferencias: "REFERENCES",
+        tituloReferencias: "REFERENCES",
+        referenciaCardozoArtigo: "CARDOZO, F. A. C. et al. Choice of access for underground mining for feasibility studies. REM-International Engineering Journal, v. 76, p. 187-193, 2023.",
+        referenciaCardozoTese: "CARDOZO, F. A. C. Modelagem de Escavações Subterrâneas: Contribuições para Escolha de Acessos de Mina. Doutorado—Porto Alegre: Universidade Federal do Rio Grande do Sul, 3 mar. 2023.",
+        referenciaVergne: "LA VERGNE, Jack. Hard rock miner's handbook. Tempe/North Bay: McIntosh engineering. ISBN 0-968006-1-6, 2003.",
+        referenciaMoser: "MOSER, P. Primary development of underground hard rock mines. In: Symposium On Mine Planning And Equipment Selection. 1996. São Paulo. Proceedings […]. São Paulo, 1996. p. 31-3.",
+        // POP UP REPORTAR ERRO ENGLISH
+        tituloPopUpReportarErro: "REPORT ISSUE",
+        userNameReportarErro: "Your name:",
+        userEmailReportarErro: "Your e-mail:",
+        userMessageReportarErro: "Your mensage:",
+        botaoEnviarReportarErro: "SEND",
 
         // CARDOZO ENGLISH
         tituloCardozo: "SELECTION OF ACESS FOR UNDERGROUND MINING: Cardozo Method (2023)",
@@ -199,7 +226,7 @@ const translation = {
     },
 
     pt: {
-    // GERAL PORTUGUES
+        // GERAL PORTUGUES
         switchLanguage: "Mudar para inglês",
         ptSwitchLanguage: "PT",
         enSwitchLanguage: "EN",
@@ -218,6 +245,31 @@ const translation = {
         creditosFooter: "Creditos",
         referenciasFooter: "Referências",
         reportarErroFooter: "Reportar Erro",
+        // POPUP CREDITOS PORTUGUES
+        tituloPopUpCreditos: "CREDITOS",
+        universidadeCreditos: "UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL",
+        laboratorioCreditos: "LABORATÓRIO DE PROCESSAMENTO MINERAL",
+        versaoCreditos: "VERSÃO 2.0",
+        tituloFerramentaCreditos: "SELEÇÃO DE ACESSOS PARA MINAS SUBTERRÂNEAS",
+        tituloAutoresCreditos: "AUTORES",
+        nomeAutoresCreditos: "CARDOZO, F. &ensp; CAMPOS, H.",
+        tituloApoioCreditos: "APOIO",
+        apoioUmCreditos: "EQUIPE MAFMINE",
+        localizacaoCreditos: "Porto Alegre, Rio Grande do Sul, Brasil",
+        dataCreditos: "2023",
+        // POPUP REFERENCIAS PORTUGUES
+        tituloPopUpReferencias: "REFERENCIAS",
+        tituloReferencias: "REFERENCIAS",
+        referenciaCardozoArtigo: "CARDOZO, F. A. C. et al. Choice of access for underground mining for feasibility studies. REM-International Engineering Journal, v. 76, p. 187-193, 2023.",
+        referenciaCardozoTese: "CARDOZO, F. A. C. Modelagem de Escavações Subterrâneas: Contribuições para Escolha de Acessos de Mina. Doutorado—Porto Alegre: Universidade Federal do Rio Grande do Sul, 3 mar. 2023.",
+        referenciaVergne: "LA VERGNE, Jack. Hard rock miner's handbook. Tempe/North Bay: McIntosh engineering. ISBN 0-968006-1-6, 2003.",
+        referenciaMoser: "MOSER, P. Primary development of underground hard rock mines. In: Symposium On Mine Planning And Equipment Selection. 1996. São Paulo. Proceedings […]. São Paulo, 1996. p. 31-3.",
+        // POP UP REPORTAR ERRO
+        tituloPopUpReportarErro: "REPORTAR ERRO",
+        userNameReportarErro: "Seu nome:",
+        userEmailReportarErro: "Seu e-mail:",
+        userMessageReportarErro: "Sua mensagem:",
+        botaoEnviarReportarErro: "ENVIAR",
 
         // CARDOZO PORTUGUES
         tituloCardozo: "SELEÇÃO DE ACESSOS PARA MINAS SUBTERRÂNEAS: Método Cardozo (2023)",

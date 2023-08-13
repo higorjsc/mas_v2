@@ -1,0 +1,135 @@
+<template>
+
+    <main>
+        <!-- O uso do atributo "name" em cada input é obrigatório pela API -->
+        <form :action="formAtual" method="POST">
+            <div class="dados">
+                <span>{{ $t('userNameReportarErro') }}</span>
+                <input type="text" name="Nome">
+                <span>{{ $t('userEmailReportarErro') }}</span>
+                <input type="email" name="E-mail">
+            </div>
+            <br>
+            <div class="message">
+                <span id="span-message">{{ $t('userMessageReportarErro') }}</span>
+                <textarea id='area-message' name="Mensagem"></textarea>
+            </div>
+            <button type="submit" @click="enviarErro($event)">
+                {{ $t('botaoEnviarReportarErro') }}
+            </button>
+        </form>
+
+    </main>
+
+</template>
+
+<script>
+export default {
+    name: "vue-reportar-erro",
+    data() {
+        return {
+            userInputs: null,
+            action: {
+                metodoAcesso: "https://formspree.io/f/xoqovpge",
+                metodoLavra: ""
+            }
+        }
+    },
+    computed: {
+        formAtual() {
+            return this.action[this.$store.getters.currentApplication]
+        }
+    },
+    mounted() {
+        // Seleciola todos os inputs da página
+        this.userInputs = document.querySelectorAll("input, textarea")
+    },
+    methods: {
+        verificarCampos() {
+            let camposVerificados = true
+            // Verifica se todos os campos obrigatórios foram preenchidos
+            this.userInputs.forEach((element) => {
+                if (element.value.trim() === "") {
+                    // Adiciona uma borda vermelha aos elementos não preenchidos
+                    element.style.border = "1pt solid red"
+                    camposVerificados = false
+                } else {
+                    element.style.border = "1pt solid black"
+                }
+            })
+            return camposVerificados
+        },
+        enviarErro(event) {
+            const camposPrenchidos = this.verificarCampos()
+            // Se algum campo obrigatório não foi preenchido, impedir o envio do formulário
+            if (!camposPrenchidos) {
+                event.preventDefault()
+            }
+        }
+    }
+}
+</script>
+
+<style scoped>
+
+    main {
+        width: 99%;
+        height: 360px;
+        border-radius: 20px;
+        padding: 10px;
+        box-sizing: border-box;
+        margin-right: 4%;
+        margin-top: 1%;
+    }
+
+    form {
+        display: block;
+    }
+
+    .dados,
+    .message {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 2px;
+        line-height: 1.2;
+    }
+
+    span {
+        display: block;
+        grid-column: 1/2;
+    }
+
+    input {
+        display: block;
+        grid-column: 2/3;
+        border: var(--borda-simples);
+    }
+
+    textarea {
+        display: block;
+        grid-column: 1/3;
+        width: 98%;
+        height: 200px;
+    }
+
+    button {
+        width: 100px;
+        height: 20px;
+        border: var(--borda-simples);
+        background-color: var(--cor-tema);
+        color: var(--cor-texto-tema);
+        border-radius: 20px;
+        position: absolute;
+        right: 5%;
+        bottom: 10%;
+        display: block;
+        text-align: center;
+    }
+
+    button:hover {
+        box-shadow: var(--shadow-tema);
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+
+</style>

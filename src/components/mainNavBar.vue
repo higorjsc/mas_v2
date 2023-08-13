@@ -6,42 +6,42 @@
             <li class="menu-acesso">{{metodoAcesso}}
                 <ul class="menu" >
                     <li class="option option-acesso">
-                        <RouterLink class= 'link'  to="/cardozo">
-Cardozo (2023)
-</RouterLink>
+                        <RouterLink class= 'link' to="/cardozo">
+                            Cardozo (2023)
+                        </RouterLink>
                     </li>
                     <li class="option option-acesso">
-                        <RouterLink class= 'link'  to="/vergne">
-La Vergne (2003)
-</RouterLink>
+                        <RouterLink class= 'link' to="/vergne">
+                            La Vergne (2003)
+                        </RouterLink>
                     </li>
                     <li class="option option-acesso">
                         <RouterLink class= 'link' to="/moser">
-Moser (1996)
-</RouterLink>
+                            Moser (1996)
+                        </RouterLink>
                     </li>
                 </ul>
             </li>
             <li class="menu-lavra">{{metodoLavra}}
                 <ul class="menu">
                     <li class="option option-lavra">
-                        <RouterLink class= 'link'  to="/cardozo">
-Cardozo (2023)
-</RouterLink>
+                        <RouterLink class= 'link' to="/cardozo">
+                            Cardozo (2023)
+                        </RouterLink>
                     </li>
                     <li class="option option-lavra">
-                        <RouterLink class= 'link'  to="/vergne">
-La Vergne (2003)
-</RouterLink>
-                    </li>
-                    <li class="option option-lavra">
-                        <RouterLink class= 'link' to="/moser">
-Moser (1996)
-</RouterLink>
+                        <RouterLink class= 'link' to="/vergne">
+                            La Vergne (2003)
+                        </RouterLink>
                     </li>
                     <li class="option option-lavra">
                         <RouterLink class= 'link' to="/moser">
-                        Moser (1996)
+                            Moser (1996)
+                        </RouterLink>
+                    </li>
+                    <li class="option option-lavra">
+                        <RouterLink class= 'link' to="/moser">
+                            Moser (1996)
                         </RouterLink>
                     </li>
                 </ul>

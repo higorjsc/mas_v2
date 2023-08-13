@@ -19,11 +19,12 @@
             <h4>
                 {{ $t('linksFooter') }}
             </h4>
+
             <span @click="abrirPopUp('creditos')">{{ $t('creditosFooter') }}</span>
 
             <span @click="abrirPopUp('referencias')">{{ $t('referenciasFooter') }}</span>
 
-            <span @click="abrirPopUp('erro')">{{ $t('reportarErroFooter') }}</span>
+            <span @click="abrirPopUp('reportarErro')">{{ $t('reportarErroFooter') }}</span>
 
         </div>
 
@@ -34,17 +35,17 @@
 
     </footer>
 
-    <PopUp/>
+    <vuePopUp/>
 
 </template>
 
 <script>
 
-import PopUp from "./popUp.vue"
+import vuePopUp from "./popUp.vue"
 export default {
     name: "vue-footer",
     components: {
-        PopUp
+        vuePopUp
     },
 
     methods: {

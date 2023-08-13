@@ -1,30 +1,17 @@
 <template>
     <!-- RESULTADOS -->
-    <div
-        class="resultados-container"
-    >
-        <span
-            :class="`resultado ${tema}`"
-        >
+    <div class="resultados-container">
+        <span class="resultado">
             {{ $t(this.$store.getters.currentResultado) }}
         </span>
-
     </div>
 
 </template>
 
 <script>
-
 export default {
-    name: "vue-resultados",
-    props: {
-        tema: {
-            type: String,
-            default: ""
-        }
-    }
+    name: "vue-resultados"
 }
-
 </script>
 
 <style scoped>

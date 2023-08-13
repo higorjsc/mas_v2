@@ -7,6 +7,7 @@ import { TEMAS, CORES } from "@/assets/javascript/globalConstants.js"
 
 export default createStore({
     state: {
+        application: "metodoAcesso",
         language: "pt", // Idioma padrão
         resultado: "", // resultado do fluxograma de escolha de acessos
         metodo: "", // Metodo/view atual
@@ -125,6 +126,9 @@ export default createStore({
         },
         currentPopUp(state) {
             return state.popUp
+        },
+        currentApplication(state) {
+            return state.application
         }
     },
     actions: {

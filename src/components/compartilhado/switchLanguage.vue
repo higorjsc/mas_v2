@@ -2,7 +2,7 @@
 
     <div class="switch-container">
         <input type="checkbox" v-model="switchLanguage" class="switch" id="switch"/>
-        <label for="switch" id="switchLanguage">
+        <label for="switch" id="switch-language">
             <span
                 v-if="!lang"
                 class="pt"
@@ -21,25 +21,30 @@
 </template>
 
 <script>
-
+import { verificarLocal, armazenarLocal } from "@/assets/javascript/globalFunctions.js"
 export default {
     name: "vue-switch-language",
     data() {
         return {
-            switchLanguage: false,
-            pt: true,
-            en: true
+            switchLanguage: false
         }
     },
     computed: {
         lang() {
-            return this.$store.getters.currentLanguage
+            return this.$store.getters.currentLanguage === "pt"
         }
     },
     watch: {
         switchLanguage() {
             this.Language()
         }
+    },
+    mounted() {
+        // Verifica a preferencia de idioma da localStorage
+        this.switchLanguage = verificarLocal("switch-language")
+    },
+    updated() {
+        armazenarLocal("switch-language", this.switchLanguage)
     },
     methods: {
         Language() {
