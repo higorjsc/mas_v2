@@ -1,7 +1,9 @@
 <template>
     <section>
         <!-- TITULO SEÇÃO -->
-        <h2>{{ $t('tituloFluxograma') }}</h2>
+        <h2>
+            {{ $t('tituloFluxograma') }}
+        </h2>
         <!-- CONTAINER DE TODO O FLUXOGRAMA -->
         <div class="container">
             <!-- CONTAINER DOS OBJETOS PRINCIPAIS DO FLUGRAMA -->
@@ -17,12 +19,12 @@
                     transform: item.transform,
                     width: item.width,
                     height: item.height
-               }"
-               @mouseout="balaoSai()"
+                }"
+                @mouseout="balaoSai()"
             >
                 {{ $t(`${objeto[index]['Text']}`) }}
             </div>
-           <!-- CONTAINER DAS SETAS -->
+            <!-- CONTAINER DAS SETAS -->
             <Seta
                 v-for="(item, index) in seta"
                 class="setas"
@@ -75,42 +77,42 @@ export default {
         fluxoDataMixin,
         Balao
     ],
-    mounted () {
+    computed: {
+        objeto() {
+            // Retorna os objetos principais do fluxograma de cada método
+            return this.objetos[`${this.$store.getters.currentMetodo}`]
+        },
+        way() {
+            // Retorna os textos sobre as setas do fluxograma de cada método
+            return this.ways[`${this.$store.getters.currentMetodo}`]
+        },
+        seta() {
+            // Retorna as setas do flugrama de cada método
+            return this.setas[`${this.$store.getters.currentMetodo}`]
+        }
+    },
+    mounted() {
         this.adicionarEventListeners()
         this.removerEventListeners()
     },
     methods: {
-        adicionarEventListeners () {
+        adicionarEventListeners() {
             // Adiciona o evento do balão em mouseover a todos os ojbetos do fluxograma
             const objetos = document.querySelectorAll(".itens")
             objetos.forEach(element => {
                 element.addEventListener("mouseover", this.eventoMouseover)
             })
         },
-        removerEventListeners () {
+        removerEventListeners() {
             // Remove o evento do balão em mouseover dos objetos indesejados
             const objetos = document.querySelectorAll("#start-cardozo, #start-vergne")
             objetos.forEach(element => {
                 element.removeEventListener("mouseover", this.eventoMouseover)
             })
         },
-        eventoMouseover (event) {
+        eventoMouseover(event) {
             // Chama a função balaoEntra do mixin "Balao" from /compartilhado/balao.vue
             this.balaoEntra(event.target.id)
-        }
-    },
-    computed: {
-        objeto () {
-            // Retorna os objetos principais do fluxograma de cada método
-            return this.objetos[`${this.$store.getters.currentMetodo}`]
-        },
-        way () {
-            // Retorna os textos sobre as setas do fluxograma de cada método
-            return this.ways[`${this.$store.getters.currentMetodo}`]
-        },
-        seta () {
-            // Retorna as setas do flugrama de cada método
-            return this.setas[`${this.$store.getters.currentMetodo}`]
         }
     }
 

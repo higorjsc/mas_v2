@@ -6,14 +6,13 @@
 
 export default {
     name: "vue-dados-fluxograma-mixin",
-    data () {
+    data() {
         return {
             // DEFINE AS PROPRIEDADES DOS OBJETOS DE CADA FLUXOGRAMA
             objetos: {
                 Cardozo: [
                     {
                         id: "start-cardozo",
-                        name: "inicio",
                         backgroundKey: "start",
                         top: "10px",
                         left: "180px",
@@ -97,7 +96,6 @@ export default {
                 Moser: [
                     {
                         id: "start-moser",
-                        name: "inicio",
                         backgroundKey: "logistica",
                         top: "10px",
                         left: "20px",
@@ -170,7 +168,6 @@ export default {
                 Vergne: [
                     {
                         id: "start-vergne",
-                        name: "inicio",
                         backgroundKey: "start",
                         top: "10px",
                         left: "180px",
@@ -329,31 +326,31 @@ export default {
                         Text: "NO"
                     },
                     { // logistica - rockMass
-                        top: "41px",
-                        left: "53px",
+                        top: "37px",
+                        left: "52px",
                         width: "20px",
                         Text: "YES"
                     },
                     { // rockMass - surfaceMaterial
-                        top: "102px",
-                        left: "39px",
+                        top: "98px",
+                        left: "36px",
                         width: "60px",
                         Text: "Class I - V"
                     },
                     { // surfaceMaterial - openPit
-                        top: "185px",
-                        left: "45px",
+                        top: "178px",
+                        left: "44px",
                         width: "40px",
                         Text: "<70 m"
                     },
                     { // openPit - depthLeft
-                        top: "268px",
-                        left: "53px",
+                        top: "260px",
+                        left: "55px",
                         width: "20px",
                         Text: "YES"
                     },
                     { // depthLeft - prodLeft
-                        top: "349px",
+                        top: "342px",
                         left: "40px",
                         width: "50px",
                         Text: "<600 m"
@@ -361,6 +358,7 @@ export default {
                     { // rockMass - shaft
                         top: "75px",
                         left: "180px",
+                        width: "65px",
                         Text: "class VI-VII"
                     },
                     { // surfaceMaterial - shaft
@@ -576,9 +574,9 @@ export default {
                         transform: "rotate(90deg)"
                     },
                     { // logistica - rockMass
-                        top: "50px",
-                        left: "47px",
-                        width: "20px",
+                        top: "47px",
+                        left: "45px",
+                        width: "25px",
                         transform: "rotate(90deg)"
                     },
                     { // rockMass - shaft
@@ -588,9 +586,9 @@ export default {
                         width: "256px"
                     },
                     { // rockMass - surfaceMaterial
-                        top: "112px",
-                        left: "46px",
-                        width: "25px",
+                        top: "110px",
+                        left: "44px",
+                        width: "29px",
                         transform: "rotate(90deg)"
                     },
                     { // surfaceMaterial - shaft
@@ -600,15 +598,15 @@ export default {
                         width: "256px"
                     },
                     { // surfaceMaterial - openPith
-                        top: "196px",
-                        left: "46px",
-                        width: "25px",
+                        top: "189px",
+                        left: "42px",
+                        width: "35px",
                         transform: "rotate(90deg)"
                     },
                     { // openPith - depthLeft
-                        top: "278px",
-                        left: "46px",
-                        width: "25px",
+                        top: "272px",
+                        left: "44px",
+                        width: "35px",
                         transform: "rotate(90deg)"
                     },
                     { // openPit - depthCenter
@@ -617,9 +615,9 @@ export default {
                         width: "50px"
                     },
                     { // depthLeft - prodLeft
-                        top: "360px",
-                        left: "46px",
-                        width: "25px",
+                        top: "355px",
+                        left: "44px",
+                        width: "35px",
                         transform: "rotate(90deg)"
                     },
                     { // depthLeft - shaft 1
@@ -636,8 +634,9 @@ export default {
                         transform: "rotate(90deg)"
                     },
                     { // depthCenter - prodCenter
-                        top: "280px",
-                        left: "197px",
+                        top: "275px",
+                        left: "192px",
+                        width: "40px",
                         transform: "rotate(90deg)"
                     },
                     { // depthLeft - shaft 3
@@ -647,9 +646,9 @@ export default {
                         width: "207px"
                     },
                     { // prodCenter - Rampa
-                        top: "372px",
-                        left: "175px",
-                        width: "75px",
+                        top: "370px",
+                        left: "172px",
+                        width: "80px",
                         transform: "rotate(90deg)"
                     },
                     { // prodCenter - shaft
@@ -677,14 +676,14 @@ export default {
                     { // prodLeft - rampa 1
                         head: false,
                         top: "416px",
-                        left: "49px",
+                        left: "53px",
                         width: "28px",
                         transform: "rotate(90deg)"
                     },
                     { // prodLeft - rampa 2
                         top: "428px",
-                        left: "61.5px",
-                        width: "99px"
+                        left: "66px",
+                        width: "95px"
                     }
 
                 ],

@@ -2,16 +2,20 @@
 <template>
     <section class="section-inputs">
         <!-- TITULO SEÇÃO -->
-        <h2>{{ $t('tituloInputs') }}</h2>
+        <h2>
+            {{ $t('tituloInputs') }}
+        </h2>
 
         <!-- BOTÃO SWITCH -->
         <switchLanguage
-              class="main-elements switch-language"
+            class="main-elements switch-language"
         />
 
         <!-- SURFACE MATERIALS-->
         <div class='parametros-container' id="sm">
-            <h3 class="subtitulo-inputs">{{ $t('smTituloCardozo') }}</h3>
+            <h3 class="subtitulo-inputs">
+                {{ $t('smTituloCardozo') }}
+            </h3>
             <span>{{ $t('smDescriptionCardozo') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
@@ -26,7 +30,9 @@
         </div>
         <!--rockMass CONDITIONS-->
         <div class='parametros-container' id="rm">
-            <h3 class="subtitulo-inputs">{{ $t('rmTituloCardozo') }}</h3>
+            <h3 class="subtitulo-inputs">
+                {{ $t('rmTituloCardozo') }}
+            </h3>
             <span>{{ $t('rmDescriptionCardozo') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
@@ -41,24 +47,40 @@
         </div>
         <!-- PROFUNDIDADE -->
         <div class='parametros-container' id="depth">
-            <h3 class="subtitulo-inputs">{{ $t('depthTituloCardozo') }}</h3>
+            <h3 class="subtitulo-inputs">
+                {{ $t('depthTituloCardozo') }}
+            </h3>
             <span>{{ $t('depthDescriptionCardozo') }}</span>
             <select v-model="cardozo.depth" class="depth" id='depth-cardozo' >
                 <option value=""></option>
-                <option value="menor">{{ $t('depthMenorCardozo') }}</option>
-                <option value="entre">{{ $t('depthEntreCardozo') }}</option>
-                <option value="maior">{{ $t('depthMaiorCardozo') }}</option>
+                <option value="menor">
+                    {{ $t('depthMenorCardozo') }}
+                </option>
+                <option value="entre">
+                    {{ $t('depthEntreCardozo') }}
+                </option>
+                <option value="maior">
+                    {{ $t('depthMaiorCardozo') }}
+                </option>
             </select>
         </div>
         <!-- PRODUÇÃO -->
         <div class='parametros-container' id="prod">
-            <h3 class="subtitulo-inputs">{{ $t('prodTituloCardozo') }}</h3>
+            <h3 class="subtitulo-inputs">
+                {{ $t('prodTituloCardozo') }}
+            </h3>
             <span> {{ $t('prodDescriptionCardozo') }}</span>
             <select v-model="cardozo.prod" class="prod" id='prod-cardozo' >
                 <option value=""></option>
-                <option value="menor">{{ $t('prodMenorCardozo') }}</option>
-                <option value="entre">{{ $t('prodEntreCardozo') }}</option>
-                <option value="maior">{{ $t('prodMaiorCardozo') }}</option>
+                <option value="menor">
+                    {{ $t('prodMenorCardozo') }}
+                </option>
+                <option value="entre">
+                    {{ $t('prodEntreCardozo') }}
+                </option>
+                <option value="maior">
+                    {{ $t('prodMaiorCardozo') }}
+                </option>
             </select>
         </div>
 
@@ -78,7 +100,7 @@ export default {
     mixins: [
         inputsMixin
     ],
-    data () {
+    data() {
         return {
             cardozo: {
                 surfaceMaterial: "",
@@ -88,12 +110,29 @@ export default {
             }
         }
     },
-    mounted () {
+    watch: {
+        cardozo: {
+            handler() {
+                // Desabilita os inputs e altera a opacidade das divs
+                this.disableObject(["rm", "depth", "prod"])
+                // Define a cor de todos os elementos para o padrão.
+                this.setDefaultColor()
+                // Oculta as todas as imagens não default
+                this.defaultImages()
+                // Chama a função com a lógica do fluxograma
+                this.newValue()
+                // Altera o valor de cardozo na store VueExe
+                this.$store.dispatch("changeInputsAcessosCardozo", this.cardozo)
+            },
+            deep: true // deep: true → O que estiver dentro da variável será observado
+        }
+    },
+    mounted() {
     // Desabilita todas as divs e inputs não-inicias
         this.disableObject(["rm", "depth", "prod"])
     },
     methods: {
-        newValue () {
+        newValue() {
             // SURFACE MATERIAL
             if (this.cardozo.surfaceMaterial === "maior") {
                 this.resultado = "shaftCardozo"
@@ -149,23 +188,6 @@ export default {
                 this.setColorRed()
                 this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "prodLeft", "shaft"])
             }
-        }
-    },
-    watch: {
-        cardozo: {
-            handler () {
-                // Desabilita os inputs e altera a opacidade das divs
-                this.disableObject(["rm", "depth", "prod"])
-                // Define a cor de todos os elementos para o padrão.
-                this.setDefaultColor()
-                // Oculta as todas as imagens não default
-                this.defaultImages()
-                // Chama a função com a lógica do fluxograma
-                this.newValue()
-                // Altera o valor de cardozo na store VueExe
-                this.$store.dispatch("changeInputsAcessosCardozo", this.cardozo)
-            },
-            deep: true // deep: true → O que estiver dentro da variável será observado
         }
     }
 }

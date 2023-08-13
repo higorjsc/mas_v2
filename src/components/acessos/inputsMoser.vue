@@ -3,16 +3,20 @@
 
     <section class="section-inputs">
         <!-- TITULO SEÇÃO -->
-        <h2>{{ $t('tituloInputs') }}</h2>
+        <h2>
+            {{ $t('tituloInputs') }}
+        </h2>
 
-         <!-- BOTÃO SWITCH -->
-         <switchLanguage
-              class="main-elements switch-language"
+        <!-- BOTÃO SWITCH -->
+        <switchLanguage
+            class="main-elements switch-language"
         />
 
         <!--LOGISTICA-->
         <div class='parametros-container' id="logistica">
-            <h3 class="subtitulo-inputs">{{ $t('logisticaTituloMoser') }}</h3>
+            <h3 class="subtitulo-inputs">
+                {{ $t('logisticaTituloMoser') }}
+            </h3>
             <span>{{ $t('logisticaDescriptionMoser') }}</span>
             <div class="radio-container">
                 <!-- SIM -->
@@ -27,7 +31,9 @@
         </div>
         <!--ROCK CONDITIONS-->
         <div class='parametros-container' id="rm">
-            <h3 class="subtitulo-inputs">{{ $t('rmTituloMoser')}}</h3>
+            <h3 class="subtitulo-inputs">
+                {{ $t('rmTituloMoser')}}
+            </h3>
             <span>{{ $t('rmDescriptionMoser') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
@@ -42,7 +48,9 @@
         </div>
         <!-- SURFACE MATERIALS-->
         <div class='parametros-container' id="sm">
-            <h3 class="subtitulo-inputs">{{ $t('smTituloMoser')}}</h3>
+            <h3 class="subtitulo-inputs">
+                {{ $t('smTituloMoser')}}
+            </h3>
             <span>{{ $t('smDescriptionMoser') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
@@ -57,7 +65,9 @@
         </div>
         <!-- OPEN PIT -->
         <div class='parametros-container' id="op">
-            <h3 class="subtitulo-inputs">{{ $t('opTituloMoser')}}</h3>
+            <h3 class="subtitulo-inputs">
+                {{ $t('opTituloMoser')}}
+            </h3>
             <span>{{ $t('opDescriptionMoser') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
@@ -72,24 +82,40 @@
         </div>
         <!-- PROFUNDIDADE -->
         <div class='parametros-container' id="depth">
-            <h3 class="subtitulo-inputs">{{ $t('depthTituloMoser') }}</h3>
+            <h3 class="subtitulo-inputs">
+                {{ $t('depthTituloMoser') }}
+            </h3>
             <span>{{ $t('depthDescriptionMoser') }}</span>
             <select v-model="moser.depth" class="depth" id="depth-moser">
                 <option value=""></option>
-                <option value="menor">{{ $t('depthMenorMoser') }}</option>
-                <option value="entre">{{ $t('depthEntreMoser') }}</option>
-                <option value="maior">{{ $t('depthMaiorMoser') }}</option>
+                <option value="menor">
+                    {{ $t('depthMenorMoser') }}
+                </option>
+                <option value="entre">
+                    {{ $t('depthEntreMoser') }}
+                </option>
+                <option value="maior">
+                    {{ $t('depthMaiorMoser') }}
+                </option>
             </select>
         </div>
         <!-- PRODUÇÃO -->
         <div class='parametros-container' id="prod">
-            <h3 class="subtitulo-inputs">{{ $t('prodTituloMoser') }}</h3>
+            <h3 class="subtitulo-inputs">
+                {{ $t('prodTituloMoser') }}
+            </h3>
             <span> {{ $t('prodDescriptionMoser') }}</span>
             <select v-model="moser.prod" class="prod" id="prod-moser">
                 <option value=""></option>
-                <option value="menor">{{ $t('prodMenorMoser') }}</option>
-                <option value="entre">{{ $t('prodEntreMoser') }}</option>
-                <option value="maior">{{ $t('prodMaiorMoser') }}</option>
+                <option value="menor">
+                    {{ $t('prodMenorMoser') }}
+                </option>
+                <option value="entre">
+                    {{ $t('prodEntreMoser') }}
+                </option>
+                <option value="maior">
+                    {{ $t('prodMaiorMoser') }}
+                </option>
             </select>
         </div>
     </section>
@@ -109,7 +135,7 @@ export default {
     mixins: [
         inputsMixin
     ],
-    data () {
+    data() {
         return {
             moser: {
                 logistica: "",
@@ -122,19 +148,38 @@ export default {
             }
         }
     },
-    mounted () {
+    watch: {
+        moser: {
+            handler() {
+                // Desabilita os inputs e altera a opacidade das divs
+                this.disableObject(["rm", "sm", "op", "depth", "prod"])
+                // Muda a cor de todos os elementos para vermelho.
+                this.setDefaultColor()
+                // Oculta as todas as imagens não default
+                this.defaultImages()
+                // Chama a função com a lógica do fluxograma
+                this.newValue()
+                // Altera o valor de moser na store VueExe
+                this.$store.dispatch("changeInputsAcessosMoser", this.moser)
+
+                console.log(this.moser.depth)
+            },
+            deep: true // deep: true → O que estiver dentro da variável será observado
+        }
+    },
+    mounted() {
     // Desabilita todas as divs e inputs não-inicias
         this.disableObject(["rm", "sm", "op", "depth", "prod"])
     },
     methods: {
-        newValue () {
+        newValue() {
             // LOGISTICA
             if (this.moser.logistica === "sim") {
                 this.enableObjects("rm")
                 this.setColorGreen(["logistica"])
             } else
                 if (this.moser.logistica === "nao") {
-                    this.resultado = "shaftMoser"
+                    this.resultado = "resultadoShaftMoser"
                     this.showImages(["shaft", "superficie"])
                     this.setColorRed()
                     this.setColorGreen(["logistica", "shaft"])
@@ -146,7 +191,7 @@ export default {
                 this.setColorGreen(["logistica", "rockMass"])
             } else
                 if (this.moser.logistica === "sim" && this.moser.rockMass === "maior") {
-                    this.resultado = "shaftMoser"
+                    this.resultado = "resultadoShaftMoser"
                     this.showImages(["shaft"])
                     this.setColorRed()
                     this.setColorGreen(["logistica", "rockMass", "shaft"])
@@ -154,7 +199,7 @@ export default {
 
             // SURFACE MATERIAL
             if (this.moser.logistica === "sim" && this.moser.rockMass === "menor" && this.moser.surfaceMaterial === "maior") {
-                this.resultado = "shaftMoser"
+                this.resultado = "resultadoShaftMoser"
                 this.showImages(["shaft"])
                 this.setColorRed()
                 this.setColorGreen(["logistica", "rockMass", "surfaceMaterial", "shaft"])
@@ -171,12 +216,12 @@ export default {
             }
 
             if (this.moser.openPit === "sim") {
-                this.showImages(["superficie_pit"])
+                this.showImages(["superficiePit"])
             }
 
             // PROFUNDIDADE OPEN PIT NÃO
             if (this.moser.logistica === "sim" && this.moser.rockMass === "menor" && this.moser.surfaceMaterial === "menor" && this.moser.openPit === "nao" && (this.moser.depth === "entre" || this.moser.depth === "maior")) {
-                this.resultado = "shaftMoser"
+                this.resultado = "resultadoShaftMoser"
                 this.showImages(["shaft"])
                 this.setColorRed()
                 this.setColorGreen(["logistica", "rockMass", "surfaceMaterial", "openPit", "depthCenter", "shaft"])
@@ -188,7 +233,7 @@ export default {
 
             // PROFUNDIDADE OPEN PIT SIM
             if (this.moser.logistica === "sim" && this.moser.rockMass === "menor" && this.moser.surfaceMaterial === "menor" && this.moser.openPit === "sim" && this.moser.depth === "maior") {
-                this.resultado = "shaftMoser"
+                this.resultado = "resultadoShaftMoser"
                 this.showImages(["shaft"])
                 this.setColorRed()
                 this.setColorGreen(["logistica", "rockMass", "surfaceMaterial", "openPit", "depthLeft", "shaft"])
@@ -200,13 +245,13 @@ export default {
 
             // PRODUCTION OPEN PIT NÃO
             if (this.moser.logistica === "sim" && this.moser.rockMass === "menor" && this.moser.surfaceMaterial === "menor" && this.moser.openPit === "nao" && this.moser.depth === "menor" && this.moser.prod === "menor") {
-                this.resultado = "rampaMoser"
+                this.resultado = "resultadoRampaMoser"
                 this.showImages(["rampa", "truck"])
                 this.setColorRed()
                 this.setColorGreen(["logistica", "rockMass", "surfaceMaterial", "openPit", "depthCenter", "prodCenter", "rampa"])
             } else
                 if (this.moser.logistica === "sim" && this.moser.rockMass === "menor" && this.moser.surfaceMaterial === "menor" && this.moser.openPit === "nao" && this.moser.depth === "menor" && (this.moser.prod === "entre" || this.moser.prod === "maior")) {
-                    this.resultado = "rampaMoser"
+                    this.resultado = "resultadoRampaMoser"
                     this.showImages(["rampa", "truck"])
                     this.setColorRed()
                     this.setColorGreen(["logistica", "rockMass", "surfaceMaterial", "openPit", "depthCenter", "prodCenter", "shaft"])
@@ -214,8 +259,8 @@ export default {
 
             // PRODUCTION OPEN PIT SIM
             if (this.moser.logistica === "sim" && this.moser.rockMass === "menor" && this.moser.surfaceMaterial === "menor" && this.moser.openPit === "sim" && (this.moser.depth === "menor" || this.moser.depth === "entre") && (this.moser.prod === "menor" || this.moser.prod === "entre")) {
-                this.resultado = "rampaMoser"
-                this.showImages(["rampa_pit", "truck"])
+                this.resultado = "resultadoRampaMoser"
+                this.showImages(["rampaPit", "truck"])
                 this.setColorRed()
                 this.setColorGreen(["logistica", "rockMass", "surfaceMaterial", "openPit", "depthLeft", "prodLeft", "rampa"])
             } else
@@ -225,25 +270,6 @@ export default {
                     this.setColorRed()
                     this.setColorGreen(["logistica", "rockMass", "surfaceMaterial", "openPit", "depthLeft", "prodLeft", "shaft"])
                 }
-        }
-    },
-    watch: {
-        moser: {
-            handler () {
-                // Desabilita os inputs e altera a opacidade das divs
-                this.disableObject(["rm", "sm", "op", "depth", "prod"])
-                // Muda a cor de todos os elementos para vermelho.
-                this.setDefaultColor()
-                // Oculta as todas as imagens não default
-                this.defaultImages()
-                // Chama a função com a lógica do fluxograma
-                this.newValue()
-                // Altera o valor de moser na store VueExe
-                this.$store.dispatch("changeInputsAcessosMoser", this.moser)
-
-                console.log(this.moser.depth)
-            },
-            deep: true // deep: true → O que estiver dentro da variável será observado
         }
     }
 }

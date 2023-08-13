@@ -4,8 +4,7 @@
       class="main-body"
     >
 
-        <Cabecalho
-        >
+        <Cabecalho>
           {{ $t('tituloMoser') }}
         </Cabecalho>
 
@@ -32,8 +31,7 @@
 
         </main>
 
-        <Rodape
-        />
+        <Rodape/>
         <Balao
             class="balao"
         />
@@ -54,7 +52,6 @@ import inputs from "@/components/acessos/inputsMoser.vue"
 
 export default {
     name: "vue-moser",
-    props: "",
     components: {
         NavBar,
         inputs,
@@ -64,7 +61,7 @@ export default {
         Ilustrations,
         Balao
     },
-    beforeMount () {
+    beforeMount() {
         this.$store.dispatch("changeMetodo", "Moser")
     }
 }

@@ -16,7 +16,9 @@
         </div>
 
         <div class="div-direita">
-            <h4>{{ $t('linksFooter') }}</h4>
+            <h4>
+                {{ $t('linksFooter') }}
+            </h4>
             <span @click="abrirPopUp('creditos')">{{ $t('creditosFooter') }}</span>
 
             <span @click="abrirPopUp('referencias')">{{ $t('referenciasFooter') }}</span>
@@ -44,18 +46,10 @@ export default {
     components: {
         PopUp
     },
-    data () {
-        return {
-            popUpFooter: {
-                creditos: "@/components/acessos/creditos.vue",
-                referencias: "@/components/acessos/referencias.vue",
-                erro: "@/components/compartilhado/reportarErro.vue"
-            }
-        }
-    },
+
     methods: {
-        abrirPopUp (frame) {
-            this.$store.dispatch("changePopUp", this.popUpFooter[frame])
+        abrirPopUp(frame) {
+            this.$store.dispatch("changePopUp", frame)
         }
     }
 }

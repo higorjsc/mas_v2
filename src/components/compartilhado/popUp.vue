@@ -21,23 +21,18 @@
             </button>
 
         </div>
-
-        <PopUpFrame
-            class="Iframe"
-            :src="aberto"
-        />
-
+        <creditos v-if="aberto === 'creditos'"/>
     </div>
 
 </template>
 
 <script>
-import PopUpFrame from "./iframes.vue"
+import creditos from "@/components/acessos/creditos.vue"
 export default {
     components: {
-        PopUpFrame
+        creditos
     },
-    data () {
+    data() {
         return {
             popUpContainer: null,
             popUpBarra: null,
@@ -53,17 +48,22 @@ export default {
             }
         }
     },
-    updated () {
+    computed: {
+        aberto() {
+            return this.$store.getters.currentPopUp
+        }
+    },
+    updated() {
         this.popUpContainer = document.querySelector("#pop-up-container")
         this.popUpBarra = document.querySelector("#barra-pop-up")
         this.prepararMovimento()
     },
     methods: {
-        interromperMovimento () {
+        interromperMovimento() {
             // Interrompe o movimento do pop up
             document.removeEventListener("mousemove", this.moverPopUp)
         },
-        moverPopUp (event) {
+        moverPopUp(event) {
             // Define a coordenada do movimento
             let x = event.clientX - this.position.x
             let y = event.clientY - this.position.y
@@ -76,7 +76,7 @@ export default {
             this.popUpContainer.style.left = `${x}px`
             this.popUpContainer.style.top = `${y}px`
         },
-        prepararMovimento () {
+        prepararMovimento() {
             // Eventos que interromperão o movimento do pop up
             document.addEventListener("mouseup", this.interromperMovimento)
             document.addEventListener("scroll", this.interromperMovimento)
@@ -101,7 +101,7 @@ export default {
                 })
             }
         },
-        closePopUp () {
+        closePopUp() {
             // Restaurar a capacidade de seleção do usuário
             document.body.style.userSelect = "auto"
             // Limpar eventos adicionados durante a movimentação
@@ -110,11 +110,6 @@ export default {
             document.removeEventListener("click", this.interromperMovimento)
             // Fechar o pop-up
             this.$store.dispatch("changePopUp", null)
-        }
-    },
-    computed: {
-        aberto () {
-            return this.$store.getters.currentPopUp
         }
     }
 }

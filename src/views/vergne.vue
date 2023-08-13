@@ -3,9 +3,8 @@
     <body
         class="main-body"
     >
-        <Cabecalho
-        >
-        {{ $t('tituloVergne') }}
+        <Cabecalho>
+            {{ $t('tituloVergne') }}
         </Cabecalho>
 
         <main
@@ -16,7 +15,7 @@
             </NavBar>
 
             <inputs
-              class="main-elements inputs"
+                class="main-elements inputs"
             >
             </inputs>
 
@@ -30,8 +29,7 @@
 
         </main>
 
-        <Rodape
-        />
+        <Rodape/>
         <Balao
             class="balao"
         />
@@ -52,7 +50,6 @@ import inputs from "@/components/acessos/inputsVergne.vue"
 
 export default {
     name: "vue-vergne",
-    props: "",
     components: {
         NavBar,
         inputs,
@@ -62,7 +59,7 @@ export default {
         Rodape,
         Balao
     },
-    beforeMount () {
+    beforeMount() {
         this.$store.dispatch("changeMetodo", "Vergne")
     }
 }

@@ -53,109 +53,109 @@ export default createStore({
         ilustrations: {
             orebody: true,
             superficie: true,
-            superficie_pit: false,
+            superficiePit: false,
             ventilacao: true,
             usina: true,
             shaft: false,
             rampa: false,
-            rampa_pit: false,
+            rampaPit: false,
             truck: false,
             correia: false
         }
     },
     mutations: {
-        setLanguage (state, data) {
+        setLanguage(state, data) {
             state.language = data
         },
-        setInputsAcessosMoser (state, data) {
+        setInputsAcessosMoser(state, data) {
             state.inputsAcessos.moser = data
         },
-        setInputsAcessosCardozo (state, data) {
+        setInputsAcessosCardozo(state, data) {
             state.inputsAcessos.cardozo = data
         },
-        setInputsAcessosVergne (state, data) {
+        setInputsAcessosVergne(state, data) {
             state.inputsAcessos.vergne = data
         },
-        setColor (state, data) {
+        setColor(state, data) {
             state.color = data
         },
-        setIlustrations (state, data) {
+        setIlustrations(state, data) {
             state.ilustrations = data
         },
-        setResultado (state, data) {
+        setResultado(state, data) {
             state.resultado = data
         },
-        setMetodo (state, data) {
+        setMetodo(state, data) {
             state.metodo = data
         },
-        setBalao (state, data) {
+        setBalao(state, data) {
             state.balao = data
         },
-        setPopUp (state, data) {
+        setPopUp(state, data) {
             state.popUp = data
         }
     },
     getters: {
-        currentLanguage (state) {
+        currentLanguage(state) {
             return state.language
         },
-        currentInputsAcesso (state) {
+        currentInputsAcesso(state) {
             return state.inputsAcessos
         },
-        currentColor (state) {
+        currentColor(state) {
             return state.color
         },
-        currentIlustrations (state) {
+        currentIlustrations(state) {
             return state.ilustrations
         },
-        currentResultado (state) {
+        currentResultado(state) {
             return state.resultado
         },
-        currentMetodo (state) {
+        currentMetodo(state) {
             return state.metodo
         },
-        currentTemaMAS (state) {
+        currentTemaMAS(state) {
             return state.temaMAS
         },
-        currentTemaMMS (state) {
+        currentTemaMMS(state) {
             return state.temaMMS
         },
-        currentBalao (state) {
+        currentBalao(state) {
             return state.balao
         },
-        currentPopUp (state) {
+        currentPopUp(state) {
             return state.popUp
         }
     },
     actions: {
-        changeLanguage (context, data) {
+        changeLanguage(context, data) {
             context.commit("setLanguage", data)
         },
-        changeInputsAcessosCardozo (context, data) {
+        changeInputsAcessosCardozo(context, data) {
             context.commit("setInputsAcessosCardozo", data)
         },
-        changeInputsAcessosVergne (context, data) {
+        changeInputsAcessosVergne(context, data) {
             context.commit("setInputsAcessosVergne", data)
         },
-        changeInputsAcessosMoser (context, data) {
+        changeInputsAcessosMoser(context, data) {
             context.commit("setInputsAcessosMoser", data)
         },
-        changeColor (context, data) {
+        changeColor(context, data) {
             context.commit("setColor", data)
         },
-        changeIlustrations (context, data) {
+        changeIlustrations(context, data) {
             context.commit("setIlustrations", data)
         },
-        changeResultado (context, data) {
+        changeResultado(context, data) {
             context.commit("setResultado", data)
         },
-        changeMetodo (context, data) {
+        changeMetodo(context, data) {
             context.commit("setMetodo", data)
         },
-        changeBalao (context, data) {
+        changeBalao(context, data) {
             context.commit("setBalao", data)
         },
-        changePopUp (context, data) {
+        changePopUp(context, data) {
             context.commit("setPopUp", data)
         }
     }

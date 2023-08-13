@@ -2,16 +2,20 @@
 <template>
     <section class="section-inputs">
         <!-- TITULO SEÇÃO -->
-        <h2>{{ $t('tituloInputs') }}</h2>
+        <h2>
+            {{ $t('tituloInputs') }}
+        </h2>
 
         <!-- BOTÃO SWITCH -->
         <switchLanguage
-              class="main-elements switch-language"
+            class="main-elements switch-language"
         />
 
         <!-- SURFACE MATERIALS-->
         <div class='parametros-container' id="sm">
-            <h3 class="subtitulo-inputs">{{ $t('smTituloVergne') }}</h3>
+            <h3 class="subtitulo-inputs">
+                {{ $t('smTituloVergne') }}
+            </h3>
             <span>{{ $t('smDescriptionVergne') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
@@ -26,7 +30,9 @@
         </div>
         <!--ROCKMASS CONDITIONS-->
         <div class='parametros-container' id="rm">
-            <h3 class="subtitulo-inputs">{{ $t('rmTituloVergne') }}</h3>
+            <h3 class="subtitulo-inputs">
+                {{ $t('rmTituloVergne') }}
+            </h3>
             <span>{{ $t('rmDescriptionVergne') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
@@ -41,24 +47,40 @@
         </div>
         <!-- PROFUNDIDADE -->
         <div class='parametros-container' id="depth">
-            <h3 class="subtitulo-inputs">{{ $t('depthTituloVergne') }}</h3>
+            <h3 class="subtitulo-inputs">
+                {{ $t('depthTituloVergne') }}
+            </h3>
             <span>{{ $t('depthDescriptionVergne') }}</span>
             <select v-model="vergne.depth" class="depth" id="depth-vergne">
                 <option value=""></option>
-                <option value="menor">{{ $t('depthMenorVergne') }}</option>
-                <option value="entre">{{ $t('depthEntreVergne') }}</option>
-                <option value="maior">{{ $t('depthMaiorVergne') }}</option>
+                <option value="menor">
+                    {{ $t('depthMenorVergne') }}
+                </option>
+                <option value="entre">
+                    {{ $t('depthEntreVergne') }}
+                </option>
+                <option value="maior">
+                    {{ $t('depthMaiorVergne') }}
+                </option>
             </select>
         </div>
         <!-- PRODUÇÃO -->
         <div class='parametros-container' id="prod">
-            <h3 class="subtitulo-inputs">{{ $t('prodTituloVergne') }}</h3>
+            <h3 class="subtitulo-inputs">
+                {{ $t('prodTituloVergne') }}
+            </h3>
             <span> {{ $t('prodDescriptionVergne') }}</span>
             <select v-model="vergne.prod" class="prod" id="prod-vergne">
                 <option value=""></option>
-                <option value="menor">{{ $t('prodMenorVergne') }}</option>
-                <option value="entre">{{ $t('prodEntreVergne') }}</option>
-                <option value="maior">{{ $t('prodMaiorVergne') }}</option>
+                <option value="menor">
+                    {{ $t('prodMenorVergne') }}
+                </option>
+                <option value="entre">
+                    {{ $t('prodEntreVergne') }}
+                </option>
+                <option value="maior">
+                    {{ $t('prodMaiorVergne') }}
+                </option>
             </select>
         </div>
 
@@ -77,7 +99,7 @@ export default {
     mixins: [
         inputsMixin
     ],
-    data () {
+    data() {
         return {
             vergne: {
                 surfaceMaterial: "",
@@ -87,12 +109,29 @@ export default {
             }
         }
     },
-    mounted () {
+    watch: {
+        vergne: {
+            handler() {
+                // Desabilita os inputs e altera a opacidade das divs
+                this.disableObject(["rm", "depth", "prod"])
+                // Oculta as todas as imagens não default
+                this.defaultImages()
+                // Muda a cor de todos os elementos para vermelho.
+                this.setDefaultColor()
+                // Chama a função com a lógica do fluxograma
+                this.newValue()
+                // Altera o valor de vergne na store VueExe
+                this.$store.dispatch("changeInputsAcessosVergne", this.vergne)
+            },
+            deep: true // deep: true → O que estiver dentro da variável será observado
+        }
+    },
+    mounted() {
     // Desabilita todas as divs e inputs não-inicias
         this.disableObject(["rm", "depth", "prod"])
     },
     methods: {
-        newValue () {
+        newValue() {
             // SURFACE MATERIAL
             if (this.vergne.surfaceMaterial === "maior") {
                 this.resultado = "shaft"
@@ -148,23 +187,6 @@ export default {
                 this.setColorRed()
                 this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "prodLeft", "shaft"])
             }
-        }
-    },
-    watch: {
-        vergne: {
-            handler () {
-                // Desabilita os inputs e altera a opacidade das divs
-                this.disableObject(["rm", "depth", "prod"])
-                // Oculta as todas as imagens não default
-                this.defaultImages()
-                // Muda a cor de todos os elementos para vermelho.
-                this.setDefaultColor()
-                // Chama a função com a lógica do fluxograma
-                this.newValue()
-                // Altera o valor de vergne na store VueExe
-                this.$store.dispatch("changeInputsAcessosVergne", this.vergne)
-            },
-            deep: true // deep: true → O que estiver dentro da variável será observado
         }
     }
 }

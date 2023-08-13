@@ -3,7 +3,9 @@
         class="section-ilustrations"
     >
         <!-- TITULO SEÇÃO -->
-        <h2>{{ $t('tituloIlustration') }}</h2>
+        <h2>
+            {{ $t('tituloIlustration') }}
+        </h2>
 
         <div class="ilustration-container">
             <img
@@ -20,7 +22,7 @@
             >
             <img
                 id="rampa-pit"
-                v-if="this.$store.getters.currentIlustrations['rampa_pit']"
+                v-if="this.$store.getters.currentIlustrations['rampaPit']"
                 src="@\assets\Imagens\rampa.png"
                 alt="imagem rampa a partir de mina open pit"
             >
@@ -42,7 +44,7 @@
             >
             <img
                 id="superficie-pit"
-                v-if="this.$store.getters.currentIlustrations['superficie_pit']"
+                v-if="this.$store.getters.currentIlustrations['superficiePit']"
                 src="@\assets\Imagens\superficie_pit.png"
                 alt="imagem superficie com mina open pit"
             >

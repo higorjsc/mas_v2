@@ -7,7 +7,7 @@ export default {
     mixins: [
         Balao
     ],
-    data () {
+    data() {
         return {
             resultado: "",
             elementosInput: null,
@@ -42,12 +42,12 @@ export default {
             ilustrations: {
                 orebody: true,
                 superficie: true,
-                superficie_pit: false,
+                superficiePit: false,
                 ventilacao: true,
                 usina: true,
                 shaft: false,
                 rampa: false,
-                rampa_pit: false,
+                rampaPit: false,
                 truck: false,
                 correia: false,
                 pit: false
@@ -55,61 +55,77 @@ export default {
             defaultIlustrations: {
                 orebody: true,
                 superficie: true,
-                superficie_pit: false,
+                superficiePit: false,
                 ventilacao: true,
                 usina: true,
                 shaft: false,
                 rampa: false,
-                rampa_pit: false,
+                rampaPit: false,
                 truck: false,
                 correia: false,
                 pit: false
             }
         }
     },
-    mounted () {
-    // ADICIONA O BALÃO DE AJUDA AOS ELEMENTOS
+    watch: {
+        color: {
+            handler() {
+                this.$store.dispatch("changeColor", this.color)
+            },
+            deep: true // deep: true → O que estiver dentro da variável será observado
+        },
+        ilustrations: {
+            handler() {
+                this.$store.dispatch("changeIlustrations", this.ilustrations)
+            },
+            deep: true // deep: true → O que estiver dentro da variável será observado
+        },
+        resultado() {
+            this.$store.dispatch("changeResultado", this.resultado)
+        }
+    },
+    mounted() {
+        // ADICIONA O BALÃO DE AJUDA AOS ELEMENTOS
         this.elementosInput = document.querySelectorAll("label")
         this.elementosInput.forEach(element => {
             element.addEventListener("mouseover", () => this.balaoEntra(element.id)) // Use an arrow function to pass the correct arguments
             element.addEventListener("mouseleave", () => this.balaoSai())
         })
     },
-    beforeUnmount () {
+    beforeUnmount() {
     // REMOVE OS OUVINTES RELACIONADOS AO BALÃO DE AJUDA
         this.elementosInput.forEach(element => {
             element.removeEventListener("mouseover", () => this.balaoEntra(element.name)) // Use an arrow function to pass the correct arguments
             element.removeEventListener("mouseleave", () => this.balaoSai())
         })
     },
-
     methods: {
-        setDefaultColor () {
+        setDefaultColor() {
             for (const key in this.color) {
                 this.color[key] = this.defaultColor[key]
             }
         },
-        setColorRed () {
+        setColorRed() {
             for (const key in this.color) {
                 this.color[key] = CORES.fluxoVermelho
             }
         },
-        setColorGreen (objetos = []) {
+        setColorGreen(objetos = []) {
             // Muda a cor dos objetos do array para verde
             objetos.forEach((objeto) => {
                 this.color[objeto] = CORES.fluxoVerde
             })
         },
-        defaultImages () {
+        defaultImages() {
             this.ilustrations = JSON.parse(JSON.stringify(this.defaultIlustrations))
         },
-        showImages (itens) {
+        showImages(itens) {
             itens.forEach(item => {
                 this.ilustrations[item] = true
             })
         },
         // DESABILITA OS OBJETOS NA SEQUENCIA DO FLUXOGRAMA
-        enableObjects (id) {
+        enableObjects(id) {
             // Altera a opacidade da div a partir do id
             const objeto = document.querySelector(`#${id}`)
             if (objeto) {
@@ -124,7 +140,7 @@ export default {
             }
         },
         // HABILITA O PRÓXIMO ELEMENTO DO FLUXOGRAMA
-        disableObject (ids = []) {
+        disableObject(ids = []) {
             ids.forEach((id) => {
                 // Altera a opacidade da div a partir do id
                 const objeto = document.querySelector(`#${id}`)
@@ -139,23 +155,6 @@ export default {
                     })
                 }
             })
-        }
-    },
-    watch: {
-        color: {
-            handler () {
-                this.$store.dispatch("changeColor", this.color)
-            },
-            deep: true // deep: true → O que estiver dentro da variável será observado
-        },
-        ilustrations: {
-            handler () {
-                this.$store.dispatch("changeIlustrations", this.ilustrations)
-            },
-            deep: true // deep: true → O que estiver dentro da variável será observado
-        },
-        resultado () {
-            this.$store.dispatch("changeResultado", this.resultado)
         }
     }
 }

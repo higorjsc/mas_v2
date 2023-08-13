@@ -9,46 +9,52 @@
 <script>
 export default {
     name: "balao-mixin",
-    data () {
+    data() {
         return {
             idObjeto: "",
             balao: null
         }
     },
+    computed: {
+        texto() {
+            return this.$store.getters.currentBalao
+        }
+    },
+    mounted() {
+        this.balao = document.getElementById("balao")
+        document.addEventListener("mousemove", this.balaoPosition)
+    },
+    beforeUnmount() {
+        document.removeEventListener("mousemove", this.balaoPosition)
+    },
     methods: {
-        formataId (id) {
+        formataId(id) {
+            // Dividir a string em partes usando "-" como separador
+            let idFormatado = id.split("-")
+            // Converte o id para pascalCase
+            idFormatado = idFormatado.map(parte => {
+                // Converter primeira letra para maiúscula
+                return parte.charAt(0).toUpperCase() + parte.slice(1)
+            })
+            idFormatado[0] = idFormatado[0].toLowerCase()
+            // Junta as partes novamente removendo o separador do id "-"
+            idFormatado = idFormatado.join("")
             // Remove os sufixos "-menor" e "-maior" que diferenciam os ids dos labels dos radio buttons
-            id = id.replace(/-menor/g, "")
-            id = id.replace(/-maior/g, "")
-            id = id.replace(/-nao/g, "")
-            id = id.replace(/-sim/g, "")
-            id = id.replace(/-/g, "_")
-            return id
+            idFormatado = idFormatado.replace(/Menor/g, "").replace(/Nao/g, "").replace(/Sim/g, "").replace(/Maior/g, "")
+            return idFormatado
         },
-        balaoEntra (id) {
+        balaoEntra(id) {
             this.$store.dispatch("changeBalao", this.formataId(id))
             this.balao.style.display = "block"
         },
-        balaoSai () {
+        balaoSai() {
             this.balao.style.display = "none"
         },
-        balaoPosition (event) {
+        balaoPosition(event) {
             if (this.balao) {
                 this.balao.style.top = event.clientY + -40 + "px"
                 this.balao.style.left = event.clientX + 40 + "px"
             }
-        }
-    },
-    mounted () {
-        this.balao = document.getElementById("balao")
-        document.addEventListener("mousemove", this.balaoPosition)
-    },
-    beforeUnmount () {
-        document.removeEventListener("mousemove", this.balaoPosition)
-    },
-    computed: {
-        texto () {
-            return this.$store.getters.currentBalao
         }
     }
 }

@@ -24,7 +24,7 @@
 
 export default {
     name: "vue-switch-language",
-    data () {
+    data() {
         return {
             switchLanguage: false,
             pt: true,
@@ -32,18 +32,18 @@ export default {
         }
     },
     computed: {
-        lang () {
+        lang() {
             return this.$store.getters.currentLanguage
         }
     },
-    methods: {
-        Language () {
-            this.switchLanguage ? this.$store.dispatch("changeLanguage", "en") : this.$store.dispatch("changeLanguage", "pt")
+    watch: {
+        switchLanguage() {
+            this.Language()
         }
     },
-    watch: {
-        switchLanguage () {
-            this.Language()
+    methods: {
+        Language() {
+            this.switchLanguage ? this.$store.dispatch("changeLanguage", "en") : this.$store.dispatch("changeLanguage", "pt")
         }
     }
 }

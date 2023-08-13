@@ -1,27 +1,31 @@
 <template>
-  <section>
-    <nav>
-      <ul class="ul-parent">
-        <li class="li-titulo">{{ $t('selectMethod') }}</li>
-        <ul class="menu-option">
-            <li class="escolhida">
-                <span class= 'link' id='pagina-atual'>{{ presente.titulo }}</span>
-            </li>
-            <li class="option">
-                <RouterLink class= 'link' :to="option1.path">{{ option1.titulo }}</RouterLink>
-            </li>
-            <li class="option">
-                <RouterLink class= 'link' :to="option2.path">{{ option2.titulo }}</RouterLink>
-            </li>
-        </ul>
-      </ul>
-    </nav>
-    <p
-        v-html="`${$t('paragrafoExplicacao'+ metodo)}`"
-    >
-    </p>
+    <section>
+        <nav>
+            <ul class="ul-parent">
+                <li class="li-titulo">
+                    {{ $t('selectMethod') }}
+                </li>
+                <ul class="menu-option">
+                    <li class="escolhida">
+                        <span class= 'link' id='pagina-atual'>{{ presente.titulo }}</span>
+                    </li>
+                    <li class="option">
+                        <RouterLink class= 'link' :to="option1.path">
+                            {{ option1.titulo }}
+                        </RouterLink>
+                    </li>
+                    <li class="option">
+                        <RouterLink class= 'link' :to="option2.path">
+                            {{ option2.titulo }}
+                        </RouterLink>
+                    </li>
+                </ul>
+            </ul>
+        </nav>
+        <!-- PARAGRAFO COM O TEXTO DE DESCRIÇÃO DO MÉTODO -->
+        <p v-html="`${$t('paragrafoExplicacao'+ metodo)}`"></p>
 
-</section>
+    </section>
 
 </template>
 
@@ -29,7 +33,7 @@
 
 export default {
     name: "navBar",
-    data () {
+    data() {
         return {
             presente: {
                 titulo: "",
@@ -57,12 +61,17 @@ export default {
             }
         }
     },
-    mounted () {
+    computed: {
+        metodo() {
+            return this.$store.getters.currentMetodo
+        }
+    },
+    mounted() {
     // Chama a função que ordena a navBar e retorna o método selecionado
         this.defineMetodo()
     },
     methods: {
-        defineMetodo () {
+        defineMetodo() {
             switch (this.metodo) {
             case "Cardozo":
                 this.presente = this.cardozo
@@ -81,20 +90,13 @@ export default {
                 break
             }
         }
-    },
-    computed: {
-        metodo () {
-            return this.$store.getters.currentMetodo
-        }
     }
 }
 </script>
 
 <style scoped>
-
     *{
-        margin: 0;
-        padding: 0;
+        font-size: 10pt;
     }
     section{
         border-left: var(--borda-simples);
@@ -110,7 +112,6 @@ export default {
         flex-direction: column;
         padding: 2%;
         text-align: justify;
-        font-size: 9pt;
     }
 
     nav{

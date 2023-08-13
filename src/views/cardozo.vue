@@ -4,8 +4,7 @@
         class="main-body"
     >
 
-        <Cabecalho
-        >
+        <Cabecalho>
             {{ $t('tituloCardozo') }}
         </Cabecalho>
 
@@ -51,7 +50,6 @@ import Inputs from "@/components/acessos/inputsCardozo.vue"
 
 export default {
     name: "view-cardozo",
-    props: "",
     components: {
         NavBar,
         Inputs,
@@ -64,7 +62,7 @@ export default {
     mixins: [
 
     ],
-    beforeMount () {
+    beforeMount() {
         this.$store.dispatch("changeMetodo", "Cardozo")
     }
 }
