@@ -2,7 +2,7 @@
 
     <div class="switch-container">
         <input type="checkbox" v-model="switchLanguage" class="switch" id="switch"/>
-        <label for="switch">
+        <label for="switch" id="switchLanguage">
             <span 
                 v-if="!lang"
                 class="pt"
@@ -15,7 +15,6 @@
             >
                 {{ $t('enSwitchLanguage') }}
             </span>
-
         </label>
     </div>
     

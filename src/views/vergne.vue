@@ -4,7 +4,6 @@
         class="main-body"
     >
         <Header
-            class="header"
         >
         {{ $t('tituloVergne') }}
         </Header>
@@ -32,7 +31,6 @@
         </main>
 
         <Footer 
-            class="footer"
         />
         <Balao
             class="balao"

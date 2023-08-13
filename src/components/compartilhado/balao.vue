@@ -28,6 +28,7 @@ export default {
         balaoEntra(id) {
             this.$store.dispatch('changeBalao', this.formataId(id))
             this.balao.style.display = 'block';
+            console.log(id)
         },
         balaoSai() {
             this.balao.style.display = 'none'
@@ -63,6 +64,7 @@ export default {
     border: var(--borda-simples);
     border-radius: 10px;
     color: black;
+    text-align: center;
     min-width: 100px;
     z-index: 999;
     padding: 5px;

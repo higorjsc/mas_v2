@@ -12,7 +12,6 @@
                 src="@\assets\Imagens\shaft.png" 
                 alt="imagem shaft vertical"
             >
-
             <img 
                 id="rampa" 
                 v-if="this.$store.getters.currentIlustrations['rampa']"
@@ -28,8 +27,7 @@
             <div
                 id="correia" 
                 v-if="this.$store.getters.currentIlustrations['correia']"
-            >
-            </div>
+            ></div>
             <img 
                 id="vent" 
                 v-if="this.$store.getters.currentIlustrations['ventilacao']"
@@ -66,7 +64,6 @@
                 src="@\assets\Imagens\usina.png" 
                 alt="imagem shaft vertical"
             >
-
         </div>
 
         <Resultados/>
@@ -77,7 +74,6 @@
   
 <script>
     import Resultados from './resultados.vue'
-
     export default {
         components:{
             Resultados

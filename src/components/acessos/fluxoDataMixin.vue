@@ -20,7 +20,7 @@
                             Text: 'startFluxoCardozo'
                         },
                         {   
-                            id: 'sm-cardozo',
+                            id: 'surface-material-cardozo',
                             backgroundKey: 'surfaceMaterial',
                             top: '70px',
                             left: '140px',
@@ -28,7 +28,7 @@
                             Text: 'smFluxoCardozo'
                         },
                         {   
-                            id: 'rm-cardozo',
+                            id: 'rock-mass-cardozo',
                             backgroundKey: 'rockMass',
                             top: '130px',
                             left: '180px',
@@ -96,7 +96,7 @@
                     ],
                     Moser:[
                         {   
-                            id: 'logistica-moser',
+                            id: 'start-moser',
                             name:'inicio',
                             backgroundKey: 'logistica',
                             top: '10px',
@@ -104,14 +104,14 @@
                             Text: 'logisticaFluxoMoser'
                         },
                         {   
-                            id: 'rm-moser',
+                            id: 'rock-mass-moser',
                             backgroundKey: 'rockMass',
                             top: '70px',
                             left: '20px',
                             Text: 'rmFluxoMoser'
                         },
                         {   
-                            id: 'sm-moser',
+                            id: 'surface-material-moser',
                             backgroundKey: 'surfaceMaterial',
                             top: '135px',
                             left: '20px',
@@ -132,7 +132,7 @@
                             Text: 'prodCenterFluxoMoser'
                         },
                         {   
-                            id:'op-moser',
+                            id:'open-pit-moser',
                             backgroundKey: 'openPit',
                             top: '218px',
                             left: '20px',
@@ -177,7 +177,7 @@
                             Text: 'startFluxoVergne'
                         },
                         {   
-                            id: 'sm-vergne',
+                            id: 'surface-material-vergne',
                             backgroundKey: 'surfaceMaterial',
                             top: '70px',
                             left: '140px',
@@ -185,7 +185,7 @@
                             Text: 'smFluxoVergne'
                         },
                         {   
-                            id: 'rm-vergne',
+                            id: 'rock-mass-vergne',
                             backgroundKey: 'rockMass',
                             top: '130px',
                             left: '180px',

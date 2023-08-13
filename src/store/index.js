@@ -10,6 +10,7 @@ export default createStore({
         language: 'pt', // Idioma padrão
         resultado: '', // resultado do fluxograma de escolha de acessos
         metodo: '', // Metodo/view atual 
+        popUp: null, // popUp aberto (null = nenhum)
         balao: '', // Variável de texto do balao help 
         inputsAcessos:{
             moser:{
@@ -89,6 +90,9 @@ export default createStore({
         },
         setBalao(state, data) {
             state.balao = data
+        },        
+        setPopUp(state, data) {
+            state.popUp = data
         },
     },
     getters: {
@@ -118,6 +122,9 @@ export default createStore({
         },
         currentBalao(state){
             return state.balao
+        },
+        currentPopUp(state){
+            return state.popUp
         }
     },
     actions: {
@@ -147,6 +154,9 @@ export default createStore({
         },
         changeBalao(context, data){
             context.commit('setBalao', data)
+        },
+        changePopUp(context, data){
+            context.commit('setPopUp', data)
         }
   },
 })

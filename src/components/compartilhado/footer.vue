@@ -3,9 +3,13 @@
 <template>
 
 
-    <footer >
+    <footer>
         
-        <img id="ufrgs" src="@\assets\Imagens\ufrgs.png" alt="logo_ufrgs_img">
+        <img 
+            id="ufrgs" src="@\assets\Imagens\ufrgs.png" 
+            alt="logo_ufrgs_img"
+        >
+
         <div class="div-esquerda">
             <span>{{ $t('universidadeFooter') }}</span>
             <span>{{ $t('laboratorioFooter') }}</span>
@@ -15,28 +19,52 @@
         
         <div class="div-direita">
             <h4>{{ $t('linksFooter') }}</h4>
-            <span> {{ $t('creditosFooter') }}</span>
-            <span> {{ $t('referenciasFooter') }}</span>
-            <span> {{ $t('reportarErroFooter') }}</span>
+            <span @click="abrirPopUp('creditos')">{{ $t('creditosFooter') }}</span>
+
+            <span @click="abrirPopUp('referencias')">{{ $t('referenciasFooter') }}</span>
+
+            <span @click="abrirPopUp('erro')">{{ $t('reportarErroFooter') }}</span>
+
         </div>
-        <img id="laprom" src="@\assets\Imagens\laprom.png" alt="logo_laprom_png">
+
+        <img 
+            id="laprom" src="@\assets\Imagens\laprom.png" 
+            alt="logo_laprom_png"
+        >
 
     </footer>
 
+    <PopUp/>
+
 </template>
+
 <script>
+
+    import PopUp from './popUp.vue'
     export default {
-        name: '',
-        data (){
+        name: 'Footer',
+        components:{
+            PopUp
+        },
+        data(){
             return{
-                src_symbol: './src/assets/Imagens/mining_symbol.png',
-                alt_symbol: "Simbolo da mineração"
+                popUpFooter:{
+                    creditos:'@/components/acessos/creditos.vue',
+                    referencias:'@/components/acessos/referencias.vue',
+                    erro:'@/components/compartilhado/reportarErro.vue'
+                }
+            }
+        },
+        methods:{
+            abrirPopUp(frame){
+                console.log(frame)
+                this.$store.dispatch('changePopUp', this.popUpFooter[frame])
             }
         }
-
     }
 
 </script>
+
 <style scoped>
 
     footer {
@@ -66,10 +94,11 @@
     }
 
     .div-direita {
-        display: block;
-        position: absolute;
+        display: flex;
+        flex-direction: column;
         grid-column: 4/5;
         left: 5%;
+        color: var(--cor-texto-tema);
     }
 
     .div-direita h4, 

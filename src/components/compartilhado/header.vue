@@ -9,8 +9,7 @@
         <img class='mining-symbol' id='esquerda' src="@\assets\Imagens\mining_symbol.png" alt="Simbolo da mineração">
 
         <h1 class="titulo-pagina">
-            <slot name='titulo'></slot>
-
+            {{ $t(`titulo${this.$store.getters.currentMetodo}`) }}
         </h1>
 
     </header>
@@ -18,13 +17,7 @@
 </template>
 <script>
     export default {
-        name: '',
-        data (){
-            return{
-
-            }
-        }
-
+        name: 'Header',
     }
 
 </script>

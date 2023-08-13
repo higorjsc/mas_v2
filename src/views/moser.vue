@@ -5,7 +5,6 @@
     >
 
         <Header 
-          class="header"
         >
           {{ $t('tituloMoser') }}
         </Header>
@@ -36,7 +35,6 @@
         </main>
 
         <Footer
-          class="footer"
         />
         <Balao
             class="balao"
