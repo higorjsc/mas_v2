@@ -91,6 +91,7 @@
             }
         },
         mounted(){
+            // Desabilita todas as divs e inputs não-inicias
             this.disableObject(['rm', 'depth', 'prod'])
         },
         methods:{

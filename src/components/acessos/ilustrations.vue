@@ -16,13 +16,13 @@
                 id="rampa" 
                 v-if="this.$store.getters.currentIlustrations['rampa']"
                 src="@\assets\Imagens\rampa.png" 
-                alt="imagem shaft vertical"
+                alt="imagem rampa"
             >
             <img 
                 id="rampa-pit" 
                 v-if="this.$store.getters.currentIlustrations['rampa_pit']"
                 src="@\assets\Imagens\rampa.png" 
-                alt="imagem shaft vertical"
+                alt="imagem rampa a partir de mina open pit"
             >
             <div
                 id="correia" 
@@ -32,37 +32,37 @@
                 id="vent" 
                 v-if="this.$store.getters.currentIlustrations['ventilacao']"
                 src="@\assets\Imagens\vent.png" 
-                alt="imagem shaft vertical"
+                alt="imagem poço de ventilação"
             >
             <img 
                 id="superficie" 
                 v-if="this.$store.getters.currentIlustrations['superficie']"
                 src="@\assets\Imagens\superficie.png" 
-                alt="imagem shaft vertical"
+                alt="imagem superficie"
             >
             <img 
                 id="superficie-pit" 
                 v-if="this.$store.getters.currentIlustrations['superficie_pit']"
                 src="@\assets\Imagens\superficie_pit.png" 
-                alt="imagem shaft vertical"
+                alt="imagem superficie com mina open pit"
             >
             <img 
                 v-if="this.$store.getters.currentIlustrations['orebody']"
                 id="orebody" 
                 src="@\assets\Imagens\orebody.png" 
-                alt="imagem shaft vertical"
+                alt="imagem orebody"
             >
             <img 
                 id="truck" 
                 v-if="this.$store.getters.currentIlustrations['truck']"
                 src="@\assets\Imagens\truck.png" 
-                alt="imagem shaft vertical"
+                alt="imagem caminhão"
             >
             <img 
                 id="usina" 
                 v-if="this.$store.getters.currentIlustrations['usina']"
                 src="@\assets\Imagens\usina.png" 
-                alt="imagem shaft vertical"
+                alt="imagem usina de beneficiamento"
             >
         </div>
 

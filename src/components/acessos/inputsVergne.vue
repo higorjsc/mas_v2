@@ -56,9 +56,9 @@
             <span> {{ $t('prodDescriptionVergne') }}</span>
             <select v-model="vergne.prod" class="prod" id="prod-vergne">
                 <option value=""></option>
-                <option value="menor">{{ $t('prodMenor') }}</option>
-                <option value="entre">{{ $t('prodEntre') }}</option>
-                <option value="maior">{{ $t('prodMaior') }}</option>
+                <option value="menor">{{ $t('prodMenorVergne') }}</option>
+                <option value="entre">{{ $t('prodEntreVergne') }}</option>
+                <option value="maior">{{ $t('prodMaiorVergne') }}</option>
             </select>
         </div>
 
@@ -89,6 +89,7 @@
             }
         },
         mounted(){
+            // Desabilita todas as divs e inputs não-inicias
             this.disableObject(['rm', 'depth', 'prod'])
         },
         methods:{
