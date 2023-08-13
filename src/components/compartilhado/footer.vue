@@ -62,7 +62,7 @@ export default {
         background-color: var(--cor-tema);
         border: var(--borda-simples);
         display: grid;
-        grid-template-columns: 1fr 4fr 1fr 3fr;
+        grid-template-columns: 1fr 5fr 1fr 3fr;
         position: relative;
         grid-column: 1/5;
         min-width: 100%;
@@ -70,37 +70,26 @@ export default {
         max-width: 100%;
         height: 100px;
         border-radius: 20px;
+        font-size: 5pt;
         align-items: center;
         align-content: center;
         overflow: hidden;
     }
-
-    .div-esquerda{
+    footer div{
         display: flex;
         flex-direction: column;
-        grid-column: 2/3;
-        font-size: 10pt;
+        position: absolute;
+        font-size: 8pt;
+        color: var(--cor-texto-tema);
         opacity: 0.8;
-        color: var(--cor-texto-tema);
     }
-
+    .div-esquerda{
+        grid-column: 2/3;
+    }
     .div-direita {
-        display: flex;
-        flex-direction: column;
+        left: 20%;
         grid-column: 4/5;
-        left: 5%;
-        color: var(--cor-texto-tema);
     }
-
-    .div-direita h4,
-    .div-direita span {
-        display: block;
-        margin: 0;
-        padding: 0;
-        color: var(--cor-texto-tema);
-        font-size: 10pt;
-    }
-
     .div-direita span:hover {
         cursor: pointer;
         text-decoration: underline;
