@@ -19,6 +19,11 @@
                             {{ option2.titulo }}
                         </RouterLink>
                     </li>
+                    <li class="option">
+                        <RouterLink class= 'link' :to="option3.path">
+                            {{ option3.titulo }}
+                        </RouterLink>
+                    </li>
                 </ul>
             </ul>
         </nav>
@@ -47,6 +52,10 @@ export default {
                 titulo: "",
                 path: ""
             },
+            option3: {
+                titulo: "",
+                path: ""
+            },
             cardozo: {
                 titulo: "CARDOZO (2023)",
                 path: "/cardozo"
@@ -58,6 +67,10 @@ export default {
             moser: {
                 titulo: "MOSER (1996)",
                 path: "/moser"
+            },
+            ahpCardozo: {
+                titulo: "AHP CARDOZO (2023)",
+                path: "/ahp-cardozo"
             }
         }
     },
@@ -77,16 +90,25 @@ export default {
                 this.presente = this.cardozo
                 this.option1 = this.vergne
                 this.option2 = this.moser
+                this.option3 = this.ahpCardozo
                 break
             case "Vergne":
                 this.presente = this.vergne
                 this.option1 = this.cardozo
                 this.option2 = this.moser
+                this.option3 = this.ahpCardozo
                 break
             case "Moser":
                 this.presente = this.moser
                 this.option1 = this.cardozo
                 this.option2 = this.vergne
+                this.option3 = this.ahpCardozo
+                break
+            case "ahpCardozo":
+                this.presente = this.ahpCardozo
+                this.option1 = this.cardozo
+                this.option2 = this.vergne
+                this.option3 = this.cardozo
                 break
             }
         }

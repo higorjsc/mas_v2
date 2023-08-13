@@ -30,7 +30,7 @@ const translation = {
         tituloFerramentaCreditos: "SELECTION OF ACESS FOR UNDERGROUND MINING",
         tituloAutoresCreditos: "AUTHORS",
         nomeAutoresCreditos: "CARDOZO, F. &ensp; CAMPOS, H.",
-        tituloApoioCreditos: "APOIO",
+        tituloApoioCreditos: "SUPPORTERS",
         apoioUmCreditos: "EQUIPE MAFMINE",
         localizacaoCreditos: "Porto Alegre, Rio Grande do Sul, Brasil",
         dataCreditos: "2023",
@@ -314,7 +314,7 @@ const translation = {
         // RESULTADOS CARDOZO PORTUGUES
         resultadoShaftCardozo: "POÇO VERTICAL",
         resultadoRampaCardozo: "RAMPA E CAMINHÕES",
-        resultadoCorreiaCardozo: "PLANO INCLINADO E CORREIA TRANSPORTADORA",
+        resultadoCorreiaCardozo: "CORREIA TRANSPORTADORA",
         // BALÕES CARDOZO PORTUGUES
         smCardozo: "A camada de materiais não consolidados (solos, depósitos aluvionares, etc.)<br>sobre o depósito mineral possui espessura menor que 70 m?",
         rmCardozo: "- Classe I-IV: rocha &ldquo;Muito boa&rdquo; a &ldquo;pobre&rdquo; (RMR 21-100)<br>- Classe V: material inconsolidado (solo), classe &ldquo;muito pobre&rdquo; (RMR 1-20)",

@@ -1,38 +1,36 @@
 <template>
 
     <body
-      class="main-body"
+        class="main-body"
     >
 
-        <Cabecalho>
-          {{ $t('tituloMoser') }}
-        </Cabecalho>
+        <vueHeader/>
 
         <main
-          class="main-container"
+            class="main-container"
         >
 
-            <NavBar
-              class="main-elements navbar"
+            <vueNavBar
+                class="main-elements navbar"
             >
-            </NavBar>
+            </vueNavBar>
 
-            <inputs
-              class="main-elements inputs"
+            <vueInputs
+                class="main-elements vueInputs"
             />
 
-            <Fluxograma
-                class="main-elements Fluxograma"
+            <vueFluxograma
+                class="main-elements vueFluxograma"
             />
 
-            <Ilustrations
+            <vueIlustrations
                 class ="main-elements resultados"
             />
 
         </main>
 
-        <Rodape/>
-        <Balao
+        <vueFooter/>
+        <vueBalao
             class="balao"
         />
 
@@ -41,28 +39,30 @@
 </template>
 
 <script>
-import NavBar from "@/components/acessos/navbar.vue"
-import Cabecalho from "@/components/compartilhado/header.vue"
-import Rodape from "@/components/compartilhado/footer.vue"
-import Balao from "@/components/compartilhado/balao.vue"
+import vueNavBar from "@/components/acessos/navbar.vue"
+import vueHeader from "@/components/compartilhado/header.vue"
+import vueFooter from "@/components/compartilhado/footer.vue"
+import vueBalao from "@/components/compartilhado/balao.vue"
 
-import Fluxograma from "@/components/acessos/fluxograma.vue"
-import Ilustrations from "@/components/acessos/ilustrations.vue"
-import inputs from "@/components/acessos/inputsMoser.vue"
+import vueFluxograma from "@/components/acessos/fluxograma.vue"
+import vueIlustrations from "@/components/acessos/ilustrations.vue"
+import vueInputs from "@/components/acessos/inputsMoser.vue"
+import { aplicarTema } from "@/assets/javascript/globalFunctions.js"
 
 export default {
-    name: "vue-moser",
+    name: "vue-view-moser",
     components: {
-        NavBar,
-        inputs,
-        Fluxograma,
-        Cabecalho,
-        Rodape,
-        Ilustrations,
-        Balao
+        vueNavBar,
+        vueInputs,
+        vueFluxograma,
+        vueHeader,
+        vueFooter,
+        vueIlustrations,
+        vueBalao
     },
     beforeMount() {
         this.$store.dispatch("changeMetodo", "Moser")
+        aplicarTema("temaVermelho")
     }
 }
 </script>

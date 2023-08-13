@@ -25,7 +25,7 @@
 </template>
 <script>
 export default {
-    name: "vue-Cabecalho"
+    name: "vue-header"
 }
 
 </script>

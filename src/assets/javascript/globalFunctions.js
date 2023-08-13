@@ -1,3 +1,6 @@
+
+import { TEMAS } from "@/assets/javascript/globalConstants.js"
+
 // ARMAZENA VALORES NA LOCAL STORAGE
 function armazenarLocal(key, state) {
     // Verifica se o armazenamento local é suportado
@@ -32,7 +35,7 @@ function verificarLocal(key) {
     return null
 }
 
-// VERIFICA O VALOR ASSOCIADO A key  NA SESSION STORAGE
+// VERIFICA O VALOR ASSOCIADO A key NA SESSION STORAGE
 function verificarSession(key) {
     // Verifica se o armazenamento local é suportado no navegador
     if (typeof Storage !== "undefined") {
@@ -48,9 +51,19 @@ function verificarSession(key) {
     return null
 }
 
+// CONFIGURA AS VARIÁVEIS CSS QUE DEFINEM AS CORES DO TEMA
+function aplicarTema(tema) {
+    document.documentElement.style.setProperty("--cor-tema", TEMAS[tema]["mainColor"])
+    document.documentElement.style.setProperty("--cor-hover", TEMAS[tema]["HoverColor"])
+    document.documentElement.style.setProperty("--shadow-hover", TEMAS[tema]["shadowHover"])
+    document.documentElement.style.setProperty("--shadow-input", TEMAS[tema]["shadowInput"])
+    document.documentElement.style.setProperty("--cor-texto-tema", TEMAS[tema]["textColor"])
+}
+
 export {
     armazenarLocal,
     armazenarSession,
     verificarLocal,
-    verificarSession
+    verificarSession,
+    aplicarTema
 }

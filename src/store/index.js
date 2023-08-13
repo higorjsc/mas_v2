@@ -35,8 +35,10 @@ export default createStore({
                 depth: ""
             }
         },
-        temaMAS: TEMAS.temaVermelho,
-        temaMMS: TEMAS.temaVermelho,
+        tema: {
+            temaMAS: TEMAS.temaVermelho,
+            temaMMS: TEMAS.temaVermelho
+        },
         color: {
             start: CORES.fluxoVerde,
             logistica: CORES.fluxoVerde,

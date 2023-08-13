@@ -13,11 +13,25 @@ const TEMAS = {
         shadowHover: "0 0 10px #650505d6",
         textColor: "white"
     },
-    temaAzul: {
-        HoverColor: "Blue",
-        mainColor: "Blue",
+    temaAzulClassico: {
+        HoverColor: "#112536",
+        mainColor: "#304454",
         shadowInput: "-5px 0 5px  rgb(0 0 0 / 95%",
-        shadowHover: "0 0 10px Blue",
+        shadowHover: "0 0 10px #304454",
+        textColor: "white"
+    },
+    temaAzulEscuro: {
+        HoverColor: "#09131c",
+        mainColor: "#112536",
+        shadowInput: "-5px 0 5px  rgb(0 0 0 / 95%",
+        shadowHover: "0 0 10px #304454",
+        textColor: "white"
+    },
+    temaVerde: {
+        HoverColor: "#14361e",
+        mainColor: "#0d3313",
+        shadowInput: "-5px 0 5px  rgb(0 0 0 / 95%",
+        shadowHover: "0 0 10px #58ed82",
         textColor: "white"
     }
 }
