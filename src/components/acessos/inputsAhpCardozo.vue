@@ -36,13 +36,33 @@ export default {
                 {
                     id: "first",
                     texto: "firstText"
+                },
+                {
+                    id: "secound",
+                    texto: "firstText"
+                },
+                {
+                    id: "third",
+                    texto: "firstText"
+                },
+                {
+                    id: "fourth",
+                    texto: "firstText"
+                },
+                {
+                    id: "fifith",
+                    texto: "firstText"
+                },
+                {
+                    id: "sixth",
+                    texto: "firstText"
                 }
             ]
         }
     },
     methods: {
         handleInputValue(value) {
-            console.log(`Valor do input recebido: ${value[1]}`)
+            console.log(`Valor do input recebido: ${value}`)
         }
     }
 }

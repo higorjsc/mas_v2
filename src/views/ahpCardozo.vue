@@ -2,7 +2,7 @@
 
     <body class="body">
 
-        <vueHeader class="header-ahp-cardozo"/>
+        <vueHeader/>
 
         <main class="main-ahp-cardozo">
 
@@ -15,7 +15,7 @@
 
         </main>
 
-        <vueFooter class="header-ahp-cardozo"/>
+        <vueFooter/>
 
         <vueBalao
             class="balao"

@@ -10,8 +10,8 @@
             max="100"
             v-model='valorInput'
             :id="id"
-            @change="enviarValor"
             class="slider"
+            ref="slider"
         >
         <div class="label-container">
             <label id="left-label">1/9</label>
@@ -37,12 +37,36 @@ export default {
     emits: ["slider-value"],
     data() {
         return {
-            valorInput: "50"
+            valorInput: 50
+        }
+    },
+    watch: {
+        valorInput() {
+            this.enviarValor()
+            this.sliderColor()
         }
     },
     methods: {
         enviarValor() {
             this.$emit("slider-value", [this.id, this.valorInput])
+        },
+        sliderColor() {
+            let meioEnd
+            let meioStart
+            let left
+            let right
+            if (this.valorInput > 50) {
+                right = 100 - this.valorInput
+                meioEnd = this.valorInput
+                meioStart = 50
+                left = 50
+            } else if (this.valorInput < 50) {
+                right = 50
+                meioEnd = 50
+                meioStart = this.valorInput
+                left = this.valorInput
+            }
+            this.$refs.slider.style.background = "linear-gradient(90deg," + "red 0%," + "red " + left + "%, " + "var(--cor-hover)" + meioStart + "%," + "var(--cor-hover)" + meioEnd + "%, " + "blue " + right + "%," + "blue " + "100" + "%  )"
         }
     }
 }
