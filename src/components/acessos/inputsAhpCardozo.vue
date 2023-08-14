@@ -62,7 +62,7 @@ export default {
     },
     methods: {
         handleInputValue(value) {
-            console.log(`Valor do input recebido: ${value}`)
+            console.log(`${value}`)
         }
     }
 }
