@@ -25,26 +25,31 @@ const routes = [
         component: () => import("../views/moser.vue")
     },
     {
-        path: "/ahp-cardozo",
-        name: "ahpCardozo",
+        path: "/ahp",
+        name: "ahp",
         children: [
             {
-                path: "/ahp-cardozo/first-etapa",
-                name: "firstEtapa",
-                component: () => import("../views/ahpCardozoTabViews/firstEtapa.vue")
+                path: "/ahp/inputs-etapa",
+                name: "inputsEtapa",
+                component: () => import("../views/ahpTabViews/inputsEtapa.vue")
             },
             {
-                path: "/ahp-cardozo/secound-etapa",
-                name: "secoundEtapa",
-                component: () => import("../views/ahpCardozoTabViews/secoundEtapa.vue")
+                path: "/ahp/primeira-etapa",
+                name: "primeiraEtapa",
+                component: () => import("../views/ahpTabViews/primeiraEtapa.vue")
             },
             {
-                path: "/ahp-cardozo/resultados",
-                name: "resultados",
-                component: () => import("../views/ahpCardozoTabViews/resultados.vue")
+                path: "/ahp/segunda-etapa",
+                name: "segundaEtapa",
+                component: () => import("../views/ahpTabViews/segundaEtapa.vue")
+            },
+            {
+                path: "/ahp/resultados-etapa",
+                name: "resultadosEtapa",
+                component: () => import("../views/ahpTabViews/resultadosEtapa.vue")
             }
         ],
-        component: () => import("../views/ahpCardozo.vue")
+        component: () => import("../views/ahp.vue")
     }
 
 ]

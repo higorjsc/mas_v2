@@ -69,6 +69,11 @@ module.exports = {
             multiline: "always"
         }],
 
+        // Permite o uso de v-if junto ao v-for
+        "vue/no-use-v-if-with-v-for": ["off", {
+            allowUsingIterationVar: false
+        }],
+
         // Requer espaços entre atributos em elementos com múltiplas linhas
         "vue/singleline-html-element-content-newline": ["warn", {
             ignoreWhenNoAttributes: true,

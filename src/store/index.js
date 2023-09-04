@@ -13,6 +13,7 @@ export default createStore({
         metodo: "", // Metodo/view atual
         popUp: null, // popUp aberto (null = nenhum)
         balao: "", // Variável de texto do balao help
+        matriz: "fluxograma",
         inputsAcessos: {
             moser: {
                 logistica: "",
@@ -96,6 +97,9 @@ export default createStore({
         },
         setPopUp(state, data) {
             state.popUp = data
+        },
+        setMatriz(state, data) {
+            state.matriz = data
         }
     },
     getters: {
@@ -131,6 +135,9 @@ export default createStore({
         },
         currentApplication(state) {
             return state.application
+        },
+        currentMatriz(state) {
+            return state.matriz
         }
     },
     actions: {
@@ -163,6 +170,9 @@ export default createStore({
         },
         changePopUp(context, data) {
             context.commit("setPopUp", data)
+        },
+        changeMatriz(context, data) {
+            context.commit("setMatriz", data)
         }
     }
 })

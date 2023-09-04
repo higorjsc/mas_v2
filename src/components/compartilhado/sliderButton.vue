@@ -32,6 +32,10 @@ export default {
         id: {
             type: String,
             default: "undefined"
+        },
+        valor: {
+            type: Number,
+            default: 50
         }
     },
     emits: ["slider-value"],
@@ -45,6 +49,10 @@ export default {
             this.enviarValor()
             this.sliderColor()
         }
+    },
+    mounted() {
+        // O valor inicial do sliderButton é igual ao recebido pela prop
+        this.valorInput = this.valor
     },
     methods: {
         enviarValor() {

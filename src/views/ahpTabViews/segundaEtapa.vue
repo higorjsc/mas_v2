@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import vueInputs from "@/components/acessos/inputsAhpCardozo.vue"
+import vueInputs from "@/components/acessos/inputsSegundaEtapa.vue"
 
 export default {
     name: "vue-view-ahp-cardozo",

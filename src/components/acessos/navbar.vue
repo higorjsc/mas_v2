@@ -69,8 +69,8 @@ export default {
                 path: "/moser"
             },
             ahpCardozo: {
-                titulo: "AHP CARDOZO (2023)",
-                path: "/ahp-cardozo"
+                titulo: "AHP",
+                path: "/ahp"
             }
         }
     },
@@ -104,7 +104,7 @@ export default {
                 this.option2 = this.vergne
                 this.option3 = this.ahpCardozo
                 break
-            case "ahpCardozo":
+            case "Ahp":
                 this.presente = this.ahpCardozo
                 this.option1 = this.cardozo
                 this.option2 = this.vergne

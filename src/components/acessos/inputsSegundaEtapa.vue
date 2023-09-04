@@ -1,7 +1,7 @@
 <template>
 
-    <section>
-
+    <!-- SE ETAPA 2 -->
+    <div>
         <div class="container" id="resultado-fluxograma-ahp-cardozo">
             <h3>{{ $t('resultadosFluxogramaTituloAhpCardozo') }}</h3>
             <select v-model="resultadoFluxograma">
@@ -10,52 +10,54 @@
                 <option>{{ $t('resultadoRampaCardozo') }}</option>
             </select>
         </div>
-
         <vueSlider
-            v-for="item in sliderButtons"
+            v-for="item in slidereSecoundEtapa"
             :key="item.id"
             :id="item.id"
             :texto="item.texto"
+            :value="item.valor"
             @slider-value="handleInputValue"
         />
-
-    </section>
+    </div>
 
 </template>
 <script>
 import vueSlider from "@/components/compartilhado/sliderButton.vue"
 export default {
-    name: "vue-inputs-ahp-cardozo",
+    name: "vue-inputs-secound-etapa-ahp-cardozo",
     components: {
         vueSlider
+    },
+    props: {
     },
     data() {
         return {
             resultadoFluxograma: "",
-            sliderButtons: [
+            slideresSecoundEtapa: [
                 {
-                    id: "first",
-                    texto: "firstText"
+                    id: "slider-fluxograma",
+                    texto: "firstText",
+                    valor: 0
                 },
                 {
-                    id: "secound",
-                    texto: "firstText"
+                    id: "slider-avaliacao-economica",
+                    texto: "firstText",
+                    valor: 0
                 },
                 {
-                    id: "third",
-                    texto: "firstText"
+                    id: "slider-risco-energetico",
+                    texto: "firstText",
+                    valor: 0
                 },
                 {
-                    id: "fourth",
-                    texto: "firstText"
+                    id: "slider-custo-ambiental",
+                    texto: "firstText",
+                    valor: 0
                 },
                 {
-                    id: "fifith",
-                    texto: "firstText"
-                },
-                {
-                    id: "sixth",
-                    texto: "firstText"
+                    id: "slider-custo-social",
+                    texto: "firstText",
+                    valor: 0
                 }
             ]
         }

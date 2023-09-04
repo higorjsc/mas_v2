@@ -12,16 +12,46 @@ export default {
     data() {
         return {
             credits: [
-                { class: "universidade", texto: "universidadeCreditos" },
-                { class: "laboratorio", texto: "laboratorioCreditos" },
-                { class: "versao", texto: "versaoCreditos" },
-                { class: "titulo-ferramenta", texto: "tituloFerramentaCreditos" },
-                { class: "titulo-autores", texto: "tituloAutoresCreditos" },
-                { class: "nome-autores", texto: "nomeAutoresCreditos" },
-                { class: "titulo-apoio", texto: "tituloApoioCreditos" },
-                { class: "nome-apoio", texto: "apoioUmCreditos" },
-                { class: "localizacao", texto: "localizacaoCreditos" },
-                { class: "data", texto: "dataCreditos" }
+                {
+                    class: "universidade",
+                    texto: "universidadeCreditos"
+                },
+                {
+                    class: "laboratorio",
+                    texto: "laboratorioCreditos"
+                },
+                {
+                    class: "versao",
+                    texto: "versaoCreditos"
+                },
+                {
+                    class: "titulo-ferramenta",
+                    texto: "tituloFerramentaCreditos"
+                },
+                {
+                    class: "titulo-autores",
+                    texto: "tituloAutoresCreditos"
+                },
+                {
+                    class: "nome-autores",
+                    texto: "nomeAutoresCreditos"
+                },
+                {
+                    class: "titulo-apoio",
+                    texto: "tituloApoioCreditos"
+                },
+                {
+                    class: "nome-apoio",
+                    texto: "apoioUmCreditos"
+                },
+                {
+                    class: "localizacao",
+                    texto: "localizacaoCreditos"
+                },
+                {
+                    class: "data",
+                    texto: "dataCreditos"
+                }
             ]
         }
     }

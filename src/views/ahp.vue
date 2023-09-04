@@ -12,7 +12,6 @@
                 <vueAhpHeader class="header-ahp-cardozo"/>
                 <RouterView></RouterView>
             </section>
-
         </main>
 
         <vueFooter/>
@@ -28,13 +27,13 @@
 <script>
 import vueNavBar from "@/components/acessos/navbar.vue"
 import vueHeader from "@/components/compartilhado/header.vue"
-import vueAhpHeader from "@/components/acessos/ahpCardozoHeader.vue"
+import vueAhpHeader from "@/components/acessos/ahpHeader.vue"
 import vueFooter from "@/components/compartilhado/footer.vue"
 import vueBalao from "@/components/compartilhado/balao.vue"
 import { aplicarTema } from "@/assets/javascript/globalFunctions.js"
 
 export default {
-    name: "vue-view-ahp-cardozo",
+    name: "vue-view-ahp",
     components: {
         vueNavBar,
         vueHeader,
@@ -46,7 +45,7 @@ export default {
 
     ],
     beforeMount() {
-        this.$store.dispatch("changeMetodo", "ahpCardozo")
+        this.$store.dispatch("changeMetodo", "Ahp")
         aplicarTema("temaVerde")
     }
 }

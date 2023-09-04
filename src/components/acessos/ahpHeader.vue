@@ -3,20 +3,23 @@
 
     <div class="etapas-container">
 
-        <div class="buttons-etapas" id="first-etapa">
-            <RouterLink class='link' to="/ahp-cardozo/first-etapa">
+        <div class="buttons-etapas" id="inputs-etapa">
+            <RouterLink class='link' to="/ahp/inputs-etapa">
+                INPUTS
+            </RouterLink>
+        </div>
+        <div class="buttons-etapas" id="primeira-etapa">
+            <RouterLink class='link' to="/ahp/primeira-etapa">
                 ETAPA 1
             </RouterLink>
         </div>
-
-        <div class="buttons-etapas" id="secound-etapa">
-            <RouterLink class='link' to="/ahp-cardozo/secound-etapa">
+        <div class="buttons-etapas" id="segunda-etapa">
+            <RouterLink class='link' to="/ahp/segunda-etapa">
                 ETAPA 2
             </RouterLink>
         </div>
-
-        <div class="buttons-etapas" id="resultados">
-            <RouterLink class='link' to="/ahp-cardozo/resultados">
+        <div class="buttons-etapas" id="resultados-etapa">
+            <RouterLink class='link' to="/ahp/resultados-etapa">
                 RESULTADOS
             </RouterLink>
         </div>
@@ -26,7 +29,7 @@
 </template>
 <script>
 export default {
-    name: "vue-ahp-cardozo-header"
+    name: "vue-ahp-header"
 }
 
 </script>
