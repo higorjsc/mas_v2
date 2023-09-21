@@ -1,13 +1,13 @@
 <template>
 
     <section class="contaiener">
-        <vueInputs class="inputs-ahp-cardozo"/>
+        <vueInputs/>
     </section>
 
 </template>
 
 <script>
-import vueInputs from "@/components/acessos/inputsSegundaEtapa.vue"
+import vueInputs from "@/components/ahp/inputsSegundaEtapa.vue"
 
 export default {
     name: "vue-view-ahp-cardozo",
@@ -19,7 +19,7 @@ export default {
 </script>
 <style scoped>
 
-.inputs-ahp-cardozo{
+.contaiener{
     position: relative;
     grid-column: 1/2;
     grid-row: 2/3;

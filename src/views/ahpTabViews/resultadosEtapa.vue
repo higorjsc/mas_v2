@@ -17,7 +17,7 @@ export default {
 </script>
 <style scoped>
 
-.inputs-ahp-cardozo{
+.contaiener{
     position: relative;
     grid-column: 1/2;
     grid-row: 2/3;

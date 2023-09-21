@@ -27,7 +27,7 @@
 <script>
 import vueNavBar from "@/components/acessos/navbar.vue"
 import vueHeader from "@/components/compartilhado/header.vue"
-import vueAhpHeader from "@/components/acessos/ahpHeader.vue"
+import vueAhpHeader from "@/components/ahp/ahpHeader.vue"
 import vueFooter from "@/components/compartilhado/footer.vue"
 import vueBalao from "@/components/compartilhado/balao.vue"
 import { aplicarTema } from "@/assets/javascript/globalFunctions.js"
@@ -61,11 +61,11 @@ export default {
 .section-ahp-cardozo {
     display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 10fr; /* Deixando o cabeçalho com tamanho necessário e o restante para os inputs */
+    grid-template-rows: 1fr minmax(667px, 10fr); /* Deixando o cabeçalho com tamanho necessário e o restante para os inputs */
     border: var(--borda-simples);
     border-radius: 20px;
     box-sizing: border-box;
-
+    overflow: hidden;
 }
 
 main .navbar-ahp-cardozo{
@@ -74,7 +74,8 @@ main .navbar-ahp-cardozo{
 }
 .header-ahp-cardozo{
     grid-column: 1/3;
-    grid-row: 1/2
+    grid-row: 1/2;
+    height: 100%;
 }
 .inputs-ahp-cardozo{
     position: relative;
@@ -84,7 +85,8 @@ main .navbar-ahp-cardozo{
     border-bottom-left-radius: 20px;
     border-right: var(--borda-simples);
     width: 100%;
-    padding-bottom: 5%
+    padding-bottom: 5%;
+    overflow: hidden;
 }
 
 </style>

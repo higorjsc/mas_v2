@@ -13,7 +13,10 @@ export default createStore({
         metodo: "", // Metodo/view atual
         popUp: null, // popUp aberto (null = nenhum)
         balao: "", // Variável de texto do balao help
-        matriz: "fluxograma",
+        matrizInputAtual: "",
+        templateAhp: "",
+        slideresPrimeiraEtapa: [],
+        primeiraEtapaValues: [],
         inputsAcessos: {
             moser: {
                 logistica: "",
@@ -36,6 +39,38 @@ export default createStore({
                 depth: ""
             }
         },
+        criterios: [
+            {
+                index: "1",
+                value: "Criterio 1"
+            },
+            {
+                index: "2",
+                value: "Criterio 2"
+            },
+            {
+                index: "3",
+                value: "Criterio 3"
+            }
+        ],
+        options: [
+            {
+                index: "1",
+                value: "Poço"
+            },
+            {
+                index: "2",
+                value: "Rampa Diesel"
+            },
+            {
+                index: "3",
+                value: "Rampa Elétrico"
+            },
+            {
+                index: "4",
+                value: "Correia transportadora"
+            }
+        ],
         tema: {
             temaMAS: TEMAS.temaVermelho,
             temaMMS: TEMAS.temaVermelho
@@ -98,8 +133,20 @@ export default createStore({
         setPopUp(state, data) {
             state.popUp = data
         },
-        setMatriz(state, data) {
-            state.matriz = data
+        setCriterios(state, data) {
+            state.criterios = data
+        },
+        setOptions(state, data) {
+            state.options = data
+        },
+        setMatrizInputAtual(state, data) {
+            state.matrizInputAtual = data
+        },
+        setTemplateAhp(state, data) {
+            state.templateAhp = data
+        },
+        setSlideresPrimeiraEtapa(state, data) {
+            state.slideresPrimeiraEtapa = data
         }
     },
     getters: {
@@ -136,8 +183,20 @@ export default createStore({
         currentApplication(state) {
             return state.application
         },
-        currentMatriz(state) {
-            return state.matriz
+        currentCriterios(state) {
+            return state.criterios
+        },
+        currentOptions(state) {
+            return state.options
+        },
+        currentMatrizInputAtual(state) {
+            return state.matrizInputAtual
+        },
+        currentTemplateAhp(state) {
+            return state.templateAhp
+        },
+        currentSlideresPrimeiraEtapa(state) {
+            return state.slideresPrimeiraEtapa
         }
     },
     actions: {
@@ -171,8 +230,20 @@ export default createStore({
         changePopUp(context, data) {
             context.commit("setPopUp", data)
         },
-        changeMatriz(context, data) {
-            context.commit("setMatriz", data)
+        changeCriterios(context, data) {
+            context.commit("setCriterios", data)
+        },
+        changeOptions(context, data) {
+            context.commit("setOptions", data)
+        },
+        changeMatrizInputAtual(context, data) {
+            context.commit("setMatrizInputAtual", data)
+        },
+        changeTemplateAhp(context, data) {
+            context.commit("setTemplateAhp", data)
+        },
+        changeSlideresPrimeiraEtapa(context, data) {
+            context.commit("setSlideresPrimeiraEtapa", data)
         }
     }
 })

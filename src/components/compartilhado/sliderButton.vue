@@ -10,7 +10,7 @@
             max="100"
             v-model='valorInput'
             :id="id"
-            class="slider"
+            :class="classe"
             ref="slider"
         >
         <div class="label-container">
@@ -30,6 +30,10 @@ export default {
             default: "undefined"
         },
         id: {
+            type: String,
+            default: "undefined"
+        },
+        classe: {
             type: String,
             default: "undefined"
         },
@@ -56,7 +60,7 @@ export default {
     },
     methods: {
         enviarValor() {
-            this.$emit("slider-value", [this.id, this.valorInput])
+            this.$emit("slider-value", [this.classe, this.id, this.valorInput])
         },
         sliderColor() {
             let meioEnd
@@ -111,7 +115,7 @@ h3 {
     position: absolute;
     right: 0%;
 }
-.slider {
+input {
   width: 100%;
   height: 6px;
   border-radius: 50px;
@@ -126,7 +130,7 @@ h3 {
 }
 
 /* THUMB do CHROME */
-.slider::-webkit-slider-thumb {
+input::-webkit-slider-thumb {
   appearance: none;
   width: 15px;
   height:15px;
@@ -137,7 +141,7 @@ h3 {
 }
 
 /* THUMB do MOZILA */
-.slider::-moz-range-thumb {
+input::-moz-range-thumb {
   width: 20px;
   height: 20px;
   border-radius: 50%;
