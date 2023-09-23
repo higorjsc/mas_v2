@@ -64,7 +64,7 @@
 
 import Seta from "./seta.vue"
 import Way from "./way.vue"
-import fluxoDataMixin from "./fluxoDataMixin.vue"
+import fluxoDataMixin from "@/components/acessos/mixins/fluxoDataMixin.vue"
 import Balao from "@/components/compartilhado/balao.vue"
 
 export default {

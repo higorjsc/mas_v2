@@ -125,7 +125,7 @@
 <script>
 
 import switchLanguage from "@/components/compartilhado/switchLanguage.vue"
-import inputsMixin from "./inputsMixin.vue"
+import inputsMixin from "@/components/acessos/mixins/inputsMixin.vue"
 
 export default {
     name: "vue-inputs-moser",

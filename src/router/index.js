@@ -29,22 +29,22 @@ const routes = [
         name: "ahp",
         children: [
             {
-                path: "/ahp/inputs-etapa",
+                path: "/ahp/inputs",
                 name: "inputsEtapa",
                 component: () => import("../views/ahpTabViews/inputsEtapa.vue")
             },
             {
-                path: "/ahp/primeira-etapa",
+                path: "/ahp/primeira",
                 name: "primeiraEtapa",
                 component: () => import("../views/ahpTabViews/primeiraEtapa.vue")
             },
             {
-                path: "/ahp/segunda-etapa",
+                path: "/ahp/segunda",
                 name: "segundaEtapa",
                 component: () => import("../views/ahpTabViews/segundaEtapa.vue")
             },
             {
-                path: "/ahp/resultados-etapa",
+                path: "/ahp/resultados",
                 name: "resultadosEtapa",
                 component: () => import("../views/ahpTabViews/resultadosEtapa.vue")
             }

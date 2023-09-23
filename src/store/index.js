@@ -15,8 +15,8 @@ export default createStore({
         balao: "", // Variável de texto do balao help
         matrizInputAtual: "",
         templateAhp: "",
-        slideresPrimeiraEtapa: [],
-        primeiraEtapaValues: [],
+        slideresLivre: [],
+        slideresValueLivre: [],
         inputsAcessos: {
             moser: {
                 logistica: "",
@@ -145,8 +145,11 @@ export default createStore({
         setTemplateAhp(state, data) {
             state.templateAhp = data
         },
-        setSlideresPrimeiraEtapa(state, data) {
-            state.slideresPrimeiraEtapa = data
+        setSlideresLivre(state, data) {
+            state.slideresLivre = data
+        },
+        setSlideresValueLivre(state, data) {
+            state.slideresValueLivre = data
         }
     },
     getters: {
@@ -195,8 +198,11 @@ export default createStore({
         currentTemplateAhp(state) {
             return state.templateAhp
         },
-        currentSlideresPrimeiraEtapa(state) {
-            return state.slideresPrimeiraEtapa
+        currentSlideresLivre(state) {
+            return state.slideresLivre
+        },
+        currentSlideresValueLivre(state) {
+            return state.slideresValueLivre
         }
     },
     actions: {
@@ -242,8 +248,11 @@ export default createStore({
         changeTemplateAhp(context, data) {
             context.commit("setTemplateAhp", data)
         },
-        changeSlideresPrimeiraEtapa(context, data) {
-            context.commit("setSlideresPrimeiraEtapa", data)
+        changeSlideresLivre(context, data) {
+            context.commit("setSlideresLivre", data)
+        },
+        changeSlideresValueLivre(context, data) {
+            context.commit("setSlideresValueLivre", data)
         }
     }
 })

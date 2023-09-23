@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import vueInputs from "@/components/ahp/inputInputsEtapa.vue"
+import vueInputs from "@/components/ahp/livre/inputsLivre.vue"
 
 export default {
     name: "vue-view-ahp-inputs",
