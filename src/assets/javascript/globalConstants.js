@@ -36,7 +36,10 @@ const TEMAS = {
     }
 }
 
+const RI = [0, 0, 0, 0.58, 0.9, 1.12, 1.24, 1.32, 1.41, 1.45, 1.49]
+
 export {
     CORES,
-    TEMAS
+    TEMAS,
+    RI
 }

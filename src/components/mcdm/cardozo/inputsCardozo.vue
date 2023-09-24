@@ -50,19 +50,26 @@
 <script>
 export default {
     name: "vue-inputs-etapa-cardozo",
-    components: {
-
-    },
-    props: {
-    },
     data() {
         return {
-            resultadoFluxograma: ""
+            resultadoFluxograma: "",
+            options: [
+                "Poço",
+                "R. Diesel",
+                "R. Elétrico",
+                "Correia"
+            ],
+            criterios: [
+                "Aval. Econômica",
+                "Risco Energético",
+                "Custo Ambiental",
+                "Social"
+            ]
         }
     },
-    methods: {
-        handleInputValue(value) {
-        }
+    created() {
+        this.$store.dispatch("changeCriterios", this.criterios)
+        this.$store.dispatch("changeOptions", this.options)
     }
 }
 

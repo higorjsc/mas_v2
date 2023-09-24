@@ -58,66 +58,20 @@
         <section
             class="matrizes-container-primeira-cardozo"
         >
+
             <div
                 class="matriz-container"
             >
                 <h4
                     class="titulo-matriz"
                 >
-                    {{ $t('matrizFluxogramaCardozo') }}
                 </h4>
 
                 <div
                     class="matriz-vetor-container"
                 >
                     <vueMatriz
-                        :optionMatriz="options"
-                        :valueMatriz="resultadoMatrizFluxograma"
-                        @click="trocaMatrizInputAtual('Fluxograma')"
-                    />
-                    <vueVetor
-                        tituloVetor="PESO"
-                        :valueVetor="vetorPeso(0)"
-                        @click="trocaMatrizInputAtual(itemCriterio)"
-                    />
-                    <vueConsistencia
-                        :RI="consistencia(0, 'ri')"
-                        :CI="consistencia(0, 'ci')"
-                        :CR="consistencia(0, 'cr')"
-                        :lambda="consistencia(0, 'lambda')"
-                    />
-                </div>
-            </div>
-
-            <div
-                class="matriz-container"
-                v-for="(itemCriterio, indexMatriz) in criterios"
-                :key="indexMatriz"
-            >
-                <h4
-                    class="titulo-matriz"
-                >
-                    {{ itemCriterio }}
-                </h4>
-
-                <div
-                    class="matriz-vetor-container"
-                >
-                    <vueMatriz
-                        :optionMatriz="options"
-                        :valueMatriz="matrizValores[indexMatriz+1]"
-                        @click="trocaMatrizInputAtual(itemCriterio)"
-                    />
-                    <vueVetor
-                        tituloVetor="PESO"
-                        :valueVetor="vetorPeso(indexMatriz+1)"
-                        @click="trocaMatrizInputAtual(itemCriterio)"
-                    />
-                    <vueConsistencia
-                        :RI="consistencia(indexMatriz+1, 'ri')"
-                        :CI="consistencia(indexMatriz+1, 'ci')"
-                        :CR="consistencia(indexMatriz+1, 'cr')"
-                        :lambda="consistencia(indexMatriz+1, 'lambda')"
+                        :optionMatriz="criterios"
                     />
                 </div>
             </div>
@@ -139,50 +93,21 @@ export default {
     name: "vue-primeira-etapa-cardozo",
     components: {
         vueSlider,
-        vueMatriz,
-        vueVetor,
-        vueConsistencia
+        vueMatriz
     },
     data() {
         return {
-            resultadoFluxograma: "rampa",
             sliderValue: [],
             sliderStore: [],
-            vetorPesos: [],
-            matrizFluxograma: {
-                poco: [
-                    [1.00, 3.00, 3.00, 5.00],
-                    [0.33, 1.00, 1.00, 2.00],
-                    [0.33, 1.00, 1.00, 2.00],
-                    [0.20, 0.50, 0.50, 1.00]
-                ],
-                rampa: [
-                    [1.00, 0.33, 0.33, 2.00],
-                    [3.00, 1.00, 1.00, 5.00],
-                    [3.00, 1.00, 1.00, 5.00],
-                    [0.50, 0.20, 0.20, 1.00]
-                ],
-                correia: [
-                    [1.00, 1.00, 1.00, 0.14],
-                    [1.00, 1.00, 1.00, 0.14],
-                    [1.00, 1.00, 1.00, 0.14],
-                    [7.00, 7.00, 7.00, 1.00]
-                ]
-            }
+            vetorPesos: []
         }
     },
     computed: {
-        alterarMatriz() {
-            return this.$store.getters.currentMatrizInputAtual
-        },
         matrizValores() {
             return this.$store.getters.currentMatrizPrimeira
         },
         slideres() {
-            return this.$store.getters.currentSlideresPrimeira
-        },
-        resultadoMatrizFluxograma() {
-            return this.matrizFluxograma[this.resultadoFluxograma]
+            return this.$store.getters.currentSlideresSegunda
         },
         criterios() {
             return this.$store.getters.currentCriterios
@@ -192,12 +117,9 @@ export default {
         }
     },
     watch: {
-        resultadoFluxograma() {
-            this.handleResultadoFluxograma()
-        }
     },
     created() {
-        this.sliderStore = this.$store.getters.currentSlideresPrimeira
+        this.sliderStore = this.$store.getters.currentSlideresSegunda
         this.changeMatrix()
         this.$store.dispatch("changeMatrizInputAtual", this.criterios[0])
     },
@@ -208,10 +130,6 @@ export default {
     methods: {
         handleResultadoFluxograma() {
             this.changeMatrix()
-        },
-        trocaMatrizInputAtual(matrizName) {
-            this.$store.dispatch("changeMatrizInputAtual", matrizName)
-            this.$store.dispatch("changeSlideresPrimeira", this.sliderStore)
         },
         handleInputValue(value) {
             this.sliderStore[value[0]][value[1]].valor = Number(value[2])

@@ -69,7 +69,7 @@ export default {
             let left
             let right
             const valor = this.valorInput
-            if (valor > 50) {
+            if (valor >= 50) {
                 right = 100 - valor
                 meioEnd = valor
                 meioStart = 50

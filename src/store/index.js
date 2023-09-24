@@ -14,10 +14,11 @@ export default createStore({
         popUp: null, // popUp aberto (null = nenhum)
         balao: "", // Variável de texto do balao help
         matrizInputAtual: "",
-        templateMcdm: "primeiraTemplate",
-        slideres: [],
-        finalMatrix: [],
-        slideresValueLivre: [],
+        templateMcdm: "",
+        slideresPrimeira: [],
+        slideresSegunda: [],
+        matrizPrimeira: [],
+        matrizSegunda: [],
         inputsAcessos: {
             moser: {
                 logistica: "",
@@ -41,36 +42,8 @@ export default createStore({
             }
         },
         criterios: [
-            {
-                index: "1",
-                value: "Criterio 1"
-            },
-            {
-                index: "2",
-                value: "Criterio 2"
-            },
-            {
-                index: "3",
-                value: "Criterio 3"
-            }
         ],
         options: [
-            {
-                index: "1",
-                value: "Poço"
-            },
-            {
-                index: "2",
-                value: "Rampa Diesel"
-            },
-            {
-                index: "3",
-                value: "Rampa Elétrico"
-            },
-            {
-                index: "4",
-                value: "Correia transportadora"
-            }
         ],
         tema: {
             temaMAS: TEMAS.temaVermelho,
@@ -146,14 +119,17 @@ export default createStore({
         setTemplateMcdm(state, data) {
             state.templateMcdm = data
         },
-        setSlideres(state, data) {
-            state.slideres = data
+        setSlideresPrimeira(state, data) {
+            state.slideresPrimeira = data
         },
-        setFinalMatrix(state, data) {
-            state.finalMatrix = data
+        setMatrizPrimeira(state, data) {
+            state.matrizPrimeira = data
         },
-        setSlideresValueLivre(state, data) {
-            state.slideresValueLivre = data
+        setSlideresSegunda(state, data) {
+            state.slideresSegunda = data
+        },
+        setMatrizSegunda(state, data) {
+            state.matrizSegunda = data
         }
     },
     getters: {
@@ -202,14 +178,17 @@ export default createStore({
         currentTemplateMcdm(state) {
             return state.templateMcdm
         },
-        currentSlideres(state) {
-            return state.slideres
+        currentSlideresPrimeira(state) {
+            return state.slideresPrimeira
         },
-        currentFinalMatrix(state) {
-            return state.finalMatrix
+        currentSlideresSegunda(state) {
+            return state.slideresSegunda
         },
-        currentSlideresValueLivre(state) {
-            return state.slideresValueLivre
+        currentMatrizPrimeira(state) {
+            return state.matrizPrimeira
+        },
+        currentMatrizSegunda(state) {
+            return state.matrizSegunda
         }
     },
     actions: {
@@ -255,14 +234,17 @@ export default createStore({
         changeTemplateMcdm(context, data) {
             context.commit("setTemplateMcdm", data)
         },
-        changeSlideres(context, data) {
-            context.commit("setSlideres", data)
+        changeSlideresPrimeira(context, data) {
+            context.commit("setSlideresPrimeira", data)
         },
-        changeFinalMatrix(context, data) {
-            context.commit("setFinalMatrix", data)
+        changeSlideresSegunda(context, data) {
+            context.commit("setSlideresSegunda", data)
         },
-        changeSlideresValueLivre(context, data) {
-            context.commit("setSlideresValueLivre", data)
+        changeMatrizPrimeira(context, data) {
+            context.commit("setMatrizPrimeira", data)
+        },
+        changeMatrizSegunda(context, data) {
+            context.commit("setMatrizSegunda", data)
         }
     }
 })

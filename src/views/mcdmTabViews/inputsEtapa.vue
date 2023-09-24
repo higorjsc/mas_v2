@@ -20,6 +20,7 @@
 import vueInputsLivre from "@/components/mcdm/livre/inputsLivre.vue"
 import vueInputsCardozo from "@/components/mcdm/cardozo/inputsCardozo.vue"
 import vueTemplateSelector from "@/components/mcdm/compartilhado/templateSelector.vue"
+import criaSlideresMixin from "@/components/mcdm/compartilhado/mixins/criaSlideres.vue"
 
 export default {
     name: "vue-view-mcdm-inputs-etapa",
@@ -27,11 +28,19 @@ export default {
         vueInputsLivre,
         vueInputsCardozo,
         vueTemplateSelector
-
     },
+    mixins: [
+        criaSlideresMixin
+    ],
     computed: {
         verificarTemplate() {
             return this.$store.getters.currentTemplateMcdm
+        }
+    },
+    watch: {
+        verificarTemplate() {
+            this.criaSlideresPrimeira()
+            this.criaSlideresSegunda()
         }
     }
 }

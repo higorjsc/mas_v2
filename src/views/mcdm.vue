@@ -10,7 +10,7 @@
 
             <section class="section-mcdm">
                 <vueAhpHeader class="header-mcdm"/>
-                <RouterView></RouterView>
+                <RouterView ></RouterView>
             </section>
         </main>
 

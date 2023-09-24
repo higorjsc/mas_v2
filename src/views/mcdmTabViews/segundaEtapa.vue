@@ -1,18 +1,25 @@
 <template>
 
-    <section class="contaiener">
-        <vueInputs/>
+    <section class="contaiener-tabview-segunda">
+        <vueInputsLivre
+            v-if="verificarTemplate === 'inserir'"
+        />
+        <vueInputsCardozo
+            v-if="verificarTemplate === 'primeiraTemplate'"
+        />
     </section>
 
 </template>
 
 <script>
-import vueInputs from "@/components/mcdm/livre/segundaLivre.vue"
+import vueInputsLivre from "@/components/mcdm/livre/segundaLivre.vue"
+import vueInputsCardozo from "@/components/mcdm/cardozo/segundaCardozo.vue"
 
 export default {
     name: "vue-view-mcdm-segunda-etapa",
     components: {
-        vueInputs
+        vueInputsLivre,
+        vueInputsCardozo
     },
     computed: {
         verificarTemplate() {
@@ -24,16 +31,16 @@ export default {
 </script>
 <style scoped>
 
-.contaiener{
+.contaiener-tabview-segunda{
     position: relative;
-    grid-column: 1/2;
+    grid-column: 1/3;
     grid-row: 2/3;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     border-right: var(--borda-simples);
+    box-sizing: border-box;
     width: 100%;
-    height: 100%;
-    padding-bottom: 5%
+    overflow: hidden;
 }
 
 </style>
