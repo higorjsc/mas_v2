@@ -23,6 +23,8 @@ module.exports = {
         // Força o uso de dot-notation para acessar objetos
         "dot-notation": "off",
 
+        "no-multiple-empty-lines": "warn", // Desativa a regra
+
         // Adverte sobre blocos vazios
         "no-empty": "warn",
 

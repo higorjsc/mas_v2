@@ -53,13 +53,26 @@ export default {
     data() {
         return {
             resultadoFluxograma: "",
-            options: [
+            optionsPrimeira: [
                 "Poço",
                 "R. Diesel",
                 "R. Elétrico",
                 "Correia"
             ],
-            criterios: [
+            criteriosPrimeira: [
+                "Aval. Econômica",
+                "Risco Energético",
+                "Custo Ambiental",
+                "Social"
+            ],
+            optionsSegunda: [
+                "Poço",
+                "R. Diesel",
+                "R. Elétrico",
+                "Correia"
+            ],
+            criteriosSegunda: [
+                "Fluxograma",
                 "Aval. Econômica",
                 "Risco Energético",
                 "Custo Ambiental",
@@ -68,8 +81,10 @@ export default {
         }
     },
     created() {
-        this.$store.dispatch("changeCriterios", this.criterios)
-        this.$store.dispatch("changeOptions", this.options)
+        this.$store.dispatch("changeCriteriosPrimeira", this.criteriosPrimeira)
+        this.$store.dispatch("changeOptionsPrimeira", this.optionsPrimeira)
+        this.$store.dispatch("changeCriteriosSegunda", this.criteriosSegunda)
+        this.$store.dispatch("changeOptionsSegunda", this.optionsSegunda)
     }
 }
 

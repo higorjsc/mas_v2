@@ -90,6 +90,7 @@ export default {
 .slider-container{
     position: relative;
     margin: auto;
+    margin-bottom: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;

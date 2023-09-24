@@ -1,7 +1,10 @@
+
 <template>
 
-    <main>
-        <!-- SEÇÃO DOS SLIDERES -->
+    <main
+        class="main-container-primeira-livre"
+    >
+        <!-- SEÇÃO DOS INPUTS -->
         <section
             class="slideres-container"
         >
@@ -11,20 +14,20 @@
             </h3>
 
             <div
-                v-for="itemParent in criterios"
-                :key="itemParent.index"
+                v-for="(itemParent, indexParent) in criteriosPrimeira"
+                :key="indexParent"
             >
                 <div
-                    v-if="itemParent.value === alterarMatriz"
+                    v-if="itemParent === alterarMatriz"
                     class="slider-container"
                 >
                     <vueSlider
-                        v-for="itemChildren in sliderStore[0]"
-                        :key="itemChildren.texto"
-                        :id="`${itemChildren.index-1}`"
-                        :classe="`${itemParent.index-1}`"
+                        v-for="(itemChildren, indexChildren) in sliderStore[0]"
+                        :key="indexChildren"
+                        :id="`${indexChildren}`"
+                        :classe="`${indexParent}`"
                         :texto="itemChildren.texto"
-                        :valor="sliderStore[itemParent.index-1][itemChildren.index-1].value"
+                        :valor="sliderStore[indexParent][indexChildren].valor"
                         @slider-value="handleInputValue"
                     />
                 </div>
@@ -34,249 +37,323 @@
 
         <!-- SEÇÃO DAS MATRIZES -->
         <section
-            class="matrizes-container"
+            class="matrizes-container-primeira-livre"
         >
 
             <div
-                v-for="(criter, indexCriterio) in criterios"
-                :key="indexCriterio"
-                :name="criter.value"
-                class="criterio-container"
+                class="matriz-container"
+                v-for="(itemCriterio, indexMatriz) in criteriosPrimeira"
+                :key="indexMatriz"
             >
-                <h3 class="titulo-matriz">
-                    {{ criter.value}}
-                </h3>
-                <div
-                    class="matriz-container"
+                <h4
+                    class="titulo-matriz"
                 >
+                    {{ itemCriterio }}
+                </h4>
 
-                    <table
-                        class="matrizes"
-                        @click="trocaMatrizInputAtual(criter.value)"
-                    >
-                        <!-- Primeira linha da tabela -->
-                        <tr>
-                            <th></th>
-                            <th
-                                v-for="item in options"
-                                :key="item.index"
-                            >
-                                {{ item.value }}
-                            </th>
-                        </tr>
-                        <!-- Demais linhas da tabela -->
-                        <tr
-                            v-for="(op, indexOption) in options"
-                            :key="indexOption"
-                        >
-                            <th>
-                                {{ op.value }}
-                            </th>
-                            <td
-                                v-for="(item, indexCelula) in slideresValue[indexCriterio]"
-                                :key="indexCelula"
-                            >
-                                {{ item[indexOption] }}
-                            </td>
-
-                        </tr>
-
-                    </table>
-
-                    <table
-                        class="pesos"
-                    >
-                        <tr
-                            v-for="item in options"
-                            :key="item.index"
-                        >
-                            <td>a</td>
-                        </tr>
-                    </table>
-
+                <div
+                    class="matriz-vetor-container"
+                >
+                    <vueMatriz
+                        :optionMatriz="optionsPrimeira"
+                        :valueMatriz="matrizValores[indexMatriz+1]"
+                        @click="trocaMatrizInputAtual(itemCriterio)"
+                    />
+                    <vueVetor
+                        tituloVetor="PESO"
+                        :valueVetor="vetorPeso(indexMatriz+1)"
+                        @click="trocaMatrizInputAtual(itemCriterio)"
+                    />
+                    <vueConsistencia
+                        :RI="consistencia(indexMatriz+1, 'ri')"
+                        :CI="consistencia(indexMatriz+1, 'ci')"
+                        :CR="consistencia(indexMatriz+1, 'cr')"
+                        :lambda="consistencia(indexMatriz+1, 'lambda')"
+                    />
                 </div>
             </div>
+
         </section>
+
     </main>
 
 </template>
 <script>
-
 import vueSlider from "@/components/compartilhado/sliderButton.vue"
+import vueMatriz from "@/components/mcdm/compartilhado/matriz.vue"
+import vueVetor from "@/components/mcdm/compartilhado/vetor.vue"
+import vueConsistencia from "@/components/mcdm/compartilhado/consistencia.vue"
 import { throttle } from "lodash"
+import { RI } from "@/assets/javascript/globalConstants.js"
+
 export default {
     name: "vue-primeira-etapa-livre",
     components: {
-        vueSlider
+        vueSlider,
+        vueMatriz,
+        vueVetor,
+        vueConsistencia
     },
     data() {
         return {
             sliderValue: [],
-            sliderStore: []
+            sliderStore: [],
+            vetorPesos: []
         }
     },
     computed: {
         alterarMatriz() {
             return this.$store.getters.currentMatrizInputAtual
         },
-        criterios() {
-            return this.$store.getters.currentCriterios
-        },
-        options() {
-            return this.$store.getters.currentOptions
+        matrizValores() {
+            return this.$store.getters.currentMatrizPrimeira
         },
         slideres() {
-            return this.$store.getters.currentSlideres
+            return this.$store.getters.currentSlideresPrimeira
         },
-        slideresValue() {
-            return this.$store.getters.currentSlideresValueLivre
+        criteriosPrimeira() {
+            return this.$store.getters.currentCriteriosPrimeira
+        },
+        optionsPrimeira() {
+            return this.$store.getters.currentOptionsPrimeira
         }
     },
-    mounted() {
-        this.criaSlideres()
-        this.sliderStore = this.$store.getters.currentSlideres
-        this.$store.dispatch("changeMatrizInputAtual", this.criterios[0].value)
-        this.defineMatrizCriterios()
+    created() {
+        this.sliderStore = this.$store.getters.currentSlideresPrimeira
+        // this.changeMatrix()
+        // this.$store.dispatch("changeMatrizInputAtual", this.criteriosPrimeira[0])
+    },
+    beforeUnmount() {
+        this.$store.dispatch("changeSlideresPrimeira", this.sliderStore)
+        // this.changeMatrix()
     },
     methods: {
-        arranjoCriterios() {
-            let index = 0
-            const arranjoOptions = []
-            const option = this.options
-            for (let i = 0; i < option.length; i++) {
-                for (let j = i + 1; j < option.length; j++) {
-                    index += 1
-                    arranjoOptions.push(
-                        {
-                            index: index,
-                            texto: `${option[i].value} vs ${option[j].value}`,
-                            value: 50
-                        }
-                    )
-                }
-            }
-            return arranjoOptions
-        },
-        // Armazena um arranjo de opções para cada critério
-        criaSlideres() {
-            const criterio = this.criterios
-            const slideres = []
-            for (let i = 0; i < criterio.length; i++) {
-                slideres.push(
-                    this.arranjoCriterios()
-                )
-            }
-            this.$store.dispatch("changeSlideres", slideres)
-        },
-        handleInputValue(value) {
-            this.sliderStore[value[0]][value[1]].value = Number(value[2])
-            const throttledDefineMatrizCriterios = throttle(this.defineMatrizCriterios, 500)
-            throttledDefineMatrizCriterios()
-        },
         trocaMatrizInputAtual(matrizName) {
             this.$store.dispatch("changeMatrizInputAtual", matrizName)
-            this.$store.dispatch("changeSlideres", this.sliderStore)
+            this.$store.dispatch("changeSlideresPrimeira", this.sliderStore)
         },
-        defineMatrizOption(criterIndex) {
+        handleInputValue(value) {
+            this.sliderStore[value[0]][value[1]].valor = Number(value[2])
+            const throttledDefineMatriz = throttle(this.changeMatrix, 50)
+            throttledDefineMatriz()
+        },
+        matrizMaker(index) {
+            const conveterEscala = (valorOriginal) => {
+                const minDesejado = 1.00
+                const maxDesejado = 9.00
+                let minOriginal
+                let maxOriginal
+                if (valorOriginal > 50) {
+                    minOriginal = 50
+                    maxOriginal = 100
+                } else {
+                    minOriginal = 50
+                    maxOriginal = 0
+                }
+                return (minDesejado + (((valorOriginal - minOriginal) / (maxOriginal - minOriginal)) * (maxDesejado - minDesejado)))
+            }
+            const dirValue = (key) => {
+                const valor = key[0] === key[1] ? 1.00 : conveterEscala(this.sliderStore[index].find(item => item.id === key).valor)
+                return valor.toFixed(0)
+            }
+            const invValue = (key) => {
+                const valor = conveterEscala(this.sliderStore[index].find(item => item.id === key).valor)
+                return (1 / valor).toFixed(2)
+            }
             const matriz = []
-            let acrescimoDiagonal = 0
-            for (let i = 0; i < this.options.length; i++) {
+            for (let i = 1; i <= this.optionsPrimeira.length; i++) {
                 const linha = []
-                for (let j = 0; j <= this.options.length; j++) {
-                    if (j < acrescimoDiagonal) {
-                        linha.push(`${this.sliderStore[criterIndex][j].value}`)
-                    } else if (j > acrescimoDiagonal) {
-                        linha.push(`1/${this.sliderStore[criterIndex][j].value}`)
+                for (let j = 1; j <= this.optionsPrimeira.length; j++) {
+                    if (i <= j) {
+                        linha.push(dirValue(`${i}${j}`))
+                    } else {
+                        linha.push(invValue(`${j}${i}`))
                     }
                 }
-                acrescimoDiagonal += 1
                 matriz.push(linha)
             }
             return matriz
         },
-        defineMatrizCriterios() {
-            const matrizona = []
-            for (let i = 0; i < this.criterios.length; i++) {
-                matrizona.push(this.defineMatrizOption(i))
+        changeMatrix() {
+            let matrizPrimeira = []
+            for (let i = 0; i < this.criteriosPrimeira.length; i++) {
+                matrizPrimeira.push(this.matrizMaker(i))
             }
-            this.$store.dispatch("changeSlideresValueLivre", matrizona)
+            matrizPrimeira = this.calcula(matrizPrimeira)
+            this.$store.dispatch("changeMatrizPrimeira", matrizPrimeira)
+        },
+        calcula(matrizPrimeira) {
+            // Normalização da matriz
+            const somaColunaMatriz = (matriz, col, jmax) => {
+                let soma = 0
+                for (let lin = 0; lin < jmax; lin++) {
+                    soma += Number(matriz[lin][col])
+                }
+                return soma
+            }
+            const normalizaMatriz = (index) => {
+                const matriz = []
+                for (let lin = 0; lin < matrizPrimeira[index].length; lin++) {
+                    const linha = []
+                    for (let col = 0; col < matrizPrimeira[index][lin].length; col++) {
+                        const celula = Number(matrizPrimeira[index][lin][col]) / somaColunaMatriz(matrizPrimeira[index], col, matrizPrimeira[index].length)
+                        linha.push(celula.toFixed(2))
+                    }
+                    matriz.push(linha)
+                }
+                return matriz
+            }
+            const normalizada = []
+            for (let i = 0; i < matrizPrimeira.length; i++) {
+                normalizada.push(normalizaMatriz(i))
+            }
+            // Cálculo do vetor peso
+            const calculaPeso = (index) => {
+                const vetor = []
+                for (let lin = 0; lin < normalizada[index].length; lin++) {
+                    vetor.push(
+                        (normalizada[index][lin].reduce((acc, valor) => acc + parseFloat(valor), 0) / normalizada[index][lin].length).toFixed(2)
+                    )
+                }
+                return vetor
+            }
+            const pesos = []
+            for (let i = 0; i < normalizada.length; i++) {
+                pesos.push(calculaPeso(i))
+            }
+            // Cálculo do vetor WS
+            const calculaWs = (index) => {
+                const vetor = []
+                for (let lin = 0; lin < matrizPrimeira[index].length; lin++) {
+                    const soma = []
+                    for (let col = 0; col < matrizPrimeira[index].length; col++) {
+                        soma.push(Number(pesos[index][col]) * Number(matrizPrimeira[index][lin][col]))
+                    }
+                    vetor.push(soma.reduce((acc, valor) => acc + valor, 0))
+                }
+                return vetor
+            }
+            const ws = []
+            for (let i = 0; i < matrizPrimeira.length; i++) {
+                ws.push(calculaWs(i))
+            }
+            // Cálculo do vetor consistencia
+            const calculaConsistence = (index) => {
+                const vetor = []
+                for (let i = 0; i < pesos[index].length; i++) {
+                    vetor.push(ws[index][i] / pesos[index][i])
+                }
+                return vetor
+            }
+            const consistence = []
+            for (let i = 0; i < pesos.length; i++) {
+                consistence.push(calculaConsistence(i))
+            }
+            // Cálculo do lambda
+            const lambda = []
+            for (let i = 0; i < consistence.length; i++) {
+                lambda.push(
+                    consistence[i].reduce((acc, valor) => acc + valor, 0) / consistence[i].length
+                )
+            }
+            // Cálculo do CI
+            const consistenceIndex = []
+            const n = consistence.length - 1
+            for (let i = 0; i < consistence.length; i++) {
+                consistenceIndex.push(
+                    (lambda[i] - n) / (n - 1)
+                )
+            }
+            // Cálculo do CR (RI importado de globalConstants.js)
+            const consistenceRatio = []
+            for (let i = 0; i < consistence.length; i++) {
+                consistenceRatio.push(
+                    consistenceIndex[i] / (RI[n])
+                )
+            }
+            // Armazenamento de valores calculados na matrizPrimeira
+            const armazenaCalculos = (index) => {
+                const objeto = {
+                    normalizada: normalizada[index],
+                    pesos: pesos[index],
+                    ws: ws[index],
+                    cons: consistence[index],
+                    lambda: lambda[index],
+                    ci: consistenceRatio[index],
+                    cr: consistenceRatio[index],
+                    ri: RI[n],
+                    n: n
+                }
+                return objeto
+            }
+            for (let index = 0; index < matrizPrimeira.length; index++) {
+                matrizPrimeira[index].push(armazenaCalculos(index))
+            }
+            return matrizPrimeira
+        },
+        vetorPeso(index) {
+            return (this.matrizValores[index][this.matrizValores.length - 1]["pesos"])
+        },
+        consistencia(index, item) {
+            // console.log(this.matrizValores[index][this.matrizValores.length - 1][item])
+            return (this.matrizValores[index][this.matrizValores.length - 1][item])
         }
     }
 }
 </script>
 <style scoped>
+
     main{
         display: grid;
         grid-template-columns: 3fr 9fr;
-        height: minmax(667px, 100%);
         overflow: hidden;
     }
     main .slideres-container{
+        display: block;
         grid-column: 1/2;
         width: 100%;
-        height: 100%;
         border-right: var(--borda-simples);
-    }
-    .matrizes-container{
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        grid-column: 2/3;
-        max-height: 100%;
-        overflow: scroll;
-        overflow-x: hidden;
-        padding-bottom: 5%;
+        box-sizing: border-box;
+        padding-left: 2%;
     }
     .slider-container{
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
-        background-color: aquamarine;
-        width: 100%;
+        width: 98%;
         height: 600px;
     }
-    .titulo-matriz-input{
+    h4{
+        margin-top: 10px;
+    }
+    h3{
         text-align: center;
+        margin-top: 10px;
         margin-bottom: 10px;
+        text-decoration: none;
+        border: none;
+        font-size: 14pt;
+    }
+    .matrizes-container-primeira-livre{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        grid-column: 2/3;
+        max-height: 700px;
+        overflow: scroll;
+        overflow-x: hidden;
+        padding-bottom: 5%;
     }
     .matriz-container{
         margin: auto;
-        margin-top: 2%;
-        display: flex;
-        flex-direction: row;
-        background-color: rgb(43, 255, 0);
     }
-    .criterio-container{
+    .matriz-vetor-container{
+        display: flex;
+        gap: 1px;
         margin: auto;
-        margin-top: 2%;
-        display: flex;
-        flex-direction: column;
-        background-color: aqua;
     }
-    .matrizes:hover{
-        cursor: pointer;
-        box-shadow: 0 0 10px var(--cor-tema);
-    }
-
     .titulo-matriz{
         text-align: center;
-    }
-    .matrizes{
-        background-color: blueviolet;
-    }
-
-    .matrizes tr{
-        display: flexbox;
-        justify-content: space-evenly;
-    }
-    .matrizes td{
-        min-width: 40px;
-        max-width: 80px;
-        text-align: center;
-        background-color: rgb(255, 0, 234);
-    }
-    .matrizes th{
-        font-size: 10pt;
+        margin-bottom: 10px;
     }
 
 </style>

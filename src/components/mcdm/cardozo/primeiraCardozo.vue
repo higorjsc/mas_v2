@@ -33,7 +33,7 @@
             </div>
 
             <div
-                v-for="(itemParent, indexParent) in criterios"
+                v-for="(itemParent, indexParent) in criteriosPrimeira"
                 :key="indexParent"
             >
                 <div
@@ -71,7 +71,7 @@
                     class="matriz-vetor-container"
                 >
                     <vueMatriz
-                        :optionMatriz="options"
+                        :optionMatriz="optionsPrimeira"
                         :valueMatriz="resultadoMatrizFluxograma"
                         @click="trocaMatrizInputAtual('Fluxograma')"
                     />
@@ -91,7 +91,7 @@
 
             <div
                 class="matriz-container"
-                v-for="(itemCriterio, indexMatriz) in criterios"
+                v-for="(itemCriterio, indexMatriz) in criteriosPrimeira"
                 :key="indexMatriz"
             >
                 <h4
@@ -104,7 +104,7 @@
                     class="matriz-vetor-container"
                 >
                     <vueMatriz
-                        :optionMatriz="options"
+                        :optionMatriz="optionsPrimeira"
                         :valueMatriz="matrizValores[indexMatriz+1]"
                         @click="trocaMatrizInputAtual(itemCriterio)"
                     />
@@ -184,11 +184,11 @@ export default {
         resultadoMatrizFluxograma() {
             return this.matrizFluxograma[this.resultadoFluxograma]
         },
-        criterios() {
-            return this.$store.getters.currentCriterios
+        criteriosPrimeira() {
+            return this.$store.getters.currentCriteriosPrimeira
         },
-        options() {
-            return this.$store.getters.currentOptions
+        optionsPrimeira() {
+            return this.$store.getters.currentOptionsPrimeira
         }
     },
     watch: {
@@ -199,7 +199,7 @@ export default {
     created() {
         this.sliderStore = this.$store.getters.currentSlideresPrimeira
         this.changeMatrix()
-        this.$store.dispatch("changeMatrizInputAtual", this.criterios[0])
+        this.$store.dispatch("changeMatrizInputAtual", this.criteriosPrimeira[0])
     },
     beforeUnmount() {
         this.$store.dispatch("changeSlideresPrimeira", this.sliderStore)
@@ -242,9 +242,9 @@ export default {
                 return (1 / valor).toFixed(2)
             }
             const matriz = []
-            for (let i = 1; i <= this.options.length; i++) {
+            for (let i = 1; i <= this.optionsPrimeira.length; i++) {
                 const linha = []
-                for (let j = 1; j <= this.options.length; j++) {
+                for (let j = 1; j <= this.optionsPrimeira.length; j++) {
                     if (i <= j) {
                         linha.push(dirValue(`${i}${j}`))
                     } else {
@@ -258,7 +258,7 @@ export default {
         changeMatrix() {
             let matrizPrimeira = []
             matrizPrimeira.push(this.resultadoMatrizFluxograma)
-            for (let i = 0; i < this.criterios.length; i++) {
+            for (let i = 0; i < this.criteriosPrimeira.length; i++) {
                 matrizPrimeira.push(this.matrizMaker(i))
             }
             matrizPrimeira = this.calcula(matrizPrimeira)
@@ -398,6 +398,12 @@ export default {
         box-sizing: border-box;
         padding-left: 2%;
     }
+    .slider-container{
+        display: flex;
+        flex-direction: column;
+        width: 98%;
+        height: 600px;
+    }
     .resultados-fluxograma-container{
         display: flex;
         flex-direction: column;
@@ -432,12 +438,6 @@ export default {
         display: flex;
         gap: 1px;
         margin: auto;
-    }
-    .slider-container{
-        display: flex;
-        flex-direction: column;
-        width: 98%;
-        height: 600px;
     }
     .titulo-matriz{
         text-align: center;

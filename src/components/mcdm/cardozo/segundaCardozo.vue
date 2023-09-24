@@ -2,7 +2,7 @@
 <template>
 
     <main
-        class="main-container-primeira-cardozo"
+        class="main-container-segunda-cardozo"
     >
         <!-- SEÇÃO DOS INPUTS -->
         <section
@@ -10,53 +10,27 @@
         >
             <!-- Titulo matriz em edição -->
             <h3 class="titulo-matriz-input">
-                {{ alterarMatriz }}
             </h3>
 
-            <!-- Resultados do fluxograma -->
             <div
-                v-if="alterarMatriz==='Fluxograma'"
-                class="resultados-fluxograma-container"
+                class="slider-container"
             >
-                <select v-model="resultadoFluxograma">
-                    <option value="">
-                    </option><option value="poco">
-                        {{ $t('resultadoShaftCardozo') }}
-                    </option>
-                    <option value="rampa">
-                        {{ $t('resultadoRampaCardozo') }}
-                    </option>
-                    <option value="correia">
-                        {{ $t('resultadoCorreiaCardozo') }}
-                    </option>
-                </select>
+                <vueSlider
+                    v-for="(itemChildren, indexChildren) in sliderStore"
+                    :key="indexChildren"
+                    :id="`${indexChildren}`"
+                    classe="0"
+                    :texto="itemChildren.texto"
+                    :valor="sliderStore[indexChildren].valor"
+                    @slider-value="handleInputValue"
+                />
             </div>
 
-            <div
-                v-for="(itemParent, indexParent) in criterios"
-                :key="indexParent"
-            >
-                <div
-                    v-if="itemParent === alterarMatriz"
-                    class="slider-container"
-                >
-                    <vueSlider
-                        v-for="(itemChildren, indexChildren) in sliderStore[0]"
-                        :key="indexChildren"
-                        :id="`${indexChildren}`"
-                        :classe="`${indexParent}`"
-                        :texto="itemChildren.texto"
-                        :valor="sliderStore[indexParent][indexChildren].valor"
-                        @slider-value="handleInputValue"
-                    />
-                </div>
-
-            </div>
         </section>
 
         <!-- SEÇÃO DAS MATRIZES -->
         <section
-            class="matrizes-container-primeira-cardozo"
+            class="matrizes-container-segunda-cardozo"
         >
 
             <div
@@ -65,13 +39,25 @@
                 <h4
                     class="titulo-matriz"
                 >
+                    {{ $t('tituloMatrizSegundaEtapaAhp') }}
                 </h4>
 
                 <div
                     class="matriz-vetor-container"
                 >
                     <vueMatriz
-                        :optionMatriz="criterios"
+                        :optionMatriz="criteriosSegunda"
+                        :valueMatriz="matrizValores"
+                    />
+                    <vueVetor
+                        tituloVetor="PESO"
+                        :valueVetor="vetorPeso()"
+                    />
+                    <vueConsistencia
+                        :RI="consistencia('ri')"
+                        :CI="consistencia('ci')"
+                        :CR="consistencia('cr')"
+                        :lambda="consistencia('lambda')"
                     />
                 </div>
             </div>
@@ -90,10 +76,12 @@ import { throttle } from "lodash"
 import { RI } from "@/assets/javascript/globalConstants.js"
 
 export default {
-    name: "vue-primeira-etapa-cardozo",
+    name: "vue-segunda-etapa-cardozo",
     components: {
         vueSlider,
-        vueMatriz
+        vueMatriz,
+        vueVetor,
+        vueConsistencia
     },
     data() {
         return {
@@ -104,16 +92,16 @@ export default {
     },
     computed: {
         matrizValores() {
-            return this.$store.getters.currentMatrizPrimeira
+            return this.$store.getters.currentMatrizSegunda
         },
         slideres() {
             return this.$store.getters.currentSlideresSegunda
         },
-        criterios() {
-            return this.$store.getters.currentCriterios
+        criteriosSegunda() {
+            return (this.$store.getters.currentCriteriosSegunda)
         },
-        options() {
-            return this.$store.getters.currentOptions
+        optionsSegunda() {
+            return this.$store.getters.currentOptionsSegunda
         }
     },
     watch: {
@@ -121,22 +109,18 @@ export default {
     created() {
         this.sliderStore = this.$store.getters.currentSlideresSegunda
         this.changeMatrix()
-        this.$store.dispatch("changeMatrizInputAtual", this.criterios[0])
     },
     beforeUnmount() {
-        this.$store.dispatch("changeSlideresPrimeira", this.sliderStore)
+        this.$store.dispatch("changeSlideresSegunda", this.sliderStore)
         this.changeMatrix()
     },
     methods: {
-        handleResultadoFluxograma() {
-            this.changeMatrix()
-        },
         handleInputValue(value) {
-            this.sliderStore[value[0]][value[1]].valor = Number(value[2])
+            this.sliderStore[value[1]].valor = Number(value[2])
             const throttledDefineMatriz = throttle(this.changeMatrix, 50)
             throttledDefineMatriz()
         },
-        matrizMaker(index) {
+        matrizMaker() {
             const conveterEscala = (valorOriginal) => {
                 const minDesejado = 1.00
                 const maxDesejado = 9.00
@@ -152,17 +136,17 @@ export default {
                 return (minDesejado + (((valorOriginal - minOriginal) / (maxOriginal - minOriginal)) * (maxDesejado - minDesejado)))
             }
             const dirValue = (key) => {
-                const valor = key[0] === key[1] ? 1.00 : conveterEscala(this.sliderStore[index].find(item => item.id === key).valor)
+                const valor = key[0] === key[1] ? 1.00 : conveterEscala(this.sliderStore.find(item => item.id === key).valor)
                 return valor.toFixed(0)
             }
             const invValue = (key) => {
-                const valor = conveterEscala(this.sliderStore[index].find(item => item.id === key).valor)
+                const valor = conveterEscala(this.sliderStore.find(item => item.id === key).valor)
                 return (1 / valor).toFixed(2)
             }
             const matriz = []
-            for (let i = 1; i <= this.options.length; i++) {
+            for (let i = 1; i <= this.criteriosSegunda.length; i++) {
                 const linha = []
-                for (let j = 1; j <= this.options.length; j++) {
+                for (let j = 1; j <= this.criteriosSegunda.length; j++) {
                     if (i <= j) {
                         linha.push(dirValue(`${i}${j}`))
                     } else {
@@ -174,15 +158,11 @@ export default {
             return matriz
         },
         changeMatrix() {
-            let matrizPrimeira = []
-            matrizPrimeira.push(this.resultadoMatrizFluxograma)
-            for (let i = 0; i < this.criterios.length; i++) {
-                matrizPrimeira.push(this.matrizMaker(i))
-            }
-            matrizPrimeira = this.calcula(matrizPrimeira)
-            this.$store.dispatch("changeMatrizPrimeira", matrizPrimeira)
+            let matrizSegunda = this.matrizMaker()
+            matrizSegunda = this.calcula(matrizSegunda)
+            this.$store.dispatch("changeMatrizSegunda", matrizSegunda)
         },
-        calcula(matrizPrimeira) {
+        calcula(matrizSegunda) {
             // Normalização da matriz
             const somaColunaMatriz = (matriz, col, jmax) => {
                 let soma = 0
@@ -191,112 +171,88 @@ export default {
                 }
                 return soma
             }
-            const normalizaMatriz = (index) => {
+            const normalizaMatriz = () => {
                 const matriz = []
-                for (let lin = 0; lin < matrizPrimeira[index].length; lin++) {
+                for (let lin = 0; lin < matrizSegunda.length; lin++) {
                     const linha = []
-                    for (let col = 0; col < matrizPrimeira[index][lin].length; col++) {
-                        const celula = Number(matrizPrimeira[index][lin][col]) / somaColunaMatriz(matrizPrimeira[index], col, matrizPrimeira[index].length)
+                    for (let col = 0; col < matrizSegunda[lin].length; col++) {
+                        const celula = Number(matrizSegunda[lin][col]) / somaColunaMatriz(matrizSegunda, col, matrizSegunda.length)
                         linha.push(celula.toFixed(2))
                     }
                     matriz.push(linha)
                 }
                 return matriz
             }
-            const normalizada = []
-            for (let i = 0; i < matrizPrimeira.length; i++) {
-                normalizada.push(normalizaMatriz(i))
-            }
+            const normalizada = normalizaMatriz()
             // Cálculo do vetor peso
-            const calculaPeso = (index) => {
+            const calculaPeso = () => {
                 const vetor = []
-                for (let lin = 0; lin < normalizada[index].length; lin++) {
+                for (let lin = 0; lin < normalizada.length; lin++) {
                     vetor.push(
-                        (normalizada[index][lin].reduce((acc, valor) => acc + parseFloat(valor), 0) / normalizada[index][lin].length).toFixed(2)
+                        (normalizada[lin].reduce((acc, valor) => acc + parseFloat(valor), 0) / normalizada[lin].length).toFixed(2)
                     )
                 }
                 return vetor
             }
-            const pesos = []
-            for (let i = 0; i < normalizada.length; i++) {
-                pesos.push(calculaPeso(i))
-            }
+            const pesos = calculaPeso()
+
             // Cálculo do vetor WS
-            const calculaWs = (index) => {
+            const calculaWs = () => {
                 const vetor = []
-                for (let lin = 0; lin < matrizPrimeira[index].length; lin++) {
+                for (let lin = 0; lin < matrizSegunda.length; lin++) {
                     const soma = []
-                    for (let col = 0; col < matrizPrimeira[index].length; col++) {
-                        soma.push(Number(pesos[index][col]) * Number(matrizPrimeira[index][lin][col]))
+                    for (let col = 0; col < matrizSegunda.length; col++) {
+                        soma.push(Number(pesos[col]) * Number(matrizSegunda[lin][col]))
                     }
                     vetor.push(soma.reduce((acc, valor) => acc + valor, 0))
                 }
                 return vetor
             }
-            const ws = []
-            for (let i = 0; i < matrizPrimeira.length; i++) {
-                ws.push(calculaWs(i))
-            }
+            const ws = calculaWs()
+
             // Cálculo do vetor consistencia
-            const calculaConsistence = (index) => {
+            const calculaConsistence = () => {
                 const vetor = []
-                for (let i = 0; i < pesos[index].length; i++) {
-                    vetor.push(ws[index][i] / pesos[index][i])
+                for (let i = 0; i < pesos.length; i++) {
+                    vetor.push(ws[i] / pesos[i])
                 }
                 return vetor
             }
-            const consistence = []
-            for (let i = 0; i < pesos.length; i++) {
-                consistence.push(calculaConsistence(i))
-            }
+            const consistence = calculaConsistence()
+
             // Cálculo do lambda
-            const lambda = []
-            for (let i = 0; i < consistence.length; i++) {
-                lambda.push(
-                    consistence[i].reduce((acc, valor) => acc + valor, 0) / consistence[i].length
-                )
-            }
+            const lambda = consistence.reduce((acc, valor) => acc + valor, 0) / consistence.length
+
             // Cálculo do CI
-            const consistenceIndex = []
             const n = consistence.length - 1
-            for (let i = 0; i < consistence.length; i++) {
-                consistenceIndex.push(
-                    (lambda[i] - n) / (n - 1)
-                )
-            }
+            const consistenceIndex = (lambda - n) / (n - 1)
+
             // Cálculo do CR (RI importado de globalConstants.js)
-            const consistenceRatio = []
-            for (let i = 0; i < consistence.length; i++) {
-                consistenceRatio.push(
-                    consistenceIndex[i] / (RI[n])
-                )
-            }
-            // Armazenamento de valores calculados na matrizPrimeira
-            const armazenaCalculos = (index) => {
+            const consistenceRatio = consistenceIndex / (RI[n])
+
+            // Armazenamento de valores calculados na matrizSegunda
+            const armazenaCalculos = () => {
                 const objeto = {
-                    normalizada: normalizada[index],
-                    pesos: pesos[index],
-                    ws: ws[index],
-                    cons: consistence[index],
-                    lambda: lambda[index],
-                    ci: consistenceRatio[index],
-                    cr: consistenceRatio[index],
+                    normalizada: normalizada,
+                    pesos: pesos,
+                    ws: ws,
+                    cons: consistence,
+                    lambda: lambda,
+                    ci: consistenceRatio,
+                    cr: consistenceRatio,
                     ri: RI[n],
                     n: n
                 }
                 return objeto
             }
-            for (let index = 0; index < matrizPrimeira.length; index++) {
-                matrizPrimeira[index].push(armazenaCalculos(index))
-            }
-            return matrizPrimeira
+            matrizSegunda.push(armazenaCalculos())
+            return matrizSegunda
         },
-        vetorPeso(index) {
-            return (this.matrizValores[index][this.matrizValores.length - 1]["pesos"])
+        vetorPeso() {
+            return (this.matrizValores[this.matrizValores.length - 1]["pesos"])
         },
-        consistencia(index, item) {
-            // console.log(this.matrizValores[index][this.matrizValores.length - 1][item])
-            return (this.matrizValores[index][this.matrizValores.length - 1][item])
+        consistencia(item) {
+            return (this.matrizValores[this.matrizValores.length - 1][item])
         }
     }
 }
@@ -307,14 +263,17 @@ export default {
         display: grid;
         grid-template-columns: 3fr 9fr;
         overflow: hidden;
+        height: 100%;
     }
     main .slideres-container{
-        display: block;
         grid-column: 1/2;
         width: 100%;
         border-right: var(--borda-simples);
         box-sizing: border-box;
         padding-left: 2%;
+        padding-bottom: 10%;
+        overflow: scroll;
+        overflow-x: hidden;
     }
     .resultados-fluxograma-container{
         display: flex;
@@ -333,7 +292,7 @@ export default {
         border: none;
         font-size: 14pt;
     }
-    .matrizes-container-primeira-cardozo{
+    .matrizes-container-segunda-cardozo{
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -350,6 +309,7 @@ export default {
         display: flex;
         gap: 1px;
         margin: auto;
+        width: 90%;
     }
     .slider-container{
         display: flex;

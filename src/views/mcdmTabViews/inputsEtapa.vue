@@ -39,8 +39,13 @@ export default {
     },
     watch: {
         verificarTemplate() {
+            this.handleTemplate()
+        }
+    },
+    methods: {
+        handleTemplate() {
             this.criaSlideresPrimeira()
-            this.criaSlideresSegunda()
+            // this.criaSlideresSegunda()
         }
     }
 }

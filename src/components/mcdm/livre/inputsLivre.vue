@@ -7,30 +7,24 @@
         >
             <h3>{{ $t('tituloAhpCriterios') }}</h3>
             <div
-                v-for="(item) in criterios"
-                :key="item.index"
+                v-for="(item, index) in criteriosPrimeira"
+                :key="index"
                 class="label-criterios"
-                :for="`criterio-${item.index}`"
             >
                 <label>
-                    {{ item.index }} -
+                    {{ index+1 }} -
                 </label>
                 <input
-                    :ref="`slider-criterio-${item.index}`"
                     class="criterios"
-                    :id="`criterio-${item.index}`"
-                    :placeholder="item.value"
-                    v-model="item.value"
+                    v-model="criteriosPrimeira[index]"
                 >
                 <button
-                    @click="removeCriterio()"
-                    ref="remove-criterio-button"
+                    @click="removeCriterio(index)"
                     class="criterio-button remove-criterio-button"
                 > - </button>
             </div>
             <button
                 @click="addCriterio()"
-                ref="add-criterio-button"
                 class="criterio-button  add-criterio-button"
             > + </button>
         </div>
@@ -41,29 +35,23 @@
         >
             <h3>{{ $t('tituloAhpOptions') }}</h3>
             <div
-                v-for="(item) in options"
-                :key="item.index"
-                :for="`option-${item.index}`"
+                v-for="(item, index) in optionsPrimeira"
+                :key="index"
             >
                 <label>
-                    {{ item.index }} -
+                    {{ index+1 }} -
                 </label>
                 <input
-                    :ref="`slider-option-${item.index}`"
                     class="options"
-                    :id="`option-${item.index}`"
-                    :placeholder="item.value"
-                    v-model="item.value"
+                    v-model="optionsPrimeira[index]"
                 >
                 <button
-                    @click="removeOption()"
-                    ref="remove-option-button"
+                    @click="removeOption(index)"
                     class="option-button remove-option-button"
                 > - </button>
             </div>
             <button
                 @click="addOption()"
-                ref="add-option-button"
                 class="option-button  add-option-button"
             > + </button>
         </div>
@@ -75,67 +63,49 @@ export default {
     name: "vue-inputs-etapa-livre",
     data() {
         return {
-            criterioCounter: 3,
-            optionCounter: 4,
-            criterio: null,
-            option: null,
-            slideres: []
+            slideres: [],
+            optionsPrimeira: [
+                "Poço",
+                "R. Diesel",
+                "R. Elétrico",
+                "Correia"
+            ],
+            criteriosPrimeira: [
+                "Aval. Econômica",
+                "Risco Energético",
+                "Custo Ambiental",
+                "Social"
+            ]
         }
     },
-    computed: {
-        criterios() {
-            return this.$store.getters.currentCriterios
-        },
-        options() {
-            return this.$store.getters.currentOptions
-        }
-    },
-    mounted() {
+    beforeUnmount() {
+        this.$store.dispatch("changeCriteriosPrimeira", this.criteriosPrimeira)
+        this.$store.dispatch("changeOptionsPrimeira", this.optionsPrimeira)
+        this.$store.dispatch("changeCriteriosSegunda", this.criteriosSegunda)
+        this.$store.dispatch("changeOptionsSegunda", this.optionsSegunda)
     },
     methods: {
         addCriterio() {
-            this.criterioCounter += 1
-            if (this.criterioCounter <= 9) {
-                this.criterio = this.$store.getters.currentCriterios
-                this.criterio.push(
-                    {
-                        index: `${this.criterioCounter}`,
-                        value: `Criterio ${this.criterioCounter}`
-                    }
-                )
-                this.$store.dispatch("changeCriterios", this.criterio)
+            if (this.criteriosPrimeira.length < 9) {
+                this.criteriosPrimeira.push(`Criterio-${this.criteriosPrimeira.length + 1}`)
             } else {
                 window.alert("Você atingiu o limite de inputs para o método!")
             }
+            console.log(this.criteriosPrimeira)
         },
-        removeCriterio() {
-            this.criterioCounter = this.criterioCounter - 1
-            this.criterio = this.$store.getters.currentCriterios
-            this.criterio.pop()
-            this.$store.dispatch("changeCriterios", this.criterio)
+        removeCriterio(index) {
+            this.criteriosPrimeira.splice(index, 1)
         },
         addOption() {
-            if (this.optionCounter < 5) {
-                this.optionCounter += 1
-                this.option = this.$store.getters.currentOptions
-                this.option.push(
-                    {
-                        index: `${this.optionCounter}`,
-                        value: `Opção ${this.optionCounter}`
-                    }
-                )
-                this.$store.dispatch("changeOptions", this.option)
+            if (this.optionsPrimeira.length < 5) {
+                this.optionsPrimeira.push(`Opção-${this.optionsPrimeira.length + 1}`)
             } else {
                 window.alert("Você atingiu o limite de opções para o método!")
             }
+            console.log(this.optionsPrimeira)
         },
-        removeOption() {
-            if (this.optionCounter >= 0) {
-                this.optionCounter = this.optionCounter - 1
-                this.option = this.$store.getters.currentOptions
-                this.option.length = this.option.length - 1
-                this.$store.dispatch("changeOptions", this.option)
-            }
+        removeOption(index) {
+            this.optionsPrimeira.splice(index, 1)
         }
     }
 }

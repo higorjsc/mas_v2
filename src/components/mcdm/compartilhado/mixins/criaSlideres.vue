@@ -1,40 +1,48 @@
 <script>
 export default {
     computed: {
-        criterios() {
-            return this.$store.getters.currentCriterios
+        criteriosPrimeira() {
+            return this.$store.getters.currentCriteriosPrimeira
         },
-        options() {
-            return this.$store.getters.currentOptions
+        optionsPrimeira() {
+            return this.$store.getters.currentOptionsPrimeira
+        },
+        criteriosSegunda() {
+            return this.$store.getters.currentCriteriosSegunda
+        },
+        optionsSegunda() {
+            return this.$store.getters.currentOptionsSegunda
         }
     },
     methods: {
+        // Segunda etapa
         arranjoCriterios() {
-            const arranjoOptions = []
-            for (let i = 0; i < this.criterios.length; i++) {
-                for (let j = 0; j < this.criterios.length; j++) {
+            const arranjoCriterios = []
+            for (let i = 0; i < this.criteriosSegunda.length; i++) {
+                for (let j = 0; j < this.criteriosSegunda.length; j++) {
                     if (i < j) {
-                        arranjoOptions.push(
+                        arranjoCriterios.push(
                             {
                                 id: `${i + 1}${j + 1}`,
-                                texto: `${this.criterios[i]} vs ${this.criterios[j]}`,
+                                texto: `${this.criteriosSegunda[i]} vs ${this.criteriosSegunda[j]}`,
                                 valor: 50
                             }
                         )
                     }
                 }
             }
-            return arranjoOptions
+            return arranjoCriterios
         },
+        // Primeira etapa
         arranjoOptions() {
             const arranjoOptions = []
-            for (let i = 0; i < this.options.length; i++) {
-                for (let j = 0; j < this.options.length; j++) {
+            for (let i = 0; i < this.optionsPrimeira.length; i++) {
+                for (let j = 0; j < this.optionsPrimeira.length; j++) {
                     if (i < j) {
                         arranjoOptions.push(
                             {
                                 id: `${i + 1}${j + 1}`,
-                                texto: `${this.options[i]} vs ${this.options[j]}`,
+                                texto: `${this.optionsPrimeira[i]} vs ${this.optionsPrimeira[j]}`,
                                 valor: 50
                             }
                         )
@@ -46,19 +54,17 @@ export default {
         // Cria os slideres da primeira etapa a partir do arranjo de opções
         criaSlideresPrimeira() {
             const slideres = []
-            for (let i = 0; i < this.criterios.length; i++) {
+            for (let i = 0; i < this.criteriosPrimeira.length; i++) {
                 slideres.push(
                     this.arranjoOptions()
                 )
             }
+            console.log(slideres)
             this.$store.dispatch("changeSlideresPrimeira", slideres)
         },
         // Cria os slideres da segunda etapa a partir do arranjo de critérios
         criaSlideresSegunda() {
-            const slideres = []
-            slideres.push(
-                this.arranjoCriterios()
-            )
+            const slideres = this.arranjoCriterios()
             this.$store.dispatch("changeSlideresSegunda", slideres)
         }
     }

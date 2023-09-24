@@ -14,7 +14,7 @@ export default createStore({
         popUp: null, // popUp aberto (null = nenhum)
         balao: "", // Variável de texto do balao help
         matrizInputAtual: "",
-        templateMcdm: "",
+        templateMcdm: "inserir",
         slideresPrimeira: [],
         slideresSegunda: [],
         matrizPrimeira: [],
@@ -41,9 +41,13 @@ export default createStore({
                 depth: ""
             }
         },
-        criterios: [
+        criteriosPrimeira: [
         ],
-        options: [
+        optionsPrimeira: [
+        ],
+        criteriosSegunda: [
+        ],
+        optionsSegunda: [
         ],
         tema: {
             temaMAS: TEMAS.temaVermelho,
@@ -107,11 +111,17 @@ export default createStore({
         setPopUp(state, data) {
             state.popUp = data
         },
-        setCriterios(state, data) {
+        setCriteriosPrimeira(state, data) {
             state.criterios = data
         },
-        setOptions(state, data) {
+        setOptionsPrimeira(state, data) {
             state.options = data
+        },
+        setCriteriosSegunda(state, data) {
+            state.criteriosSegunda = data
+        },
+        setOptionsSegunda(state, data) {
+            state.optionsSegunda = data
         },
         setMatrizInputAtual(state, data) {
             state.matrizInputAtual = data
@@ -166,11 +176,17 @@ export default createStore({
         currentApplication(state) {
             return state.application
         },
-        currentCriterios(state) {
+        currentCriteriosPrimeira(state) {
             return state.criterios
         },
-        currentOptions(state) {
+        currentOptionsPrimeira(state) {
             return state.options
+        },
+        currentCriteriosSegunda(state) {
+            return state.criteriosSegunda
+        },
+        currentOptionsSegunda(state) {
+            return state.optionsSegunda
         },
         currentMatrizInputAtual(state) {
             return state.matrizInputAtual
@@ -222,11 +238,17 @@ export default createStore({
         changePopUp(context, data) {
             context.commit("setPopUp", data)
         },
-        changeCriterios(context, data) {
-            context.commit("setCriterios", data)
+        changeCriteriosPrimeira(context, data) {
+            context.commit("setCriteriosPrimeira", data)
         },
-        changeOptions(context, data) {
-            context.commit("setOptions", data)
+        changeOptionsPrimeira(context, data) {
+            context.commit("setOptionsPrimeira", data)
+        },
+        changeCriteriosSegunda(context, data) {
+            context.commit("setCriteriosSegunda", data)
+        },
+        changeOptionsSegunda(context, data) {
+            context.commit("setOptionsSegunda", data)
         },
         changeMatrizInputAtual(context, data) {
             context.commit("setMatrizInputAtual", data)

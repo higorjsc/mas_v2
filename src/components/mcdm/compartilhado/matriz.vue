@@ -13,7 +13,7 @@
             >
                 <th></th>
                 <th
-                    class="celulas-titulo-linha"
+                    class="th-titulo-linha"
                     v-for="(item, optionIndex) in optionMatriz"
                     :key="optionIndex"
                 >
@@ -28,7 +28,7 @@
                 class="linha-valores"
             >
                 <th
-                    class="celulas-titulo-coluna"
+                    class="th-titulo-coluna"
                 >
                     {{ item }}
                 </th>
@@ -86,6 +86,8 @@ export default {
     }
     .matriz{
         background-color: blueviolet;
+        width: 100%;
+        height: 100%;
     }
     .matriz:hover{
         cursor: pointer;
@@ -96,11 +98,20 @@ export default {
     }
     .matriz td{
         min-width: 80px;
-        max-width: 80px;
+        max-width: 100px;
         text-align: center;
         background-color: rgb(255, 0, 234);
     }
-    .matriz th{
-        font-size: 10pt;
+    .th-titulo-coluna{
+        min-width: 120px;
+        max-width: 150px;
+        font-size: 12pt;
+        font-weight: bold;
+        text-align: center;
+    }
+    .th-titulo-linha{
+        font-size: 12pt;
+        font-weight: bold;
+        height: 50px;
     }
 </style>

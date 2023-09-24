@@ -8,7 +8,9 @@
             :id="idVetor"
         >
             <tr>
-                <th>{{ tituloVetor }}</th>
+                <th
+                    class="th-titulo-vetor"
+                >{{ tituloVetor }}</th>
             </tr>
             <tr
                 v-for="(item, index) in valueVetor"
@@ -54,7 +56,6 @@ export default {
 <style scoped>
 
 .vetor-container{
-        margin: auto;
         display: flex;
         flex-direction: row;
         background-color: rgb(43, 255, 0);
@@ -75,7 +76,11 @@ export default {
         text-align: center;
         background-color: rgb(255, 0, 234);
     }
-    .vetor th{
-        font-size: 10pt;
+    .th-titulo-vetor{
+        font-size: 12pt;
+        font-weight: bold;
+        height: 50px;
+
     }
+
 </style>
