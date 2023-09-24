@@ -1,33 +1,39 @@
 <template>
 
-    <main class="contaiener-inputs">
+    <section class="contaiener">
         <vueInputs/>
-    </main>
+    </section>
+
 </template>
 
 <script>
-import vueInputs from "@/components/ahp/livre/primeiraLivre.vue"
+import vueInputs from "@/components/mcdm/livre/segundaLivre.vue"
 
 export default {
-    name: "vue-view-ahp-cardozo",
+    name: "vue-view-mcdm-segunda-etapa",
     components: {
         vueInputs
+    },
+    computed: {
+        verificarTemplate() {
+            return this.$store.getters.currentTemplateMcdm
+        }
     }
 
 }
 </script>
 <style scoped>
 
-.contaiener-inputs{
+.contaiener{
     position: relative;
-    grid-column: 1/3;
+    grid-column: 1/2;
     grid-row: 2/3;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     border-right: var(--borda-simples);
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    padding-bottom: 5%
 }
 
 </style>

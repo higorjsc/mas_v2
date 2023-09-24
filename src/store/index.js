@@ -14,8 +14,9 @@ export default createStore({
         popUp: null, // popUp aberto (null = nenhum)
         balao: "", // Variável de texto do balao help
         matrizInputAtual: "",
-        templateAhp: "",
-        slideresLivre: [],
+        templateMcdm: "primeiraTemplate",
+        slideres: [],
+        finalMatrix: [],
         slideresValueLivre: [],
         inputsAcessos: {
             moser: {
@@ -142,11 +143,14 @@ export default createStore({
         setMatrizInputAtual(state, data) {
             state.matrizInputAtual = data
         },
-        setTemplateAhp(state, data) {
-            state.templateAhp = data
+        setTemplateMcdm(state, data) {
+            state.templateMcdm = data
         },
-        setSlideresLivre(state, data) {
-            state.slideresLivre = data
+        setSlideres(state, data) {
+            state.slideres = data
+        },
+        setFinalMatrix(state, data) {
+            state.finalMatrix = data
         },
         setSlideresValueLivre(state, data) {
             state.slideresValueLivre = data
@@ -195,11 +199,14 @@ export default createStore({
         currentMatrizInputAtual(state) {
             return state.matrizInputAtual
         },
-        currentTemplateAhp(state) {
-            return state.templateAhp
+        currentTemplateMcdm(state) {
+            return state.templateMcdm
         },
-        currentSlideresLivre(state) {
-            return state.slideresLivre
+        currentSlideres(state) {
+            return state.slideres
+        },
+        currentFinalMatrix(state) {
+            return state.finalMatrix
         },
         currentSlideresValueLivre(state) {
             return state.slideresValueLivre
@@ -245,11 +252,14 @@ export default createStore({
         changeMatrizInputAtual(context, data) {
             context.commit("setMatrizInputAtual", data)
         },
-        changeTemplateAhp(context, data) {
-            context.commit("setTemplateAhp", data)
+        changeTemplateMcdm(context, data) {
+            context.commit("setTemplateMcdm", data)
         },
-        changeSlideresLivre(context, data) {
-            context.commit("setSlideresLivre", data)
+        changeSlideres(context, data) {
+            context.commit("setSlideres", data)
+        },
+        changeFinalMatrix(context, data) {
+            context.commit("setFinalMatrix", data)
         },
         changeSlideresValueLivre(context, data) {
             context.commit("setSlideresValueLivre", data)

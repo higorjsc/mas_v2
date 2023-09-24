@@ -1,20 +1,20 @@
 <template>
 
     <div class="etapas-container">
-        <label class="buttons-etapas" id="label-inputs">
-            <a class="link" @click.prevent="handleLink('/ahp/inputs')">INPUTS</a>
+        <label class="buttons-etapas" ref="label-inputs">
+            <a class="link" @click.prevent="handleLink('/mcdm/inputs')">INPUTS</a>
         </label>
 
-        <label class="buttons-etapas" id="label-primeira">
-            <a class="link" @click.prevent="handleLink('/ahp/primeira')">ETAPA 1</a>
+        <label class="buttons-etapas" ref="label-primeira">
+            <a class="link" @click.prevent="handleLink('/mcdm/primeira')">ETAPA 1</a>
         </label>
 
-        <label class="buttons-etapas" id="label-segunda">
-            <a class="link" @click.prevent="handleLink('/ahp/segunda')">ETAPA 2</a>
+        <label class="buttons-etapas" ref="label-segunda">
+            <a class="link" @click.prevent="handleLink('/mcdm/segunda')">ETAPA 2</a>
         </label>
 
-        <label class="buttons-etapas" id="label-resultados">
-            <a class="link" @click.prevent="handleLink('/ahp/resultados')">RESULTADOS</a>
+        <label class="buttons-etapas" ref="label-resultados">
+            <a class="link" @click.prevent="handleLink('/mcdm/resultados')">RESULTADOS</a>
         </label>
 
     </div>
@@ -22,17 +22,16 @@
 </template>
 <script>
 export default {
-    name: "vue-ahp-header",
+    name: "vue-mcdm-header",
     mounted() {
-        this.changeTabOpacity()
+        this.changeTabOpacity("inputs")
     },
     methods: {
         changeTabOpacity(escolhido) {
             document.querySelectorAll("label").forEach((element) => {
                 element.style.opacity = 0.9
             })
-            const labelEscolhido = document.getElementById(`label-${escolhido}`)
-            labelEscolhido.style.opacity = 1
+            this.$refs[`label-${escolhido}`].style.opacity = 1
         },
         handleLink(route) {
             this.changeTabOpacity((route.split("/")[2]))

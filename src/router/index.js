@@ -25,31 +25,31 @@ const routes = [
         component: () => import("../views/moser.vue")
     },
     {
-        path: "/ahp",
-        name: "ahp",
+        path: "/mcdm",
+        name: "mcdm",
         children: [
             {
-                path: "/ahp/inputs",
+                path: "/mcdm/inputs",
                 name: "inputsEtapa",
-                component: () => import("../views/ahpTabViews/inputsEtapa.vue")
+                component: () => import("../views/mcdmTabViews/inputsEtapa.vue")
             },
             {
-                path: "/ahp/primeira",
+                path: "/mcdm/primeira",
                 name: "primeiraEtapa",
-                component: () => import("../views/ahpTabViews/primeiraEtapa.vue")
+                component: () => import("../views/mcdmTabViews/primeiraEtapa.vue")
             },
             {
-                path: "/ahp/segunda",
+                path: "/mcdm/segunda",
                 name: "segundaEtapa",
-                component: () => import("../views/ahpTabViews/segundaEtapa.vue")
+                component: () => import("../views/mcdmTabViews/segundaEtapa.vue")
             },
             {
-                path: "/ahp/resultados",
+                path: "/mcdm/resultados",
                 name: "resultadosEtapa",
-                component: () => import("../views/ahpTabViews/resultadosEtapa.vue")
+                component: () => import("../views/mcdmTabViews/resultadosEtapa.vue")
             }
         ],
-        component: () => import("../views/ahp.vue")
+        component: () => import("../views/mcdm.vue")
     }
 
 ]

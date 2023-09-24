@@ -4,12 +4,12 @@
 
         <vueHeader/>
 
-        <main class="main-ahp-cardozo">
+        <main class="main-mcdm">
 
-            <vueNavBar class="navbar-ahp-cardozo"/>
+            <vueNavBar class="navbar-mcdm"/>
 
-            <section class="section-ahp-cardozo">
-                <vueAhpHeader class="header-ahp-cardozo"/>
+            <section class="section-mcdm">
+                <vueAhpHeader class="header-mcdm"/>
                 <RouterView></RouterView>
             </section>
         </main>
@@ -25,15 +25,15 @@
 </template>
 
 <script>
-import vueNavBar from "@/components/acessos/navbar.vue"
+import vueNavBar from "@/components/compartilhado/navbar.vue"
 import vueHeader from "@/components/compartilhado/header.vue"
-import vueAhpHeader from "@/components/ahp/compartilhado/ahpHeader.vue"
+import vueAhpHeader from "@/components/mcdm/compartilhado/mcdmHeader.vue"
 import vueFooter from "@/components/compartilhado/footer.vue"
 import vueBalao from "@/components/compartilhado/balao.vue"
 import { aplicarTema } from "@/assets/javascript/globalFunctions.js"
 
 export default {
-    name: "vue-view-ahp",
+    name: "vue-view-mcdm",
     components: {
         vueNavBar,
         vueHeader,
@@ -45,20 +45,20 @@ export default {
 
     ],
     beforeMount() {
-        this.$store.dispatch("changeMetodo", "Ahp")
+        this.$store.dispatch("changeMetodo", "Mcdm")
         aplicarTema("temaVerde")
     }
 }
 </script>
 <style scoped>
-.main-ahp-cardozo {
+.main-mcdm {
   display: grid;
   grid-template-columns: 1fr 5fr; /* Deixando a barra de navegação com o tamanho necessário e o restante para a seção principal */
   box-sizing: border-box;
   margin: 0.1%
 }
 
-.section-ahp-cardozo {
+.section-mcdm {
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr minmax(667px, 10fr); /* Deixando o cabeçalho com tamanho necessário e o restante para os inputs */
@@ -68,11 +68,11 @@ export default {
     overflow: hidden;
 }
 
-main .navbar-ahp-cardozo{
+main .navbar-mcdm{
     grid-column: 1/2;
     margin-right: 0.8%;
 }
-.header-ahp-cardozo{
+.header-mcdm{
     grid-column: 1/3;
     grid-row: 1/2;
     height: 100%;

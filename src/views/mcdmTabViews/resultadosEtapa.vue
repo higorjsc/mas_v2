@@ -1,25 +1,28 @@
 <template>
 
-    <section class="container">
-        <vueInputs/>
+    <section class="contaiener">
+        RESULTADOS
     </section>
 
 </template>
 
 <script>
-import vueInputs from "@/components/ahp/livre/inputsLivre.vue"
 
 export default {
-    name: "vue-view-ahp-inputs",
+    name: "vue-view-mcdm-resultados-etapa",
     components: {
-        vueInputs
+    },
+    computed: {
+        verificarTemplate() {
+            return this.$store.getters.currentTemplateMcdm
+        }
     }
 
 }
 </script>
 <style scoped>
 
-.container{
+.contaiener{
     position: relative;
     grid-column: 1/2;
     grid-row: 2/3;
@@ -28,8 +31,7 @@ export default {
     border-right: var(--borda-simples);
     width: 100%;
     height: 100%;
-    padding-bottom: 5%;
-    overflow:hidden
+    padding-bottom: 5%
 }
 
 </style>

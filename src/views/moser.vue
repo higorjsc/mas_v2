@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import vueNavBar from "@/components/acessos/navbar.vue"
+import vueNavBar from "@/components/compartilhado/navbar.vue"
 import vueHeader from "@/components/compartilhado/header.vue"
 import vueFooter from "@/components/compartilhado/footer.vue"
 import vueBalao from "@/components/compartilhado/balao.vue"

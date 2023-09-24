@@ -1,30 +1,8 @@
 <template>
 
     <section>
-        <!-- TEMPLASTES AHP -->
-        <div class="templates-ahp-container" id="templates-ahp-container">
-            <h3>{{ $t('templatesAhpTitulo') }}</h3>
-            <select v-model="templateAhp">
-                <option value="">
-                </option>
-                <option value="primeiraTemplate">
-                    {{ $t('primeiraTemplateAhp') }}
-                </option>
-                <option value="segundaTemplate">
-                    {{ $t('segundaTemplateAhp') }}
-                </option>
-                <option value="terceiraTemplate">
-                    {{ $t('terceiraTemplateAhp') }}
-                </option>
-                <option value="inserir">
-                    {{ $t('inserirInputsAhp') }}
-                </option>
-            </select>
-        </div>
 
-        <!-- CRITÉRIOS E BOTÕES DE ADICIONAR CRITÉRIOS -->
         <div
-            v-if="verificaTemplate"
             class="criterios-ahp-container"
         >
             <h3>{{ $t('tituloAhpCriterios') }}</h3>
@@ -59,14 +37,12 @@
 
         <!-- OPÇÕES E BOTÕES DE ADICIONAR OPÇÕES -->
         <div
-            v-if="verificaTemplate"
             class="options-ahp-container"
         >
             <h3>{{ $t('tituloAhpOptions') }}</h3>
             <div
                 v-for="(item) in options"
                 :key="item.index"
-                class="label-options"
                 :for="`option-${item.index}`"
             >
                 <label>
@@ -96,12 +72,9 @@
 </template>
 <script>
 export default {
-    name: "vue-ahp-inputs-etapa",
-    components: {
-    },
+    name: "vue-inputs-etapa-livre",
     data() {
         return {
-            templateAhp: "inserir",
             criterioCounter: 3,
             optionCounter: 4,
             criterio: null,
@@ -110,9 +83,6 @@ export default {
         }
     },
     computed: {
-        verificaTemplate() {
-            return this.templateAhp === "inserir"
-        },
         criterios() {
             return this.$store.getters.currentCriterios
         },

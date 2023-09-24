@@ -105,7 +105,7 @@
 import vueSlider from "@/components/compartilhado/sliderButton.vue"
 import { throttle } from "lodash"
 export default {
-    name: "vue-inputs-first-etapa-livre",
+    name: "vue-primeira-etapa-livre",
     components: {
         vueSlider
     },
@@ -126,7 +126,7 @@ export default {
             return this.$store.getters.currentOptions
         },
         slideres() {
-            return this.$store.getters.currentSlideresLivre
+            return this.$store.getters.currentSlideres
         },
         slideresValue() {
             return this.$store.getters.currentSlideresValueLivre
@@ -134,7 +134,7 @@ export default {
     },
     mounted() {
         this.criaSlideres()
-        this.sliderStore = this.$store.getters.currentSlideresLivre
+        this.sliderStore = this.$store.getters.currentSlideres
         this.$store.dispatch("changeMatrizInputAtual", this.criterios[0].value)
         this.defineMatrizCriterios()
     },
@@ -166,7 +166,7 @@ export default {
                     this.arranjoCriterios()
                 )
             }
-            this.$store.dispatch("changeSlideresLivre", slideres)
+            this.$store.dispatch("changeSlideres", slideres)
         },
         handleInputValue(value) {
             this.sliderStore[value[0]][value[1]].value = Number(value[2])
@@ -175,7 +175,7 @@ export default {
         },
         trocaMatrizInputAtual(matrizName) {
             this.$store.dispatch("changeMatrizInputAtual", matrizName)
-            this.$store.dispatch("changeSlideresLivre", this.sliderStore)
+            this.$store.dispatch("changeSlideres", this.sliderStore)
         },
         defineMatrizOption(criterIndex) {
             const matriz = []
@@ -208,7 +208,7 @@ export default {
     main{
         display: grid;
         grid-template-columns: 3fr 9fr;
-        height: min(667px, 100%);
+        height: minmax(667px, 100%);
         overflow: hidden;
     }
     main .slideres-container{
@@ -225,6 +225,7 @@ export default {
         max-height: 100%;
         overflow: scroll;
         overflow-x: hidden;
+        padding-bottom: 5%;
     }
     .slider-container{
         display: flex;

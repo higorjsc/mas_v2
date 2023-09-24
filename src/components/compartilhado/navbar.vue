@@ -69,8 +69,8 @@ export default {
                 path: "/moser"
             },
             ahpCardozo: {
-                titulo: "AHP",
-                path: "/ahp"
+                titulo: "MCDM",
+                path: "/mcdm"
             }
         }
     },
