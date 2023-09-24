@@ -15,7 +15,7 @@
         >
         <div class="label-container">
             <label id="left-label">1/9</label>
-            <label id="center-label">0</label>
+            <label id="center-label">1</label>
             <label id="right-label">9</label>
         </div>
     </div>
@@ -62,21 +62,23 @@ export default {
         enviarValor() {
             this.$emit("slider-value", [this.classe, this.id, this.valorInput])
         },
+
         sliderColor() {
             let meioEnd
             let meioStart
             let left
             let right
-            if (this.valorInput > 50) {
-                right = 100 - this.valorInput
-                meioEnd = this.valorInput
+            const valor = this.valorInput
+            if (valor > 50) {
+                right = 100 - valor
+                meioEnd = valor
                 meioStart = 50
                 left = 50
-            } else if (this.valorInput < 50) {
+            } else if (valor < 50) {
                 right = 50
                 meioEnd = 50
-                meioStart = this.valorInput
-                left = this.valorInput
+                meioStart = valor
+                left = valor
             }
             this.$refs.slider.style.background = "linear-gradient(90deg," + "red 0%," + "red " + left + "%, " + "var(--cor-hover)" + meioStart + "%," + "var(--cor-hover)" + meioEnd + "%, " + "blue " + right + "%," + "blue " + "100" + "%  )"
         }

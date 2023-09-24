@@ -48,7 +48,8 @@ export default {
     width: 100%;
     height: 100%;
     padding-bottom: 5%;
-    overflow:hidden
+    overflow:hidden;
+    min-height: 627px;
 }
 
 </style>

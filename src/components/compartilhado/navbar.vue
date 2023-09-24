@@ -104,7 +104,7 @@ export default {
                 this.option2 = this.vergne
                 this.option3 = this.ahpCardozo
                 break
-            case "Ahp":
+            case "Mcdm":
                 this.presente = this.ahpCardozo
                 this.option1 = this.cardozo
                 this.option2 = this.vergne
@@ -118,6 +118,8 @@ export default {
 
 <style scoped>
     *{
+        margin: 0;
+        padding: 0;
         font-size: 10pt;
     }
     section{

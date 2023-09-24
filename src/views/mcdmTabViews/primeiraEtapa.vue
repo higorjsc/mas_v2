@@ -1,13 +1,13 @@
 <template>
 
-    <main class="main-contaiener-tabview-primeira">
+    <section class="contaiener-tabview-primeira">
         <vueInputsLivre
             v-if="verificarTemplate === 'inserir'"
         />
         <vueInputsCardozo
             v-if="verificarTemplate === 'primeiraTemplate'"
         />
-    </main>
+    </section>
 
 </template>
 
@@ -31,13 +31,14 @@ export default {
 </script>
 <style scoped>
 
-.main-contaiener-tabview-primeira{
+.contaiener-tabview-primeira{
     position: relative;
     grid-column: 1/3;
     grid-row: 2/3;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     border-right: var(--borda-simples);
+    box-sizing: border-box;
     width: 100%;
     overflow: hidden;
 }

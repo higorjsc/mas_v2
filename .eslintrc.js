@@ -33,7 +33,7 @@ module.exports = {
         "no-trailing-spaces": "warn",
 
         // Desativa verificação de loop infinito
-        "for-direction": "error",
+        "for-direction": "warn",
 
         // Desativa comentários inline
         "no-inline-comments": "off",

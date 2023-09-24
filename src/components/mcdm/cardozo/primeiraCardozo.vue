@@ -63,12 +63,24 @@
             >
                 <h4
                     class="titulo-matriz"
-                >{{ $t('matrizFluxogramaCardozo') }}</h4>
-                <vueMatriz
-                    :optionMatriz="options"
-                    :valueMatriz="resultadoMatrizFluxograma"
-                    @click="trocaMatrizInputAtual('Fluxograma')"
-                />
+                >
+                    {{ $t('matrizFluxogramaCardozo') }}
+                </h4>
+
+                <div
+                    class="matriz-vetor-container"
+                >
+                    <vueMatriz
+                        :optionMatriz="options"
+                        :valueMatriz="resultadoMatrizFluxograma"
+                        @click="trocaMatrizInputAtual('Fluxograma')"
+                    />
+                    <vueVetor
+                        tituloVetor="PESO"
+                        :valueVetor="[1,1,1,1]"
+                        @click="trocaMatrizInputAtual(itemCriterio)"
+                    />
+                </div>
             </div>
 
             <div
@@ -78,12 +90,24 @@
             >
                 <h4
                     class="titulo-matriz"
-                >{{ itemCriterio }}</h4>
-                <vueMatriz
-                    :optionMatriz="options"
-                    :valueMatriz="matrizValores[indexMatriz+1]"
-                    @click="trocaMatrizInputAtual(itemCriterio)"
-                />
+                >
+                    {{ itemCriterio }}
+                </h4>
+
+                <div
+                    class="matriz-vetor-container"
+                >
+                    <vueMatriz
+                        :optionMatriz="options"
+                        :valueMatriz="matrizValores[indexMatriz+1]"
+                        @click="trocaMatrizInputAtual(itemCriterio)"
+                    />
+                    <vueVetor
+                        tituloVetor="PESO"
+                        :valueVetor="[1,1,1,1]"
+                        @click="trocaMatrizInputAtual(itemCriterio)"
+                    />
+                </div>
             </div>
 
         </section>
@@ -94,20 +118,21 @@
 <script>
 import vueSlider from "@/components/compartilhado/sliderButton.vue"
 import vueMatriz from "@/components/mcdm/compartilhado/matriz.vue"
+import vueVetor from "@/components/mcdm/compartilhado/vetor.vue"
 import { throttle } from "lodash"
 
 export default {
     name: "vue-primeira-etapa-cardozo",
     components: {
         vueSlider,
-        vueMatriz
+        vueMatriz,
+        vueVetor
     },
     data() {
         return {
             resultadoFluxograma: "rampa",
             sliderValue: [],
             sliderStore: [],
-            matrizCompleta: [],
             options: [
                 "Poço",
                 "R. Diesel",
@@ -122,22 +147,22 @@ export default {
             ],
             matrizFluxograma: {
                 poco: [
-                    ["1", "3", "3", "5"],
-                    ["1/3", "1", "1", "2"],
-                    ["1/3", "1", "1", "2"],
-                    ["1/5", "1/2", "1/2", "1"]
+                    [1.00, 3.00, 3.00, 5.00],
+                    [0.33, 1.00, 1.00, 2.00],
+                    [0.33, 1.00, 1.00, 2.00],
+                    [0.20, 0.50, 0.50, 1.00]
                 ],
                 rampa: [
-                    ["1", "1/3", "1/3", "2"],
-                    ["3", "1", "1", "5"],
-                    ["3", "1", "1", "5"],
-                    ["1/2", "1/5", "1/5", "1"]
+                    [1.00, 0.33, 0.33, 2.00],
+                    [3.00, 1.00, 1.00, 5.00],
+                    [3.00, 1.00, 1.00, 5.00],
+                    [0.50, 0.20, 0.20, 1.00]
                 ],
                 correia: [
-                    ["1", "1", "1", "1/7"],
-                    ["1", "1", "1", "1/7"],
-                    ["1", "1", "1", "1/7"],
-                    ["7", "7", "7", "1"]
+                    [1.00, 1.00, 1.00, 0.14],
+                    [1.00, 1.00, 1.00, 0.14],
+                    [1.00, 1.00, 1.00, 0.14],
+                    [7.00, 7.00, 7.00, 1.00]
                 ]
             },
             slideresCardozo: [
@@ -188,6 +213,11 @@ export default {
             return this.matrizFluxograma[this.resultadoFluxograma]
         }
     },
+    watch: {
+        resultadoFluxograma() {
+            this.handleResultadoFluxograma()
+        }
+    },
     created() {
         this.criaSlideres()
         this.sliderStore = this.$store.getters.currentSlideres
@@ -195,6 +225,9 @@ export default {
         this.$store.dispatch("changeMatrizInputAtual", this.criterios[0])
     },
     methods: {
+        handleResultadoFluxograma() {
+            this.changeMatrix()
+        },
         criaSlideres() {
             const criterio = this.criterios
             const slideres = []
@@ -215,11 +248,27 @@ export default {
             throttledDefineMatriz()
         },
         matrizMaker(index) {
+            const conveterEscala = (valorOriginal) => {
+                const minDesejado = 1.00
+                const maxDesejado = 9.00
+                let minOriginal
+                let maxOriginal
+                if (valorOriginal > 50) {
+                    minOriginal = 50
+                    maxOriginal = 100
+                } else {
+                    minOriginal = 50
+                    maxOriginal = 0
+                }
+                return (minDesejado + (((valorOriginal - minOriginal) / (maxOriginal - minOriginal)) * (maxDesejado - minDesejado)))
+            }
             const dirValue = (key) => {
-                return key[0] === key[1] ? "1" : `${this.sliderStore[index].find(item => item.id === key).valor}`
+                const valor = key[0] === key[1] ? 1.00 : conveterEscala(this.sliderStore[index].find(item => item.id === key).valor)
+                return valor.toFixed(0)
             }
             const invValue = (key) => {
-                return `1/${(this.sliderStore[index].find(item => item.id === key).valor)}`
+                const valor = conveterEscala(this.sliderStore[index].find(item => item.id === key).valor)
+                return (1 / valor).toFixed(2)
             }
             const matriz = [
                 // Poço
@@ -240,6 +289,46 @@ export default {
                 finalMatrix.push(this.matrizMaker(i))
             }
             this.$store.dispatch("changeFinalMatrix", finalMatrix)
+            this.calcula(finalMatrix)
+        },
+        calcula(finalMatrix) {
+            const somaColunaMatriz = (matriz, col, jmax) => {
+                let soma = 0
+                for (let lin = 0; lin < jmax; lin++) {
+                    soma += Number(matriz[lin][col])
+                }
+                return soma
+            }
+            const normalizaMatriz = (index) => {
+                const matriz = []
+                for (let lin = 0; lin < finalMatrix[index].length; lin++) {
+                    const linha = []
+                    for (let col = 0; col < finalMatrix[index][lin].length; col++) {
+                        const celula = Number(finalMatrix[index][lin][col]) / somaColunaMatriz(finalMatrix[index], col, finalMatrix[index].length)
+                        linha.push(celula.toFixed(2))
+                    }
+                    matriz.push(linha)
+                }
+                return matriz
+            }
+            const normalizada = []
+            for (let i = 0; i < finalMatrix.length; i++) {
+                normalizada.push(normalizaMatriz(i))
+            }
+
+            const calculaPeso = (index) => {
+                const peso = []
+                for (let lin = 0; lin < normalizada[index].length; lin++) {
+                    peso.push(
+                        normalizada[index][lin].reduce((acc, valor) => acc + parseFloat(valor), 0) / normalizada[index][lin].length
+                    )
+                }
+                return peso
+            }
+            const pesos = []
+            for (let i = 0; i < normalizada.length; i++) {
+                pesos.push(calculaPeso(i))
+            }
         }
     }
 }
@@ -249,7 +338,6 @@ export default {
     main{
         display: grid;
         grid-template-columns: 3fr 9fr;
-        min-height: 667px;
         overflow: hidden;
     }
     main .slideres-container{
@@ -257,6 +345,7 @@ export default {
         grid-column: 1/2;
         width: 100%;
         border-right: var(--borda-simples);
+        box-sizing: border-box;
         padding-left: 2%;
     }
     .resultados-fluxograma-container{
@@ -289,10 +378,14 @@ export default {
     .matriz-container{
         margin: auto;
     }
+    .matriz-vetor-container{
+        display: flex;
+        gap: 1px;
+        margin: auto;
+    }
     .slider-container{
         display: flex;
         flex-direction: column;
-        background-color: aquamarine;
         width: 98%;
         height: 600px;
     }

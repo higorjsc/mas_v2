@@ -72,8 +72,6 @@ export default {
     .container{
         display: flex;
         flex-direction: column;
-        width: 100%;
-        min-height: 667px;
         padding-left: 2%;
     }
     div{

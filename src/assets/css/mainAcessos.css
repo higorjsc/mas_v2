@@ -6,8 +6,6 @@
     flex-direction: column;
     width: 100%;
     box-sizing: border-box;
-    padding-left: 0.1%;
-    padding-right: 0.3%;
 }
 .main-container{
     display: grid;
