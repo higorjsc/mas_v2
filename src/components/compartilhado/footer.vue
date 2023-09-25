@@ -26,11 +26,16 @@
                 class="ul-direita"
             >
                 <li>{{ $ft('linksFooter') }}</li>
-                <li @click="abrirPopUp('creditos')">{{ $ft('creditosFooter') }}</li>
-                <li @click="abrirPopUp('referencias')">{{ $ft('referenciasFooter') }}</li>
-                <li @click="abrirPopUp('reportarErro')">{{ $ft('reportarErroFooter') }}</li>
+                <li @click="abrirPopUp('creditos')">
+                    {{ $ft('creditosFooter') }}
+                </li>
+                <li @click="abrirPopUp('referencias')">
+                    {{ $ft('referenciasFooter') }}
+                </li>
+                <li @click="abrirPopUp('reportarErro')">
+                    {{ $ft('reportarErroFooter') }}
+                </li>
             </ul>
-
 
         </div>
 

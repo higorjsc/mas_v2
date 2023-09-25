@@ -15,21 +15,25 @@
                 <h3 class="titulo-matriz-input">
                     {{ alterarMatriz }}
                 </h3>
-                <div 
+                <div
                     class="radio-container"
+                    v-if="alterarMatriz!== 'Fluxograma'"
                 >
                     <!-- PRÉ-DEFINIDO -->
-                    <input type="radio" class="label-metodo-definido" v-model="metodoDefinido" value="predefinido">
-                    <label for="rm-menor" id='rm-cardozo-menor' class="radio-metodo-definido"></label>
-                    <span>{{ $ft('predefinido') }}</span>
+                    <div>
+                        <input type="radio" class="radio-metodo-definido" v-model="metodoDefinido" value="predefinido" id="predefinido">
+                        <label for="predefinido" class="label-metodo-definido"></label>
+                        <span>{{ $ft('predefinido') }}</span>
+                    </div>
                     <!-- PERSONALIZADO -->
-                    <input type="radio" class="label-metodo-definido" v-model="metodoDefinido" value="maior" id="personalizado">
-                    <label for="rm-maior" id='rm-cardozo-maior' class="radio-metodo-definido"></label>
-                    <span>{{ $ft('personalizado') }}</span>
+                    <div>
+                        <input type="radio" class="radio-metodo-definido" v-model="metodoDefinido" value="personalizado" id="personalizado">
+                        <label for="personalizado" class="label-metodo-definido"></label>
+                        <span>{{ $ft('personalizado') }}</span>
+                    </div>
                 </div>
 
             </div>
-
 
             <!-- Resultados do fluxograma -->
             <div
@@ -49,8 +53,9 @@
                     </option>
                 </select>
             </div>
-
+            <!-- OUTROS SLIDERES -->
             <div
+                v-if="metodoDefinido==='personalizado'"
                 v-for="(itemParent, indexParent) in criteriosPrimeira"
                 :key="indexParent"
             >
@@ -68,14 +73,26 @@
                         @slider-value="handleInputValue"
                     />
                 </div>
-
+            </div>  
+            <!-- OUTROS SELETORES -->
+            <div
+                v-if="metodoDefinido==='predefinido'"
+                v-for="(itemParent, indexParent) in criteriosPrimeira"
+                :key="indexParent"
+            >
+                <preSelect
+                    :selectSolicitado="alterarMatriz"
+                />
             </div>
+
         </section>
 
         <!-- SEÇÃO DAS MATRIZES -->
         <section
             class="matrizes-container-primeira-cardozo"
         >
+
+            <!-- FLUXOGRAMA -->
             <div
                 class="matriz-container"
             >
@@ -106,7 +123,7 @@
                     />
                 </div>
             </div>
-
+            <!-- OUTRAS MATRIZES -->
             <div
                 class="matriz-container"
                 v-for="(itemCriterio, indexMatriz) in criteriosPrimeira"
@@ -150,6 +167,7 @@ import vueSlider from "@/components/compartilhado/sliderButton.vue"
 import vueMatriz from "@/components/mcdm/compartilhado/matriz.vue"
 import vueVetor from "@/components/mcdm/compartilhado/vetor.vue"
 import vueConsistencia from "@/components/mcdm/compartilhado/consistencia.vue"
+import preSelect from "@/components/mcdm/cardozo/preDef.vue"
 import { throttle } from "lodash"
 import { RI } from "@/assets/javascript/globalConstants.js"
 
@@ -159,10 +177,12 @@ export default {
         vueSlider,
         vueMatriz,
         vueVetor,
-        vueConsistencia
+        vueConsistencia,
+        preSelect
     },
     data() {
         return {
+            metodoDefinido: "personalizado",
             resultadoFluxograma: "rampa",
             sliderValue: [],
             sliderStore: [],
@@ -212,7 +232,11 @@ export default {
     watch: {
         resultadoFluxograma() {
             this.handleResultadoFluxograma()
+        },
+        metodoDefinido(){
+            console.log(this.metodoDefinido)
         }
+
     },
     created() {
         this.sliderStore = this.$store.getters.currentSlideresPrimeira
@@ -391,7 +415,7 @@ export default {
             }
             // A linha de código abaixo é explicitamente uma gambiarra.
             matrizPrimeira[0].splice(matrizPrimeira[1].length)
-            
+
             return matrizPrimeira
         },
         vetorPeso(index) {
@@ -437,15 +461,53 @@ export default {
         margin-top: 10px;
         font-size: 12pt;
     }
-    h3{
+    
+    .container-metodo-alterador{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    input[type='radio']{
+        display: none;
+    }
+    .radio-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .radio-container div{
+        display: flex;
+        gap: 5px;
+        width: 100%;
+    }
+    .label-metodo-definido{
+        align-self: center;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        margin-left: 40px;
+        border: 1pt solid var(--cor-tema);
+    }
+    .label-metodo-definido:hover {
+        cursor: pointer;
+        box-shadow: 0 0 10px var(--cor-tema);
+    }
+
+    input[type='radio']:checked + .label-metodo-definido {
+        background-color: var(--cor-tema);; 
+    }
+
+    .titulo-matriz-input{
         text-align: left;
         margin-top: 10px;
         margin-bottom: 10px;
         margin-left: 1.5%;
         text-decoration: none;
         border: none;
-        font-size: 14pt;
+        font-size: 16pt;
     }
+
     .matrizes-container-primeira-cardozo{
         width: 100%;
         display: flex;

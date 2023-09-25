@@ -30,11 +30,11 @@
         <footer>
             <vueFooter/>
         </footer>
-        
+
         <vueBalao
-        class="balao"
+            class="balao"
         />
-        
+
     </body>
 
 </template>

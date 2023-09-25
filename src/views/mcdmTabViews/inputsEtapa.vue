@@ -45,8 +45,8 @@ export default {
             try {
                 this.criaSlideresPrimeira()
                 this.criaSlideresSegunda()
-            } catch{
-                console.log('falha ao criar slideres (normal na troca de métodos)')
+            } catch {
+                console.log("falha ao criar slideres (normal na troca de métodos)")
             }
         }
     }

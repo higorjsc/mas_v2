@@ -355,6 +355,5 @@ export default {
         gap: 1px;
         margin: auto;
     }
-   
 
 </style>

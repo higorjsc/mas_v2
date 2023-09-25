@@ -5,7 +5,7 @@
             class="text-container"
         >
             <h3>
-            {{ $ft(`${texto}`)  }}
+                {{ $ft(`${texto}`)  }}
             </h3>
         </div>
 

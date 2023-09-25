@@ -48,7 +48,6 @@ export default {
     methods: {
         handleTemplate(){
             if(this.templateAtual=== ""){
-                console.log('oi')
                 this.$store.dispatch('changeViewProgress', 0)
                 this.changeTabOpacity()
                 this.changeAtualTab('/mcdm/inputs')
@@ -71,7 +70,6 @@ export default {
             this.$refs[`label-${atual}`].style.opacity = 1
         },
         handleLink(index, route) {
-            console.log(this.viewProgress, index)
             if(this.viewProgress > index && this.templateAtual !== ""){
                 this.changeTabOpacity()
                 this.changeAtualTab(route)

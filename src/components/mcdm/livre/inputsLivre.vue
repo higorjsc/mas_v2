@@ -91,15 +91,14 @@ export default {
         this.$store.dispatch("changeOptionsSegunda", this.optionsPrimeira)
     },
     beforeUnmount() {
-        try{
+        try {
             this.$store.dispatch("changeCriteriosPrimeira", this.criteriosPrimeira)
             this.$store.dispatch("changeOptionsPrimeira", this.optionsPrimeira)
             this.$store.dispatch("changeCriteriosSegunda", this.criteriosPrimeira)
             this.$store.dispatch("changeOptionsSegunda", this.optionsPrimeira)
-        }catch{
-            console.log('falha no armazenamento')
+        } catch {
+            console.log("falha no armazenamento")
         }
-
     },
     methods: {
         addCriterio() {

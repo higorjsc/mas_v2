@@ -16,13 +16,12 @@ app.use(router)
 
 // Configura a função que define o idioma como $ft('variável')
 app.config.globalProperties.$ft = function (key) {
-    if(this.$store.getters.currentLanguage === 'pt'){
+    if (this.$store.getters.currentLanguage === "pt") {
         return portuguese[key] ? portuguese[key] : key
     }
-    if(this.$store.getters.currentLanguage === 'en'){
+    if (this.$store.getters.currentLanguage === "en") {
         return english[key] ? portuguese[key] : key
     }
 }
-
 
 app.mount("#app")
