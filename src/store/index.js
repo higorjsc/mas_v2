@@ -14,7 +14,7 @@ export default createStore({
         popUp: null, // popUp aberto (null = nenhum)
         balao: "", // Variável de texto do balao help
         matrizInputAtual: "",
-        templateMcdm: "inserir",
+        templateMcdm: "",
         slideresPrimeira: [],
         slideresSegunda: [],
         matrizPrimeira: [],

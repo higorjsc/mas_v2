@@ -49,6 +49,7 @@ export default {
                     }
                 }
             }
+
             return arranjoOptions
         },
         // Cria os slideres da primeira etapa a partir do arranjo de opções
@@ -59,7 +60,6 @@ export default {
                     this.arranjoOptions()
                 )
             }
-            console.log(slideres)
             this.$store.dispatch("changeSlideresPrimeira", slideres)
         },
         // Cria os slideres da segunda etapa a partir do arranjo de critérios

@@ -56,19 +56,19 @@
                 >
                     <vueMatriz
                         :optionMatriz="optionsPrimeira"
-                        :valueMatriz="matrizValores[indexMatriz+1]"
+                        :valueMatriz="matrizValores[indexMatriz]"
                         @click="trocaMatrizInputAtual(itemCriterio)"
                     />
                     <vueVetor
                         tituloVetor="PESO"
-                        :valueVetor="vetorPeso(indexMatriz+1)"
+                        :valueVetor="vetorPeso(indexMatriz)"
                         @click="trocaMatrizInputAtual(itemCriterio)"
                     />
                     <vueConsistencia
-                        :RI="consistencia(indexMatriz+1, 'ri')"
-                        :CI="consistencia(indexMatriz+1, 'ci')"
-                        :CR="consistencia(indexMatriz+1, 'cr')"
-                        :lambda="consistencia(indexMatriz+1, 'lambda')"
+                        :RI="consistencia(indexMatriz, 'ri')"
+                        :CI="consistencia(indexMatriz, 'ci')"
+                        :CR="consistencia(indexMatriz, 'cr')"
+                        :lambda="consistencia(indexMatriz, 'lambda')"
                     />
                 </div>
             </div>
@@ -120,12 +120,13 @@ export default {
     },
     created() {
         this.sliderStore = this.$store.getters.currentSlideresPrimeira
-        // this.changeMatrix()
-        // this.$store.dispatch("changeMatrizInputAtual", this.criteriosPrimeira[0])
+        this.changeMatrix()
+        // Define a matriz em edição no loading
+        this.$store.dispatch("changeMatrizInputAtual", this.criteriosPrimeira[0])
     },
     beforeUnmount() {
         this.$store.dispatch("changeSlideresPrimeira", this.sliderStore)
-        // this.changeMatrix()
+        this.changeMatrix()
     },
     methods: {
         trocaMatrizInputAtual(matrizName) {
@@ -292,11 +293,10 @@ export default {
             return matrizPrimeira
         },
         vetorPeso(index) {
-            return (this.matrizValores[index][this.matrizValores.length - 1]["pesos"])
+            return (this.matrizValores[index][this.matrizValores[index].length - 1]["pesos"])
         },
         consistencia(index, item) {
-            // console.log(this.matrizValores[index][this.matrizValores.length - 1][item])
-            return (this.matrizValores[index][this.matrizValores.length - 1][item])
+            return (this.matrizValores[index][this.matrizValores[index].length - 1][item])
         }
     }
 }

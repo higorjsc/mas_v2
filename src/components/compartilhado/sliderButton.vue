@@ -80,7 +80,8 @@ export default {
                 meioStart = valor
                 left = valor
             }
-            this.$refs.slider.style.background = "linear-gradient(90deg," + "red 0%," + "red " + left + "%, " + "var(--cor-hover)" + meioStart + "%," + "var(--cor-hover)" + meioEnd + "%, " + "blue " + right + "%," + "blue " + "100" + "%  )"
+            this.$refs.slider.style.background = "linear-gradient(90deg," + "white 0%," + "white " + left + "%, " + "var(--cor-tema)" + meioStart + "%," + "var(--cor-tema)" + meioEnd + "%, " + "white " + right + "%," + "white " + "100" + "%  )"
+            // this.$refs.slider.style.background = "linear-gradient(90deg," + "red 0%," + "red " + left + "%, " + "var(--cor-hover)" + meioStart + "%," + "var(--cor-hover)" + meioEnd + "%, " + "blue " + right + "%," + "blue " + "100" + "%  )"
         }
     }
 }
@@ -104,7 +105,6 @@ h3 {
 
 .label-container {
     width: 100%;
-    background-color: aqua;
 }
 #left-label{
     position: absolute;
@@ -123,7 +123,8 @@ input {
   height: 6px;
   border-radius: 50px;
   opacity: 0.7;
-  background: linear-gradient(90deg, red 50%, blue 50%);
+  background: white;
+  /* background: linear-gradient(90deg, red 50%, blue 50%); */
   border: 1pt solid black;
   appearance: none;
   outline: none;
@@ -138,7 +139,7 @@ input::-webkit-slider-thumb {
   width: 15px;
   height:15px;
   border-radius: 50%;
-  background: white;
+  background: var(--cor-tema);
   border: var(--borda-simples) ;
   cursor: pointer;
 }

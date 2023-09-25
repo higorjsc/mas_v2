@@ -4,3 +4,28 @@
     --borda-simples: 1pt solid black;
     line-height: 1.5;
 }
+/* Estilo da barra de rolagem */
+::-webkit-scrollbar {
+    width: 8px; /* Largura da barra de rolagem */
+}
+
+/* Cor de fundo da barra de rolagem */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Cor do indicador da barra de rolagem (a parte que você arrasta) */
+::-webkit-scrollbar-thumb {
+    background: var(--cor-tema);
+    border-radius: 50px;
+}
+
+/* Hover sobre o indicador da barra de rolagem */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--cor-hover);
+}
+
+
+
+
+

@@ -37,15 +37,13 @@ export default {
             return this.$store.getters.currentTemplateMcdm
         }
     },
-    watch: {
-        verificarTemplate() {
-            this.handleTemplate()
-        }
+    beforeUnmount() {
+        this.handleTemplate()
     },
     methods: {
         handleTemplate() {
             this.criaSlideresPrimeira()
-            // this.criaSlideresSegunda()
+            this.criaSlideresSegunda()
         }
     }
 }

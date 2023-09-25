@@ -77,19 +77,17 @@ export default {
 </script>
 <style scoped>
 
-.matriz-container{
+    .matriz-container{
         margin: auto;
         margin-top: 1%;
         display: flex;
         flex-direction: row;
-        background-color: rgb(43, 255, 0);
     }
     .matriz{
-        background-color: blueviolet;
         width: 100%;
         height: 100%;
     }
-    .matriz:hover{
+    .matriz td:hover{
         cursor: pointer;
         box-shadow: 0 0 10px var(--cor-tema);
     }
@@ -100,18 +98,24 @@ export default {
         min-width: 80px;
         max-width: 100px;
         text-align: center;
-        background-color: rgb(255, 0, 234);
+        border: var(--borda-simples);
+        background-color: rgba(3, 49, 3, 0.8);
+        color: var(--cor-texto-tema);
     }
     .th-titulo-coluna{
         min-width: 120px;
         max-width: 150px;
         font-size: 12pt;
         font-weight: bold;
-        text-align: center;
+        text-align: left;
+        color: var(--cor-tema)
+
     }
     .th-titulo-linha{
         font-size: 12pt;
         font-weight: bold;
         height: 50px;
+        color: var(--cor-tema)
+
     }
 </style>

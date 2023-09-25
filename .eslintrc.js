@@ -20,6 +20,16 @@ module.exports = {
         // Recomenda não usar ponto e vírgula
         semi: ["warn", "never"],
 
+        // Deleta virgulas no final de objetos
+        "comma-dangle": "warn",
+
+        "prefer-const": "warn",
+
+        "vue/no-dupe-keys": "warn",
+
+        // Nova linha no final
+        "eol-last": ["off", "off"],
+
         // Força o uso de dot-notation para acessar objetos
         "dot-notation": "off",
 

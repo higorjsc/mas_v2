@@ -55,15 +55,12 @@ export default {
 </script>
 <style scoped>
 
-.vetor-container{
+    .vetor-container{
         display: flex;
         flex-direction: row;
-        background-color: rgb(43, 255, 0);
     }
-    .vetor{
-        background-color: blueviolet;
-    }
-    .vetor:hover{
+
+    .vetor td:hover{
         cursor: pointer;
         box-shadow: 0 0 10px var(--cor-tema);
     }
@@ -74,13 +71,14 @@ export default {
         min-width: 80px;
         max-width: 80px;
         text-align: center;
-        background-color: rgb(255, 0, 234);
+        background-color: rgba(3, 49, 3, 0.8);
+        color: var(--cor-texto-tema);
+        border: var(--borda-simples);
     }
     .th-titulo-vetor{
         font-size: 12pt;
         font-weight: bold;
         height: 50px;
-
     }
 
 </style>

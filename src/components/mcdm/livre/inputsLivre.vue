@@ -20,12 +20,12 @@
                 >
                 <button
                     @click="removeCriterio(index)"
-                    class="criterio-button remove-criterio-button"
+                    class="remove-button"
                 > - </button>
             </div>
             <button
                 @click="addCriterio()"
-                class="criterio-button  add-criterio-button"
+                class="add-button"
             > + </button>
         </div>
 
@@ -47,12 +47,12 @@
                 >
                 <button
                     @click="removeOption(index)"
-                    class="option-button remove-option-button"
+                    class="remove-button"
                 > - </button>
             </div>
             <button
                 @click="addOption()"
-                class="option-button  add-option-button"
+                class="add-button"
             > + </button>
         </div>
 
@@ -78,11 +78,23 @@ export default {
             ]
         }
     },
+    mounted() {
+        if (this.$store.getters.currentOptionsPrimeira) {
+            this.optionsPrimeira = this.$store.getters.currentOptionsPrimeira
+        }
+        if (this.$store.getters.currentCriteriosPrimeira) {
+            this.criteriosPrimeira = this.$store.getters.currentCriteriosPrimeira
+        }
+        this.$store.dispatch("changeCriteriosPrimeira", this.criteriosPrimeira)
+        this.$store.dispatch("changeOptionsPrimeira", this.optionsPrimeira)
+        this.$store.dispatch("changeCriteriosSegunda", this.criteriosPrimeira)
+        this.$store.dispatch("changeOptionsSegunda", this.optionsPrimeira)
+    },
     beforeUnmount() {
         this.$store.dispatch("changeCriteriosPrimeira", this.criteriosPrimeira)
         this.$store.dispatch("changeOptionsPrimeira", this.optionsPrimeira)
-        this.$store.dispatch("changeCriteriosSegunda", this.criteriosSegunda)
-        this.$store.dispatch("changeOptionsSegunda", this.optionsSegunda)
+        this.$store.dispatch("changeCriteriosSegunda", this.criteriosPrimeira)
+        this.$store.dispatch("changeOptionsSegunda", this.optionsPrimeira)
     },
     methods: {
         addCriterio() {
@@ -91,7 +103,6 @@ export default {
             } else {
                 window.alert("Você atingiu o limite de inputs para o método!")
             }
-            console.log(this.criteriosPrimeira)
         },
         removeCriterio(index) {
             this.criteriosPrimeira.splice(index, 1)
@@ -102,7 +113,6 @@ export default {
             } else {
                 window.alert("Você atingiu o limite de opções para o método!")
             }
-            console.log(this.optionsPrimeira)
         },
         removeOption(index) {
             this.optionsPrimeira.splice(index, 1)
@@ -121,6 +131,10 @@ export default {
         align-items: center;
         width: 100%;
     }
+    .criterios-ahp-container div, .options-ahp-container div{
+        display: flex;
+        align-items: baseline;
+    }
     h3{
         margin-top: 10px;
         margin-bottom: 5px;
@@ -131,9 +145,14 @@ export default {
         text-align: center;
         width: 80%;
     }
-    .criterio-button, .option-button{
+    .add-button, .remove-button{
         position: relative;
-        display: inline-block;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: space-around;
+        align-items: center;
         margin-top: 5px;
         height: 18px;
         width: 18px;
@@ -141,22 +160,13 @@ export default {
         border-radius: 50%;
         transform: translateY(1px);
         font-size: 12pt;
+        background-color: rgba(3, 49, 3, 0.8);
+        color: var(--cor-texto-tema);
+        text-align: center;
     }
-    .criterio-button:hover, .option-button:hover {
+    .add-button:hover, .remove-button:hover {
         cursor: pointer;
         box-shadow: 0 0 10px var(--cor-tema);
     }
-    .add-criterio-button, .add-option-button{
-        background-color: var(--cor-tema);
-        color: var(--cor-texto-tema);
-        margin-bottom: 10px;
-    }
-    .remove-criterio-button, .remove-option-button{
-        background-color: rgba(235, 28, 28, 0.719);
-        color: var(--cor-texto-tema);
-    }
-    .remove-criterio-button:hover, .remove-option-button:hover{
-        cursor: pointer;
-        box-shadow: 0 0 10px red;
-    }
+
 </style>

@@ -1,10 +1,10 @@
 <template>
 
     <section class="contaiener-tabview-primeira">
-        <vueInputsLivre
+        <vuePrimeiraLivre
             v-if="verificarTemplate === 'inserir'"
         />
-        <vueInputsCardozo
+        <vuePrimeiraCardozo
             v-if="verificarTemplate === 'primeiraTemplate'"
         />
     </section>
@@ -12,14 +12,14 @@
 </template>
 
 <script>
-import vueInputsLivre from "@/components/mcdm/livre/primeiraLivre.vue"
-import vueInputsCardozo from "@/components/mcdm/cardozo/primeiraCardozo.vue"
+import vuePrimeiraLivre from "@/components/mcdm/livre/primeiraLivre.vue"
+import vuePrimeiraCardozo from "@/components/mcdm/cardozo/primeiraCardozo.vue"
 
 export default {
     name: "vue-view-mcdm-primeira-etapa",
     components: {
-        vueInputsLivre,
-        vueInputsCardozo
+        vuePrimeiraLivre,
+        vuePrimeiraCardozo
     },
     computed: {
         verificarTemplate() {
