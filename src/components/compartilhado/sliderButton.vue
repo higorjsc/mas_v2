@@ -1,9 +1,14 @@
 <template>
 
     <div class="slider-container">
-        <h3>
-            {{ $t(`${texto}`)  }}
-        </h3>
+        <div
+            class="text-container"
+        >
+            <h3>
+            {{ $ft(`${texto}`)  }}
+            </h3>
+        </div>
+
         <input
             type="range"
             min="0"
@@ -99,10 +104,13 @@ export default {
 }
 
 h3 {
-    text-align: center;
+    display: flex;
+    text-align: left;
     font-size: 11pt;
 }
-
+.text-container{
+    text-align: center;
+}
 .label-container {
     width: 100%;
 }

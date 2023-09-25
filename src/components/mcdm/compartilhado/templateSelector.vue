@@ -2,21 +2,21 @@
 <template>
     <!-- TEMPLASTES MCDM -->
     <div class="templates-mcdm-container">
-        <h3>{{ $t('templatesMcdmTitulo') }}</h3>
+        <h3>{{ $ft('templatesMcdmTitulo') }}</h3>
         <select v-model="template">
             <option value="">
             </option>
             <option value="primeiraTemplate">
-                {{ $t('primeiraTemplateMcdm') }}
+                {{ $ft('primeiraTemplateMcdm') }}
             </option>
             <option value="segundaTemplate">
-                {{ $t('segundaTemplateMcdm') }}
+                {{ $ft('segundaTemplateMcdm') }}
             </option>
             <option value="terceiraTemplate">
-                {{ $t('terceiraTemplateMcdm') }}
+                {{ $ft('terceiraTemplateMcdm') }}
             </option>
             <option value="inserir">
-                {{ $t('inserirInputsMcdm') }}
+                {{ $ft('inserirInputsMcdm') }}
             </option>
         </select>
     </div>

@@ -4,18 +4,18 @@
         <!-- O uso do atributo "name" em cada input é obrigatório pela API -->
         <form :action="formAtual" method="POST">
             <div class="dados">
-                <span>{{ $t('userNameReportarErro') }}</span>
+                <span>{{ $ft('userNameReportarErro') }}</span>
                 <input type="text" name="Nome">
-                <span>{{ $t('userEmailReportarErro') }}</span>
+                <span>{{ $ft('userEmailReportarErro') }}</span>
                 <input type="email" name="E-mail">
             </div>
             <br>
             <div class="message">
-                <span id="span-message">{{ $t('userMessageReportarErro') }}</span>
+                <span id="span-message">{{ $ft('userMessageReportarErro') }}</span>
                 <textarea id='area-message' name="Mensagem"></textarea>
             </div>
             <button type="submit" @click="enviarErro($event)">
-                {{ $t('botaoEnviarReportarErro') }}
+                {{ $ft('botaoEnviarReportarErro') }}
             </button>
         </form>
 

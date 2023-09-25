@@ -2,7 +2,7 @@
     <!-- RESULTADOS -->
     <div class="resultados-container">
         <span class="resultado">
-            {{ $t(this.$store.getters.currentResultado) }}
+            {{ $ft(this.$store.getters.currentResultado) }}
         </span>
     </div>
 

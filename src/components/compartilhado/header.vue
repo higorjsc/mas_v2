@@ -1,7 +1,9 @@
 
 <template>
 
-    <header>
+    <div
+        class="header-container"
+    >
 
         <img
             class='mining-symbol'
@@ -17,10 +19,10 @@
         >
 
         <h1 class="titulo-pagina">
-            {{ $t(`titulo${this.$store.getters.currentMetodo}`) }}
+            {{ $ft(`titulo${this.$store.getters.currentMetodo}`) }}
         </h1>
 
-    </header>
+    </div>
 
 </template>
 <script>
@@ -32,19 +34,19 @@ export default {
 
 <style scoped>
 
-    header{
+    .header-container{
         display: flex;
         align-items: center;
         position: relative;
         width: 100%;
         max-width: 100%;
-        height: 53px;
+        height: 65px;
         background-color: var(--cor-tema);
         border-radius: 20px;
         border: var(--borda-simples);
     }
 
-    h1 {
+    .titulo-pagina {
         font-size: 14pt;
         color: var(--cor-texto-tema);
         text-align: center;
@@ -53,14 +55,14 @@ export default {
 
     #esquerda {
         position: absolute;
-        top: 7%;
+        top: 10%;
         left: 1%;
     }
 
     #direita {
         position: absolute;
         right: 1%;
-        top: 7%;
+        top: 10%;
     }
 
 </style>

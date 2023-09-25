@@ -5,7 +5,7 @@
         <div
             class="criterios-ahp-container"
         >
-            <h3>{{ $t('tituloAhpCriterios') }}</h3>
+            <h3>{{ $ft('tituloAhpCriterios') }}</h3>
             <div
                 v-for="(item, index) in criteriosPrimeira"
                 :key="index"
@@ -33,7 +33,7 @@
         <div
             class="options-ahp-container"
         >
-            <h3>{{ $t('tituloAhpOptions') }}</h3>
+            <h3>{{ $ft('tituloAhpOptions') }}</h3>
             <div
                 v-for="(item, index) in optionsPrimeira"
                 :key="index"
@@ -91,10 +91,15 @@ export default {
         this.$store.dispatch("changeOptionsSegunda", this.optionsPrimeira)
     },
     beforeUnmount() {
-        this.$store.dispatch("changeCriteriosPrimeira", this.criteriosPrimeira)
-        this.$store.dispatch("changeOptionsPrimeira", this.optionsPrimeira)
-        this.$store.dispatch("changeCriteriosSegunda", this.criteriosPrimeira)
-        this.$store.dispatch("changeOptionsSegunda", this.optionsPrimeira)
+        try{
+            this.$store.dispatch("changeCriteriosPrimeira", this.criteriosPrimeira)
+            this.$store.dispatch("changeOptionsPrimeira", this.optionsPrimeira)
+            this.$store.dispatch("changeCriteriosSegunda", this.criteriosPrimeira)
+            this.$store.dispatch("changeOptionsSegunda", this.optionsPrimeira)
+        }catch{
+            console.log('falha no armazenamento')
+        }
+
     },
     methods: {
         addCriterio() {

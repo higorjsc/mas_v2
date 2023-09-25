@@ -1,8 +1,5 @@
 <template>
 
-    <div
-        class="consistencia-container"
-    >
         <table
             class="consistencia"
         >
@@ -34,7 +31,6 @@
             </tr>
         </table>
 
-    </div>
 
 </template>
 <script>
@@ -80,12 +76,6 @@ export default {
 
 </script>
 <style scoped>
-
-.consistencia-container{
-        margin: auto;
-        display: flex;
-        flex-direction: row;
-    }
 
     .consistencia tr{
         justify-content: space-evenly;

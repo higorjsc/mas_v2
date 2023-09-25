@@ -8,10 +8,7 @@
         <section
             class="slideres-container"
         >
-            <!-- Titulo matriz em edição -->
-            <h3 class="titulo-matriz-input">
-            </h3>
-
+            
             <div
                 class="slider-container"
             >
@@ -39,7 +36,7 @@
                 <h4
                     class="titulo-matriz"
                 >
-                    {{ $t('tituloMatrizSegundaEtapaAhp') }}
+                    {{ $ft('tituloMatrizSegundaEtapaAhp') }}
                 </h4>
 
                 <div
@@ -50,7 +47,7 @@
                         :valueMatriz="matrizValores"
                     />
                     <vueVetor
-                        tituloVetor="PESO"
+                        tituloVetor="Peso"
                         :valueVetor="vetorPeso()"
                     />
                     <vueConsistencia
@@ -281,8 +278,11 @@ export default {
         justify-content: center;
         align-items: center;
     }
-    h4{
+    .titulo-matriz{
+        text-align: center;
+        margin-bottom: 10px;
         margin-top: 10px;
+        font-size: 12pt;
     }
     h3{
         text-align: center;
@@ -317,9 +317,6 @@ export default {
         width: 98%;
         height: 600px;
     }
-    .titulo-matriz{
-        text-align: center;
-        margin-bottom: 10px;
-    }
+
 
 </style>

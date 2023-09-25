@@ -1,18 +1,30 @@
-.main-body{
-    position: relative;
+body{
+    position: absolute;
     display: flex;
     justify-content: left;
     align-items: flex-start;
     flex-direction: column;
-    width: 100%;
+    width: 99.5%;
     box-sizing: border-box;
+
 }
-.main-container{
+main{
     display: grid;
     grid-template-columns: 5fr 5fr 9fr 7fr;
-    height: 660px;
     margin: 0.1%;
     box-sizing: border-box;
+    min-height: 700px;
+}
+header{
+    position: relative;
+    display: block;
+    width: 100%;
+}
+footer{
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-bottom: 0.2%;
 }
 
 main .navbar{
@@ -35,4 +47,3 @@ main .navbar{
 .resultados{
     grid-column: 4/5;
 }
-

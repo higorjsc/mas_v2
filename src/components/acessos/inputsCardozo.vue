@@ -3,7 +3,7 @@
     <section class="section-inputs">
         <!-- TITULO SEÇÃO -->
         <h2>
-            {{ $t('tituloInputs') }}
+            {{ $ft('tituloInputs') }}
         </h2>
 
         <!-- BOTÃO SWITCH -->
@@ -14,72 +14,72 @@
         <!-- SURFACE MATERIALS-->
         <div class='parametros-container' id="sm">
             <h3 class="subtitulo-inputs">
-                {{ $t('smTituloCardozo') }}
+                {{ $ft('smTituloCardozo') }}
             </h3>
-            <span>{{ $t('smDescriptionCardozo') }}</span>
+            <span>{{ $ft('smDescriptionCardozo') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
                 <input type="radio" v-model="cardozo.surfaceMaterial" value="menor" id="sm-menor">
                 <label for="sm-menor" class="radio-label" id='sm-cardozo-menor' ></label>
-                <span>{{ $t('smMenorCardozo') }}</span>
+                <span>{{ $ft('smMenorCardozo') }}</span>
                 <!-- MAIOR -->
                 <input type="radio"  v-model="cardozo.surfaceMaterial" value="maior" id="sm-maior">
                 <label for="sm-maior" class="radio-label" id='sm-cardozo-maior' ></label>
-                <span>{{ $t('smMaiorCardozo') }}</span>
+                <span>{{ $ft('smMaiorCardozo') }}</span>
             </div>
         </div>
         <!--rockMass CONDITIONS-->
         <div class='parametros-container' id="rm">
             <h3 class="subtitulo-inputs">
-                {{ $t('rmTituloCardozo') }}
+                {{ $ft('rmTituloCardozo') }}
             </h3>
-            <span>{{ $t('rmDescriptionCardozo') }}</span>
+            <span>{{ $ft('rmDescriptionCardozo') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
                 <input type="radio" class="rm" v-model="cardozo.rockMass" value="menor" id="rm-menor">
                 <label for="rm-menor" id='rm-cardozo-menor' class="radio-label"></label>
-                <span>{{ $t('rmMenorCardozo') }}</span>
+                <span>{{ $ft('rmMenorCardozo') }}</span>
                 <!-- MAIOR -->
                 <input type="radio" class="rm" v-model="cardozo.rockMass" value="maior" id="rm-maior">
                 <label for="rm-maior" id='rm-cardozo-maior' class="radio-label"></label>
-                <span>{{ $t('rmMaiorCardozo') }}</span>
+                <span>{{ $ft('rmMaiorCardozo') }}</span>
             </div>
         </div>
         <!-- PROFUNDIDADE -->
         <div class='parametros-container' id="depth">
             <h3 class="subtitulo-inputs">
-                {{ $t('depthTituloCardozo') }}
+                {{ $ft('depthTituloCardozo') }}
             </h3>
-            <span>{{ $t('depthDescriptionCardozo') }}</span>
+            <span>{{ $ft('depthDescriptionCardozo') }}</span>
             <select v-model="cardozo.depth" class="depth" id='depth-cardozo' >
                 <option value=""></option>
                 <option value="menor">
-                    {{ $t('depthMenorCardozo') }}
+                    {{ $ft('depthMenorCardozo') }}
                 </option>
                 <option value="entre">
-                    {{ $t('depthEntreCardozo') }}
+                    {{ $ft('depthEntreCardozo') }}
                 </option>
                 <option value="maior">
-                    {{ $t('depthMaiorCardozo') }}
+                    {{ $ft('depthMaiorCardozo') }}
                 </option>
             </select>
         </div>
         <!-- PRODUÇÃO -->
         <div class='parametros-container' id="prod">
             <h3 class="subtitulo-inputs">
-                {{ $t('prodTituloCardozo') }}
+                {{ $ft('prodTituloCardozo') }}
             </h3>
-            <span> {{ $t('prodDescriptionCardozo') }}</span>
+            <span> {{ $ft('prodDescriptionCardozo') }}</span>
             <select v-model="cardozo.prod" class="prod" id='prod-cardozo' >
                 <option value=""></option>
                 <option value="menor">
-                    {{ $t('prodMenorCardozo') }}
+                    {{ $ft('prodMenorCardozo') }}
                 </option>
                 <option value="entre">
-                    {{ $t('prodEntreCardozo') }}
+                    {{ $ft('prodEntreCardozo') }}
                 </option>
                 <option value="maior">
-                    {{ $t('prodMaiorCardozo') }}
+                    {{ $ft('prodMaiorCardozo') }}
                 </option>
             </select>
         </div>

@@ -1,10 +1,9 @@
 <template>
 
-    <body
-        class="main-body"
-    >
-
-        <vueHeader/>
+    <body>
+        <header>
+            <vueHeader/>
+        </header>
 
         <main
             class="main-container"
@@ -28,13 +27,14 @@
             />
 
         </main>
-
-        <vueFooter/>
-
+        <footer>
+            <vueFooter/>
+        </footer>
+        
         <vueBalao
-            class="balao"
+        class="balao"
         />
-
+        
     </body>
 
 </template>

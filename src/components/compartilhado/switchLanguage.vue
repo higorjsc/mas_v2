@@ -7,13 +7,13 @@
                 v-if="!lang"
                 class="pt"
             >
-                {{ $t('ptSwitchLanguage') }}
+                {{ $ft('ptSwitchLanguage') }}
             </span>
             <span
                 v-if="lang"
                 class="en"
             >
-                {{ $t('enSwitchLanguage') }}
+                {{ $ft('enSwitchLanguage') }}
             </span>
         </label>
     </div>

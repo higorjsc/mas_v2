@@ -1,8 +1,9 @@
 <template>
 
-    <body class="body">
-
-        <vueHeader/>
+    <body>
+        <header>
+            <vueHeader/>
+        </header>
 
         <main class="main-mcdm">
 
@@ -14,7 +15,9 @@
             </section>
         </main>
 
-        <vueFooter/>
+        <footer>
+            <vueFooter/>
+        </footer>
 
         <vueBalao
             class="balao"
@@ -55,7 +58,8 @@ export default {
   display: grid;
   grid-template-columns: 1fr 5fr; /* Deixando a barra de navegação com o tamanho necessário e o restante para a seção principal */
   box-sizing: border-box;
-  margin: 0.1%
+  margin: 0.1%;
+  width: 100%;
 }
 
 .section-mcdm {

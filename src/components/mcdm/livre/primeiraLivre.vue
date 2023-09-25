@@ -60,7 +60,7 @@
                         @click="trocaMatrizInputAtual(itemCriterio)"
                     />
                     <vueVetor
-                        tituloVetor="PESO"
+                        tituloVetor="Peso"
                         :valueVetor="vetorPeso(indexMatriz)"
                         @click="trocaMatrizInputAtual(itemCriterio)"
                     />
@@ -322,9 +322,13 @@ export default {
         width: 98%;
         height: 600px;
     }
-    h4{
+    .titulo-matriz{
+        text-align: center;
+        margin-bottom: 10px;
         margin-top: 10px;
+        font-size: 12pt;
     }
+
     h3{
         text-align: center;
         margin-top: 10px;
@@ -351,9 +355,6 @@ export default {
         gap: 1px;
         margin: auto;
     }
-    .titulo-matriz{
-        text-align: center;
-        margin-bottom: 10px;
-    }
+   
 
 </style>

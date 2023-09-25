@@ -19,6 +19,7 @@ export default createStore({
         slideresSegunda: [],
         matrizPrimeira: [],
         matrizSegunda: [],
+        viewProgress: 1,
         inputsAcessos: {
             moser: {
                 logistica: "",
@@ -140,6 +141,9 @@ export default createStore({
         },
         setMatrizSegunda(state, data) {
             state.matrizSegunda = data
+        },
+        setViewProgress(state, data) {
+            state.viewProgress = data
         }
     },
     getters: {
@@ -205,6 +209,9 @@ export default createStore({
         },
         currentMatrizSegunda(state) {
             return state.matrizSegunda
+        },
+        currentViewProgress(state) {
+            return state.viewProgress
         }
     },
     actions: {
@@ -267,6 +274,9 @@ export default createStore({
         },
         changeMatrizSegunda(context, data) {
             context.commit("setMatrizSegunda", data)
+        },
+        changeViewProgress(context, data) {
+            context.commit("setViewProgress", data)
         }
     }
 })

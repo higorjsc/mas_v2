@@ -2,19 +2,19 @@
 
     <main>
         <div class="referencias-container">
-            <span>{{ $t('tituloReferencias') }}</span>
+            <span>{{ $ft('tituloReferencias') }}</span>
             <ul>
                 <li>
-                    <a href="http://dx.doi.org/10.1590/0370-44672021760094" target="_blank">{{ $t('referenciaCardozoArtigo') }}</a>
+                    <a href="http://dx.doi.org/10.1590/0370-44672021760094" target="_blank">{{ $ft('referenciaCardozoArtigo') }}</a>
                 </li>
                 <li>
-                    <a href="http://hdl.handle.net/10183/262393" target="_blank">{{ $t('referenciaCardozoTese') }}</a>
+                    <a href="http://hdl.handle.net/10183/262393" target="_blank">{{ $ft('referenciaCardozoTese') }}</a>
                 </li>
                 <li>
-                    <a href="" target="_blank">{{ $t('referenciaVergne') }}</a>
+                    <a href="" target="_blank">{{ $ft('referenciaVergne') }}</a>
                 </li>
                 <li>
-                    <a href="" target="_blank">{{ $t('referenciaMoser') }}</a>
+                    <a href="" target="_blank">{{ $ft('referenciaMoser') }}</a>
                 </li>
             </ul>
         </div>

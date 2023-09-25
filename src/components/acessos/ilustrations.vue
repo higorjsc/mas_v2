@@ -4,7 +4,7 @@
     >
         <!-- TITULO SEÇÃO -->
         <h2>
-            {{ $t('tituloIlustration') }}
+            {{ $ft('tituloIlustration') }}
         </h2>
 
         <div class="ilustration-container">

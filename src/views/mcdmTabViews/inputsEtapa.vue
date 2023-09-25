@@ -42,8 +42,12 @@ export default {
     },
     methods: {
         handleTemplate() {
-            this.criaSlideresPrimeira()
-            this.criaSlideresSegunda()
+            try {
+                this.criaSlideresPrimeira()
+                this.criaSlideresSegunda()
+            } catch{
+                console.log('falha ao criar slideres (normal na troca de métodos)')
+            }
         }
     }
 }

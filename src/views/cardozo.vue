@@ -1,10 +1,10 @@
 <template>
 
-    <body
-        class="main-body"
-    >
+    <body>
 
-        <vueHeader/>
+        <header>
+            <vueHeader/>
+        </header>
 
         <main
             class="main-container"
@@ -27,7 +27,9 @@
 
         </main>
 
-        <vueFooter/>
+        <footer>
+            <vueFooter/>
+        </footer>
 
         <vueBalao
             class="balao"

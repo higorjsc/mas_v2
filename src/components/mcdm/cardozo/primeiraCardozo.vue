@@ -9,9 +9,27 @@
             class="slideres-container"
         >
             <!-- Titulo matriz em edição -->
-            <h3 class="titulo-matriz-input">
-                {{ alterarMatriz }}
-            </h3>
+            <div
+                class="container-metodo-alterador"
+            >
+                <h3 class="titulo-matriz-input">
+                    {{ alterarMatriz }}
+                </h3>
+                <div 
+                    class="radio-container"
+                >
+                    <!-- PRÉ-DEFINIDO -->
+                    <input type="radio" class="label-metodo-definido" v-model="metodoDefinido" value="predefinido">
+                    <label for="rm-menor" id='rm-cardozo-menor' class="radio-metodo-definido"></label>
+                    <span>{{ $ft('predefinido') }}</span>
+                    <!-- PERSONALIZADO -->
+                    <input type="radio" class="label-metodo-definido" v-model="metodoDefinido" value="maior" id="personalizado">
+                    <label for="rm-maior" id='rm-cardozo-maior' class="radio-metodo-definido"></label>
+                    <span>{{ $ft('personalizado') }}</span>
+                </div>
+
+            </div>
+
 
             <!-- Resultados do fluxograma -->
             <div
@@ -21,13 +39,13 @@
                 <select v-model="resultadoFluxograma">
                     <option value="">
                     </option><option value="poco">
-                        {{ $t('resultadoShaftCardozo') }}
+                        {{ $ft('resultadoShaftCardozo') }}
                     </option>
                     <option value="rampa">
-                        {{ $t('resultadoRampaCardozo') }}
+                        {{ $ft('resultadoRampaCardozo') }}
                     </option>
                     <option value="correia">
-                        {{ $t('resultadoCorreiaCardozo') }}
+                        {{ $ft('resultadoCorreiaCardozo') }}
                     </option>
                 </select>
             </div>
@@ -64,7 +82,7 @@
                 <h4
                     class="titulo-matriz"
                 >
-                    {{ $t('matrizFluxogramaCardozo') }}
+                    {{ $ft('matrizFluxogramaCardozo') }}
                 </h4>
 
                 <div
@@ -76,7 +94,7 @@
                         @click="trocaMatrizInputAtual('Fluxograma')"
                     />
                     <vueVetor
-                        tituloVetor="PESO"
+                        tituloVetor="Peso"
                         :valueVetor="vetorPeso(0)"
                         @click="trocaMatrizInputAtual(itemCriterio)"
                     />
@@ -109,7 +127,7 @@
                         @click="trocaMatrizInputAtual(itemCriterio)"
                     />
                     <vueVetor
-                        tituloVetor="PESO"
+                        tituloVetor="Peso"
                         :valueVetor="vetorPeso(indexMatriz+1)"
                         @click="trocaMatrizInputAtual(itemCriterio)"
                     />
@@ -261,8 +279,8 @@ export default {
             for (let i = 0; i < this.criteriosPrimeira.length; i++) {
                 matrizPrimeira.push(this.matrizMaker(i))
             }
-            matrizPrimeira = this.calcula(matrizPrimeira)
             this.$store.dispatch("changeMatrizPrimeira", matrizPrimeira)
+            matrizPrimeira = this.calcula(matrizPrimeira)
         },
         calcula(matrizPrimeira) {
             // Normalização da matriz
@@ -371,6 +389,9 @@ export default {
             for (let index = 0; index < matrizPrimeira.length; index++) {
                 matrizPrimeira[index].push(armazenaCalculos(index))
             }
+            // A linha de código abaixo é explicitamente uma gambiarra.
+            matrizPrimeira[0].splice(matrizPrimeira[1].length)
+            
             return matrizPrimeira
         },
         vetorPeso(index) {
@@ -410,13 +431,17 @@ export default {
         justify-content: center;
         align-items: center;
     }
-    h4{
+    .titulo-matriz{
+        text-align: center;
+        margin-bottom: 10px;
         margin-top: 10px;
+        font-size: 12pt;
     }
     h3{
-        text-align: center;
+        text-align: left;
         margin-top: 10px;
         margin-bottom: 10px;
+        margin-left: 1.5%;
         text-decoration: none;
         border: none;
         font-size: 14pt;
@@ -438,10 +463,6 @@ export default {
         display: flex;
         gap: 1px;
         margin: auto;
-    }
-    .titulo-matriz{
-        text-align: center;
-        margin-bottom: 10px;
     }
 
 </style>

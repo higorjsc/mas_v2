@@ -1,7 +1,9 @@
 
 <template>
 
-    <footer>
+    <div
+        class="footer-container"
+    >
 
         <img
             id="ufrgs" src="@\assets\Imagens\ufrgs.png"
@@ -9,22 +11,26 @@
         >
 
         <div class="div-esquerda">
-            <span>{{ $t('universidadeFooter') }}</span>
-            <span>{{ $t('laboratorioFooter') }}</span>
-            <span>{{ $t('localizacaoFooter') }}</span>
-            <span>{{ $t('contatoFooter') }}</span>
+            <ul
+                class="ul-esquerda"
+            >
+                <li>{{ $ft('universidadeFooter') }}</li>
+                <li>{{ $ft('laboratorioFooter') }}</li>
+                <li>{{ $ft('localizacaoFooter') }}</li>
+                <li>{{ $ft('contatoFooter') }}</li>
+            </ul>
         </div>
 
         <div class="div-direita">
-            <h4>
-                {{ $t('linksFooter') }}
-            </h4>
+            <ul
+                class="ul-direita"
+            >
+                <li>{{ $ft('linksFooter') }}</li>
+                <li @click="abrirPopUp('creditos')">{{ $ft('creditosFooter') }}</li>
+                <li @click="abrirPopUp('referencias')">{{ $ft('referenciasFooter') }}</li>
+                <li @click="abrirPopUp('reportarErro')">{{ $ft('reportarErroFooter') }}</li>
+            </ul>
 
-            <span @click="abrirPopUp('creditos')">{{ $t('creditosFooter') }}</span>
-
-            <span @click="abrirPopUp('referencias')">{{ $t('referenciasFooter') }}</span>
-
-            <span @click="abrirPopUp('reportarErro')">{{ $t('reportarErroFooter') }}</span>
 
         </div>
 
@@ -33,7 +39,7 @@
             alt="logo_laprom_png"
         >
 
-    </footer>
+    </div>
 
     <vuePopUp/>
 
@@ -59,7 +65,7 @@ export default {
 
 <style scoped>
 
-    footer {
+    .footer-container {
         background-color: var(--cor-tema);
         border: var(--borda-simples);
         display: grid;
@@ -76,11 +82,11 @@ export default {
         align-content: center;
         overflow: hidden;
     }
-    footer div{
+    .footer-container div{
         display: flex;
         flex-direction: column;
         position: absolute;
-        font-size: 8pt;
+        font-size: 11pt;
         color: var(--cor-texto-tema);
         opacity: 0.8;
     }
@@ -91,7 +97,10 @@ export default {
         left: 20%;
         grid-column: 4/5;
     }
-    .div-direita span:hover {
+    ul{
+        text-decoration: none;
+    }
+    .div-direita li:hover {
         cursor: pointer;
         text-decoration: underline;
     }

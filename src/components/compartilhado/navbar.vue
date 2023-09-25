@@ -3,7 +3,7 @@
         <nav>
             <ul class="ul-parent">
                 <li class="li-titulo">
-                    {{ $t('selectMethod') }}
+                    {{ $ft('selectMethod') }}
                 </li>
                 <ul class="menu-option">
                     <li class="escolhida">
@@ -28,7 +28,7 @@
             </ul>
         </nav>
         <!-- PARAGRAFO COM O TEXTO DE DESCRIÇÃO DO MÉTODO -->
-        <p v-html="`${$t('paragrafoExplicacao'+ metodo)}`"></p>
+        <p v-html="`${$ft('paragrafoExplicacao'+ metodo)}`"></p>
 
     </section>
 

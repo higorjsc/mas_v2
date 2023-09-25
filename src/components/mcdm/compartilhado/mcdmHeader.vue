@@ -2,19 +2,19 @@
 
     <div class="etapas-container">
         <label class="buttons-etapas" ref="label-inputs">
-            <a class="link" @click.prevent="handleLink('/mcdm/inputs')">INPUTS</a>
+            <a class="link" @click.prevent="handleLink(0,'/mcdm/inputs')">INPUTS</a>
         </label>
 
         <label class="buttons-etapas" ref="label-primeira">
-            <a class="link" @click.prevent="handleLink('/mcdm/primeira')">ETAPA 1</a>
+            <a class="link" @click.prevent="handleLink(1,'/mcdm/primeira')">ETAPA 1</a>
         </label>
 
         <label class="buttons-etapas" ref="label-segunda">
-            <a class="link" @click.prevent="handleLink('/mcdm/segunda')">ETAPA 2</a>
+            <a class="link" @click.prevent="handleLink(2,'/mcdm/segunda')">ETAPA 2</a>
         </label>
 
         <label class="buttons-etapas" ref="label-resultados">
-            <a class="link" @click.prevent="handleLink('/mcdm/resultados')">RESULTADOS</a>
+            <a class="link" @click.prevent="handleLink(3,'/mcdm/resultados')">RESULTADOS</a>
         </label>
 
     </div>
@@ -24,18 +24,67 @@
 export default {
     name: "vue-mcdm-header",
     mounted() {
-        this.changeTabOpacity("inputs")
+        this.changeTabOpacity()
+        this.changeAtualTab('/mcdm/inputs')
+        this.$router.push('/mcdm/inputs')
+    },
+    created(){
+        this.$store.dispatch('changeViewProgress', 0)
+    },
+    computed:{
+        viewProgress(){
+            return this.$store.getters.currentViewProgress
+        },
+        templateAtual() {
+            return this.$store.getters.currentTemplateMcdm
+        }
+    },
+    watch:{
+        templateAtual(){
+            this.handleTemplate()
+
+        }
     },
     methods: {
-        changeTabOpacity(escolhido) {
-            document.querySelectorAll("label").forEach((element) => {
-                element.style.opacity = 0.9
-            })
-            this.$refs[`label-${escolhido}`].style.opacity = 1
+        handleTemplate(){
+            if(this.templateAtual=== ""){
+                console.log('oi')
+                this.$store.dispatch('changeViewProgress', 0)
+                this.changeTabOpacity()
+                this.changeAtualTab('/mcdm/inputs')
+            }{
+                this.$store.dispatch('changeViewProgress', 1)
+                this.changeTabOpacity()
+                this.changeAtualTab('/mcdm/inputs')
+            }
         },
-        handleLink(route) {
-            this.changeTabOpacity((route.split("/")[2]))
-            this.$router.push(route)
+        changeTabOpacity() {
+            document.querySelectorAll("label").forEach((element) => {
+                element.style.opacity = 0.6
+            })
+            for(let i=0; (i<=this.viewProgress && i<4); i++){
+                document.querySelectorAll("label")[i].style.opacity = 0.85
+            }
+        },
+        changeAtualTab(atual){
+            atual = atual.split("/")[2]
+            this.$refs[`label-${atual}`].style.opacity = 1
+        },
+        handleLink(index, route) {
+            console.log(this.viewProgress, index)
+            if(this.viewProgress > index && this.templateAtual !== ""){
+                this.changeTabOpacity()
+                this.changeAtualTab(route)
+                this.$router.push(route)
+            }else if(this.viewProgress === index && this.templateAtual !== ""){
+                this.$store.dispatch('changeViewProgress', this.viewProgress+1)
+                this.changeTabOpacity()
+                this.changeAtualTab(route)
+                this.$router.push(route)
+            }else if(this.viewProgress === index && this.templateAtual === ""){
+                this.$router.push('/mcdm/inputs')
+            }
+            
         }
     }
 }

@@ -2,7 +2,7 @@
     <section>
         <!-- TITULO SEÇÃO -->
         <h2>
-            {{ $t('tituloFluxograma') }}
+            {{ $ft('tituloFluxograma') }}
         </h2>
         <!-- CONTAINER DE TODO O FLUXOGRAMA -->
         <div class="container">
@@ -22,7 +22,7 @@
                 }"
                 @mouseout="balaoSai()"
             >
-                {{ $t(`${objeto[index]['Text']}`) }}
+                {{ $ft(`${objeto[index]['Text']}`) }}
             </div>
             <!-- CONTAINER DAS SETAS -->
             <Seta

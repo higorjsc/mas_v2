@@ -26,7 +26,7 @@
                     <th
                         class="th-titulo-coluna"
                     >
-                        {{ $t('tituloPesoGlobal') }}
+                        {{ $ft('tituloPesoGlobal') }}
                     </th>
                     <td
                         v-for="(pesoGlobal, indexPesoGlobal) in matrizSegunda[matrizSegunda.length-1]['pesos']"
@@ -59,9 +59,9 @@
             class="vetor-resultado-container"
         >
 
-            <span
-                class="span-prioridade-final"
-            >{{$t('prioridadeFinal')}}</span>
+            <h4
+                class="titulo-prioridade-final"
+            >{{$ft('prioridadeFinal')}}</h4>
             <table
                 class="vetor-resultado"
             >
@@ -134,8 +134,15 @@ export default {
                 pesos.push(multiplicaPeso(i))
             }
             const resultado = []
-            for (let i = 0; i < primeira.length; i++) {
-                resultado.push(pesos[i].reduce((acc, valor) => acc + valor, 0).toFixed(2))
+            let  somaColuna = (index)=> {
+                let soma = 0;
+                for (let lin = 0; lin < pesos.length; lin++) {
+                    soma += pesos[lin][index];
+                }
+                return soma.toFixed(2)
+            }
+            for (let index = 0; index < pesos[0].length; index++) {
+                resultado.push(somaColuna(index));
             }
             return resultado
         }
@@ -161,8 +168,11 @@ export default {
         width: 70%;
         height: 50%;
     }
-    .span-prioridade-final{
-        margin-right: 20px;
+    .titulo-prioridade-final{
+        text-align: center;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-size: 12pt;
     }
     .matriz-resultados, .vetor-resultado{
         width: 100%;

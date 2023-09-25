@@ -5,7 +5,7 @@
         <div
             class="criterios-ahp-cardozo-container"
         >
-            <h3>{{ $t('tituloAhpCriteriosCardozo') }}</h3>
+            <h3>{{ $ft('tituloAhpCriteriosCardozo') }}</h3>
             <ol>
                 <li>
                     Fluxograma de escolha
@@ -27,7 +27,7 @@
         <div
             class="options-ahp-cardozo-container"
         >
-            <h3>{{ $t('tituloAhpOptionsCardozo') }}</h3>
+            <h3>{{ $ft('tituloAhpOptionsCardozo') }}</h3>
             <ol>
                 <li>
                     Poço

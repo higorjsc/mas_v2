@@ -3,6 +3,7 @@
     color: black;
     --borda-simples: 1pt solid black;
     line-height: 1.5;
+    font-size: 11pt;
 }
 /* Estilo da barra de rolagem */
 ::-webkit-scrollbar {
