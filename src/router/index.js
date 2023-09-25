@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router"
+import { createRouter, createWebHashHistory } from "vue-router"
 
 const routes = [
     {
@@ -55,7 +55,9 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(),
+    // mode: "history", // Use 'history' mode for cleaner URLs (requires server configuration)
+    // base: "/escolha_acessos_v2/", // Specify your base URL here
     routes
 })
 

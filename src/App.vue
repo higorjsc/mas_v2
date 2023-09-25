@@ -1,6 +1,9 @@
 <template>
 
-    <RouterView></RouterView>
+    <div id="app">
+
+        <RouterView></RouterView>
+    </div>
 
 </template>
 <script>
