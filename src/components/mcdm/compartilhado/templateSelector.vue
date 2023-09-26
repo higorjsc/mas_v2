@@ -16,7 +16,7 @@
                 {{ $ft('terceiraTemplateMcdm') }}
             </option>
             <option value="inserir">
-                {{ $ft('inserirInputsMcdm') }}
+                {{ $ft('ahpPersonalizado') }}
             </option>
         </select>
     </div>

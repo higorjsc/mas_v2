@@ -1,21 +1,16 @@
 {
-  "name": "mas_v2",
-  "version": "1.0.0",
-  "description": "```\r npm install\r ```",
-  "author": "",
+  "devDependencies": {
+    "@vue/cli-service": "^5.0.8",
+    "eslint": "^8.50.0",
+    "eslint-plugin-vue": "^9.17.0"
+  },
+  "dependencies": {
+    "vue-router": "^4.2.5",
+    "vuex": "^4.0.2"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "main": ".eslintrc copy.js",
-  "dependencies": {
-    "vue-router": "^4.2.5",
-    "vuex": "^4.1.0"
-  },
-  "devDependencies": {
-    "@vue/cli": "^5.0.8",
-    "@vue/cli-service": "^5.0.8"
-  },
-  "license": "ISC"
+    "lint": "vue-cli-service lint"
+  }
 }

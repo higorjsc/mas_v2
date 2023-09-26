@@ -6,9 +6,15 @@
     >
         <p v-html="`${$ft('paragrafoExplicacaoFluxograma')}`"></p>
         <select v-model="fluxograma">
-            <option value="poco">{{ $ft('poco') }}</option>
-            <option value="rampa">{{ $ft('rampaCaminhoes') }}</option>
-            <option value="correia">{{ $ft('correiaTransportadora') }}</option>
+            <option value="poco">
+                {{ $ft('poco') }}
+            </option>
+            <option value="rampa">
+                {{ $ft('rampaCaminhoes') }}
+            </option>
+            <option value="correia">
+                {{ $ft('correiaTransportadora') }}
+            </option>
         </select>
         <vueMatriz
             idMatriz="matriz-energetico-texto"
@@ -28,9 +34,15 @@
     >
         <p v-html="`${$ft('paragrafoRiscoEnergetico')}`"></p>
         <select v-model="riscoEnergetico">
-            <option value="baixo">{{ $ft('baixoRiscoEnergetico') }}</option>
-            <option value="medio">{{ $ft('MedioRiscoEnergetico') }}</option>
-            <option value="alto">{{ $ft('AltoRiscoEnergetico') }}</option>
+            <option value="baixo">
+                {{ $ft('baixo') }}
+            </option>
+            <option value="medio">
+                {{ $ft('medio') }}
+            </option>
+            <option value="alto">
+                {{ $ft('alto') }}
+            </option>
         </select>
         <vueMatriz
             v-if="riscoEnergetico !== ''"
@@ -61,9 +73,15 @@
     >
         <p v-html="`${$ft('paragrafoExplicacaoSocial')}`"></p>
         <select v-model="social">
-            <option value="baixo">{{ $ft('baixo') }}</option>
-            <option value="medio">{{ $ft('medio') }}</option>
-            <option value="alto">{{ $ft('alto') }}</option>
+            <option value="baixo">
+                {{ $ft('baixo') }}
+            </option>
+            <option value="medio">
+                {{ $ft('medio') }}
+            </option>
+            <option value="alto">
+                {{ $ft('alto') }}
+            </option>
         </select>
         <vueMatriz
             idMatriz="matriz-energetico-texto"
@@ -73,25 +91,24 @@
     </div>
 
 
-
 </template>
 <script>
 import vueMatriz from "@/components/mcdm/compartilhado/matrizTexto.vue"
 export default{
-    name: 'predefinicao-cardozo',
-    emits:[
-        'matriz-definida'
-    ],
+    name: "predefinicao-cardozo",
     components:{
         vueMatriz
     },
     props:{
         selectSolicitado:{
             type: String,
-            default: ''
+            default: ""
         }
     },
-    data(){
+    emits:[
+        "matriz-definida"
+    ],
+    data() {
         return{
             fluxograma: "poco",
             riscoEnergetico: "baixo",
@@ -135,7 +152,7 @@ export default{
                     [1.00, 3.00, 1.00, 3.00],
                     [1.00, 0.33, 0.33, 1.00]
                 ],
-                baixo:[ 
+                baixo:[
                     [1.00, 1.00, 1.00, 1.00],
                     [1.00, 1.00, 1.00, 1.00],
                     [1.00, 1.00, 1.00, 1.00],
@@ -173,27 +190,29 @@ export default{
         }
     },
     watch:{
-        fluxograma(){
+        fluxograma() {
             this.$emit("matriz-definida", [0, this.matrizFluxograma[this.fluxograma]])
         },
-        riscoEnergetico(){
+        riscoEnergetico() {
             this.$emit("matriz-definida", [2, this.matrizEnergetico[this.riscoEnergetico]])
         },
-        social(){
+        social() {
             this.$emit("matriz-definida", [4, this.matrizSocial[this.social]])
-        },
+        }
     }
-    
+
 }
 
 </script>
 <style scoped>
 
     select{
-        width: 100%;
+        width: 97%;
     }
     p{
         text-align: justify;
+        padding-right: 3%;
+        box-sizing: border-box;
     }
     .emissao-container{
         display: flex;

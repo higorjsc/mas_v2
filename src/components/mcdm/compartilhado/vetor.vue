@@ -60,9 +60,8 @@ export default {
         flex-direction: row;
     }
 
-    .vetor td:hover{
+    .vetor:hover{
         cursor: pointer;
-        box-shadow: 0 0 10px var(--cor-tema);
     }
     .vetor tr{
         justify-content: space-evenly;

@@ -13,7 +13,7 @@ export default createStore({
         metodo: "", // Metodo/view atual
         popUp: null, // popUp aberto (null = nenhum)
         balao: "", // Variável de texto do balao help
-        matrizInputAtual: "",
+        matrizInputAtual: "Fluxograma",
         templateMcdm: "",
         matrizesPreDefinidas: [
             [ //fluxograma poco 0
@@ -28,7 +28,7 @@ export default createStore({
                 [0.14, 1.00, 0.11, 0.11],
                 [0.33, 9.00, 1.00, 0.11],
                 [3.00, 9.00, 9.00, 1.00]
-            ], 
+            ],
             [ //emissao 3
                 [1.00, 5.00, 0.20, 0.33],
                 [0.20, 1.00, 0.14, 0.14],
@@ -172,7 +172,7 @@ export default createStore({
         setViewProgress(state, data) {
             state.viewProgress = data
         },
-        setMatrizesPreDefinidas(state, {index, data}) {
+        setMatrizesPreDefinidas(state, { index, data }) {
             state.matrizesPreDefinidas[index] = data
         }
     },
@@ -311,8 +311,8 @@ export default createStore({
         changeViewProgress(context, data) {
             context.commit("setViewProgress", data)
         },
-        changeMatrizesPreDefinidas(context, {index, data}) {
-            context.commit("setMatrizesPreDefinidas", {index, data})
+        changeMatrizesPreDefinidas(context, { index, data }) {
+            context.commit("setMatrizesPreDefinidas", { index, data })
         }
     }
 })

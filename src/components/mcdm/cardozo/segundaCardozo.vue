@@ -2,15 +2,15 @@
 <template>
 
     <main
-        class="main-container-segunda-cardozo"
+        class="main-container-segunda"
     >
         <!-- SEÇÃO DOS INPUTS -->
         <section
-            class="slideres-container"
+            class="section-esquerda-segunda"
         >
-            
+
             <div
-                class="slider-container"
+                class="slider-container-segunda"
             >
                 <vueSlider
                     v-for="(itemChildren, indexChildren) in sliderStore"
@@ -27,20 +27,21 @@
 
         <!-- SEÇÃO DAS MATRIZES -->
         <section
-            class="matrizes-container-segunda-cardozo"
+            class="section-direita-segunda"
         >
+            <vueHelpAhp/>
 
             <div
-                class="matriz-container"
+                class="matriz-container-segunda"
             >
                 <h4
-                    class="titulo-matriz"
+                    class="titulo-matriz-segunda"
                 >
                     {{ $ft('tituloMatrizSegundaEtapaAhp') }}
                 </h4>
 
                 <div
-                    class="matriz-vetor-container"
+                    class="matriz-vetor-container-segunda"
                 >
                     <vueMatriz
                         :optionMatriz="criteriosSegunda"
@@ -69,6 +70,7 @@ import vueSlider from "@/components/compartilhado/sliderButton.vue"
 import vueMatriz from "@/components/mcdm/compartilhado/matriz.vue"
 import vueVetor from "@/components/mcdm/compartilhado/vetor.vue"
 import vueConsistencia from "@/components/mcdm/compartilhado/consistencia.vue"
+import vueHelpAhp from "@/components/mcdm/compartilhado/helpAhp.vue"
 import { throttle } from "lodash"
 import { RI } from "@/assets/javascript/globalConstants.js"
 
@@ -78,7 +80,8 @@ export default {
         vueSlider,
         vueMatriz,
         vueVetor,
-        vueConsistencia
+        vueConsistencia,
+        vueHelpAhp
     },
     data() {
         return {
@@ -221,7 +224,7 @@ export default {
             const lambda = consistence.reduce((acc, valor) => acc + valor, 0) / consistence.length
 
             // Cálculo do CI
-            const n = consistence.length - 1
+            const n = consistence.length
             const consistenceIndex = (lambda - n) / (n - 1)
 
             // Cálculo do CR (RI importado de globalConstants.js)
@@ -256,67 +259,11 @@ export default {
 </script>
 <style scoped>
 
-    main{
-        display: grid;
-        grid-template-columns: 3fr 9fr;
-        overflow: hidden;
-        height: 100%;
-    }
-    main .slideres-container{
-        grid-column: 1/2;
-        width: 100%;
-        border-right: var(--borda-simples);
-        box-sizing: border-box;
-        padding-left: 2%;
-        padding-bottom: 10%;
-        overflow: scroll;
-        overflow-x: hidden;
-    }
     .resultados-fluxograma-container{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    .titulo-matriz{
-        text-align: center;
-        margin-bottom: 10px;
-        margin-top: 10px;
-        font-size: 12pt;
-    }
-    h3{
-        text-align: center;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        text-decoration: none;
-        border: none;
-        font-size: 14pt;
-    }
-    .matrizes-container-segunda-cardozo{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        grid-column: 2/3;
-        max-height: 700px;
-        overflow: scroll;
-        overflow-x: hidden;
-        padding-bottom: 5%;
-    }
-    .matriz-container{
-        margin: auto;
-    }
-    .matriz-vetor-container{
-        display: flex;
-        gap: 1px;
-        margin: auto;
-        width: 90%;
-    }
-    .slider-container{
-        display: flex;
-        flex-direction: column;
-        width: 98%;
-        height: 600px;
-    }
-
 
 </style>

@@ -50,6 +50,9 @@ export default {
     beforeMount() {
         this.$store.dispatch("changeMetodo", "Mcdm")
         aplicarTema("temaVerde")
+    },
+    beforeUnmount() {
+        this.$store.dispatch("changeTemplateMcdm", "")
     }
 }
 </script>

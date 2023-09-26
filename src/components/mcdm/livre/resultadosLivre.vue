@@ -7,6 +7,11 @@
         <div
             class="matriz-resultados-container"
         >
+            <h4
+                class="titulo-matriz-pesos"
+            >
+                {{ $ft('matrizPrioridadesGlobais') }}
+            </h4>
             <table
                 class="matriz-resultados"
             >
@@ -61,7 +66,7 @@
 
             <h4
                 class="titulo-prioridade-final"
-            >{{$ft('prioridadeFinal')}}</h4>
+            >{{$ft('vetorPrioridadeGlobal')}}</h4>
             <table
                 class="vetor-resultado"
             >
@@ -91,11 +96,6 @@
 
 export default {
     name: "vue-resultados-etapa-livre",
-    components: {
-    },
-    data() {
-
-    },
     computed: {
         matrizPrimeira() {
             return this.$store.getters.currentMatrizPrimeira
@@ -109,10 +109,6 @@ export default {
         optionsSegunda() {
             return this.$store.getters.currentOptionsSegunda
         }
-    },
-    mounted() {
-        // console.log(this.matrizPrimeira)
-        this.resultadoFinal()
     },
     methods: {
         resultadoFinal() {
@@ -134,15 +130,15 @@ export default {
                 pesos.push(multiplicaPeso(i))
             }
             const resultado = []
-            let  somaColuna = (index)=> {
-                let soma = 0;
+            const  somaColuna = (index)=> {
+                let soma = 0
                 for (let lin = 0; lin < pesos.length; lin++) {
-                    soma += pesos[lin][index];
+                    soma += pesos[lin][index]
                 }
                 return soma.toFixed(2)
             }
             for (let index = 0; index < pesos[0].length; index++) {
-                resultado.push(somaColuna(index));
+                resultado.push(somaColuna(index))
             }
             return resultado
         }
@@ -151,54 +147,5 @@ export default {
 
 </script>
 <style scoped>
-
-    .matriz-resultados-container{
-        display: flex;
-        margin: auto;
-        margin-top: 5%;
-        width: 70%;
-        height: 50%;
-    }
-    .vetor-resultado-container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: auto;
-        margin-top: 5%;
-        width: 70%;
-        height: 50%;
-    }
-    .titulo-prioridade-final{
-        text-align: center;
-        margin-bottom: 10px;
-        margin-top: 10px;
-        font-size: 12pt;
-    }
-    .matriz-resultados, .vetor-resultado{
-        width: 100%;
-        height: 100%
-    }
-    .matriz-resultados td, .vetor-resultado td{
-        width: 90px;
-        text-align: center;
-        border: var(--borda-simples);
-        background-color: rgba(3, 49, 3, 0.8);
-        color: var(--cor-texto-tema);
-    }
-    .th-titulo-coluna{
-        width: 10%;
-        font-size: 12pt;
-        font-weight: bold;
-        text-align: left;
-        color: var(--cor-tema)
-
-    }
-    .th-titulo-linha{
-        width: 10%;
-        font-size: 12pt;
-        font-weight: bold;
-        height: 50px;
-        color: var(--cor-tema)
-    }
 
 </style>

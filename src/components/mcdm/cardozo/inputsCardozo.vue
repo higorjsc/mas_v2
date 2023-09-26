@@ -1,11 +1,15 @@
 <template>
 
-    <section class="container">
+    <section class="section-container-inputs">
 
         <div
-            class="criterios-ahp-cardozo-container"
+            class="criterios-ahp-container-cardozo"
         >
-            <h3>{{ $ft('tituloAhpCriteriosCardozo') }}</h3>
+            <h3
+                class="titulo-inputs-criterios"
+            >
+                {{ $ft('mcdmTituloCriterios') }}
+            </h3>
             <ol>
                 <li>
                     Fluxograma de escolha
@@ -25,9 +29,13 @@
             </ol>
         </div>
         <div
-            class="options-ahp-cardozo-container"
+            class="options-ahp-container-cardozo"
         >
-            <h3>{{ $ft('tituloAhpOptionsCardozo') }}</h3>
+            <h3
+                class="titulo-inputs-options"
+            >
+                {{ $ft('mcdmTituloOptions') }}
+            </h3>
             <ol>
                 <li>
                     Poço
@@ -91,18 +99,10 @@ export default {
 </script>
 <style scoped>
 
-    .container{
-        display: flex;
-        flex-direction: column;
-        padding-left: 2%;
-    }
-    div{
+    .criterios-ahp-container-cardozo, .options-ahp-container-cardozo{
         margin-bottom: 10px;
     }
-    h3{
-        margin-top: 10px;
-        margin-bottom: 5px;
-    }
+
     /* Estiliza a lista ordenada (ol) */
     ol {
         list-style-type: none; /* Tipo de marcador (números) */

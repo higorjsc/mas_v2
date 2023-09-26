@@ -65,7 +65,7 @@ export default {
     height: 100%;
     padding-bottom: 5%;
     overflow:hidden;
-    min-height: 627px;
+    min-height: 640px;
 }
 
 </style>

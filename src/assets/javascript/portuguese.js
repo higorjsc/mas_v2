@@ -7,6 +7,10 @@ const translation = {
     selectMethod: "SELECIONE O MÉTODO",
     sim: "Sim",
     nao: "Não",
+    selecione: "Selecione",
+    baixo: "Baixo",
+    medio: "Médio",
+    alto: "Alto",
     tituloFluxograma: "FLUXOGRAMA",
     tituloInputs: "PARÂMETROS DE ESCOLHA",
     tituloIlustration: "ILUSTRAÇÃO",
@@ -170,14 +174,16 @@ const translation = {
 
     // VERGNE PORTUGUÊS
     tituloVergne: "SELEÇÃO DE ACESSOS PARA MINAS SUBTERRÂNEAS: Método La Vergne (2003)",
-    paragrafoExplicacaoVergne: "" +
-        "O método de La Vergne (2003) para a seleção de acesso a minas subterrâneas foi apresentado pelo autor como um &rdquo;guia superfícial&ldquo; para uma análise preliminar dos possíveis acessos." +
-        "<br><br><strong>Observações:</strong><br>" +
-        "- O modelo é baseado em regras de ouro compiladas à época<br>" +
-        "- Os limites propostos para profundidade e produção foram superados por avanços tecnológicos.<br>" +
-        "- O método não dispensa estudos detalhados de viabilidade, mas objetiva diminuir a quantidade de esforços nas etapas inicias do planejamento da mina." +
-        "<br><br><strong>Referência:</strong><br>" +
-            "- LA VERGNE, Jack. Hard rock miner's handbook. Tempe/North Bay: McIntosh engineering. ISBN 0-968006-1-6, 2003.",
+    paragrafoExplicacaoVergne: ""
+    + "O método de La Vergne (2003) para a seleção de acesso a minas subterrâneas foi apresentado pelo autor como um"
+    + "&rdquo;guia superfícial&ldquo; para uma análise preliminar dos possíveis acessos."
+    + "<br><br><strong>Observações:</strong><br>"
+    + "- O modelo é baseado em regras de ouro compiladas à época<br>"
+    + "- Os limites propostos para profundidade e produção foram superados por avanços tecnológicos.<br>"
+    + "- O método não dispensa estudos detalhados de viabilidade, mas objetiva diminuir a quantidade de esforços nas etapas inicias do planejamento da mina."
+    + "<br><br><strong>Referência:</strong><br>"
+    + "- LA VERGNE, Jack. Hard rock miner's handbook. Tempe/North Bay: McIntosh engineering. ISBN 0-968006-1-6, 2003."
+    ,
     // INPUTS VERGNE PORTUGUÊS
     smTituloVergne: "Cobertura superficial",
     smDescriptionVergne: "Camada estreita de materiais inconsolidados?",
@@ -223,34 +229,75 @@ const translation = {
 
     // MCDM PORTUGUES
     tituloMcdm: "SELEÇÃO DE ACESSOS PARA MINAS SUBTERRÂNEAS: Análise Multicriterial",
+    paragrafoExplicacaoMcdm: ""
+    + "A aplicação de metodologias de análise multicritérial vem sendo amplamente utilizadas para a "
+    + "tomada de decisões em projetos de mineração, em questões como: escolha de métodos de acesso, "
+    + "transporte de minério e método de lavra, dentre outras. (CITAÇÃO, ANO; CITAÇÃO, ANO; CITAÇÃO, ANO; CITAÇÃO, ANO;)"
+    + "<br><br><strong>Dentre suas vantagens:</strong>"
+    + "- Permitem uma análise personalizada da situação, considerando individualidades da cada mina.<br>"
+    + "- São flexíveis ao considerar a experiência/opinião de especialistas.<br>"
+    + "- Favorecem a análise dos riscos associados a cada critério.<br>"
+    + "- Garantem uma medida de consistência (lógica) da decisão."
+    + "<br><br><strong>Observações:</strong><br>"
+    + "- <br>"
+    + "- "
+
+    ,
+
+    templatesMcdmTitulo: "Método de decisão",
+    primeiraTemplateMcdm: "AHP Cardozo 2023",
+    segundaTemplateMcdm: "Segunda Template",
+    terceiraTemplateMcdm: "Terceira Template",
+    ahpPersonalizado: "AHP Personalizado",
+    mcdmTituloCriterios: "Critérios de decisão:",
+    mcdmTituloOptions: "Opções para comparação:",
+    helpEscalaSaaty: "ESCALA AHP",
+    matrizFluxogramaCardozo: "Fluxograma Empírico",
+    tituloMatrizSegundaEtapaAhp: "Comparação de Critérios",
+    matrizPrioridadesGlobais: "MATRIZ DE PRIORIDADES LOCAIS",
+    vetorPrioridadeGlobal: "VETOR DE PRIORIDADES GLOBAIS",
+    tituloPesoGlobal: "Peso do critério",
+
 
     // AHP CARDOZO PORTUGUES
-    paragrafoExplicacaoSocial: "Cardozo (2023) sugere o ponderamento do desempenho social, dentre as opções de acesso a mina, " 
-    +"em relação a aspectos como geração de empregos, qualificação da mão de obra, segurança dos trabalhadores e uso de recursos locais."
-    +"<br><br>Os pesos relativos de cada opção são sugeridos com base no risco social que o empreendimento representa à região:"
+    paragrafoExplicacaoSocial: "Cardozo (2023) sugere o ponderamento do desempenho social, dentre as opções de acesso a mina, "
+    + "em relação a aspectos como geração de empregos, qualificação da mão de obra, segurança dos trabalhadores e uso de recursos locais."
+    + "<br><br>Os pesos relativos de cada opção são sugeridos com base no risco social que o empreendimento representa à região:"
     ,
-    paragrafoExplicacaoFluxograma: "Cardozo (2023) propõe o uso dos fluxogramas empíricos de escolha de acesso"  
-    +"(MOSER, 1996; VERGNE, 2003; CARDOZO, 2023), como critério de seleção na análise multicriterial," 
-    +"onde deve-se dar plena prioridade ao resultado obtido dos mesmos."
-    +"O autor ressalta que a opção por correia, quando é expressa, tem grande peso sobre as demais." 
-    +"<br><br>Os pesos relativos de cada opção são sugeridos com base no resultado dos fluxogramas empíricos:"
+    paragrafoExplicacaoFluxograma: "Cardozo (2023) propõe o uso dos fluxogramas empíricos de escolha de acesso"
+    + "(MOSER, 1996; VERGNE, 2003; CARDOZO, 2023), como critério de seleção na análise multicriterial,"
+    + "onde deve-se dar plena prioridade ao resultado obtido dos mesmos."
+    + "O autor ressalta que a opção por correia, quando é expressa, tem grande peso sobre as demais."
+    + "<br><br>Os pesos relativos de cada opção são sugeridos com base no resultado dos fluxogramas empíricos:"
     ,
     paragrafoExplicacaoEmissoes: ""
-    +"Segundo Cardozo (2023), deve-se dar preferência à alternativa com melhor desempenho em termos de emissões frente às outras, como métrica." 
-    +"'A geração de CO² eq/ton explotada pode ser utilizada como referência para refinamento da escolha.'\n"
-    +"<br><br>Os pesos sugeridos são:"
+    + "Segundo Cardozo (2023), deve-se dar preferência à alternativa com melhor desempenho em termos de emissões frente às outras, como métrica."
+    + "'A geração de CO² eq/ton explotada pode ser utilizada como referência para refinamento da escolha.'\n"
+    + "<br><br>Os pesos sugeridos são:"
     ,
     paragrafoRiscoEnergetico: ""
-    +"Segundo Cardozo (2023), deve-se observar se a opção é favorecida pela possibilidade de geração própria de energia e/ou por sua disponibilidade local" 
-    +"<br><br>Os pesos relativos de cada opção são sugeridos com base no risco energético que o empreendimento representa à região:"
+    + "Segundo Cardozo (2023), deve-se observar se a opção é favorecida pela possibilidade de geração própria de energia e/ou por sua disponibilidade local"
+    + "<br><br>Os pesos relativos de cada opção são sugeridos com base no risco energético que o empreendimento representa à região:"
     ,
     poco:"Poço",
     rampaDiesel:"R. Diesel",
     rampaEletrico:"R. Elétrico",
+    rampaCaminhoes:"Rampa e Caminhões",
     correia:"Correia",
     correiaTransportadora:"Correia Transportadora",
     predefinido:"Pré-definido",
-    personalizado:"Personalizado"
+    personalizado:"Personalizado",
+
+    // TABELA SAATY ESCALA AHP PORTUGUES
+    tituloEscalaSaaty: "ESCALA DE COMPARAÇÃO DE PARES",
+    verbalEscalaSaaty: "Verbal",
+    numericaEscalaSaaty: "Númerica",
+    igualImportanciaEscalaSaaty: "Igual importância",
+    moderadamenteSuperiorEscalaSaaty: "Moderadamente superior",
+    superiorEscalaSaaty: "Superior",
+    muitoSuperiorEscalaSaaty: "Muito Superior",
+    extremamenteSuperiorEscalaSaaty: "Extremamente superior",
+    legendaEscalaSaaty: "Os valores 2,4,6 e 8 são intermediários."
 
 }
 

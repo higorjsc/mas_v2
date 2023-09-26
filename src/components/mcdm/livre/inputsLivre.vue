@@ -1,11 +1,17 @@
 <template>
 
-    <section>
+    <section
+        class="section-container-inputs"
+    >
 
         <div
-            class="criterios-ahp-container"
+            class="criterios-ahp-container-livre"
         >
-            <h3>{{ $ft('tituloAhpCriterios') }}</h3>
+            <h3
+                class="titulo-inputs-criterios"
+            >
+                {{ $ft('mcdmTituloCriterios') }}
+            </h3>
             <div
                 v-for="(item, index) in criteriosPrimeira"
                 :key="index"
@@ -15,7 +21,7 @@
                     {{ index+1 }} -
                 </label>
                 <input
-                    class="criterios"
+                    class="input-criterios"
                     v-model="criteriosPrimeira[index]"
                 >
                 <button
@@ -31,9 +37,13 @@
 
         <!-- OPÇÕES E BOTÕES DE ADICIONAR OPÇÕES -->
         <div
-            class="options-ahp-container"
+            class="options-ahp-container-livre"
         >
-            <h3>{{ $ft('tituloAhpOptions') }}</h3>
+            <h3
+                class="titulo-inputs-criterios"
+            >
+                {{ $ft('mcdmTituloOptions') }}
+            </h3>
             <div
                 v-for="(item, index) in optionsPrimeira"
                 :key="index"
@@ -42,7 +52,7 @@
                     {{ index+1 }} -
                 </label>
                 <input
-                    class="options"
+                    class="input-options"
                     v-model="optionsPrimeira[index]"
                 >
                 <button
@@ -125,25 +135,16 @@ export default {
 }
 </script>
 <style scoped>
-    section{
-        display: flex;
-        flex-direction: column;
-        padding-left: 2%;
-    }
 
-    .criterios-ahp-container{
+    .criterios-ahp-container-livre{
         align-items: center;
         width: 100%;
     }
-    .criterios-ahp-container div, .options-ahp-container div{
+    .criterios-ahp-container-livre div, .options-ahp-container-livre div{
         display: flex;
         align-items: baseline;
     }
-    h3{
-        margin-top: 10px;
-        margin-bottom: 5px;
-    }
-    .criterios, .options{
+    .input-criterios, .input-options{
         border-radius: 20px;
         margin: 1px;
         text-align: center;

@@ -2,14 +2,14 @@
 <template>
 
     <main
-        class="main-container-primeira-livre"
+        class="main-container-primeira"
     >
         <!-- SEÇÃO DOS INPUTS -->
         <section
-            class="slideres-container"
+            class="section-esquerda-primeira"
         >
             <!-- Titulo matriz em edição -->
-            <h3 class="titulo-matriz-input">
+            <h3 class="titulo-matriz-input-primeira">
                 {{ alterarMatriz }}
             </h3>
 
@@ -19,7 +19,7 @@
             >
                 <div
                     v-if="itemParent === alterarMatriz"
-                    class="slider-container"
+                    class="slider-container-primeira"
                 >
                     <vueSlider
                         v-for="(itemChildren, indexChildren) in sliderStore[0]"
@@ -37,22 +37,22 @@
 
         <!-- SEÇÃO DAS MATRIZES -->
         <section
-            class="matrizes-container-primeira-livre"
+            class="container-matrizes-primeira"
         >
-
+            <vueHelpAhp/>
             <div
-                class="matriz-container"
+                class="matriz-container-primeira"
                 v-for="(itemCriterio, indexMatriz) in criteriosPrimeira"
                 :key="indexMatriz"
             >
                 <h4
-                    class="titulo-matriz"
+                    class="titulo-matriz-primeira"
                 >
                     {{ itemCriterio }}
                 </h4>
 
                 <div
-                    class="matriz-vetor-container"
+                    class="matriz-vetor-container-primeira"
                 >
                     <vueMatriz
                         :optionMatriz="optionsPrimeira"
@@ -85,14 +85,17 @@ import vueVetor from "@/components/mcdm/compartilhado/vetor.vue"
 import vueConsistencia from "@/components/mcdm/compartilhado/consistencia.vue"
 import { throttle } from "lodash"
 import { RI } from "@/assets/javascript/globalConstants.js"
+import vueHelpAhp from "@/components/mcdm/compartilhado/helpAhp.vue"
+
 
 export default {
-    name: "vue-primeira-etapa-livre",
+    name: "vue-primeira-etapa",
     components: {
         vueSlider,
         vueMatriz,
         vueVetor,
-        vueConsistencia
+        vueConsistencia,
+        vueHelpAhp
     },
     data() {
         return {
@@ -259,7 +262,7 @@ export default {
             }
             // Cálculo do CI
             const consistenceIndex = []
-            const n = consistence.length - 1
+            const n = consistence.length
             for (let i = 0; i < consistence.length; i++) {
                 consistenceIndex.push(
                     (lambda[i] - n) / (n - 1)
@@ -303,57 +306,5 @@ export default {
 </script>
 <style scoped>
 
-    main{
-        display: grid;
-        grid-template-columns: 3fr 9fr;
-        overflow: hidden;
-    }
-    main .slideres-container{
-        display: block;
-        grid-column: 1/2;
-        width: 100%;
-        border-right: var(--borda-simples);
-        box-sizing: border-box;
-        padding-left: 2%;
-    }
-    .slider-container{
-        display: flex;
-        flex-direction: column;
-        width: 98%;
-        height: 600px;
-    }
-    .titulo-matriz{
-        text-align: center;
-        margin-bottom: 10px;
-        margin-top: 10px;
-        font-size: 12pt;
-    }
-
-    h3{
-        text-align: center;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        text-decoration: none;
-        border: none;
-        font-size: 14pt;
-    }
-    .matrizes-container-primeira-livre{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        grid-column: 2/3;
-        max-height: 700px;
-        overflow: scroll;
-        overflow-x: hidden;
-        padding-bottom: 5%;
-    }
-    .matriz-container{
-        margin: auto;
-    }
-    .matriz-vetor-container{
-        display: flex;
-        gap: 1px;
-        margin: auto;
-    }
 
 </style>

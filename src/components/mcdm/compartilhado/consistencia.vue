@@ -1,35 +1,35 @@
 <template>
 
-        <table
-            class="consistencia"
-        >
-            <tr>
-                <td id="td-oculto">
-                    -
-                </td>
-            </tr>
-            <tr>
-                <td>
+    <table
+        class="consistencia"
+    >
+        <tr>
+            <td id="td-oculto">
+                -
+            </td>
+        </tr>
+        <tr>
+            <td>
 
-                    &lambda; = {{ lambda.toFixed(2) }}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    CI = {{ CI.toFixed(2) }}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    RI = {{ RI.toFixed(2) }}
-                </td>
-            </tr>
-            <tr>
-                <td ref="td-cr" id="td-cr">
-                    CR = {{ CR.toFixed(2) }} <div id="icon"></div>
-                </td>
-            </tr>
-        </table>
+                &lambda; = {{ lambda.toFixed(2) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                CI = {{ CI.toFixed(2) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                RI = {{ RI.toFixed(2) }}
+            </td>
+        </tr>
+        <tr>
+            <td ref="td-cr" id="td-cr">
+                CR = {{ CR.toFixed(2) }} <div id="icon"></div>
+            </td>
+        </tr>
+    </table>
 
 
 </template>

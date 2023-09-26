@@ -103,7 +103,7 @@ export default {
         grid-column: 4/5;
     }
     ul{
-        text-decoration: none;
+        list-style-type: none; /* Tipo de marcador (números) */
     }
     .div-direita li:hover {
         cursor: pointer;

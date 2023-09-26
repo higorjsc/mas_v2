@@ -1,0 +1,10 @@
+
+.section-container-inputs{
+    display: flex;
+    flex-direction: column;
+    padding-left: 2%;
+}
+.titulo-inputs-criterios, .titulo-inputs-options{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
