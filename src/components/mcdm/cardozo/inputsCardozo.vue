@@ -20,7 +20,7 @@
                     Emissões/Custo Ambiental
                 </li>
                 <li>
-                    Social
+                    Risco Social
                 </li>
             </ol>
         </div>
@@ -63,7 +63,7 @@ export default {
                 "Aval. Econômica",
                 "Risco Energético",
                 "Custo Ambiental",
-                "Social"
+                "Risco Social"
             ],
             optionsSegunda: [
                 "Poço",
@@ -76,7 +76,7 @@ export default {
                 "Aval. Econômica",
                 "Risco Energético",
                 "Custo Ambiental",
-                "Social"
+                "Risco Social"
             ]
         }
     },

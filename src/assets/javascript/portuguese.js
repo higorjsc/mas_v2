@@ -219,7 +219,39 @@ const translation = {
     prodLeftVergne: "A produção da mina será menor<br>que 2,5 mil toneladas por dia?",
     rampaVergne: "Utilizar rampa e caminhões",
     shaftVergne: "Utilizar poço",
-    correiaVergne: "Utilizar correia transportadora"
+    correiaVergne: "Utilizar correia transportadora",
+
+    // MCDM PORTUGUES
+    tituloMcdm: "SELEÇÃO DE ACESSOS PARA MINAS SUBTERRÂNEAS: Análise Multicriterial",
+
+    // AHP CARDOZO PORTUGUES
+    paragrafoExplicacaoSocial: "Cardozo (2023) sugere o ponderamento do desempenho social, dentre as opções de acesso a mina, " 
+    +"em relação a aspectos como geração de empregos, qualificação da mão de obra, segurança dos trabalhadores e uso de recursos locais."
+    +"<br><br>Os pesos relativos de cada opção são sugeridos com base no risco social que o empreendimento representa à região:"
+    ,
+    paragrafoExplicacaoFluxograma: "Cardozo (2023) propõe o uso dos fluxogramas empíricos de escolha de acesso"  
+    +"(MOSER, 1996; VERGNE, 2003; CARDOZO, 2023), como critério de seleção na análise multicriterial," 
+    +"onde deve-se dar plena prioridade ao resultado obtido dos mesmos."
+    +"O autor ressalta que a opção por correia, quando é expressa, tem grande peso sobre as demais." 
+    +"<br><br>Os pesos relativos de cada opção são sugeridos com base no resultado dos fluxogramas empíricos:"
+    ,
+    paragrafoExplicacaoEmissoes: ""
+    +"Segundo Cardozo (2023), deve-se dar preferência à alternativa com melhor desempenho em termos de emissões frente às outras, como métrica." 
+    +"'A geração de CO² eq/ton explotada pode ser utilizada como referência para refinamento da escolha.'\n"
+    +"<br><br>Os pesos sugeridos são:"
+    ,
+    paragrafoRiscoEnergetico: ""
+    +"Segundo Cardozo (2023), deve-se observar se a opção é favorecida pela possibilidade de geração própria de energia e/ou por sua disponibilidade local" 
+    +"<br><br>Os pesos relativos de cada opção são sugeridos com base no risco energético que o empreendimento representa à região:"
+    ,
+    poco:"Poço",
+    rampaDiesel:"R. Diesel",
+    rampaEletrico:"R. Elétrico",
+    correia:"Correia",
+    correiaTransportadora:"Correia Transportadora",
+    predefinido:"Pré-definido",
+    personalizado:"Personalizado"
+
 }
 
 export default translation

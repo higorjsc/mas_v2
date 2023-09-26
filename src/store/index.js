@@ -15,6 +15,33 @@ export default createStore({
         balao: "", // Variável de texto do balao help
         matrizInputAtual: "",
         templateMcdm: "",
+        matrizesPreDefinidas: [
+            [ //fluxograma poco 0
+                [1.00, 3.00, 3.00, 5.00],
+                [0.33, 1.00, 1.00, 2.00],
+                [0.33, 1.00, 1.00, 2.00],
+                [0.20, 0.50, 0.50, 1.00]
+            ],
+            [], //Aval. Economica 1
+            [ //risco energetico baixo 2
+                [1.00, 7.00, 3.00, 0.33],
+                [0.14, 1.00, 0.11, 0.11],
+                [0.33, 9.00, 1.00, 0.11],
+                [3.00, 9.00, 9.00, 1.00]
+            ], 
+            [ //emissao 3
+                [1.00, 5.00, 0.20, 0.33],
+                [0.20, 1.00, 0.14, 0.14],
+                [5.00, 7.00, 1.00, 2.00],
+                [3.00, 7.00, 0.50, 1.00]
+            ],
+            [ //risco social baixo 4
+                [1.00, 1.00, 1.00, 1.00],
+                [1.00, 1.00, 1.00, 1.00],
+                [1.00, 1.00, 1.00, 1.00],
+                [1.00, 1.00, 1.00, 1.00]
+            ]
+        ],
         slideresPrimeira: [],
         slideresSegunda: [],
         matrizPrimeira: [],
@@ -144,6 +171,9 @@ export default createStore({
         },
         setViewProgress(state, data) {
             state.viewProgress = data
+        },
+        setMatrizesPreDefinidas(state, {index, data}) {
+            state.matrizesPreDefinidas[index] = data
         }
     },
     getters: {
@@ -212,6 +242,9 @@ export default createStore({
         },
         currentViewProgress(state) {
             return state.viewProgress
+        },
+        currentMatrizesPreDefinidas(state) {
+            return state.matrizesPreDefinidas
         }
     },
     actions: {
@@ -277,6 +310,9 @@ export default createStore({
         },
         changeViewProgress(context, data) {
             context.commit("setViewProgress", data)
+        },
+        changeMatrizesPreDefinidas(context, {index, data}) {
+            context.commit("setMatrizesPreDefinidas", {index, data})
         }
     }
 })

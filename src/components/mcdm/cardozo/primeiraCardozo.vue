@@ -13,11 +13,12 @@
                 class="container-metodo-alterador"
             >
                 <h3 class="titulo-matriz-input">
-                    {{ alterarMatriz }}
+                    {{ matrizAtual }}
                 </h3>
+
                 <div
                     class="radio-container"
-                    v-if="alterarMatriz!== 'Fluxograma'"
+                    v-if="((matrizAtual!== 'Fluxograma') && (matrizAtual !== 'Aval. Econômica'))"
                 >
                     <!-- PRÉ-DEFINIDO -->
                     <div>
@@ -37,22 +38,15 @@
 
             <!-- Resultados do fluxograma -->
             <div
-                v-if="alterarMatriz==='Fluxograma'"
+                v-if="matrizAtual==='Fluxograma'"
                 class="resultados-fluxograma-container"
             >
-                <select v-model="resultadoFluxograma">
-                    <option value="">
-                    </option><option value="poco">
-                        {{ $ft('resultadoShaftCardozo') }}
-                    </option>
-                    <option value="rampa">
-                        {{ $ft('resultadoRampaCardozo') }}
-                    </option>
-                    <option value="correia">
-                        {{ $ft('resultadoCorreiaCardozo') }}
-                    </option>
-                </select>
+                <preSelect
+                    :selectSolicitado="'Fluxograma'"
+                    @matriz-definida="handlePreDefinido"
+                />
             </div>
+
             <!-- OUTROS SLIDERES -->
             <div
                 v-if="metodoDefinido==='personalizado'"
@@ -60,7 +54,7 @@
                 :key="indexParent"
             >
                 <div
-                    v-if="itemParent === alterarMatriz"
+                    v-if="itemParent === matrizAtual"
                     class="slider-container"
                 >
                     <vueSlider
@@ -79,9 +73,12 @@
                 v-if="metodoDefinido==='predefinido'"
                 v-for="(itemParent, indexParent) in criteriosPrimeira"
                 :key="indexParent"
+                class="predefinido-container"
             >
                 <preSelect
-                    :selectSolicitado="alterarMatriz"
+                    v-if="(itemParent === matrizAtual)"
+                    :selectSolicitado="matrizAtual"
+                    @matriz-definida="handlePreDefinido"
                 />
             </div>
 
@@ -96,18 +93,19 @@
             <div
                 class="matriz-container"
             >
+             
                 <h4
                     class="titulo-matriz"
                 >
                     {{ $ft('matrizFluxogramaCardozo') }}
                 </h4>
-
                 <div
                     class="matriz-vetor-container"
                 >
+                
                     <vueMatriz
                         :optionMatriz="optionsPrimeira"
-                        :valueMatriz="resultadoMatrizFluxograma"
+                        :valueMatriz="matrizesPreDefinidas[0]"
                         @click="trocaMatrizInputAtual('Fluxograma')"
                     />
                     <vueVetor
@@ -123,6 +121,7 @@
                     />
                 </div>
             </div>
+
             <!-- OUTRAS MATRIZES -->
             <div
                 class="matriz-container"
@@ -183,34 +182,24 @@ export default {
     data() {
         return {
             metodoDefinido: "personalizado",
-            resultadoFluxograma: "rampa",
+            fluxograma: [0, "poco"],
+            energetico: [0, "baixo"],
+            social: [0, "baixo"],
+            emissao: [0, 'emissao'],
+            criteriosPreDefinidos: {
+                'Fluxograma': true,
+                'Aval. Economica': false,
+                'Risco Energético': false,
+                'Custo Ambiental': false,
+                'Risco Social': false
+            },
             sliderValue: [],
             sliderStore: [],
             vetorPesos: [],
-            matrizFluxograma: {
-                poco: [
-                    [1.00, 3.00, 3.00, 5.00],
-                    [0.33, 1.00, 1.00, 2.00],
-                    [0.33, 1.00, 1.00, 2.00],
-                    [0.20, 0.50, 0.50, 1.00]
-                ],
-                rampa: [
-                    [1.00, 0.33, 0.33, 2.00],
-                    [3.00, 1.00, 1.00, 5.00],
-                    [3.00, 1.00, 1.00, 5.00],
-                    [0.50, 0.20, 0.20, 1.00]
-                ],
-                correia: [
-                    [1.00, 1.00, 1.00, 0.14],
-                    [1.00, 1.00, 1.00, 0.14],
-                    [1.00, 1.00, 1.00, 0.14],
-                    [7.00, 7.00, 7.00, 1.00]
-                ]
-            }
         }
     },
     computed: {
-        alterarMatriz() {
+        matrizAtual() {
             return this.$store.getters.currentMatrizInputAtual
         },
         matrizValores() {
@@ -219,8 +208,8 @@ export default {
         slideres() {
             return this.$store.getters.currentSlideresPrimeira
         },
-        resultadoMatrizFluxograma() {
-            return this.matrizFluxograma[this.resultadoFluxograma]
+        matrizesPreDefinidas() {
+            return this.$store.getters.currentMatrizesPreDefinidas
         },
         criteriosPrimeira() {
             return this.$store.getters.currentCriteriosPrimeira
@@ -230,13 +219,9 @@ export default {
         }
     },
     watch: {
-        resultadoFluxograma() {
-            this.handleResultadoFluxograma()
-        },
         metodoDefinido(){
-            console.log(this.metodoDefinido)
+            this.handleMetodoDefinido()
         }
-
     },
     created() {
         this.sliderStore = this.$store.getters.currentSlideresPrimeira
@@ -248,10 +233,24 @@ export default {
         this.changeMatrix()
     },
     methods: {
-        handleResultadoFluxograma() {
+        handleMetodoDefinido() {
+            if (this.metodoDefinido === 'predefinido') {
+                this.criteriosPreDefinidos[this.matrizAtual] = true
+            } else {
+                this.criteriosPreDefinidos[this.matrizAtual] = false
+            }
+            this.changeMatrix()
+        },
+        handlePreDefinido(value) {
+            const index = value[0]// O índice da matriz a ser atualizada
+            const data = value[1] // Os novos dados da matriz
+
+            this.$store.dispatch("changeMatrizesPreDefinidas", { index, data })
+            console.log(value[1])
             this.changeMatrix()
         },
         trocaMatrizInputAtual(matrizName) {
+            console.log(matrizName)
             this.$store.dispatch("changeMatrizInputAtual", matrizName)
             this.$store.dispatch("changeSlideresPrimeira", this.sliderStore)
         },
@@ -298,12 +297,15 @@ export default {
             return matriz
         },
         changeMatrix() {
-            let matrizPrimeira = []
-            matrizPrimeira.push(this.resultadoMatrizFluxograma)
-            for (let i = 0; i < this.criteriosPrimeira.length; i++) {
-                matrizPrimeira.push(this.matrizMaker(i))
-            }
+            let matrizPrimeira = Array.from({ length: 5 });
+            matrizPrimeira[0] = this.matrizesPreDefinidas[0]
+            // console.log(this.matrizesPreDefinidas[3])
+            matrizPrimeira[1] = this.criteriosPreDefinidos['Aval. Economica']? this.matrizesPreDefinidas[1] : this.matrizMaker(0)
+            matrizPrimeira[2] = this.criteriosPreDefinidos['Risco Energético']? this.matrizesPreDefinidas[2] : this.matrizMaker(1)
+            matrizPrimeira[3] = this.criteriosPreDefinidos['Custo Ambiental']? this.matrizesPreDefinidas[3] : this.matrizMaker(2)
+            matrizPrimeira[4] = this.criteriosPreDefinidos['Risco Social']? this.matrizesPreDefinidas[4] : this.matrizMaker(3)
             this.$store.dispatch("changeMatrizPrimeira", matrizPrimeira)
+            // console.log(matrizPrimeira)
             matrizPrimeira = this.calcula(matrizPrimeira)
         },
         calcula(matrizPrimeira) {
@@ -436,7 +438,10 @@ export default {
         overflow: hidden;
     }
     main .slideres-container{
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: flex-start;
         grid-column: 1/2;
         width: 100%;
         border-right: var(--borda-simples);
@@ -457,7 +462,7 @@ export default {
     }
     .titulo-matriz{
         text-align: center;
-        margin-bottom: 10px;
+        margin-bottom: 1px;
         margin-top: 10px;
         font-size: 12pt;
     }
@@ -480,6 +485,7 @@ export default {
         display: flex;
         gap: 5px;
         width: 100%;
+        margin-right: 10%;
     }
     .label-metodo-definido{
         align-self: center;
@@ -507,7 +513,6 @@ export default {
         border: none;
         font-size: 16pt;
     }
-
     .matrizes-container-primeira-cardozo{
         width: 100%;
         display: flex;
@@ -520,11 +525,22 @@ export default {
     }
     .matriz-container{
         margin: auto;
+        margin-bottom: 20px;
     }
     .matriz-vetor-container{
         display: flex;
         gap: 1px;
         margin: auto;
+    }
+    .matriz-container:hover{
+        cursor: pointer;
+        transform: scale(1.1)
+    }
+    .predefinido-container{
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        margin-top: 10px;
     }
 
 </style>
