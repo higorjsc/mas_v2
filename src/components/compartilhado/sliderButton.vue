@@ -17,6 +17,7 @@
             :id="id"
             :class="classe"
             ref="slider"
+            :name="name"
         >
         <div class="label-container">
             <label id="left-label">1/9</label>
@@ -31,6 +32,10 @@ export default {
     name: "vue-range-button",
     props: {
         texto: {
+            type: String,
+            default: "undefined"
+        },
+        name:{
             type: String,
             default: "undefined"
         },
@@ -65,7 +70,7 @@ export default {
     },
     methods: {
         enviarValor() {
-            this.$emit("slider-value", [this.classe, this.id, this.valorInput])
+            this.$emit("slider-value", [this.classe, this.id, this.valorInput, this.name])
         },
 
         sliderColor() {

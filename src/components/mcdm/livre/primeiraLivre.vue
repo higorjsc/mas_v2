@@ -10,7 +10,7 @@
         >
             <!-- Titulo matriz em edição -->
             <h3 class="titulo-matriz-input-primeira">
-                {{ alterarMatriz }}
+                {{ matrizAtual }}
             </h3>
 
             <div
@@ -18,7 +18,7 @@
                 :key="indexParent"
             >
                 <div
-                    v-if="itemParent === alterarMatriz"
+                    v-if="itemParent === matrizAtual"
                     class="slider-container-primeira"
                 >
                     <vueSlider
@@ -26,6 +26,7 @@
                         :key="indexChildren"
                         :id="`${indexChildren}`"
                         :classe="`${indexParent}`"
+                        :name="`slider-${indexParent+1}-${indexChildren+2}`"
                         :texto="itemChildren.texto"
                         :valor="sliderStore[indexParent][indexChildren].valor"
                         @slider-value="handleInputValue"
@@ -111,7 +112,7 @@ export default {
         }
     },
     computed: {
-        alterarMatriz() {
+        matrizAtual() {
             return this.$store.getters.currentMatrizInputAtual
         },
         matrizValores() {
@@ -133,6 +134,9 @@ export default {
         // Define a matriz em edição no loading
         this.$store.dispatch("changeMatrizInputAtual", this.criteriosPrimeira[0])
     },
+    mounted() {
+        this.changeMatrixColor()
+    },
     beforeUnmount() {
         this.$store.dispatch("changeSlideresPrimeira", this.sliderStore)
         this.changeMatrix()
@@ -145,6 +149,7 @@ export default {
         },
         handleInputValue(value) {
             this.sliderStore[value[0]][value[1]].valor = Number(value[2])
+            this.hoverInput(value)
             const throttledDefineMatriz = throttle(this.changeMatrix, 50)
             throttledDefineMatriz()
         },

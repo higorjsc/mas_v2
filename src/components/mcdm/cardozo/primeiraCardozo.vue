@@ -62,6 +62,7 @@
                         :key="indexChildren"
                         :id="`${indexChildren}`"
                         :classe="`${indexParent}`"
+                        :name="`slider-${indexParent+1}-${indexChildren+2}`"
                         :texto="itemChildren.texto"
                         :valor="sliderStore[indexParent][indexChildren].valor"
                         @slider-value="handleInputValue"
@@ -235,7 +236,7 @@ export default {
     },
     mounted() {
         this.trocaMatrizInputAtual("Fluxograma")
-
+        this.changeMatrixColor()
     },
     beforeUnmount() {
         this.$store.dispatch("changeSlideresPrimeira", this.sliderStore)
@@ -262,10 +263,11 @@ export default {
             this.metodoDefinido = matrizName === "Aval. Econômica" ?  "personalizado" : this.metodoDefinido
             this.$store.dispatch("changeMatrizInputAtual", matrizName)
             this.$store.dispatch("changeSlideresPrimeira", this.sliderStore)
-            this.changeMatrixColor(matrizName)
+            this.changeMatrixColor()
         },
         handleInputValue(value) {
             this.sliderStore[value[0]][value[1]].valor = Number(value[2])
+            this.hoverInput(value)
             const throttledDefineMatriz = throttle(this.changeMatrix, 50)
             throttledDefineMatriz()
         },

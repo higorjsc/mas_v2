@@ -36,7 +36,7 @@
                     :key="valueIndex"
                     class="celulas-valores"
                     :ref="`${optionIndex+1}${valueIndex+1}`"
-                    :id="`${optionIndex+1}${valueIndex+1}`"
+                    :id="`td-${optionIndex+1}${valueIndex+1}`"
                 >
                     {{valueMatriz[optionIndex][valueIndex]}}
                 </td>

@@ -4,7 +4,7 @@
         class="matriz-container"
     >
         <table
-            class="matriz"
+            class="matriz-texto"
             :id="idMatriz"
         >
             <!-- Linha de título -->
@@ -84,10 +84,10 @@ export default {
         flex-direction: row;
         justify-content: space-around;
     }
-    .matriz{
+    .matriz-texto{
         font-size: 10pt;
     }
-    .matriz td{
+    .matriz-texto td{
         min-width: 60px;
         max-width: 100px;
         text-align: center;

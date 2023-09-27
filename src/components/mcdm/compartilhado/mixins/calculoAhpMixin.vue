@@ -29,20 +29,67 @@ export default{
             valor = valor < 0 ? Math.abs(1 / valor) : Math.floor(valor)
             return (valor)
         },
-        changeMatrixColor(matrizId) {
+        changeMatrixColor() {
             const matrizes = document.querySelectorAll(".matriz td")
             matrizes.forEach(element => {
                 element.style.backgroundColor = "var(--cor-tema-2)"
                 element.style.color = "var(--cor-texto-tema)"
 
             })
-            const matriz = document.getElementsByName(`${matrizId}`)
+            const matriz = document.getElementsByName(`${this.matrizAtual}`)
             matriz.forEach(elementParent => {
                 elementParent.querySelectorAll("td").forEach(elementChild => {
                     elementChild.style.backgroundColor = "white"
                     elementChild.style.color = "black"
                 })
             })
+        },
+        hoverInput(value) {
+
+            const coordenada = (numero, numColunas)=>{
+                // console.log(numero)
+                let contador = 0
+                for (let i = 1; i <= numColunas; i++) {
+                    for (let j = 1; j <= numColunas; j++) {
+                        contador = j > i ? contador + 1 : contador
+                        if(contador === numero) {
+                            return { i: i.toString(), j: j.toString() }
+                        }
+                    }
+                }
+                return contador
+            }
+
+            const position = coordenada((Number(value[3].split("-")[2]) - 1), this.criteriosPrimeira.length)
+            const matriz = document.getElementsByName(`${this.matrizAtual}`)[0]
+            const i = position.i
+            const j = position.j
+
+            const td = [
+                matriz.querySelector(`#td-${i}${j}`),
+                matriz.querySelector(`#td-${j}${i}`)
+            ]
+
+            const slider = document.getElementsByName(value[3])[0]
+
+            slider.addEventListener("input", () => {
+                // Define a cor vermelha enquanto o slider está sendo movido.
+                td[0].style.boxShadow = "0 0 10px var(--cor-tema)"
+                td[0].style.transform = "scale(1.01)"
+                td[1].style.boxShadow = "0 0 10px var(--cor-tema)"
+                td[1].style.transform = "scale(1.01)"
+            })
+
+            slider.addEventListener("mouseup", () => {
+                // Define a cor de fundo original quando o slider é solto.
+                td[0].style.boxShadow = "none"
+                td[1].style.boxShadow = "none"
+                td[0].style.transform = "scale(1)"
+                td[1].style.transform = "scale(1)"
+
+            })
+            console.log(slider)
+
         }
 
     }
