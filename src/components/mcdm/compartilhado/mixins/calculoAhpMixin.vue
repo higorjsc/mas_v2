@@ -44,7 +44,7 @@ export default{
                 })
             })
         },
-        hoverInput(value) {
+        hoverInput(value, chamada) {
 
             const coordenada = (numero, numColunas)=>{
                 // console.log(numero)
@@ -59,8 +59,9 @@ export default{
                 }
                 return contador
             }
-
-            const position = coordenada((Number(value[3].split("-")[2]) - 1), this.criteriosPrimeira.length)
+            const tamanho = chamada === "primeira" ? this.optionsPrimeira.length : this.criteriosSegunda.length
+            const sliderIndex = Number(value[3].split("-")[2]) - 1
+            const position = coordenada(sliderIndex, tamanho)
             const matriz = document.getElementsByName(`${this.matrizAtual}`)[0]
             const i = position.i
             const j = position.j
@@ -88,7 +89,6 @@ export default{
                 td[1].style.transform = "scale(1)"
 
             })
-            console.log(slider)
 
         }
 

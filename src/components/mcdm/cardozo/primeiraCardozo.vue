@@ -267,7 +267,7 @@ export default {
         },
         handleInputValue(value) {
             this.sliderStore[value[0]][value[1]].valor = Number(value[2])
-            this.hoverInput(value)
+            this.hoverInput(value, "primeira")
             const throttledDefineMatriz = throttle(this.changeMatrix, 50)
             throttledDefineMatriz()
         },

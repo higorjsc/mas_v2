@@ -17,6 +17,7 @@
                     :key="indexChildren"
                     :id="`${indexChildren}`"
                     classe="0"
+                    :name="`slider-0-${indexChildren+2}`"
                     :texto="itemChildren.texto"
                     :valor="sliderStore[indexChildren].valor"
                     @slider-value="handleInputValue"
@@ -44,10 +45,12 @@
                     class="matriz-vetor-container-segunda"
                 >
                     <vueMatriz
+                        idMatriz="matriz-segunda-etapa"
                         :optionMatriz="criteriosSegunda"
                         :valueMatriz="matrizValores"
                     />
                     <vueVetor
+                        idVetor="matriz-segunda-etapa"
                         tituloVetor="Peso"
                         :valueVetor="vetorPeso()"
                     />
@@ -95,6 +98,9 @@ export default {
         }
     },
     computed: {
+        matrizAtual() {
+            return this.$store.getters.currentMatrizInputAtual
+        },
         matrizValores() {
             return this.$store.getters.currentMatrizSegunda
         },
@@ -108,7 +114,9 @@ export default {
             return this.$store.getters.currentOptionsSegunda
         }
     },
-    watch: {
+    mounted() {
+        this.$store.dispatch("changeMatrizInputAtual", "matriz-segunda-etapa")
+        this.changeMatrixColor()
     },
     created() {
         this.sliderStore = this.$store.getters.currentSlideresSegunda
@@ -121,6 +129,7 @@ export default {
     methods: {
         handleInputValue(value) {
             this.sliderStore[value[1]].valor = Number(value[2])
+            this.hoverInput(value, "segunda")
             const throttledDefineMatriz = throttle(this.changeMatrix, 50)
             throttledDefineMatriz()
         },
