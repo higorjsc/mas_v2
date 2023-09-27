@@ -23,16 +23,8 @@
 <script>
 export default {
     name: "vue-mcdm-header",
-    mounted() {
-        this.changeTabOpacity()
-        this.changeAtualTab('/mcdm/inputs')
-        this.$router.push('/mcdm/inputs')
-    },
-    created(){
-        this.$store.dispatch('changeViewProgress', 0)
-    },
     computed:{
-        viewProgress(){
+        viewProgress() {
             return this.$store.getters.currentViewProgress
         },
         templateAtual() {
@@ -40,49 +32,52 @@ export default {
         }
     },
     watch:{
-        templateAtual(){
+        templateAtual() {
             this.handleTemplate()
-
         }
     },
+    mounted() {
+        this.changeTabOpacity()
+        this.changeAtualTab("/mcdm/inputs")
+        this.$router.push("/mcdm/inputs")
+    },
+    created() {
+        this.$store.dispatch("changeViewProgress", 0)
+    },
     methods: {
-        handleTemplate(){
-            if(this.templateAtual=== ""){
-                this.$store.dispatch('changeViewProgress', 0)
-                this.changeTabOpacity()
-                this.changeAtualTab('/mcdm/inputs')
-            }{
-                this.$store.dispatch('changeViewProgress', 1)
-                this.changeTabOpacity()
-                this.changeAtualTab('/mcdm/inputs')
-            }
+        handleTemplate() {
+            this.templateAtual === "" ? this.$store.dispatch("changeViewProgress", 0) : this.$store.dispatch("changeViewProgress", 1)
+            this.changeTabOpacity()
+            this.changeAtualTab("/mcdm/inputs")
         },
         changeTabOpacity() {
-            document.querySelectorAll("label").forEach((element) => {
+            document.querySelectorAll(".buttons-etapas").forEach((element) => {
                 element.style.opacity = 0.6
             })
-            for(let i=0; (i<=this.viewProgress && i<4); i++){
+            for(let i = 0; (i <= this.viewProgress && i < 4); i++) {
                 document.querySelectorAll("label")[i].style.opacity = 0.85
             }
         },
-        changeAtualTab(atual){
+        changeAtualTab(atual) {
             atual = atual.split("/")[2]
             this.$refs[`label-${atual}`].style.opacity = 1
         },
         handleLink(index, route) {
-            if(this.viewProgress > index && this.templateAtual !== ""){
+            if(this.viewProgress > index && this.templateAtual !== "") {
                 this.changeTabOpacity()
                 this.changeAtualTab(route)
                 this.$router.push(route)
-            }else if(this.viewProgress === index && this.templateAtual !== ""){
-                this.$store.dispatch('changeViewProgress', this.viewProgress+1)
+            }else if(this.viewProgress === index && this.templateAtual !== "") {
+                this.$store.dispatch("changeViewProgress", this.viewProgress + 1)
                 this.changeTabOpacity()
                 this.changeAtualTab(route)
                 this.$router.push(route)
-            }else if(this.viewProgress === index && this.templateAtual === ""){
-                this.$router.push('/mcdm/inputs')
+            }else if(this.viewProgress === index && this.templateAtual === "") {
+                this.$store.dispatch("changeViewProgress", 0)
+                this.$router.push("/mcdm/inputs")
+                this.changeTabOpacity()
             }
-            
+
         }
     }
 }

@@ -1,9 +1,13 @@
 <template>
-    <section>
-        <nav>
+    <section
+        class="section-navbar"
+    >
+        <nav
+            class="navbar-principal"
+        >
             <ul class="ul-parent">
                 <li class="li-titulo">
-                    {{ $ft('selectMethod') }}
+                    {{ $t('selectMethod') }}
                 </li>
                 <ul class="menu-option">
                     <li class="escolhida">
@@ -28,7 +32,11 @@
             </ul>
         </nav>
         <!-- PARAGRAFO COM O TEXTO DE DESCRIÇÃO DO MÉTODO -->
-        <p v-html="`${$ft('paragrafoExplicacao'+ metodo)}`"></p>
+        <p
+            class="paragrafo-explicacao"
+            v-html="`${$t('paragrafoExplicacao'+ metodo)}`"
+        >
+        </p>
 
     </section>
 
@@ -108,7 +116,7 @@ export default {
                 this.presente = this.ahpCardozo
                 this.option1 = this.cardozo
                 this.option2 = this.vergne
-                this.option3 = this.cardozo
+                this.option3 = this.moser
                 break
             }
         }
@@ -118,37 +126,38 @@ export default {
 
 <style scoped>
     *{
-        margin: 0;
         padding: 0;
-        font-size: 10pt;
+        font-size: 11pt;
     }
-    section{
+    .section-navbar{
         border-left: var(--borda-simples);
         border-right: var(--borda-simples);
         border-bottom: var(--borda-simples);
         border-top: var(--borda-simples);
         border-radius: 20px;
+        min-width: 360px;
+        margin-right: 2px;
         overflow: hidden;
     }
 
-    p{
+    .paragrafo-explicacao{
         display: flex;
         flex-direction: column;
         padding: 2%;
         text-align: justify;
     }
 
-    nav{
+    .navbar-principal{
       width: 100%;
       text-align: center;
     }
 
-    ul{
+    .menu-option{
       overflow: hidden;
       list-style-type: none;
     }
 
-    li{
+    .menu-option li{
       color: var(--cor-texto-tema);
     }
 
@@ -175,11 +184,11 @@ export default {
         background-color: var(--cor-tema);
     }
 
-    ul:hover .option{
+    .menu-option:hover .option{
         display: block;
         box-shadow: var(--shadow-hover);
     }
-    ul:hover{
+    .menu-option:hover{
         box-shadow: var(--shadow-hover);
     }
 

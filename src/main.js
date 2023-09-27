@@ -18,13 +18,13 @@ app.use(store) // Usa o Vuex antes de criar a instância do Vue Router
 
 app.use(router)
 
-// Configura a função que define o idioma como $ft('variável')
-app.config.globalProperties.$ft = function (key) {
+// Configura a função que define o idioma como $t('variável')
+app.config.globalProperties.$t = function (key) {
     if (this.$store.getters.currentLanguage === "pt") {
         return portuguese[key] ? portuguese[key] : key
     }
     if (this.$store.getters.currentLanguage === "en") {
-        return english[key] ? portuguese[key] : key
+        return english[key] ? english[key] : key
     }
 }
 

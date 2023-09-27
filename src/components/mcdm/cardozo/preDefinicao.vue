@@ -4,19 +4,20 @@
         class="fluxograma-container"
         v-if="selectSolicitado==='Fluxograma'"
     >
-        <p v-html="`${$ft('paragrafoExplicacaoFluxograma')}`"></p>
+        <p v-html="`${$t('paragrafoExplicacaoFluxograma')}`"></p>
         <select v-model="fluxograma">
             <option value="poco">
-                {{ $ft('poco') }}
+                {{ $t('poco') }}
             </option>
             <option value="rampa">
-                {{ $ft('rampaCaminhoes') }}
+                {{ $t('rampaCaminhoes') }}
             </option>
             <option value="correia">
-                {{ $ft('correiaTransportadora') }}
+                {{ $t('correiaTransportadora') }}
             </option>
         </select>
         <vueMatriz
+            class="tabela-predefinicao-cardozo"
             idMatriz="matriz-energetico-texto"
             :optionMatriz="optionsPrimeira"
             :valueMatriz="matrizFluxograma[fluxograma]"
@@ -32,16 +33,16 @@
         class="energetico-container"
         v-if="selectSolicitado==='Risco Energético'"
     >
-        <p v-html="`${$ft('paragrafoRiscoEnergetico')}`"></p>
+        <p v-html="`${$t('paragrafoRiscoEnergetico')}`"></p>
         <select v-model="riscoEnergetico">
             <option value="baixo">
-                {{ $ft('baixo') }}
+                {{ $t('baixo') }}
             </option>
             <option value="medio">
-                {{ $ft('medio') }}
+                {{ $t('medio') }}
             </option>
             <option value="alto">
-                {{ $ft('alto') }}
+                {{ $t('alto') }}
             </option>
         </select>
         <vueMatriz
@@ -58,7 +59,7 @@
         v-if="selectSolicitado==='Custo Ambiental'"
         @load="emissao()"
     >
-        <p v-html="`${$ft('paragrafoExplicacaoEmissoes')}`"></p>
+        <p v-html="`${$t('paragrafoExplicacaoEmissoes')}`"></p>
         <vueMatriz
             idMatriz="matriz-emissoes-texto"
             :optionMatriz="optionsPrimeira"
@@ -71,16 +72,16 @@
         class="social-container"
         v-if="selectSolicitado==='Risco Social'"
     >
-        <p v-html="`${$ft('paragrafoExplicacaoSocial')}`"></p>
+        <p v-html="`${$t('paragrafoExplicacaoSocial')}`"></p>
         <select v-model="social">
             <option value="baixo">
-                {{ $ft('baixo') }}
+                {{ $t('baixo') }}
             </option>
             <option value="medio">
-                {{ $ft('medio') }}
+                {{ $t('medio') }}
             </option>
             <option value="alto">
-                {{ $ft('alto') }}
+                {{ $t('alto') }}
             </option>
         </select>
         <vueMatriz

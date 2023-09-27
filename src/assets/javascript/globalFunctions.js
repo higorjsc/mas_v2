@@ -54,6 +54,7 @@ function verificarSession(key) {
 // CONFIGURA AS VARIÁVEIS CSS QUE DEFINEM AS CORES DO TEMA
 function aplicarTema(tema) {
     document.documentElement.style.setProperty("--cor-tema", TEMAS[tema]["mainColor"])
+    document.documentElement.style.setProperty("--cor-tema-2", TEMAS[tema]["altColor"])
     document.documentElement.style.setProperty("--cor-hover", TEMAS[tema]["HoverColor"])
     document.documentElement.style.setProperty("--shadow-hover", TEMAS[tema]["shadowHover"])
     document.documentElement.style.setProperty("--shadow-input", TEMAS[tema]["shadowInput"])

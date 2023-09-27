@@ -1,11 +1,15 @@
 <template>
-    <section>
+    <section
+        class="section-fluxograma-acessos"
+    >
         <!-- TITULO SEÇÃO -->
-        <h2>
-            {{ $ft('tituloFluxograma') }}
+        <h2
+            class="titulo-section-acessos "
+        >
+            {{ $t('tituloFluxograma') }}
         </h2>
         <!-- CONTAINER DE TODO O FLUXOGRAMA -->
-        <div class="container">
+        <div class="container-fluxograma">
             <!-- CONTAINER DOS OBJETOS PRINCIPAIS DO FLUGRAMA -->
             <div
                 v-for ="(item, index) in objeto"
@@ -22,7 +26,7 @@
                 }"
                 @mouseout="balaoSai()"
             >
-                {{ $ft(`${objeto[index]['Text']}`) }}
+                {{ $t(`${objeto[index]['Text']}`) }}
             </div>
             <!-- CONTAINER DAS SETAS -->
             <Seta
@@ -127,21 +131,23 @@ export default {
         --WIDTH: 80px;
         --SPACING: 70px
     }
-    section{
+    .section-fluxograma-acessos{
         position: relative;
         margin: 0;
         border-top: var(--borda-simples);
         border-bottom: var(--borda-simples);
         border-right: var(--borda-simples);
+        /* min-width: 653px; */
     }
-    .container{
+    .container-fluxograma{
         position: relative;
         display: flex;
         margin: auto;
-        margin-top: 1%;
+        margin-top: 20%;
         width: 430px;
         height: 500px;
         overflow: hidden;
+        transform: scale(1);
     }
     .itens{
         position: absolute;
@@ -165,11 +171,11 @@ export default {
         box-shadow: var(--shadow-hover);
     }
 
-    .container .setas {
+    .container-fluxograma .setas {
         position: absolute;
     }
 
-    .container .way {
+    .container-fluxograma .way {
         position: absolute;
         cursor: default;
     }

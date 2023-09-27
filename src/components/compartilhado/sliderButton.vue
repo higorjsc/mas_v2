@@ -5,7 +5,7 @@
             class="text-container"
         >
             <h3>
-                {{ $ft(`${texto}`)  }}
+                {{ $t(`${texto}`)  }}
             </h3>
         </div>
 
@@ -85,7 +85,12 @@ export default {
                 meioStart = valor
                 left = valor
             }
-            this.$refs.slider.style.background = "linear-gradient(90deg," + "white 0%," + "white " + left + "%, " + "var(--cor-tema)" + meioStart + "%," + "var(--cor-tema)" + meioEnd + "%, " + "white " + right + "%," + "white " + "100" + "%  )"
+            this.$refs.slider.style.background = "linear-gradient(90deg,"
+            + `var(--cor-tema) 0%, white ${left}%,`
+            + `var(--cor-tema) ${meioStart}%, rgb(94, 168, 94) ${meioEnd}%,`
+            + `white ${right}%, var(--cor-tema) 100%)`
+
+            // linear-gradient(90deg, var(--cor-tema) 0%, white ${left}%, var(--cor-tema) ${meioStart}%, var(--cor-tema) ${meioEnd}%, white ${right}%, var(--cor-tema) 100%)`
             // this.$refs.slider.style.background = "linear-gradient(90deg," + "red 0%," + "red " + left + "%, " + "var(--cor-hover)" + meioStart + "%," + "var(--cor-hover)" + meioEnd + "%, " + "blue " + right + "%," + "blue " + "100" + "%  )"
         }
     }
@@ -131,8 +136,7 @@ input {
   height: 6px;
   border-radius: 50px;
   opacity: 0.7;
-  background: white;
-  /* background: linear-gradient(90deg, red 50%, blue 50%); */
+  background: linear-gradient(90deg, var(--cor-tema) 0%, white 50%, var(--cor-tema) 50%, var(--cor-tema) 50%, white 35%, var(--cor-tema) 100%);
   border: 1pt solid black;
   appearance: none;
   outline: none;

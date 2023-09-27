@@ -1,7 +1,7 @@
 <template>
     <div
         id="balao"
-        v-html="`${$ft(texto)}`"
+        v-html="`${$t(texto)}`"
     >
     </div>
 </template>

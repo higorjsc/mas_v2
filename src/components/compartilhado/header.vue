@@ -19,7 +19,7 @@
         >
 
         <h1 class="titulo-pagina">
-            {{ $ft(`titulo${this.$store.getters.currentMetodo}`) }}
+            {{ $t(`titulo${this.$store.getters.currentMetodo}`) }}
         </h1>
 
     </div>

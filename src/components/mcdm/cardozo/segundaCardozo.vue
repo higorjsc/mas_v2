@@ -37,7 +37,7 @@
                 <h4
                     class="titulo-matriz-segunda"
                 >
-                    {{ $ft('tituloMatrizSegundaEtapaAhp') }}
+                    {{ $t('tituloMatrizSegundaEtapaAhp') }}
                 </h4>
 
                 <div
@@ -71,6 +71,7 @@ import vueMatriz from "@/components/mcdm/compartilhado/matriz.vue"
 import vueVetor from "@/components/mcdm/compartilhado/vetor.vue"
 import vueConsistencia from "@/components/mcdm/compartilhado/consistencia.vue"
 import vueHelpAhp from "@/components/mcdm/compartilhado/helpAhp.vue"
+import calculoAhpMixin from "@/components/mcdm/compartilhado/mixins/calculoAhpMixin.vue"
 import { throttle } from "lodash"
 import { RI } from "@/assets/javascript/globalConstants.js"
 
@@ -83,6 +84,9 @@ export default {
         vueConsistencia,
         vueHelpAhp
     },
+    mixins:[
+        calculoAhpMixin
+    ],
     data() {
         return {
             sliderValue: [],
@@ -121,26 +125,12 @@ export default {
             throttledDefineMatriz()
         },
         matrizMaker() {
-            const conveterEscala = (valorOriginal) => {
-                const minDesejado = 1.00
-                const maxDesejado = 9.00
-                let minOriginal
-                let maxOriginal
-                if (valorOriginal > 50) {
-                    minOriginal = 50
-                    maxOriginal = 100
-                } else {
-                    minOriginal = 50
-                    maxOriginal = 0
-                }
-                return (minDesejado + (((valorOriginal - minOriginal) / (maxOriginal - minOriginal)) * (maxDesejado - minDesejado)))
-            }
             const dirValue = (key) => {
-                const valor = key[0] === key[1] ? 1.00 : conveterEscala(this.sliderStore.find(item => item.id === key).valor)
-                return valor.toFixed(0)
+                const valor = key[0] === key[1] ? 1.00 : this.conveterEscala(this.sliderStore.find(item => item.id === key).valor)
+                return valor.toFixed(2)
             }
             const invValue = (key) => {
-                const valor = conveterEscala(this.sliderStore.find(item => item.id === key).valor)
+                const valor = this.conveterEscala(this.sliderStore.find(item => item.id === key).valor)
                 return (1 / valor).toFixed(2)
             }
             const matriz = []

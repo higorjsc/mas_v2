@@ -1,10 +1,10 @@
 <template>
 
-    <div
-    >
+    <div>
         <table
             class="matriz"
-            :id="idMatriz"
+            :name="idMatriz"
+            :ref="idMatriz"
         >
             <!-- Linha de título -->
             <tr
@@ -35,6 +35,8 @@
                     v-for="(item, valueIndex) in valueMatriz[optionIndex]"
                     :key="valueIndex"
                     class="celulas-valores"
+                    :ref="`${optionIndex+1}${valueIndex+1}`"
+                    :id="`${optionIndex+1}${valueIndex+1}`"
                 >
                     {{valueMatriz[optionIndex][valueIndex]}}
                 </td>

@@ -3,8 +3,11 @@
         class="section-ilustrations"
     >
         <!-- TITULO SEÇÃO -->
-        <h2>
-            {{ $ft('tituloIlustration') }}
+        <h2
+            class="titulo-section-acessos"
+            id="titulo-section-ilustrations-acessos"
+        >
+            {{ $t('tituloIlustration') }}
         </h2>
 
         <div class="ilustration-container">
@@ -86,10 +89,7 @@ export default {
 </script>
 
 <style scoped>
-   *{
-        margin: 0;
-        padding: 0;
-    }
+
     .section-ilustrations{
         position: relative;
         width: 100%;
@@ -109,17 +109,20 @@ export default {
     img{
         position: absolute;
     }
+    #titulo-section-ilustrations-acessos{
+        margin-bottom: 40px;
+    }
     #shaft{
-        top: 15%;
+        top: 13.8%;
         left: 12%;
-        height: 230px;
+        height: 280px;
     }
     #orebody{
         top: 50%;
         left: 3%;
     }
     #usina{
-        top: -1.5%;
+        top: 1.4%;
         right: -9%;
         transform: rotate(-3deg);
     }
@@ -135,8 +138,8 @@ export default {
         transform: rotate(1deg);
     }
     #vent{
-        height: 240px;
-        top: 15.6%;
+        height: 282px;
+        top: 15.2%;
         left: 69%
     }
     #rampa-pit{
@@ -145,18 +148,18 @@ export default {
         height: 200px;
     }
     #rampa{
-        top: 14.7%;
-        left: 35%;
-        height: 250px;
+        top: 12.7%;
+        left: 23%;
+        height: 307px;
     }
     #correia{
         position: absolute;
-        top: 42%;
-        left: 18%;
+        top: 37%;
+        left: 15%;
         background-color: black;
-        width: 350px;
+        width: 390px;
         height: 2px;
-        transform: rotate(-20deg);
+        transform: rotate(-30deg);
     }
     #truck{
         top: 11.8%;

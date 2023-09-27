@@ -1,7 +1,7 @@
 <template>
     <main>
         <div class="creditos-container">
-            <span v-for="item in credits" :key="item.texto" :class="item.class" v-html="`${$ft(item.texto)}`"></span>
+            <span v-for="item in credits" :key="item.texto" :class="item.class" v-html="`${$t(item.texto)}`"></span>
         </div>
     </main>
 </template>

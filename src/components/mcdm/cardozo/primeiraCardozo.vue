@@ -24,13 +24,13 @@
                     <div>
                         <input type="radio" class="radio-metodo-definido" v-model="metodoDefinido" value="predefinido" id="predefinido">
                         <label for="predefinido" class="label-metodo-definido"></label>
-                        <span>{{ $ft('predefinido') }}</span>
+                        <span>{{ $t('predefinido') }}</span>
                     </div>
                     <!-- PERSONALIZADO -->
                     <div>
                         <input type="radio" class="radio-metodo-definido" v-model="metodoDefinido" value="personalizado" id="personalizado">
                         <label for="personalizado" class="label-metodo-definido"></label>
-                        <span>{{ $ft('personalizado') }}</span>
+                        <span>{{ $t('personalizado') }}</span>
                     </div>
                 </div>
 
@@ -86,7 +86,7 @@
 
         <!-- SEÇÃO DAS MATRIZES -->
         <section
-            class="container-matrizes-primeira"
+            class="section-direita-primeira"
         >
             <vueEscalaSaaty/>
             <!-- FLUXOGRAMA -->
@@ -97,19 +97,21 @@
                 <h4
                     class="titulo-matriz-primeira"
                 >
-                    {{ $ft('matrizFluxogramaCardozo') }}
+                    {{ $t('matrizFluxogramaCardozo') }}
                 </h4>
                 <div
                     class="matriz-vetor-container-primeira"
                 >
 
                     <vueMatriz
+                        idMatriz="Fluxograma"
                         :optionMatriz="optionsPrimeira"
                         :valueMatriz="matrizesPreDefinidas[0]"
                         @click="trocaMatrizInputAtual('Fluxograma')"
                     />
                     <vueVetor
                         tituloVetor="Peso"
+                        idVetor="Fluxograma"
                         :valueVetor="vetorPeso(0)"
                         @click="trocaMatrizInputAtual(itemCriterio)"
                     />
@@ -138,12 +140,14 @@
                     class="matriz-vetor-container-primeira"
                 >
                     <vueMatriz
+                        :idMatriz="itemCriterio"
                         :optionMatriz="optionsPrimeira"
                         :valueMatriz="matrizValores[indexMatriz+1]"
                         @click="trocaMatrizInputAtual(itemCriterio)"
                     />
                     <vueVetor
                         tituloVetor="Peso"
+                        :idVetor="itemCriterio"
                         :valueVetor="vetorPeso(indexMatriz+1)"
                         @click="trocaMatrizInputAtual(itemCriterio)"
                     />
@@ -168,6 +172,7 @@ import vueVetor from "@/components/mcdm/compartilhado/vetor.vue"
 import vueConsistencia from "@/components/mcdm/compartilhado/consistencia.vue"
 import vueEscalaSaaty from "@/components/mcdm/compartilhado/helpAhp.vue"
 import vuePreSelect from "@/components/mcdm/cardozo/preDefinicao.vue"
+import calculoAhpMixin from "@/components/mcdm/compartilhado/mixins/calculoAhpMixin.vue"
 import { throttle } from "lodash"
 import { RI } from "@/assets/javascript/globalConstants.js"
 
@@ -181,6 +186,9 @@ export default {
         vuePreSelect,
         vueEscalaSaaty
     },
+    mixins:[
+        calculoAhpMixin
+    ],
     data() {
         return {
             metodoDefinido: "personalizado",
@@ -225,6 +233,10 @@ export default {
         this.sliderStore = this.$store.getters.currentSlideresPrimeira
         this.changeMatrix()
     },
+    mounted() {
+        this.trocaMatrizInputAtual("Fluxograma")
+
+    },
     beforeUnmount() {
         this.$store.dispatch("changeSlideresPrimeira", this.sliderStore)
         this.changeMatrix()
@@ -245,9 +257,12 @@ export default {
             this.$store.dispatch("changeMatrizesPreDefinidas", { index, data })
             this.changeMatrix()
         },
+
         trocaMatrizInputAtual(matrizName) {
+            this.metodoDefinido = matrizName === "Aval. Econômica" ?  "personalizado" : this.metodoDefinido
             this.$store.dispatch("changeMatrizInputAtual", matrizName)
             this.$store.dispatch("changeSlideresPrimeira", this.sliderStore)
+            this.changeMatrixColor(matrizName)
         },
         handleInputValue(value) {
             this.sliderStore[value[0]][value[1]].valor = Number(value[2])
@@ -255,26 +270,12 @@ export default {
             throttledDefineMatriz()
         },
         matrizMaker(index) {
-            const conveterEscala = (valorOriginal) => {
-                const minDesejado = 1.00
-                const maxDesejado = 9.00
-                let minOriginal
-                let maxOriginal
-                if (valorOriginal > 50) {
-                    minOriginal = 50
-                    maxOriginal = 100
-                } else {
-                    minOriginal = 50
-                    maxOriginal = 0
-                }
-                return (minDesejado + (((valorOriginal - minOriginal) / (maxOriginal - minOriginal)) * (maxDesejado - minDesejado)))
-            }
             const dirValue = (key) => {
-                const valor = key[0] === key[1] ? 1.00 : conveterEscala(this.sliderStore[index].find(item => item.id === key).valor)
-                return valor.toFixed(0)
+                const valor = key[0] === key[1] ? 1.00 : this.conveterEscala(this.sliderStore[index].find(item => item.id === key).valor)
+                return valor.toFixed(2)
             }
             const invValue = (key) => {
-                const valor = conveterEscala(this.sliderStore[index].find(item => item.id === key).valor)
+                const valor = this.conveterEscala(this.sliderStore[index].find(item => item.id === key).valor)
                 return (1 / valor).toFixed(2)
             }
             const matriz = []

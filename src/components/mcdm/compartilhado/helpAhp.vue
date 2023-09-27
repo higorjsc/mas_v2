@@ -7,7 +7,7 @@
             class="label-checkbox"
             for="checkbox-mostrar-tabela"
         >
-            {{ $ft('helpEscalaSaaty') }}
+            {{ $t('helpEscalaSaaty') }}
         </label>
 
         <input
@@ -26,33 +26,33 @@
                 class="tabela-escala-saaty"
             >
                 <caption class="caption-titulo-escala-saaty">
-                    {{$ft('tituloEscalaSaaty')}}
+                    {{$t('tituloEscalaSaaty')}}
                 </caption>
                 <thead>
                     <tr>
-                        <th>{{$ft('verbalEscalaSaaty')}}</th>
-                        <th>{{$ft('numericaEscalaSaaty')}}</th>
+                        <th>{{$t('verbalEscalaSaaty')}}</th>
+                        <th>{{$t('numericaEscalaSaaty')}}</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{$ft('igualImportanciaEscalaSaaty')}}</td>
+                        <td>{{$t('igualImportanciaEscalaSaaty')}}</td>
                         <td>1</td>
                     </tr>
                     <tr>
-                        <td>{{$ft('moderadamenteSuperiorEscalaSaaty')}}</td>
+                        <td>{{$t('moderadamenteSuperiorEscalaSaaty')}}</td>
                         <td>3</td>
                     </tr>
                     <tr>
-                        <td>{{$ft('superiorEscalaSaaty')}}</td>
+                        <td>{{$t('superiorEscalaSaaty')}}</td>
                         <td>5</td>
                     </tr>
                     <tr>
-                        <td>{{$ft('muitoSuperiorEscalaSaaty')}}</td>
+                        <td>{{$t('muitoSuperiorEscalaSaaty')}}</td>
                         <td>7</td>
                     </tr>
                     <tr>
-                        <td>{{$ft('extremamenteSuperiorEscalaSaaty')}}</td>
+                        <td>{{$t('extremamenteSuperiorEscalaSaaty')}}</td>
                         <td>9</td>
                     </tr>
                 </tbody>
@@ -61,7 +61,7 @@
                 v-if="mostrarEscala"
                 class="legenda-escala-saaty"
             >
-                {{$ft('legendaEscalaSaaty')}}
+                {{$t('legendaEscalaSaaty')}}
             </span>
 
         </div>
@@ -98,7 +98,8 @@ export default{
     box-sizing: border-box;
     flex-direction: column;
     background-color: white;
-    width: 230px;
+    z-index: 5;
+    width: 280px;
     border-radius: 10px;
     border: var(--borda-simples);
 }
@@ -124,14 +125,14 @@ label:hover{
     display: none;
 }
 .caption-titulo-escala-saaty{
-    font-size: 8pt;
+    font-size: 10pt;
     text-align: center;
     font-weight: bold;
     width: 100%;
 }
 .legenda-escala-saaty{
     margin-top: 0;
-    font-size: 8pt;
+    font-size: 10pt;
     text-align: center;
     width: 90%;
 }
@@ -143,6 +144,8 @@ label:hover{
     font-size: 9pt;
     margin-bottom: 0;
     width: 90%;
+    background-color: white;
+
 }
 .tabela-escala-saaty thead{
     border-bottom: var(--borda-simples);

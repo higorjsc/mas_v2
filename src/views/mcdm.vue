@@ -61,7 +61,6 @@ export default {
   display: grid;
   grid-template-columns: 1fr 5fr; /* Deixando a barra de navegação com o tamanho necessário e o restante para a seção principal */
   box-sizing: border-box;
-  margin: 0.1%;
   width: 100%;
 }
 
@@ -71,13 +70,13 @@ export default {
     grid-template-rows: 1fr minmax(667px, 10fr); /* Deixando o cabeçalho com tamanho necessário e o restante para os inputs */
     border: var(--borda-simples);
     border-radius: 20px;
+    margin-left: 0.1%;
     box-sizing: border-box;
     overflow: hidden;
 }
 
 main .navbar-mcdm{
     grid-column: 1/2;
-    margin-right: 0.8%;
 }
 .header-mcdm{
     grid-column: 1/3;

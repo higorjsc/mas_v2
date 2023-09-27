@@ -2,21 +2,16 @@
 <template>
     <!-- TEMPLASTES MCDM -->
     <div class="templates-mcdm-container">
-        <h3>{{ $ft('templatesMcdmTitulo') }}</h3>
+        <h3>{{ $t('templatesMcdmTitulo') }}</h3>
         <select v-model="template">
             <option value="">
+                selecione
             </option>
             <option value="primeiraTemplate">
-                {{ $ft('primeiraTemplateMcdm') }}
-            </option>
-            <option value="segundaTemplate">
-                {{ $ft('segundaTemplateMcdm') }}
-            </option>
-            <option value="terceiraTemplate">
-                {{ $ft('terceiraTemplateMcdm') }}
+                {{ $t('primeiraTemplateMcdm') }}
             </option>
             <option value="inserir">
-                {{ $ft('ahpPersonalizado') }}
+                {{ $t('ahpPersonalizado') }}
             </option>
         </select>
     </div>

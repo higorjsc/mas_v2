@@ -197,8 +197,8 @@ const translation = {
     prodMaiorVergne: ">5.0 kt/d",
     // FLUXOGRAMA VERGNE ENGLISH
     startFluxoVergne: "START",
-    smFluxoVergne: "SURFACE MATERIAL",
-    rmFluxoVergne: "ROCK MASS",
+    smFluxoVergne: "SHALLOW OVERBURDEN",
+    rmFluxoVergne: "SOUND ROCK",
     depthCenterFluxoVergne: "OREBODY <500 m DEEP",
     prodCenterFluxoVergne: "PRODUCTION <5 kt/d",
     depthLeftFluxoVergne: "OREBODY <300 m DEEP",

@@ -1,9 +1,11 @@
 
 <template>
-    <section class="section-inputs">
+    <section class="section-inputs-acessos">
         <!-- TITULO SEÇÃO -->
-        <h2>
-            {{ $ft('tituloInputs') }}
+        <h2
+            class="titulo-section-acessos"
+        >
+            {{ $t('tituloInputs') }}
         </h2>
 
         <!-- BOTÃO SWITCH -->
@@ -12,74 +14,74 @@
         />
 
         <!-- SURFACE MATERIALS-->
-        <div class='parametros-container' id="sm">
-            <h3 class="subtitulo-inputs">
-                {{ $ft('smTituloVergne') }}
+        <div class='container-inputs-acessos' id="sm">
+            <h3 class="subtitulo-inputs-acessos">
+                {{ $t('smTituloVergne') }}
             </h3>
-            <span>{{ $ft('smDescriptionVergne') }}</span>
+            <span>{{ $t('smDescriptionVergne') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
                 <input type="radio" v-model="vergne.surfaceMaterial" value="menor" id="sm-menor">
                 <label for="sm-menor" class="radio-label" id="sm-vergne-menor"></label>
-                <span>{{ $ft('sim') }}</span>
+                <span>{{ $t('sim') }}</span>
                 <!-- MAIOR -->
                 <input type="radio"  v-model="vergne.surfaceMaterial" value="maior" id="sm-maior">
                 <label for="sm-maior" class="radio-label" id="sm-vergne-maior"></label>
-                <span>{{ $ft('nao') }}</span>
+                <span>{{ $t('nao') }}</span>
             </div>
         </div>
         <!--ROCKMASS CONDITIONS-->
-        <div class='parametros-container' id="rm">
-            <h3 class="subtitulo-inputs">
-                {{ $ft('rmTituloVergne') }}
+        <div class='container-inputs-acessos' id="rm">
+            <h3 class="subtitulo-inputs-acessos">
+                {{ $t('rmTituloVergne') }}
             </h3>
-            <span>{{ $ft('rmDescriptionVergne') }}</span>
+            <span>{{ $t('rmDescriptionVergne') }}</span>
             <div class="radio-container">
                 <!-- MENOR -->
                 <input type="radio" class="rm" v-model="vergne.rockMass" value="menor" id="rm-menor">
                 <label for="rm-menor" class="radio-label" id="rm-vergne-menor"></label>
-                <span>{{ $ft('sim') }}</span>
+                <span>{{ $t('sim') }}</span>
                 <!-- MAIOR -->
                 <input type="radio" class="rm" v-model="vergne.rockMass" value="maior" id="rm-maior">
                 <label for="rm-maior" class="radio-label" id="rm-vergne-maior"></label>
-                <span>{{ $ft('nao') }}</span>
+                <span>{{ $t('nao') }}</span>
             </div>
         </div>
         <!-- PROFUNDIDADE -->
-        <div class='parametros-container' id="depth">
-            <h3 class="subtitulo-inputs">
-                {{ $ft('depthTituloVergne') }}
+        <div class='container-inputs-acessos' id="depth">
+            <h3 class="subtitulo-inputs-acessos">
+                {{ $t('depthTituloVergne') }}
             </h3>
-            <span>{{ $ft('depthDescriptionVergne') }}</span>
+            <span>{{ $t('depthDescriptionVergne') }}</span>
             <select v-model="vergne.depth" class="depth" id="depth-vergne">
                 <option value=""></option>
                 <option value="menor">
-                    {{ $ft('depthMenorVergne') }}
+                    {{ $t('depthMenorVergne') }}
                 </option>
                 <option value="entre">
-                    {{ $ft('depthEntreVergne') }}
+                    {{ $t('depthEntreVergne') }}
                 </option>
                 <option value="maior">
-                    {{ $ft('depthMaiorVergne') }}
+                    {{ $t('depthMaiorVergne') }}
                 </option>
             </select>
         </div>
         <!-- PRODUÇÃO -->
-        <div class='parametros-container' id="prod">
-            <h3 class="subtitulo-inputs">
-                {{ $ft('prodTituloVergne') }}
+        <div class='container-inputs-acessos' id="prod">
+            <h3 class="subtitulo-inputs-acessos">
+                {{ $t('prodTituloVergne') }}
             </h3>
-            <span> {{ $ft('prodDescriptionVergne') }}</span>
+            <span> {{ $t('prodDescriptionVergne') }}</span>
             <select v-model="vergne.prod" class="prod" id="prod-vergne">
                 <option value=""></option>
                 <option value="menor">
-                    {{ $ft('prodMenorVergne') }}
+                    {{ $t('prodMenorVergne') }}
                 </option>
                 <option value="entre">
-                    {{ $ft('prodEntreVergne') }}
+                    {{ $t('prodEntreVergne') }}
                 </option>
                 <option value="maior">
-                    {{ $ft('prodMaiorVergne') }}
+                    {{ $t('prodMaiorVergne') }}
                 </option>
             </select>
         </div>

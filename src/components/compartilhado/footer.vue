@@ -14,10 +14,10 @@
             <ul
                 class="ul-esquerda"
             >
-                <li>{{ $ft('universidadeFooter') }}</li>
-                <li>{{ $ft('laboratorioFooter') }}</li>
-                <li>{{ $ft('localizacaoFooter') }}</li>
-                <li>{{ $ft('contatoFooter') }}</li>
+                <li>{{ $t('universidadeFooter') }}</li>
+                <li>{{ $t('laboratorioFooter') }}</li>
+                <li>{{ $t('localizacaoFooter') }}</li>
+                <li>{{ $t('contatoFooter') }}</li>
             </ul>
         </div>
 
@@ -25,15 +25,15 @@
             <ul
                 class="ul-direita"
             >
-                <li>{{ $ft('linksFooter') }}</li>
+                <li>{{ $t('linksFooter') }}</li>
                 <li @click="abrirPopUp('creditos')">
-                    {{ $ft('creditosFooter') }}
+                    {{ $t('creditosFooter') }}
                 </li>
                 <li @click="abrirPopUp('referencias')">
-                    {{ $ft('referenciasFooter') }}
+                    {{ $t('referenciasFooter') }}
                 </li>
                 <li @click="abrirPopUp('reportarErro')">
-                    {{ $ft('reportarErroFooter') }}
+                    {{ $t('reportarErroFooter') }}
                 </li>
             </ul>
 

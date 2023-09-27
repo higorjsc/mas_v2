@@ -1,7 +1,10 @@
 <template>
 
     <section class="container">
-
+        <switchLanguage
+            class="switch-language"
+            id="switch-language-mcdm"
+        />
         <vueTemplateSelector/>
 
         <vueInputsLivre
@@ -21,13 +24,16 @@ import vueInputsLivre from "@/components/mcdm/livre/inputsLivre.vue"
 import vueInputsCardozo from "@/components/mcdm/cardozo/inputsCardozo.vue"
 import vueTemplateSelector from "@/components/mcdm/compartilhado/templateSelector.vue"
 import criaSlideresMixin from "@/components/mcdm/compartilhado/mixins/criaSlideres.vue"
+import switchLanguage from "@/components/compartilhado/switchLanguage.vue"
+
 
 export default {
     name: "vue-view-mcdm-inputs-etapa",
     components: {
         vueInputsLivre,
         vueInputsCardozo,
-        vueTemplateSelector
+        vueTemplateSelector,
+        switchLanguage
     },
     mixins: [
         criaSlideresMixin
@@ -67,5 +73,9 @@ export default {
     overflow:hidden;
     min-height: 640px;
 }
-
+#switch-language-mcdm{
+    position: absolute;
+    top: -5%;
+    opacity: 1;
+}
 </style>

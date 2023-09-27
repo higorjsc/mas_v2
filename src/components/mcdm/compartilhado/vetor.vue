@@ -4,8 +4,8 @@
         class="vetor-container"
     >
         <table
-            class="vetor"
-            :id="idVetor"
+            class="vetor matriz"
+            :name="idVetor"
         >
             <tr>
                 <th

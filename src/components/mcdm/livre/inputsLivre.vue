@@ -10,7 +10,7 @@
             <h3
                 class="titulo-inputs-criterios"
             >
-                {{ $ft('mcdmTituloCriterios') }}
+                {{ $t('mcdmTituloCriterios') }}
             </h3>
             <div
                 v-for="(item, index) in criteriosPrimeira"
@@ -42,7 +42,7 @@
             <h3
                 class="titulo-inputs-criterios"
             >
-                {{ $ft('mcdmTituloOptions') }}
+                {{ $t('mcdmTituloOptions') }}
             </h3>
             <div
                 v-for="(item, index) in optionsPrimeira"

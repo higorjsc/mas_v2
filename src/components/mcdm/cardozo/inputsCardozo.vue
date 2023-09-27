@@ -8,7 +8,7 @@
             <h3
                 class="titulo-inputs-criterios"
             >
-                {{ $ft('mcdmTituloCriterios') }}
+                {{ $t('mcdmTituloCriterios') }}
             </h3>
             <ol>
                 <li>
@@ -34,7 +34,7 @@
             <h3
                 class="titulo-inputs-options"
             >
-                {{ $ft('mcdmTituloOptions') }}
+                {{ $t('mcdmTituloOptions') }}
             </h3>
             <ol>
                 <li>

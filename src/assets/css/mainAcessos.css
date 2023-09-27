@@ -6,6 +6,7 @@ body{
     flex-direction: column;
     width: 99.5%;
     box-sizing: border-box;
+    margin: 2px;
 
 }
 main{
@@ -13,7 +14,7 @@ main{
     grid-template-columns: 5fr 5fr 9fr 7fr;
     margin: 0.1%;
     box-sizing: border-box;
-    min-height: 700px;
+    min-height: 840px;
 }
 header{
     position: relative;
@@ -25,11 +26,6 @@ footer{
     display: block;
     width: 100%;
     margin-bottom: 0.2%;
-}
-
-main .navbar{
-    grid-column: 1/2;
-    margin-right: 0.8%;
 }
 
 .inputs{

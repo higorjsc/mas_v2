@@ -10,7 +10,7 @@
             <h4
                 class="titulo-matriz-pesos"
             >
-                {{ $ft('matrizPrioridadesGlobais') }}
+                {{ $t('matrizPrioridadesGlobais') }}
             </h4>
             <table
                 class="matriz-resultados"
@@ -31,7 +31,7 @@
                     <th
                         class="th-titulo-coluna"
                     >
-                        {{ $ft('tituloPesoGlobal') }}
+                        {{ $t('tituloPesoGlobal') }}
                     </th>
                     <td
                         v-for="(pesoGlobal, indexPesoGlobal) in matrizSegunda[matrizSegunda.length-1]['pesos']"
@@ -66,7 +66,7 @@
 
             <h4
                 class="titulo-prioridade-final"
-            >{{$ft('vetorPrioridadeGlobal')}}</h4>
+            >{{$t('vetorPrioridadeGlobal')}}</h4>
             <table
                 class="vetor-resultado"
             >
@@ -140,6 +140,9 @@ export default {
             for (let index = 0; index < pesos[0].length; index++) {
                 resultado.push(somaColuna(index))
             }
+            // A linha de código abaixo é explicitamente uma gambiarra
+            resultado.splice(this.optionsSegunda.length)
+
             return resultado
         }
     }

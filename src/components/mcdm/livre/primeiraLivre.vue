@@ -37,7 +37,7 @@
 
         <!-- SEÇÃO DAS MATRIZES -->
         <section
-            class="container-matrizes-primeira"
+            class="section-direita-primeira"
         >
             <vueHelpAhp/>
             <div
@@ -55,12 +55,14 @@
                     class="matriz-vetor-container-primeira"
                 >
                     <vueMatriz
+                        :idMatriz="itemCriterio"
                         :optionMatriz="optionsPrimeira"
                         :valueMatriz="matrizValores[indexMatriz]"
                         @click="trocaMatrizInputAtual(itemCriterio)"
                     />
                     <vueVetor
                         tituloVetor="Peso"
+                        :idVetor="itemCriterio"
                         :valueVetor="vetorPeso(indexMatriz)"
                         @click="trocaMatrizInputAtual(itemCriterio)"
                     />
@@ -83,6 +85,7 @@ import vueSlider from "@/components/compartilhado/sliderButton.vue"
 import vueMatriz from "@/components/mcdm/compartilhado/matriz.vue"
 import vueVetor from "@/components/mcdm/compartilhado/vetor.vue"
 import vueConsistencia from "@/components/mcdm/compartilhado/consistencia.vue"
+import calculoAhpMixin from "@/components/mcdm/compartilhado/mixins/calculoAhpMixin.vue"
 import { throttle } from "lodash"
 import { RI } from "@/assets/javascript/globalConstants.js"
 import vueHelpAhp from "@/components/mcdm/compartilhado/helpAhp.vue"
@@ -97,6 +100,9 @@ export default {
         vueConsistencia,
         vueHelpAhp
     },
+    mixins:[
+        calculoAhpMixin
+    ],
     data() {
         return {
             sliderValue: [],
@@ -135,6 +141,7 @@ export default {
         trocaMatrizInputAtual(matrizName) {
             this.$store.dispatch("changeMatrizInputAtual", matrizName)
             this.$store.dispatch("changeSlideresPrimeira", this.sliderStore)
+            this.changeMatrixColor(matrizName)
         },
         handleInputValue(value) {
             this.sliderStore[value[0]][value[1]].valor = Number(value[2])
@@ -142,26 +149,12 @@ export default {
             throttledDefineMatriz()
         },
         matrizMaker(index) {
-            const conveterEscala = (valorOriginal) => {
-                const minDesejado = 1.00
-                const maxDesejado = 9.00
-                let minOriginal
-                let maxOriginal
-                if (valorOriginal > 50) {
-                    minOriginal = 50
-                    maxOriginal = 100
-                } else {
-                    minOriginal = 50
-                    maxOriginal = 0
-                }
-                return (minDesejado + (((valorOriginal - minOriginal) / (maxOriginal - minOriginal)) * (maxDesejado - minDesejado)))
-            }
             const dirValue = (key) => {
-                const valor = key[0] === key[1] ? 1.00 : conveterEscala(this.sliderStore[index].find(item => item.id === key).valor)
-                return valor.toFixed(0)
+                const valor = key[0] === key[1] ? 1.00 : this.conveterEscala(this.sliderStore[index].find(item => item.id === key).valor)
+                return valor.toFixed(2)
             }
             const invValue = (key) => {
-                const valor = conveterEscala(this.sliderStore[index].find(item => item.id === key).valor)
+                const valor = this.conveterEscala(this.sliderStore[index].find(item => item.id === key).valor)
                 return (1 / valor).toFixed(2)
             }
             const matriz = []
