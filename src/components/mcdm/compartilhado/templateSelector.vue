@@ -7,10 +7,10 @@
             <option value="">
                 selecione
             </option>
-            <option value="primeiraTemplate">
-                {{ $t('primeiraTemplateMcdm') }}
+            <option value="cardozoTemplate">
+                {{ $t('cardozoTemplateMcdm') }}
             </option>
-            <option value="inserir">
+            <option value="livre">
                 {{ $t('ahpPersonalizado') }}
             </option>
         </select>

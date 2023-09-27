@@ -1,10 +1,12 @@
-
-.section-container-inputs{
-    display: flex;
-    flex-direction: column;
-    padding-left: 2%;
+.main-container-inputs{
+    display: grid;
+    grid-template-columns: 3fr 4.5fr 4.5fr;
+    overflow: hidden;
+    height: 100%;
 }
+
 .titulo-inputs-criterios, .titulo-inputs-options{
     margin-top: 10px;
     margin-bottom: 5px;
 }
+

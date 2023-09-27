@@ -2,10 +2,10 @@
 
     <section class="contaiener-tabview-resultados">
         <vueInputsLivre
-            v-if="verificarTemplate === 'inserir'"
+            v-if="verificarTemplate === 'livre'"
         />
         <vueInputsCardozo
-            v-if="verificarTemplate === 'primeiraTemplate'"
+            v-if="verificarTemplate === 'cardozoTemplate'"
         />
     </section>
 

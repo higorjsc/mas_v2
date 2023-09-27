@@ -2,10 +2,10 @@
 
     <section class="contaiener-tabview-primeira">
         <vuePrimeiraLivre
-            v-if="verificarTemplate === 'inserir'"
+            v-if="verificarTemplate === 'livre'"
         />
         <vuePrimeiraCardozo
-            v-if="verificarTemplate === 'primeiraTemplate'"
+            v-if="verificarTemplate === 'cardozoTemplate'"
         />
     </section>
 

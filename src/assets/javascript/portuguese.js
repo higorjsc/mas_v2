@@ -245,7 +245,7 @@ const translation = {
     ,
 
     templatesMcdmTitulo: "Método de decisão",
-    primeiraTemplateMcdm: "AHP Cardozo 2023",
+    cardozoTemplateMcdm: "AHP Cardozo 2023",
     segundaTemplateMcdm: "Segunda Template",
     terceiraTemplateMcdm: "Terceira Template",
     ahpPersonalizado: "AHP Personalizado",
@@ -257,6 +257,21 @@ const translation = {
     matrizPrioridadesGlobais: "MATRIZ DE PRIORIDADES LOCAIS",
     vetorPrioridadeGlobal: "VETOR DE PRIORIDADES GLOBAIS",
     tituloPesoGlobal: "Peso do critério",
+    helpPrimeiraEtapa:"HELP ETAPA 1",
+    tituloSobreAhp: "Sobre o Analytic Hierarchy Process (AHP)",
+    paragrafoExplicacaoAhp: "Lorem ipsum dolor sit amet. Est quasi aliquid id esse ratione non necessitatibus harum ex similique dolores sed consequatur nobis ex error deserunt. Qui iusto laboriosam et assumenda voluptatem est quidem omnis ad earum autem sit rerum itaque? Est voluptates assumenda est dolor ipsa cum quia perspiciatis nam officia voluptatem quo quasi quod sit internos beatae? Id quasi sapiente a itaque enim aut consequatur fugit vel enim incidunt et odit consequuntur in fugit iusto sit necessitatibus totam?",
+    tituloSobreMetodoCardozoAhp: "Sobre o Método Cardozo (2023)",
+    paragrafoExplicacaoMetodoCardozoAhp: "Est esse minus cum error natus non consectetur velit ut voluptas galisum. Sed molestiae aperiam rem reiciendis laudantium sed illum natus et ipsam dolorem 33 quidem aliquam et voluptatem rerum! Sed ullam cupiditate sed voluptates explicabo non aspernatur iste ea corporis illo a provident neque ut quia excepturi et libero reprehenderit.",
+    tituloSobreSoftware: "Sobre o Software",
+    paragrafoExplicacaoSoftware: "Est esse minus cum error natus non consectetur velit ut voluptas galisum. Sed molestiae aperiam rem reiciendis laudantium sed illum natus et ipsam dolorem 33 quidem aliquam et voluptatem rerum! Sed ullam cupiditate sed voluptates explicabo non aspernatur iste ea corporis illo a provident neque ut quia excepturi et libero reprehenderit.",
+    tituloSobreEtapaInputs: "Etapa de Inputs",
+    paragrafoExplicacaoEtapaInputs: "Est esse minus cum error natus non consectetur velit ut voluptas galisum. Sed molestiae aperiam rem reiciendis laudantium sed illum natus et ipsam dolorem 33 quidem aliquam et voluptatem rerum! Sed ullam cupiditate sed voluptates explicabo non aspernatur iste ea corporis illo a provident neque ut quia excepturi et libero reprehenderit.",
+    tituloSobrePrimeiraEtapa: "Primeira Etapa",
+    paragrafoExplicacaoPrimeiraEtapa: "Est esse minus cum error natus non consectetur velit ut voluptas galisum. Sed molestiae aperiam rem reiciendis laudantium sed illum natus et ipsam dolorem 33 quidem aliquam et voluptatem rerum! Sed ullam cupiditate sed voluptates explicabo non aspernatur iste ea corporis illo a provident neque ut quia excepturi et libero reprehenderit.",
+    tituloSobreSegundaEtapa: "Segunda Etapa",
+    paragrafoExplicacaoSegundaEtapa: "Est esse minus cum error natus non consectetur velit ut voluptas galisum. Sed molestiae aperiam rem reiciendis laudantium sed illum natus et ipsam dolorem 33 quidem aliquam et voluptatem rerum! Sed ullam cupiditate sed voluptates explicabo non aspernatur iste ea corporis illo a provident neque ut quia excepturi et libero reprehenderit.",
+    tituloSobreEtapaResultados: "Resultados",
+    paragrafoExplicacaoEtapaResultados: "Est esse minus cum error natus non consectetur velit ut voluptas galisum. Sed molestiae aperiam rem reiciendis laudantium sed illum natus et ipsam dolorem 33 quidem aliquam et voluptatem rerum! Sed ullam cupiditate sed voluptates explicabo non aspernatur iste ea corporis illo a provident neque ut quia excepturi et libero reprehenderit.",
 
 
     // AHP CARDOZO PORTUGUES
