@@ -6,7 +6,10 @@
     width: 100%;
     padding-bottom: 5%;
     height: 100%;
-    overflow: hidden !important;
+    /* overflow: hidden !important; */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 }
 
 .titulo-section-acessos {

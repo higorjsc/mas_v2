@@ -14,7 +14,6 @@ main{
     margin: 0.1%;
     box-sizing: border-box;
     min-height: 840px;
-    overflow: hidden !important;
 }
 header{
     position: relative;
