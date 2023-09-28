@@ -96,9 +96,9 @@ export default {
                     // Impede o usuário de selecionar textos enquanto arrasta o pop up
                     document.body.style.userSelect = "none"
                     // Calcula a largura e altura do body. Os valores variam com o scroll da página (manter cálculo dentro desse evento)
-                    const bodyHeight = document.getElementsByTagName("body")[1].clientHeight
+                    const bodyHeight = document.body.clientHeight
+                    console.log(bodyHeight)
                     const bodyWidth = document.body.clientWidth
-                    console.log(bodyWidth, bodyHeight)
                     // Define a posição do mouse em relação ao pop up
                     this.position.x = event.clientX - this.popUpContainer.offsetLeft
                     this.position.y = event.clientY - this.popUpContainer.offsetTop

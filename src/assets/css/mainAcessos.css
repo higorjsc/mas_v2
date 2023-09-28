@@ -7,7 +7,6 @@ body{
     width: 99.5%;
     box-sizing: border-box;
     margin: 2px;
-    /* height: 100%; Não excluir */
 }
 main{
     min-height: 840px;

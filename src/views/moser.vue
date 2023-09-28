@@ -1,45 +1,43 @@
 <template>
 
-    <body>
-        <header
-            class="header-container"
+    <header
+        class="header-container"
+    >
+        <vueHeader/>
+    </header>
+
+    <main
+        class="main-container"
+    >
+
+        <vueNavBar
+            class="main-elements navbar"
         >
-            <vueHeader/>
-        </header>
+        </vueNavBar>
 
-        <main
-            class="main-container"
-        >
-
-            <vueNavBar
-                class="main-elements navbar"
-            >
-            </vueNavBar>
-
-            <vueInputs
-                class="main-elements vueInputs"
-            />
-
-            <vueFluxograma
-                class="main-elements vueFluxograma"
-            />
-
-            <vueIlustrations
-                class ="main-elements resultados"
-            />
-
-        </main>
-        <footer
-            class="footer-container"
-        >
-            <vueFooter/>
-        </footer>
-
-        <vueBalao
-            class="balao"
+        <vueInputs
+            class="main-elements vueInputs"
         />
 
-    </body>
+        <vueFluxograma
+            class="main-elements vueFluxograma"
+        />
+
+        <vueIlustrations
+            class ="main-elements resultados"
+        />
+
+    </main>
+    <footer
+        class="footer-container"
+    >
+        <vueFooter/>
+    </footer>
+
+    <vueBalao
+        class="balao"
+    />
+
 
 </template>
 

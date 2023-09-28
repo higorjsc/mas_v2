@@ -1,29 +1,27 @@
 <template>
 
-    <body>
-        <header
-            class="header-container"
-        >
-            <vueHeader/>
-        </header>
+    <header
+        class="header-container"
+    >
+        <vueHeader/>
+    </header>
 
-        <main class="main-mcdm">
+    <main class="main-mcdm">
 
-            <vueNavBar class="navbar-mcdm"/>
+        <vueNavBar class="navbar-mcdm"/>
 
-            <section class="section-mcdm">
-                <vueAhpHeader class="header-mcdm"/>
-                <RouterView ></RouterView>
-            </section>
-        </main>
+        <section class="section-mcdm">
+            <vueAhpHeader class="header-mcdm"/>
+            <RouterView ></RouterView>
+        </section>
+    </main>
 
-        <vueFooter/>
+    <vueFooter/>
 
-        <vueBalao
-            class="balao"
-        />
+    <vueBalao
+        class="balao"
+    />
 
-    </body>
 
 </template>
 
