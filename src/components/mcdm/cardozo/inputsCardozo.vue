@@ -101,9 +101,6 @@ export default {
 </script>
 <style scoped>
 
-    .criterios-ahp-container-cardozo, .options-ahp-container-cardozo{
-        margin-bottom: 10px;
-    }
 
     /* Estiliza a lista ordenada (ol) */
     ol {

@@ -137,7 +137,7 @@ export default {
         border-radius: 20px;
         min-width: 360px;
         margin-right: 2px;
-        overflow: hidden;
+        overflow: hidden !important;
     }
 
     .paragrafo-explicacao{
@@ -153,7 +153,7 @@ export default {
     }
 
     .menu-option{
-      overflow: hidden;
+      overflow: hidden !important;
       list-style-type: none;
     }
 

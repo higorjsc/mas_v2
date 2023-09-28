@@ -2,7 +2,7 @@
 .main-container-segunda{
     display: grid;
     grid-template-columns: 3fr 9fr;
-    overflow: hidden;
+    overflow: hidden !important;
     height: 100%;
 }
 
@@ -23,7 +23,7 @@
     padding-left: 2%;
     padding-bottom: 5%;
     overflow: scroll;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
 }
 /* Estilo da barra de rolagem */
 .section-esquerda-segunda::-webkit-scrollbar {
@@ -53,7 +53,7 @@
     grid-column: 2/3;
     max-height: 700px;
     overflow: scroll;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
     padding-bottom: 5%;
     height: 100%;
 }

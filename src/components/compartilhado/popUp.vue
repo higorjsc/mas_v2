@@ -135,7 +135,7 @@ export default {
         background-color: white;
         border: 1px solid black;
         z-index: 100;
-        overflow: hidden;
+        overflow: hidden !important;
     }
     .barra-pop-up {
         width: 100%;

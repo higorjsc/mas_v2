@@ -85,19 +85,19 @@ export default {
 </script>
 
 <style scoped>
-
     .etapas-container{
         display: flex;
         align-items: center;
         position: relative;
         width: 100%;
         max-width: 100%;
-        height: 53px;
+        height: 100%;
+        max-height: 75px;
         border-bottom: var(--borda-simples);
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
         box-sizing: border-box;
-        overflow: hidden;
+        overflow: hidden !important;
     }
 
     .buttons-etapas{
@@ -106,9 +106,12 @@ export default {
         background-color: var(--cor-tema);
         opacity: 0.9;
         z-index: 2;
+        overflow: hidden !important;
     }
     .buttons-etapas:hover{
         opacity: 1;
+        overflow: hidden !important;
+
     }
 
     #first-etapa{
@@ -126,6 +129,8 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+        overflow: hidden !important;
+
     }
     .link:hover{
         cursor: pointer;

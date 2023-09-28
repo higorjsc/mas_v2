@@ -7,7 +7,6 @@ body{
     width: 99.5%;
     box-sizing: border-box;
     margin: 2px;
-
 }
 main{
     display: grid;
@@ -15,6 +14,7 @@ main{
     margin: 0.1%;
     box-sizing: border-box;
     min-height: 840px;
+    overflow: hidden !important;
 }
 header{
     position: relative;

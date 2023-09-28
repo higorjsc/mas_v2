@@ -4,7 +4,9 @@
     border-bottom-left-radius: 20px;
     border: var(--borda-simples);
     width: 100%;
-    padding-bottom: 5%
+    padding-bottom: 5%;
+    height: 100%;
+    overflow: hidden !important;
 }
 
 .titulo-section-acessos {

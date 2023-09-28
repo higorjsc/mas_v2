@@ -85,7 +85,7 @@ export default {
         font-size: 5pt;
         align-items: center;
         align-content: center;
-        overflow: hidden;
+        overflow: hidden !important;
     }
     .footer-container div{
         display: flex;

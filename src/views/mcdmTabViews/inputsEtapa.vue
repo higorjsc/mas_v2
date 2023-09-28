@@ -162,7 +162,6 @@ export default {
 }
 </script>
 <style scoped>
-
 .section-esquerda-inputs{
     position: relative;
     grid-column: 1/2;
@@ -175,8 +174,7 @@ export default {
     padding-bottom: 5%;
     padding-left: 2%;
     box-sizing: border-box;
-    overflow:hidden;
-    min-height: 640px;
+    overflow:hidden !important;
 }
 
 .section-direita-inputs{
@@ -190,9 +188,7 @@ export default {
     padding-left: 2%;
     padding-right: 2%;
     box-sizing: border-box;
-    overflow:hidden;
-    min-height: 640px;
-
+    overflow:hidden !important;
 }
 #switch-language-mcdm{
     position: absolute;
@@ -202,6 +198,7 @@ export default {
 .container-software-description{
     display: grid;
     grid-template-rows:1fr 4fr ;
+    overflow: hidden !important;
 }
 .container-etapas-description{
     display: grid;
@@ -215,8 +212,14 @@ export default {
 }
 .container-about{
     padding: 5px;
+    box-sizing: border-box;
 }
 .container-etapas{
-    padding: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-sizing: border-box;
+}
+p{
+    height: 50px;
 }
 </style>

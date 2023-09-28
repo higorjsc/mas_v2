@@ -44,6 +44,7 @@ export default {
         background-color: var(--cor-tema);
         border-radius: 20px;
         border: var(--borda-simples);
+        overflow: hidden !important;
     }
 
     .titulo-pagina {

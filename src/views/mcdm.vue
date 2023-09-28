@@ -62,6 +62,8 @@ export default {
   grid-template-columns: 1fr 5fr; /* Deixando a barra de navegação com o tamanho necessário e o restante para a seção principal */
   box-sizing: border-box;
   width: 100%;
+  max-height: 840px;
+  overflow: hidden !important;
 }
 
 .section-mcdm {
@@ -72,15 +74,15 @@ export default {
     border-radius: 20px;
     margin-left: 0.1%;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: hidden !important;
+    max-height: 840px;
+
 }
 
-main .navbar-mcdm{
-    grid-column: 1/2;
-}
 .header-mcdm{
     grid-column: 1/3;
     grid-row: 1/2;
     height: 100%;
+    overflow: hidden !important;
 }
 </style>

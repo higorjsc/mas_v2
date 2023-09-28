@@ -3,6 +3,9 @@
     color: black;
     --borda-simples: 1pt solid black;
     line-height: 1.5;
+    box-sizing: border-box;
+    /* overflow: hidden !important; */
+
 }
 /* Estilo da barra de rolagem */
 ::-webkit-scrollbar {

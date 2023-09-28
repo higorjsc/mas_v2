@@ -40,7 +40,7 @@ export default {
     border-right: var(--borda-simples);
     box-sizing: border-box;
     width: 100%;
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 </style>

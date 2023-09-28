@@ -22,5 +22,7 @@ export default {
 </script>
 
 <style scoped>
-
+p{
+    overflow: hidden !important;
+}
 </style>

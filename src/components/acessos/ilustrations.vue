@@ -104,7 +104,7 @@ export default {
         margin: auto;
         height: 65%;
         width: 360px;
-        overflow: hidden;
+        overflow: hidden !important;
     }
     img{
         position: absolute;

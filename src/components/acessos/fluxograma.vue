@@ -146,7 +146,7 @@ export default {
         margin-top: 20%;
         width: 430px;
         height: 500px;
-        overflow: hidden;
+        overflow: hidden !important;
         transform: scale(1);
     }
     .itens{
