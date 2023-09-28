@@ -1,6 +1,8 @@
 <template>
 
-    <main>
+    <main
+        class="main-pop-up"
+    >
         <!-- O uso do atributo "name" em cada input é obrigatório pela API -->
         <form :action="formAtual" method="POST">
             <div class="dados">

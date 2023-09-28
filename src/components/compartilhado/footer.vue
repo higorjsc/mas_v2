@@ -1,53 +1,52 @@
 
 <template>
 
-    <footer>
-        <div
-            class="footer-container"
+
+    <div
+        class="footer-container"
+    >
+
+        <img
+            id="ufrgs" src="@\assets\Imagens\ufrgs.png"
+            alt="logo_ufrgs_img"
         >
 
-            <img
-                id="ufrgs" src="@\assets\Imagens\ufrgs.png"
-                alt="logo_ufrgs_img"
+        <div class="div-esquerda">
+            <ul
+                class="ul-esquerda"
             >
+                <li>{{ $t('universidadeFooter') }}</li>
+                <li>{{ $t('laboratorioFooter') }}</li>
+                <li>{{ $t('localizacaoFooter') }}</li>
+                <li>{{ $t('contatoFooter') }}</li>
+            </ul>
+        </div>
 
-            <div class="div-esquerda">
-                <ul
-                    class="ul-esquerda"
-                >
-                    <li>{{ $t('universidadeFooter') }}</li>
-                    <li>{{ $t('laboratorioFooter') }}</li>
-                    <li>{{ $t('localizacaoFooter') }}</li>
-                    <li>{{ $t('contatoFooter') }}</li>
-                </ul>
-            </div>
-
-            <div class="div-direita">
-                <ul
-                    class="ul-direita"
-                >
-                    <li>{{ $t('linksFooter') }}</li>
-                    <li @click="abrirPopUp('creditos')">
-                        {{ $t('creditosFooter') }}
-                    </li>
-                    <li @click="abrirPopUp('referencias')">
-                        {{ $t('referenciasFooter') }}
-                    </li>
-                    <li @click="abrirPopUp('reportarErro')">
-                        {{ $t('reportarErroFooter') }}
-                    </li>
-                </ul>
-
-            </div>
-
-            <img
-                id="laprom" src="@\assets\Imagens\laprom.png"
-                alt="logo_laprom_png"
+        <div class="div-direita">
+            <ul
+                class="ul-direita"
             >
+                <li>{{ $t('linksFooter') }}</li>
+                <li @click="abrirPopUp('creditos')">
+                    {{ $t('creditosFooter') }}
+                </li>
+                <li @click="abrirPopUp('referencias')">
+                    {{ $t('referenciasFooter') }}
+                </li>
+                <li @click="abrirPopUp('reportarErro')">
+                    {{ $t('reportarErroFooter') }}
+                </li>
+            </ul>
 
         </div>
 
-    </footer>
+        <img
+            id="laprom" src="@\assets\Imagens\laprom.png"
+            alt="logo_laprom_png"
+        >
+
+    </div>
+
 
     <vuePopUp/>
 
@@ -55,9 +54,12 @@
 </template>
 
 <script>
-
+import vuePopUp from "@/components/compartilhado/popUp.vue"
 export default {
     name: "vue-footer",
+    components:{
+        vuePopUp
+    },
     methods: {
         abrirPopUp(frame) {
             this.$store.dispatch("changePopUp", frame)
@@ -85,15 +87,10 @@ export default {
         align-items: center;
         align-content: center;
         overflow: hidden !important;
-    }
-    .footer-container div{
-        display: flex;
-        flex-direction: column;
-        position: absolute;
         font-size: 11pt;
         color: var(--cor-texto-tema);
-        opacity: 0.8;
     }
+
     .div-esquerda{
         grid-column: 2/3;
     }

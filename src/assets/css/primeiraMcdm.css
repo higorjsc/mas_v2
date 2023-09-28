@@ -3,6 +3,7 @@
     grid-template-columns: 3fr 9fr;
     overflow: hidden !important;
     height: 100%;
+    max-height: 840px;
 }
 .section-esquerda-primeira{
     display: flex;

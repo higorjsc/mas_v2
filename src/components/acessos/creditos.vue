@@ -1,5 +1,7 @@
 <template>
-    <main>
+    <main
+        class="main-pop-up"
+    >
         <div class="creditos-container">
             <span v-for="item in credits" :key="item.texto" :class="item.class" v-html="`${$t(item.texto)}`"></span>
         </div>

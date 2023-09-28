@@ -1,7 +1,9 @@
 <template>
 
     <body>
-        <header>
+        <header
+            class="header-container"
+        >
             <vueHeader/>
         </header>
 
@@ -15,9 +17,7 @@
             </section>
         </main>
 
-        <footer>
-            <vueFooter/>
-        </footer>
+        <vueFooter/>
 
         <vueBalao
             class="balao"
@@ -64,6 +64,8 @@ export default {
   width: 100%;
   max-height: 840px;
   overflow: hidden !important;
+  display: grid;
+    margin: 0.1%;
 }
 
 .section-mcdm {

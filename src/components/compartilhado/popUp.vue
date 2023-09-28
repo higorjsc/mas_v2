@@ -96,8 +96,9 @@ export default {
                     // Impede o usuário de selecionar textos enquanto arrasta o pop up
                     document.body.style.userSelect = "none"
                     // Calcula a largura e altura do body. Os valores variam com o scroll da página (manter cálculo dentro desse evento)
-                    const bodyHeight = document.body.clientHeight - 40
+                    const bodyHeight = document.getElementsByTagName("body")[1].clientHeight
                     const bodyWidth = document.body.clientWidth
+                    console.log(bodyWidth, bodyHeight)
                     // Define a posição do mouse em relação ao pop up
                     this.position.x = event.clientX - this.popUpContainer.offsetLeft
                     this.position.y = event.clientY - this.popUpContainer.offsetTop
@@ -135,6 +136,8 @@ export default {
         background-color: white;
         border: 1px solid black;
         z-index: 100;
+        display: flex;
+        flex-direction: column;
     }
     .barra-pop-up {
         width: 100%;
@@ -142,6 +145,7 @@ export default {
         height: 25px;
         z-index: 100;
         position: relative;
+        margin: 0;
     }
     .barra-pop-up:hover {
         cursor: move;

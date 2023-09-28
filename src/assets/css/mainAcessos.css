@@ -7,20 +7,28 @@ body{
     width: 99.5%;
     box-sizing: border-box;
     margin: 2px;
+    /* height: 100%; Não excluir */
 }
 main{
+    min-height: 840px;
+    max-height: 840px;
+}
+.main-container{
     display: grid;
     grid-template-columns: 5fr 5fr 9fr 7fr;
     margin: 0.1%;
     box-sizing: border-box;
-    min-height: 840px;
 }
-header{
+.main-pop-up{
+    min-height: 300px;
+    max-height: 500px;
+}
+.header-container{
     position: relative;
     display: block;
     width: 100%;
 }
-footer{
+.footer-container{
     position: relative;
     display: block;
     width: 100%;

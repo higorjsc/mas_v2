@@ -2,7 +2,9 @@
 
     <body>
 
-        <header>
+        <header
+            class="header-container"
+        >
             <vueHeader/>
         </header>
 
@@ -27,7 +29,9 @@
 
         </main>
 
-        <footer>
+        <footer
+            class="footer-container"
+        >
             <vueFooter/>
         </footer>
 
@@ -69,3 +73,6 @@ export default {
     }
 }
 </script>
+<style scoped>
+
+</style>

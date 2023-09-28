@@ -1,6 +1,8 @@
 <template>
 
-    <main>
+    <main
+        class="main-pop-up"
+    >
         <div class="referencias-container">
             <span>{{ $t('tituloReferencias') }}</span>
             <ul>
@@ -32,9 +34,9 @@ export default {
 
 <style scoped>
 
-    main {
+    .main-ref {
         width: 98%;
-        height: 100%;
+        max-height: 200px;
         border: var(--borda-simples);
         border-radius: 20px;
         padding: 5px;
