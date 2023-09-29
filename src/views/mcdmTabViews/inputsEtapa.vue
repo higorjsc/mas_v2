@@ -40,77 +40,27 @@
                 </h4>
                 <p
                     class="paragrafo-explicacao-software"
+                    v-html="`${$t('paragrafoExplicacaoSoftware')}`"
                 >
-                    {{ $t('paragrafoExplicacaoSoftware') }}
                 </p>
-            </div>
+                <h4
+                    class="titulo-about"
+                >
+                    {{ $t('tituloSobreAnaliseMulticriterial') }}
+                </h4>
+                <p
+                    class="paragrafo-explicacao-analise-multicrietio"
+                    v-html="`${$t('paragrafoExplicacaoAnaliseMulticriterio')}`"
+                >
+                </p>
 
-            <!-- CONTAINER ETAPAS -->
+            </div>
             <div
-                class="container-etapas-description"
+                class="container-fluxograma"
             >
-                <!-- INPUTS -->
-                <div
-                    class="container-etapas"
-                >
-                    <h5
-                        class="titulo-etapas"
-                    >
-                        {{ $t('tituloSobreEtapaInputs') }}
-                    </h5>
-                    <p
-                        class="paragrafo-explicacao-etapa"
-                    >
-                        {{ $t('paragrafoExplicacaoEtapaInputs') }}
-                    </p>
-                </div>
-                <!-- ETAPA 1 -->
-                <div
-                    class="container-etapas"
-                >
-                    <h5
-                        class="titulo-etapas"
-                    >
-                        {{ $t('tituloSobrePrimeiraEtapa') }}
-                    </h5>
-                    <p
-                        class="paragrafo-explicacao-etapa"
-                    >
-                        {{ $t('paragrafoExplicacaoPrimeiraEtapa') }}
-                    </p>
-                </div>
-                <!-- ETAPA 2 -->
-                <div
-                    class="container-etapas"
-                >
-                    <h5
-                        class="titulo-etapas"
-                    >
-                        {{ $t('tituloSobreSegundaEtapa') }}
-                    </h5>
-                    <p
-                        class="paragrafo-explicacao-etapa"
-                    >
-                        {{ $t('paragrafoExplicacaoSegundaEtapa') }}
-                    </p>
-                </div>
-                <!-- RESULTADOS -->
-                <div
-                    class="container-etapas"
-                >
-                    <h5
-                        class="titulo-etapas"
-                    >
-                        {{ $t('tituloSobreEtapaResultados') }}
-                    </h5>
-                    <p
-                        class="paragrafo-explicacao-etapa"
-                    >
-                        {{ $t('paragrafoExplicacaoEtapaResultados') }}
-                    </p>
-                </div>
-
+                <img src="@/assets/Imagens/fluxograma_mcdm.png" alt="Fluxograma do processo de tomada de decisão por análise multicritério"/>
             </div>
+
         </div>
 
     </section>
@@ -197,29 +147,31 @@ export default {
 }
 .container-software-description{
     display: grid;
-    grid-template-rows:1fr 4fr ;
-    overflow: hidden !important;
+    grid-template-columns:1fr 1fr ;
+    height: 100%;
 }
-.container-etapas-description{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
+
 .titulo-about{
-    font-size: 12pt;
+    font-size: 14pt;
 }
-.titulo-etapas{
-    font-size: 12pt;
-}
+
 .container-about{
     padding: 5px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    grid-column: 1/2;
 }
-.container-etapas{
-    padding-left: 5px;
-    padding-right: 5px;
-    box-sizing: border-box;
+.container-fluxograma{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2/3;
+    margin: auto;
 }
+
 p{
-    height: 50px;
+    padding: 0;
+    margin: 0;
 }
 </style>

@@ -45,9 +45,9 @@ export default {
     mixins: [
 
     ],
-    beforeMount() {
+    beforeCreate() {
         this.$store.dispatch("changeMetodo", "Mcdm")
-        aplicarTema("temaVerde")
+        aplicarTema("temaVermelho")
     },
     beforeUnmount() {
         this.$store.dispatch("changeTemplateMcdm", "")

@@ -37,7 +37,7 @@
     width: 90px;
     text-align: center;
     border: var(--borda-simples);
-    background-color: rgba(3, 49, 3, 0.8);
+    background-color: var(--cor-tema-alt);
     color: var(--cor-texto-tema);
 }
 .th-titulo-coluna{
@@ -45,13 +45,10 @@
     font-size: 12pt;
     font-weight: bold;
     text-align: left;
-    color: var(--cor-tema)
-
 }
 .th-titulo-linha{
     width: 10%;
     font-size: 12pt;
     font-weight: bold;
     height: 50px;
-    color: var(--cor-tema)
 }

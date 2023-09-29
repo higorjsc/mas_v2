@@ -28,11 +28,8 @@
 
     </main>
 
-    <footer
-        class="footer-container"
-    >
-        <vueFooter/>
-    </footer>
+
+    <vueFooter/>
 
     <vueBalao
         class="balao"

@@ -32,7 +32,7 @@ export default{
         changeMatrixColor() {
             const matrizes = document.querySelectorAll(".matriz td")
             matrizes.forEach(element => {
-                element.style.backgroundColor = "var(--cor-tema-2)"
+                element.style.backgroundColor = "var(--cor-tema-alt)"
                 element.style.color = "var(--cor-texto-tema)"
 
             })

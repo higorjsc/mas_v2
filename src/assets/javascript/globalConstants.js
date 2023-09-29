@@ -9,7 +9,7 @@ const TEMAS = {
     temaVermelho: {
         HoverColor: "#300202d6",
         mainColor: "#650505d6",
-        altColor: "rgba(3, 49, 3, 0.8)",
+        altColor: "#A72525",
         shadowInput: "-5px 0 5px  rgb(0 0 0 / 95%",
         shadowHover: "0 0 10px #650505d6",
         textColor: "white"

@@ -23,7 +23,7 @@
             </p>
             <br>
             <br>
-            <img id="img-mapa-cardozo-ahp" src="@\assets\Imagens\mapa_cardozo_ahp.jpg" alt="Mapa da decisão por AHP no métodoo Cardozo">
+            <img id="img-mapa-cardozo-ahp" src="@\assets\Imagens\mapa_cardozo_ahp.png" alt="Mapa da decisão por AHP no métodoo Cardozo">
         </div>
     </div>
 

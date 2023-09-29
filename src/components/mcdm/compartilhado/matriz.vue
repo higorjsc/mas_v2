@@ -86,7 +86,7 @@ export default {
         max-width: 100px;
         text-align: center;
         border: var(--borda-simples);
-        background-color: rgba(3, 49, 3, 0.8);
+        background-color: var(--cor-tema-alt);
         color: var(--cor-texto-tema);
     }
     .th-titulo-coluna{

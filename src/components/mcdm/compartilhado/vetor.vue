@@ -70,7 +70,7 @@ export default {
         min-width: 80px;
         max-width: 80px;
         text-align: center;
-        background-color: rgba(3, 49, 3, 0.8);
+        background-color: var(--cor-tema-alt);
         color: var(--cor-texto-tema);
         border: var(--borda-simples);
     }

@@ -92,7 +92,7 @@ export default {
             }
             this.$refs.slider.style.background = "linear-gradient(90deg,"
             + `var(--cor-tema) 0%, white ${left}%,`
-            + `var(--cor-tema) ${meioStart}%, rgb(94, 168, 94) ${meioEnd}%,`
+            + `var(--cor-tema) ${meioStart}%, var(--cor-tema) ${meioEnd}%,`
             + `white ${right}%, var(--cor-tema) 100%)`
 
             // linear-gradient(90deg, var(--cor-tema) 0%, white ${left}%, var(--cor-tema) ${meioStart}%, var(--cor-tema) ${meioEnd}%, white ${right}%, var(--cor-tema) 100%)`

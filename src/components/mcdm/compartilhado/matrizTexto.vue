@@ -83,18 +83,19 @@ export default {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+        width: 100%;
     }
     .matriz-texto{
         font-size: 10pt;
+        width: 100%;
     }
     .matriz-texto td{
-        min-width: 60px;
-        max-width: 100px;
+        width: 20%;
         text-align: center;
     }
     .th-titulo-coluna{
-        min-width: 80px;
         font-size: 10pt;
+        width: 20%;
         font-weight: bold;
         text-align: left;
     }

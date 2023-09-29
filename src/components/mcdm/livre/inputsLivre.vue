@@ -165,7 +165,7 @@ export default {
         border-radius: 50%;
         transform: translateY(1px);
         font-size: 12pt;
-        background-color: rgba(3, 49, 3, 0.8);
+        background-color: var(--cor-tema-alt);
         color: var(--cor-texto-tema);
         text-align: center;
     }
