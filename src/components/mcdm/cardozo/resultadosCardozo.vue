@@ -114,11 +114,7 @@ export default {
         resultadoFinal() {
             const primeira = this.matrizPrimeira
             const segunda = this.matrizSegunda
-            // console.log('primeira')
-            // console.log(primeira)
-            // console.log('segunda')
-            // console.log(segunda)
-
+            
             const multiplicaPeso = (index) => {
                 const vetor = []
                 for (let j = 0; j < segunda[index].length - 1; j++) {

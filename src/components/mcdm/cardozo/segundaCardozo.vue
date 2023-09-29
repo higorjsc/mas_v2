@@ -139,8 +139,8 @@ export default {
                 return valor.toFixed(2)
             }
             const invValue = (key) => {
-                const valor = this.conveterEscala(this.sliderStore.find(item => item.id === key).valor)
-                return (1 / valor).toFixed(2)
+                const valor = (1 / this.conveterEscala(this.sliderStore.find(item => item.id === key).valor))
+                return valor > 1 ? Math.floor(valor).toFixed(2) : valor.toFixed(2)
             }
             const matriz = []
             for (let i = 1; i <= this.criteriosSegunda.length; i++) {

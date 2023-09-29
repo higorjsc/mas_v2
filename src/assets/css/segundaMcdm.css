@@ -53,13 +53,12 @@
     grid-column: 2/3;
     max-height: 700px;
     overflow: scroll;
-    overflow-x: hidden !important;
     padding-bottom: 5%;
     height: 100%;
 }
 .matriz-container-segunda{
     margin: auto;
-    margin-left: 100px;
+    margin-left: 40px;
 }
 .matriz-container-segunda:hover {
     cursor: pointer;
