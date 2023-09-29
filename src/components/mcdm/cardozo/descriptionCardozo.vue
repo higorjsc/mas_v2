@@ -43,7 +43,6 @@
         <div
             class="container-fluxograma-ahp"
         >
-
             <img id="img-fluxograma-ahp" src="@\assets\Imagens\fluxograma_ahp.png" alt="fluxograma do metodo ahp"/>
         </div>
 
@@ -88,12 +87,21 @@ export default {
 #img-fluxograma-ahp{
     position: relative;
     margin: auto;
-    height: 100%;
+    height: 90%;
     max-height: 760px;
 }
 #img-mapa-cardozo-ahp{
     position: relative;
     margin: auto;
     width: 100%;
+    max-height: 380px;
+    /* transform: translateX(-20px); */
+
 }
+/* #img-mapa-cardozo-ahp:hover{
+    transform: translateY(-80px)scale(1.5);
+    cursor: pointer;
+    z-index: 2;
+    border: var(--borda-simples);
+} */
 </style>

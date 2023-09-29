@@ -67,7 +67,8 @@ export default {
 #img-fluxograma-ahp{
     position: relative;
     margin: auto;
-    height: 100%;
+    height: 90%;
     max-height: 760px;
 }
+
 </style>

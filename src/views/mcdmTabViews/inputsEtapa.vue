@@ -54,7 +54,7 @@
                 >
                 </p>
                 <br><br>
-                <img id="img-wordcloud-mcdm" src="@/assets/Imagens/wordcloud_mcdm.jpg" alt="Nuvem de Palavras MCDM"/>
+                <img id="img-wordcloud-mcdm" src="@/assets/Imagens/wordcloud_mcdm.png" alt="Nuvem de Palavras MCDM"/>
                 <span
                     class="legenda-wordcloud-mcdm"
                 >
@@ -64,7 +64,7 @@
             <div
                 class="container-fluxograma"
             >
-                <img src="@/assets/Imagens/fluxograma_mcdm.png" alt="Fluxograma do processo de tomada de decisão por análise multicritério"/>
+                <img id="img-fluxograma-mcdm" src="@/assets/Imagens/fluxograma_mcdm.png" alt="Fluxograma do processo de tomada de decisão por análise multicritério"/>
 
             </div>
 
@@ -143,7 +143,7 @@ export default {
     width: 100%;
     height: 100%;
     padding-left: 2%;
-    padding-right: 2%;
+    padding-right: 1%;
     box-sizing: border-box;
 }
 #switch-language-mcdm{
@@ -167,9 +167,14 @@ export default {
 .container-fluxograma{
     display: flex;
     justify-content: center;
-    align-items: center;
+    position: relative;
     grid-column: 2/3;
     margin: auto;
+    height: 100%;
+    width: 100%;
+}
+#img-fluxograma-mcdm{
+    height: 50%;
 }
 
 p{
@@ -183,6 +188,7 @@ p{
     transform: translateY(-80px)scale(1.5);
     cursor: pointer;
     z-index: 2;
+    border: var(--borda-simples);
 }
 
 .legenda-wordcloud-mcdm{
