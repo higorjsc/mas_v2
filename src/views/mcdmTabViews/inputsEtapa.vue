@@ -33,8 +33,8 @@
             <div
                 class="container-about"
             >
-                <h4
-                    class="titulo-about"
+                <!-- <h4
+                    class="titulo-description-metodo-mcdm"
                 >
                     {{ $t('tituloSobreSoftware') }}
                 </h4>
@@ -42,9 +42,9 @@
                     class="paragrafo-explicacao-software"
                     v-html="`${$t('paragrafoExplicacaoSoftware')}`"
                 >
-                </p>
+                </p> -->
                 <h4
-                    class="titulo-about"
+                    class="titulo-description-metodo-mcdm"
                 >
                     {{ $t('tituloSobreAnaliseMulticriterial') }}
                 </h4>
@@ -53,12 +53,19 @@
                     v-html="`${$t('paragrafoExplicacaoAnaliseMulticriterio')}`"
                 >
                 </p>
-
+                <br><br>
+                <img id="img-wordcloud-mcdm" src="@/assets/Imagens/wordcloud_mcdm.jpg" alt="Nuvem de Palavras MCDM"/>
+                <span
+                    class="legenda-wordcloud-mcdm"
+                >
+                    {{ $t('legendaWordcloudMcdm') }}
+                </span>
             </div>
             <div
                 class="container-fluxograma"
             >
                 <img src="@/assets/Imagens/fluxograma_mcdm.png" alt="Fluxograma do processo de tomada de decisão por análise multicritério"/>
+
             </div>
 
         </div>
@@ -138,7 +145,6 @@ export default {
     padding-left: 2%;
     padding-right: 2%;
     box-sizing: border-box;
-    overflow:hidden !important;
 }
 #switch-language-mcdm{
     position: absolute;
@@ -149,10 +155,6 @@ export default {
     display: grid;
     grid-template-columns:1fr 1fr ;
     height: 100%;
-}
-
-.titulo-about{
-    font-size: 14pt;
 }
 
 .container-about{
@@ -173,5 +175,18 @@ export default {
 p{
     padding: 0;
     margin: 0;
+}
+#img-wordcloud-mcdm{
+    width: 100%;
+}
+#img-wordcloud-mcdm:hover{
+    transform: translateY(-80px)scale(1.5);
+    cursor: pointer;
+    z-index: 2;
+}
+
+.legenda-wordcloud-mcdm{
+    text-align: center;
+    width: 100%;
 }
 </style>

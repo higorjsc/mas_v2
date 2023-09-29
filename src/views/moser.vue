@@ -31,10 +31,6 @@
 
     <vueFooter/>
 
-    <vueBalao
-        class="balao"
-    />
-
 
 </template>
 
@@ -42,8 +38,6 @@
 import vueNavBar from "@/components/compartilhado/navbar.vue"
 import vueHeader from "@/components/compartilhado/header.vue"
 import vueFooter from "@/components/compartilhado/footer.vue"
-import vueBalao from "@/components/compartilhado/balao.vue"
-
 import vueFluxograma from "@/components/acessos/fluxograma.vue"
 import vueIlustrations from "@/components/acessos/ilustrations.vue"
 import vueInputs from "@/components/acessos/inputsMoser.vue"
@@ -57,8 +51,7 @@ export default {
         vueFluxograma,
         vueHeader,
         vueFooter,
-        vueIlustrations,
-        vueBalao
+        vueIlustrations
     },
     beforeMount() {
         this.$store.dispatch("changeMetodo", "Moser")

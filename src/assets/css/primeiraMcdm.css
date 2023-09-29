@@ -13,6 +13,7 @@
     border-right: var(--borda-simples);
     box-sizing: border-box;
     padding-left: 2%;
+    padding-bottom: 20%;
     overflow: scroll;
 }
 
@@ -47,7 +48,6 @@
     grid-column: 2/3;
     max-height: 840px;
     overflow: scroll;
-    overflow-x: hidden !important;
     padding-top: 2%;
     padding-bottom: 15%;
     box-sizing: border-box;

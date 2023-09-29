@@ -57,6 +57,27 @@
                     v-if="itemParent === matrizAtual"
                     class="slider-container-primeira"
                 >
+                    <p
+                        v-if="matrizAtual === 'Risco Energético'"
+                        v-html="`${$t('paragrafoRiscoEnergetico')}`"
+                    >
+                    </p>
+                    <p
+                        v-if="matrizAtual === 'Aval. Econômica'"
+                        v-html="`${$t('paragrafoExplicacaoAvalEconomica')}`"
+                    >
+                    </p>
+                    <p
+                        v-if="matrizAtual === 'Custo Ambiental'"
+                        v-html="`${$t('paragrafoExplicacaoEmissoes')}`"
+                    >
+                    </p>
+                    <p
+                        v-if="matrizAtual === 'Risco Social'"
+                        v-html="`${$t('paragrafoExplicacaoSocial')}`"
+                    >
+                    </p>
+
                     <vueSlider
                         v-for="(itemChildren, indexChildren) in sliderStore[0]"
                         :key="indexChildren"
@@ -429,6 +450,7 @@ export default {
 }
 </script>
 <style scoped>
+
     .container-resultados-fluxograma{
         display: flex;
         flex-direction: column;

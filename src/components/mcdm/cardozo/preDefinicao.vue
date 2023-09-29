@@ -4,7 +4,8 @@
         class="fluxograma-container"
         v-if="selectSolicitado==='Fluxograma'"
     >
-        <p v-html="`${$t('paragrafoExplicacaoFluxograma')}`"></p>
+        <p class="paragrafo-pre-definition" v-html="`${$t('paragrafoExplicacaoFluxograma')}`"></p>
+        <p class="paragrafo-pre-definition" v-html="`${$t('pesosParagrafoExplicacaoFluxograma')}`"></p>
         <select v-model="fluxograma">
             <option value="poco">
                 {{ $t('poco') }}
@@ -27,13 +28,16 @@
     <div
         v-if="selectSolicitado==='Aval. Econômica'"
     >
+        <p class="paragrafo-pre-definition" v-html="`${$t('paragrafoRiscoAvalEconomica')}`"></p>
+
     </div>
     <!-- RISCO ENERGÉTICO -->
     <div
         class="energetico-container"
         v-if="selectSolicitado==='Risco Energético'"
     >
-        <p v-html="`${$t('paragrafoRiscoEnergetico')}`"></p>
+        <p class="paragrafo-pre-definition" v-html="`${$t('paragrafoRiscoEnergetico')}`"></p>
+        <p class="paragrafo-pre-definition" v-html="`${$t('pesosParagrafoRiscoEnergetico')}`"></p>
         <select v-model="riscoEnergetico">
             <option value="baixo">
                 {{ $t('baixo') }}
@@ -59,7 +63,8 @@
         v-if="selectSolicitado==='Custo Ambiental'"
         @load="emissao()"
     >
-        <p v-html="`${$t('paragrafoExplicacaoEmissoes')}`"></p>
+        <p class="paragrafo-pre-definition" v-html="`${$t('paragrafoExplicacaoEmissoes')}`"></p>
+        <p class="paragrafo-pre-definition" v-html="`${$t('pesosParagrafoExplicacaoEmissoes')}`"></p>
         <vueMatriz
             idMatriz="matriz-emissoes-texto"
             :optionMatriz="optionsPrimeira"
@@ -72,7 +77,8 @@
         class="social-container"
         v-if="selectSolicitado==='Risco Social'"
     >
-        <p v-html="`${$t('paragrafoExplicacaoSocial')}`"></p>
+        <p class="paragrafo-pre-definition" v-html="`${$t('paragrafoExplicacaoSocial')}`"></p>
+        <p class="paragrafo-pre-definition" v-html="`${$t('pesosParagrafoExplicacaoSocial')}`"></p>
         <select v-model="social">
             <option value="baixo">
                 {{ $t('baixo') }}
@@ -210,10 +216,13 @@ export default{
     select{
         width: 97%;
     }
-    p{
+    .paragrafo-pre-definition{
+        display: flex;
+        justify-content: center;
         text-align: justify;
         padding-right: 3%;
         box-sizing: border-box;
+        margin-bottom: 10px;
     }
     .emissao-container{
         display: flex;

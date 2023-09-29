@@ -41,7 +41,6 @@
             </tbody>
         </table>
         <span
-            v-if="mostrarEscala"
             class="legenda-escala-saaty"
         >
             {{$t('legendaEscalaSaaty')}}
@@ -87,7 +86,7 @@ export default{
 }
 .legenda-escala-saaty{
     margin-top: 0;
-    font-size: 11pt;
+    font-size: 9pt;
     text-align: center;
     width: 90%;
 }

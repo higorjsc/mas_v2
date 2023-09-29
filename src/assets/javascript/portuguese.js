@@ -257,27 +257,27 @@ const translation = {
     tituloPesoGlobal: "Peso do critério",
     helpPrimeiraEtapa:"HELP ETAPA 1",
     tituloSobreAhp: "Sobre o Analytic Hierarchy Process (AHP)",
-    paragrafoExplicacaoAhp: "Lorem ipsum dolor sit amet. Est quasi aliquid id esse ratione non necessitatibus harum ex similique dolores sed consequatur nobis ex error deserunt. Qui iusto laboriosam et assumenda voluptatem est quidem omnis ad earum autem sit rerum itaque? Est voluptates assumenda est dolor ipsa cum quia perspiciatis nam officia voluptatem quo quasi quod sit internos beatae? Id quasi sapiente a itaque enim aut consequatur fugit vel enim incidunt et odit consequuntur in fugit iusto sit necessitatibus totam?",
+    paragrafoExplicacaoAhp: "Lorem ipsum dolor sit amet. Est quasi aliquid id esse ratione non necessitatibus harum ex similique dolores sed consequatur nobis ex error deserunt. ",
     tituloSobreMetodoCardozoAhp: "Sobre o Método Cardozo (2023)",
     paragrafoExplicacaoMetodoCardozoAhp: "Est esse minus cum error natus non consectetur velit ut voluptas galisum. Sed molestiae aperiam rem reiciendis laudantium sed illum natus et ipsam dolorem 33 quidem aliquam et voluptatem rerum! Sed ullam cupiditate sed voluptates explicabo non aspernatur iste ea corporis illo a provident neque ut quia excepturi et libero reprehenderit.",
-    tituloSobreSoftware: "Sobre o Software",
-    paragrafoExplicacaoSoftware: ""
-    + "A presente aplicação, desenvolvida pelo Laboratório de Processamento Mineral (LAPROM) da Universidade Federal do Rio Grande do Sul (UFRGS), "
-    + "utiliza diversos métodos de análise multicritério para determinar a melhor opção de acesso à mina subterrânea e o meio mais adequado para "
-    + "transportar o minério até a superfície."
-    ,
+    // tituloSobreSoftware: "Sobre o Software",
+    // paragrafoExplicacaoSoftware: ""
+    // + "A presente aplicação, desenvolvida pelo Laboratório de Processamento Mineral (LAPROM) da Universidade Federal do Rio Grande do Sul (UFRGS), "
+    // + "utiliza diversos métodos de análise multicritério para determinar a melhor opção de acesso à mina subterrânea e o meio mais adequado para "
+    // + "transportar o minério até a superfície."
+    // ,
     tituloSobreAnaliseMulticriterial: "Sobre a Análise multicriterial",
     paragrafoExplicacaoAnaliseMulticriterio: ""
     + "De forma geral, procedimento fundamenta-se nas etapas de:<br>"
-    + "- Definição do problema (Seleção de acessos, método de lavra, transporte de minério, etc.).<br>"
-    + "- Definição das opções a serem comparadas (Poço, Rampa, Plano Inclinado, etc.). <br>"
-    + "- Definição dos critérios que definem a melhor opção (Maior VPL, Características Geológicas, Produção da mina, etc.). <br>"
-    + "- Comparação das opções em relação a cada critério. <br>"
-    + "- Determinação da importância relativa de cada critério. <br>"
-    + "- Determinação da melhor opção. <br>"
-    + "<br> A execução de cada etapa varia em cada um dos diversos métodos de análise multicritério"
+    + "&ensp;&ensp;- Definição do problema (Seleção de acessos, método de lavra, transporte de minério, etc.).<br>"
+    + "&ensp;&ensp;- Definição das opções a serem comparadas (Poço, Rampa, Plano Inclinado, etc.). <br>"
+    + "&ensp;&ensp;- Definição dos critérios que definem a melhor opção (Maior VPL, Características Geológicas, Produção da mina, etc.). <br>"
+    + "&ensp;&ensp;- Comparação das opções em relação a cada critério. <br>"
+    + "&ensp;&ensp;- Determinação da importância relativa de cada critério. <br>"
+    + "&ensp;&ensp;- Determinação da melhor opção. <br>"
+    + "<br> A execução de cada etapa varia em cada um dos diversos métodos de análise multicritério<br>"
     ,
-
+    legendaWordcloudMcdm: "Figura: métodos de análise multicriterial existentes.",
     tituloSobreEtapaInputs: "Etapa de Inputs",
     paragrafoExplicacaoEtapaInputs: "",
     tituloSobrePrimeiraEtapa: "Primeira Etapa",
@@ -291,23 +291,26 @@ const translation = {
     // AHP CARDOZO PORTUGUES
     paragrafoExplicacaoSocial: "Cardozo (2023) sugere o ponderamento do desempenho social, dentre as opções de acesso a mina, "
     + "em relação a aspectos como geração de empregos, qualificação da mão de obra, segurança dos trabalhadores e uso de recursos locais."
-    + "<br><br>Os pesos relativos de cada opção são sugeridos com base no risco social que o empreendimento representa à região:"
+    ,
+    pesosParagrafoExplicacaoSocial:"Os pesos relativos de cada opção são sugeridos com base no risco social que o empreendimento representa à região:"
     ,
     paragrafoExplicacaoFluxograma: "Cardozo (2023) propõe o uso dos fluxogramas empíricos de escolha de acesso "
     + "(MOSER, 1996; VERGNE, 2003; CARDOZO, 2023), como critério de seleção na análise multicriterial,"
     + "onde deve-se dar plena prioridade ao resultado obtido dos mesmos."
     + "O autor ressalta que a opção por correia, quando é expressa, tem grande peso sobre as demais."
-    + "<br><br>Os pesos relativos de cada opção são sugeridos com base no resultado dos fluxogramas empíricos:"
+    ,
+    pesosParagrafoExplicacaoFluxograma:"Os pesos relativos de cada opção são sugeridos com base no resultado dos fluxogramas empíricos:"
     ,
     paragrafoExplicacaoEmissoes: ""
     + "Segundo Cardozo (2023), deve-se dar preferência à alternativa com melhor desempenho em termos de emissões frente às outras, como métrica."
-    + "'A geração de CO² eq/ton explotada pode ser utilizada como referência para refinamento da escolha.'\n"
-    + "<br><br>Os pesos sugeridos são:"
+    + "'A geração de CO² eq/ton explotada pode ser utilizada como referência para refinamento da escolha.'"
     ,
+    pesosParagrafoExplicacaoEmissoes: "Os pesos sugeridos são:",
+
     paragrafoRiscoEnergetico: ""
     + "Segundo Cardozo (2023), deve-se observar se a opção é favorecida pela possibilidade de geração própria de energia e/ou por sua disponibilidade local"
-    + "<br><br>Os pesos relativos de cada opção são sugeridos com base no risco energético que o empreendimento representa à região:"
     ,
+    pesosParagrafoRiscoEnergetico: "Os pesos relativos de cada opção são sugeridos com base no risco energético que o empreendimento representa à região:",
     poco:"Poço",
     rampaDiesel:"R. Diesel",
     rampaEletrico:"R. Elétrico",
