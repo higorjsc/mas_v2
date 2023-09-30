@@ -33,16 +33,6 @@
             <div
                 class="container-about"
             >
-                <!-- <h4
-                    class="titulo-description-metodo-mcdm"
-                >
-                    {{ $t('tituloSobreSoftware') }}
-                </h4>
-                <p
-                    class="paragrafo-explicacao-software"
-                    v-html="`${$t('paragrafoExplicacaoSoftware')}`"
-                >
-                </p> -->
                 <h4
                     class="titulo-description-metodo-mcdm"
                 >
@@ -53,8 +43,12 @@
                     v-html="`${$t('paragrafoExplicacaoAnaliseMulticriterio')}`"
                 >
                 </p>
-                <br><br>
-                <img id="img-wordcloud-mcdm" src="@/assets/Imagens/wordcloud_mcdm.png" alt="Nuvem de Palavras MCDM"/>
+                <br>
+                <img
+                    id="img-wordcloud-mcdm"
+                    :src="require(`@/assets/Imagens/wordcloud_mcdm_${this.$store.getters.currentLanguage}.png`)"
+                    alt="Nuvem de Palavras MCDM"
+                />
                 <span
                     class="legenda-wordcloud-mcdm"
                 >
@@ -64,7 +58,11 @@
             <div
                 class="container-fluxograma"
             >
-                <img id="img-fluxograma-mcdm" src="@/assets/Imagens/fluxograma_mcdm.png" alt="Fluxograma do processo de tomada de decisão por análise multicritério"/>
+                <img
+                    id="img-fluxograma-mcdm"
+                    :src="require(`@/assets/Imagens/fluxograma_mcdm_${this.$store.getters.currentLanguage}.png`)"
+                    alt="Fluxograma do processo de tomada de decisão por análise multicritério"
+                />
 
             </div>
 
@@ -131,7 +129,7 @@ export default {
     padding-bottom: 5%;
     padding-left: 2%;
     box-sizing: border-box;
-    overflow:hidden !important;
+    overflow: scroll;
 }
 
 .section-direita-inputs{
@@ -153,7 +151,7 @@ export default {
 }
 .container-software-description{
     display: grid;
-    grid-template-columns:1fr 1fr ;
+    grid-template-columns:1.4fr 1fr ;
     height: 100%;
 }
 
@@ -163,6 +161,7 @@ export default {
     display: flex;
     flex-direction: column;
     grid-column: 1/2;
+    text-align: justify;
 }
 .container-fluxograma{
     display: flex;
@@ -182,10 +181,13 @@ p{
     margin: 0;
 }
 #img-wordcloud-mcdm{
-    width: 100%;
+    align-self: center;
+    justify-self: center;
+    width: 80%;
+    max-height: 325px;
 }
 #img-wordcloud-mcdm:hover{
-    transform: translateY(-80px)scale(1.5);
+    transform: translateY(-90px)scale(1.5);
     cursor: pointer;
     z-index: 2;
     border: var(--borda-simples);

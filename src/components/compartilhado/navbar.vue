@@ -135,7 +135,7 @@ export default {
         border-bottom: var(--borda-simples);
         border-top: var(--borda-simples);
         border-radius: 20px;
-        min-width: 360px;
+        min-width: 250px;
         margin-right: 2px;
         overflow: hidden !important;
     }
@@ -145,6 +145,7 @@ export default {
         flex-direction: column;
         padding: 2%;
         text-align: justify;
+        margin: 0;
     }
 
     .navbar-principal{
@@ -153,7 +154,6 @@ export default {
     }
 
     .menu-option{
-      overflow: hidden !important;
       list-style-type: none;
     }
 

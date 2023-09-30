@@ -27,7 +27,11 @@
             class="container-fluxograma-ahp"
         >
 
-            <img id="img-fluxograma-ahp" src="@\assets\Imagens\fluxograma_ahp.png" alt="fluxograma do metodo ahp"/>
+            <img
+                id="img-fluxograma-ahp"
+                :src="require(`@/assets/Imagens/fluxograma_ahp_${this.$store.getters.currentLanguage}.png`)"
+                alt="fluxograma do metodo ahp"
+            />
         </div>
 
     </div>
@@ -53,6 +57,8 @@ export default {
 
 .container-texto-description{
     grid-column: 1/2;
+    text-align: justify;
+
 }
 .container-description-ahp{
     display: flex;

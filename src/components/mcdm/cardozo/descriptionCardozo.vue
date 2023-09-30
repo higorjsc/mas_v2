@@ -7,21 +7,6 @@
         <div
             class="container-texto-description"
         >
-            <div
-                class="container-description-ahp"
-            >
-
-                <h4
-                    class="titulo-description-metodo-mcdm"
-                >
-                    {{ $t('tituloSobreAhp')}}
-                </h4>
-                <p
-                    class="paragrafo-explicacao-metodo-mcdm"
-                >
-                    {{ $t('paragrafoExplicacaoAhp') }}
-                </p>
-            </div>
 
             <div
                 class="container-description-cardozo"
@@ -37,13 +22,23 @@
                 >
                     {{ $t('paragrafoExplicacaoMetodoCardozoAhp') }}
                 </p>
-                <img id="img-mapa-cardozo-ahp" src="@\assets\Imagens\mapa_cardozo_ahp.png" alt="Mapa da decisão por AHP no métodoo Cardozo">
+                <br>
+                <br>
+                <img
+                    id="img-mapa-cardozo-ahp"
+                    :src="require(`@/assets/Imagens/mapa_cardozo_ahp_${this.$store.getters.currentLanguage}.png`)"
+                    alt="Mapa da decisão por AHP no métodoo Cardozo"
+                >
             </div>
         </div>
         <div
             class="container-fluxograma-ahp"
         >
-            <img id="img-fluxograma-ahp" src="@\assets\Imagens\fluxograma_ahp.png" alt="fluxograma do metodo ahp"/>
+            <img
+                id="img-fluxograma-ahp"
+                :src="require(`@/assets/Imagens/fluxograma_ahp_${this.$store.getters.currentLanguage}.png`)"
+                alt="fluxograma do metodo ahp"
+            />
         </div>
 
     </div>
@@ -77,6 +72,7 @@ export default {
 .container-description-cardozo{
     display: flex;
     flex-direction: column;
+    text-align: justify;
 }
 .container-fluxograma-ahp{
     grid-column: 2/3;

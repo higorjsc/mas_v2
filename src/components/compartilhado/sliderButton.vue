@@ -20,10 +20,29 @@
             :name="name"
         >
         <div class="label-container">
-            <label id="left-label">1/9</label>
-            <label id="center-label">1</label>
-            <label id="right-label">9</label>
+            <div class="left-label-container">
+                <label id="left-label">1/9</label>
+                <label id="center-label">1/8</label>
+                <label id="center-label">1/7</label>
+                <label id="center-label">1/6</label>
+                <label id="center-label">1/5</label>
+                <label id="center-label">1/4</label>
+                <label id="center-label">1/3</label>
+                <label id="center-label">1/2</label>
+            </div>
+            <div class="right-label-container">
+                <label id="center-label">1</label>
+                <label id="center-label">2</label>
+                <label id="right-label">3</label>
+                <label id="right-label">4</label>
+                <label id="right-label">5</label>
+                <label id="right-label">6</label>
+                <label id="right-label">7</label>
+                <label id="right-label">8</label>
+                <label id="right-label">9</label>
+            </div>
         </div>
+
     </div>
 
 </template>
@@ -123,19 +142,24 @@ h3 {
 }
 .label-container {
     width: 100%;
+    display: flex;
+    font-size: 8pt;
+    gap: 15px;
 }
-#left-label{
-    position: absolute;
-    left: 0%;
+.left-label-container{
+    width: 52%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
-#center-label{
-    position: absolute;
-    left: 49%;
+
+.right-label-container  {
+    width: 57.9%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
-#right-label{
-    position: absolute;
-    right: 0%;
-}
+
 input {
   width: 100%;
   height: 6px;

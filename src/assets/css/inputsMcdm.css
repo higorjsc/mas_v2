@@ -1,7 +1,6 @@
 .main-container-inputs{
     display: grid;
     grid-template-columns: 3fr 4.5fr 4.5fr;
-    overflow: hidden !important;
     min-height: 840px;
     max-height: 840px;
 }
@@ -12,6 +11,11 @@
 }
 
 .titulo-description-metodo-mcdm{
+    margin-top: 5px;
     margin-bottom: 5px;
     font-size: 14pt;
+}
+
+.paragrafo-explicacao-metodo-mcdm{
+    margin: 0;
 }

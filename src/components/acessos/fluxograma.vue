@@ -137,7 +137,7 @@ export default {
         border-top: var(--borda-simples);
         border-bottom: var(--borda-simples);
         border-right: var(--borda-simples);
-        /* min-width: 653px; */
+        min-width: 550px;
     }
     .container-fluxograma{
         position: relative;
@@ -145,9 +145,10 @@ export default {
         margin: auto;
         margin-top: 20%;
         width: 430px;
-        height: 500px;
-        overflow: hidden !important;
-        transform: scale(1);
+        height: 600px;
+        transform: scale(1.3);
+        /* transform-origin: center center; */
+
     }
     .itens{
         position: absolute;

@@ -75,10 +75,10 @@ export default{
 
             slider.addEventListener("input", () => {
                 // Define a cor vermelha enquanto o slider está sendo movido.
-                td[0].style.boxShadow = "0 0 10px var(--cor-tema)"
-                td[0].style.transform = "scale(1.01)"
-                td[1].style.boxShadow = "0 0 10px var(--cor-tema)"
-                td[1].style.transform = "scale(1.01)"
+                td[0].style.boxShadow = "0 0 20px var(--cor-tema)"
+                td[0].style.transform = "scale(1.02)"
+                td[1].style.boxShadow = "0 0 20px var(--cor-tema)"
+                td[1].style.transform = "scale(1.02)"
             })
 
             slider.addEventListener("mouseup", () => {

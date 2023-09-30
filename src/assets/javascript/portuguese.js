@@ -257,35 +257,35 @@ const translation = {
     tituloPesoGlobal: "Peso do critério",
     helpPrimeiraEtapa:"HELP ETAPA 1",
     tituloSobreAhp: "Sobre o Analytic Hierarchy Process (AHP)",
-    paragrafoExplicacaoAhp: "Lorem ipsum dolor sit amet. Est quasi aliquid id esse ratione non necessitatibus harum ex similique dolores sed consequatur nobis ex error deserunt. ",
+    paragrafoExplicacaoAhp: ""
+    + "Inicialmente proposto por Thomas Saaty em 1980, o método AHP é eficiente na abordagem de sistemas complexos de tomada de decisão "
+    + "diante de múltiplos critérios (MCDM). O processo consiste em dividir o problema em uma estrutura hierárquica de objetivos, critérios e alternativas."
+    + "Inicialmente, são comparadas as alternativas de solução do problema em relação a cada critério, para determinar as 'prioridades locais'."
+    + " Em seguida, a comparação é realizada para determinar a importância de cada critério na tomada de decisão."
+    + " Por fim, as opções são classificadas somando-se suas prioridades locais, ponderadas pela importância de cada critério."
+    ,
     tituloSobreMetodoCardozoAhp: "Sobre o Método Cardozo (2023)",
-    paragrafoExplicacaoMetodoCardozoAhp: "Est esse minus cum error natus non consectetur velit ut voluptas galisum. Sed molestiae aperiam rem reiciendis laudantium sed illum natus et ipsam dolorem 33 quidem aliquam et voluptatem rerum! Sed ullam cupiditate sed voluptates explicabo non aspernatur iste ea corporis illo a provident neque ut quia excepturi et libero reprehenderit.",
-    // tituloSobreSoftware: "Sobre o Software",
-    // paragrafoExplicacaoSoftware: ""
-    // + "A presente aplicação, desenvolvida pelo Laboratório de Processamento Mineral (LAPROM) da Universidade Federal do Rio Grande do Sul (UFRGS), "
-    // + "utiliza diversos métodos de análise multicritério para determinar a melhor opção de acesso à mina subterrânea e o meio mais adequado para "
-    // + "transportar o minério até a superfície."
-    // ,
+    paragrafoExplicacaoMetodoCardozoAhp: ""
+    + "Inicialmente proposto por Thomas Saaty em 1980, o método AHP é eficiente na abordagem de sistemas complexos de tomada de decisão "
+    + "diante de múltiplos critérios (MCDM). O processo consiste em dividir o problema em uma estrutura hierárquica de objetivos, critérios e alternativas."
+    + "Inicialmente, são comparadas as alternativas de solução do problema em relação a cada critério, para determinar as 'prioridades locais'."
+    + " Em seguida, a comparação é realizada para determinar a importância de cada critério na tomada de decisão."
+    + " Por fim, as opções são classificadas somando-se suas prioridades locais, ponderadas pela importância de cada critério."
+    ,
     tituloSobreAnaliseMulticriterial: "Sobre a Análise multicriterial",
     paragrafoExplicacaoAnaliseMulticriterio: ""
-    + "De forma geral, procedimento fundamenta-se nas etapas de:<br>"
+    + "Uma abordagem multicriterial tem como objetivo encontrar a melhor solução para problemas caracterizados por múltiplas opções ou objetivos, com "
+    + "diferentes unidades de medida e conflitos entre cada critério de escolha ou desenvolvimento da solução (HWANG e YOON, 1981).<br><br>"
+    + "De forma geral, o procedimento fundamenta-se nas seguintes etapas:<br>"
     + "&ensp;&ensp;- Definição do problema (Seleção de acessos, método de lavra, transporte de minério, etc.).<br>"
-    + "&ensp;&ensp;- Definição das opções a serem comparadas (Poço, Rampa, Plano Inclinado, etc.). <br>"
-    + "&ensp;&ensp;- Definição dos critérios que definem a melhor opção (Maior VPL, Características Geológicas, Produção da mina, etc.). <br>"
-    + "&ensp;&ensp;- Comparação das opções em relação a cada critério. <br>"
-    + "&ensp;&ensp;- Determinação da importância relativa de cada critério. <br>"
-    + "&ensp;&ensp;- Determinação da melhor opção. <br>"
-    + "<br> A execução de cada etapa varia em cada um dos diversos métodos de análise multicritério<br>"
+    + "&ensp;&ensp;- Definição das opções ou objetivos a serem comparados (Poço, Rampa, Plano Inclinado, etc.).<br>"
+    + "&ensp;&ensp;- Definição dos critérios que determinam a melhor opção (VPL,  Geologia, Produção, etc.).<br>"
+    + "&ensp;&ensp;- Comparação das opções em relação a cada critério.<br>"
+    + "&ensp;&ensp;- Determinação da importância relativa de cada critério.<br>"
+    + "&ensp;&ensp;- Determinação da melhor opção.<br>"
+    + "<br> A execução de cada etapa varia em cada um dos diversos métodos de análise multicritério"
     ,
     legendaWordcloudMcdm: "Figura: métodos de análise multicriterial existentes.",
-    tituloSobreEtapaInputs: "Etapa de Inputs",
-    paragrafoExplicacaoEtapaInputs: "",
-    tituloSobrePrimeiraEtapa: "Primeira Etapa",
-    paragrafoExplicacaoPrimeiraEtapa: "Est esse minus cum error natus non consectetur velit ut voluptas galisum. Sed molestiae aperiam rem reiciendis laudantium sed illum natus et ipsam dolorem 33 quidem aliquam et voluptatem rerum! Sed ullam cupiditate sed voluptates explicabo non aspernatur iste ea corporis illo a provident neque ut quia excepturi et libero reprehenderit.",
-    tituloSobreSegundaEtapa: "Segunda Etapa",
-    paragrafoExplicacaoSegundaEtapa: "Est esse minus cum error natus non consectetur velit ut voluptas galisum. Sed molestiae aperiam rem reiciendis laudantium sed illum natus et ipsam dolorem 33 quidem aliquam et voluptatem rerum! Sed ullam cupiditate sed voluptates explicabo non aspernatur iste ea corporis illo a provident neque ut quia excepturi et libero reprehenderit.",
-    tituloSobreEtapaResultados: "Resultados",
-    paragrafoExplicacaoEtapaResultados: "Est esse minus cum error natus non consectetur velit ut voluptas galisum. Sed molestiae aperiam rem reiciendis laudantium sed illum natus et ipsam dolorem 33 quidem aliquam et voluptatem rerum! Sed ullam cupiditate sed voluptates explicabo non aspernatur iste ea corporis illo a provident neque ut quia excepturi et libero reprehenderit.",
 
 
     // AHP CARDOZO PORTUGUES
