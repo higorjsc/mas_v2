@@ -48,18 +48,13 @@
     </div>
 
 
-    <vuePopUp/>
 
 
 </template>
 
 <script>
-import vuePopUp from "@/components/compartilhado/popUp.vue"
 export default {
     name: "vue-footer",
-    components:{
-        vuePopUp
-    },
     methods: {
         abrirPopUp(frame) {
             this.$store.dispatch("changePopUp", frame)

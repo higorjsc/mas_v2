@@ -46,7 +46,7 @@
                 <br>
                 <img
                     id="img-wordcloud-mcdm"
-                    :src="require(`@/assets/Imagens/wordcloud_mcdm_${this.$store.getters.currentLanguage}.png`)"
+                    :src="require(`@/assets/Imagens/wordcloud_mcdm.png`)"
                     alt="Nuvem de Palavras MCDM"
                 />
                 <span

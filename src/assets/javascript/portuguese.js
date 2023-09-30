@@ -256,6 +256,11 @@ const translation = {
     vetorPrioridadeGlobal: "VETOR DE PRIORIDADES GLOBAIS",
     tituloPesoGlobal: "Peso do critério",
     helpPrimeiraEtapa:"HELP ETAPA 1",
+    helpSegundaEtapa:"HELP ETAPA 2",
+    helpResultadosEtapa:"HELP RESULTADOS",
+    helpMaisSobreAhp:"MAIS SOBRE AHP",
+
+
     tituloSobreAhp: "Sobre o Analytic Hierarchy Process (AHP)",
     paragrafoExplicacaoAhp: ""
     + "Inicialmente proposto por Thomas Saaty em 1980, o método AHP é eficiente na abordagem de sistemas complexos de tomada de decisão "
@@ -289,6 +294,9 @@ const translation = {
 
 
     // AHP CARDOZO PORTUGUES
+    paragrafoExplicacaoAvalEconomica: "Cardozo (2023) sugere o uso de indicativos economicos, como VPL, TIR, Custo Capital (CAPEX) ou Custo Operacional (OPEX), "
+    + "para determinação da melhor opção de acesso e transporte de minério"
+    ,
     paragrafoExplicacaoSocial: "Cardozo (2023) sugere o ponderamento do desempenho social, dentre as opções de acesso a mina, "
     + "em relação a aspectos como geração de empregos, qualificação da mão de obra, segurança dos trabalhadores e uso de recursos locais."
     ,

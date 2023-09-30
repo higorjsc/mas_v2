@@ -47,6 +47,7 @@ export default createStore({
         matrizPrimeira: [],
         matrizSegunda: [],
         viewProgress: 1,
+        tabViewAtual: null,
         inputsAcessos: {
             moser: {
                 logistica: "",
@@ -172,6 +173,9 @@ export default createStore({
         setViewProgress(state, data) {
             state.viewProgress = data
         },
+        setTabViewAtual(state, data) {
+            state.tabViewAtual = data
+        },
         setMatrizesPreDefinidas(state, { index, data }) {
             state.matrizesPreDefinidas[index] = data
         }
@@ -243,6 +247,9 @@ export default createStore({
         currentViewProgress(state) {
             return state.viewProgress
         },
+        currentTabViewAtual(state) {
+            return state.tabViewAtual
+        },
         currentMatrizesPreDefinidas(state) {
             return state.matrizesPreDefinidas
         }
@@ -310,6 +317,9 @@ export default createStore({
         },
         changeViewProgress(context, data) {
             context.commit("setViewProgress", data)
+        },
+        changeTabViewAtual(context, data) {
+            context.commit("setTabViewAtual", data)
         },
         changeMatrizesPreDefinidas(context, { index, data }) {
             context.commit("setMatrizesPreDefinidas", { index, data })

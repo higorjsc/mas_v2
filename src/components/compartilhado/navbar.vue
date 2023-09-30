@@ -129,6 +129,10 @@ export default {
         padding: 0;
         font-size: 11pt;
     }
+
+    .ul-parent{
+        margin-bottom: 0px;
+    }
     .section-navbar{
         border-left: var(--borda-simples);
         border-right: var(--borda-simples);

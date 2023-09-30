@@ -61,6 +61,7 @@ export default {
         changeAtualTab(atual) {
             atual = atual.split("/")[2]
             this.$refs[`label-${atual}`].style.opacity = 1
+            this.$store.dispatch("changeTabViewAtual", atual)
         },
         handleLink(index, route) {
             if(this.viewProgress > index && this.templateAtual !== "") {

@@ -1,5 +1,6 @@
 <template>
 
+    <vueMenuAhp/>
     <section
         class="resultados-container"
     >
@@ -93,9 +94,13 @@
     </section>
 </template>
 <script>
+import vueMenuAhp from "@/components/mcdm/compartilhado/helpAhp.vue"
 
 export default {
     name: "vue-resultados-etapa-livre",
+    components:{
+        vueMenuAhp
+    },
     computed: {
         matrizPrimeira() {
             return this.$store.getters.currentMatrizPrimeira
@@ -114,7 +119,7 @@ export default {
         resultadoFinal() {
             const primeira = this.matrizPrimeira
             const segunda = this.matrizSegunda
-            
+
             const multiplicaPeso = (index) => {
                 const vetor = []
                 for (let j = 0; j < segunda[index].length - 1; j++) {

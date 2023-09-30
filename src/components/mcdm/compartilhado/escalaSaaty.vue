@@ -63,9 +63,9 @@ export default{
 
 
 .escala-saaaty-container{
-    position: fixed;
-    margin-top: 30px;
-    right: 2%;
+    position: relative;
+    margin: 0;
+    margin-top: 1px;
     display: flex;
     align-items: center;
     padding: 3px;
