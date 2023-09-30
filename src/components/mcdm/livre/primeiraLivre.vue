@@ -1,5 +1,6 @@
 
 <template>
+    <vueMenuAhp/>
 
     <main
         class="main-container-primeira"
@@ -40,7 +41,6 @@
         <section
             class="section-direita-primeira"
         >
-            <vueHelpAhp/>
             <div
                 class="matriz-container-primeira"
                 v-for="(itemCriterio, indexMatriz) in criteriosPrimeira"
@@ -89,7 +89,7 @@ import vueConsistencia from "@/components/mcdm/compartilhado/consistencia.vue"
 import calculoAhpMixin from "@/components/mcdm/compartilhado/mixins/calculoAhpMixin.vue"
 import { throttle } from "lodash"
 import { RI } from "@/assets/javascript/globalConstants.js"
-import vueHelpAhp from "@/components/mcdm/compartilhado/helpAhp.vue"
+import vueMenuAhp from "@/components/mcdm/compartilhado/menuAhp.vue"
 
 
 export default {
@@ -99,7 +99,7 @@ export default {
         vueMatriz,
         vueVetor,
         vueConsistencia,
-        vueHelpAhp
+        vueMenuAhp
     },
     mixins:[
         calculoAhpMixin

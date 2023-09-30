@@ -1,4 +1,5 @@
 <template>
+    <vueMenuAhp/>
 
     <section
         class="resultados-container"
@@ -93,9 +94,12 @@
     </section>
 </template>
 <script>
-
+import vueMenuAhp from "@/components/mcdm/compartilhado/menuAhp.vue"
 export default {
     name: "vue-resultados-etapa-livre",
+    components:{
+        vueMenuAhp
+    },
     computed: {
         matrizPrimeira() {
             return this.$store.getters.currentMatrizPrimeira

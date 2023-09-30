@@ -11,7 +11,9 @@
             id="barra-pop-up"
         >
             <!-- Titulo do Pop Up -->
-            <h4 class="titulo-pop-up"></h4>
+            <h4 class="titulo-pop-up">
+                {{ $t(`${aberto}TituloPopUp`) }}
+            </h4>
             <!-- Botão Fechar Pop Up -->
             <button
                 class="close-pop-up"
@@ -22,9 +24,16 @@
 
         </div>
 
-        <vueCreditos v-if="aberto === 'creditos'"/>
-        <vueReferencias v-if="aberto === 'referencias'"/>
-        <vueReportarErro v-if="aberto === 'reportarErro'"/>
+        <div
+            class="container-conteudo-pop-up"
+        >
+            <vueCreditos v-if="aberto === 'creditos'"/>
+            <vueReferencias v-if="aberto === 'referencias'"/>
+            <vueReportarErro v-if="aberto === 'reportarErro'"/>
+            <vueMaisSobreAhp v-if="aberto === 'maisSobreAhp'"/>
+            <vueHelpPrimeiraEtapa v-if="aberto === 'helpPrimeiraEtapa'"/>
+            <vueHelpSegundaEtapa v-if="aberto === 'helpSegundaEtapa'"/>
+        </div>
 
     </div>
 
@@ -34,11 +43,17 @@
 import vueCreditos from "@/components/acessos/creditos.vue"
 import vueReportarErro from "@/components/compartilhado/reportarErro.vue"
 import vueReferencias from "@/components/acessos/referencias.vue"
+import vueMaisSobreAhp from "@/components/mcdm/compartilhado/ahpReferencias.vue"
+import vueHelpPrimeiraEtapa from "@/components/mcdm/compartilhado/helpPrimeiraEtapa.vue"
+import vueHelpSegundaEtapa from "@/components/mcdm/compartilhado/helpSegundaEtapa.vue"
 export default {
     components: {
         vueCreditos,
         vueReferencias,
-        vueReportarErro
+        vueReportarErro,
+        vueMaisSobreAhp,
+        vueHelpPrimeiraEtapa,
+        vueHelpSegundaEtapa
     },
     data() {
         return {
@@ -97,7 +112,6 @@ export default {
                     document.body.style.userSelect = "none"
                     // Calcula a largura e altura do body. Os valores variam com o scroll da página (manter cálculo dentro desse evento)
                     const bodyHeight = document.body.clientHeight
-                    console.log(bodyHeight)
                     const bodyWidth = document.body.clientWidth
                     // Define a posição do mouse em relação ao pop up
                     this.position.x = event.clientX - this.popUpContainer.offsetLeft
@@ -138,6 +152,14 @@ export default {
         z-index: 100;
         display: flex;
         flex-direction: column;
+        box-sizing: border-box;
+        max-height: 400px;
+    }
+    .container-conteudo-pop-up{
+        overflow: auto;
+        overflow-x: hidden;
+        width: 100%;
+        height: 100%;
     }
     .barra-pop-up {
         width: 100%;
@@ -145,14 +167,16 @@ export default {
         height: 25px;
         z-index: 100;
         position: relative;
-        margin: 0;
+        margin-bottom: 2px;
     }
     .barra-pop-up:hover {
         cursor: move;
     }
     .titulo-pop-up {
         color: white;
-        padding-left: 2%;
+        font-size: 12pt;
+        margin: 0;
+        margin-left: 10px;
     }
     .titulo-pop-up:hover {
         cursor: move;

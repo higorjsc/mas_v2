@@ -60,13 +60,13 @@ export default {
 }
 </script>
 <style scoped>
-  main {
+  .main-pop-up {
+    display: block;
     position: relative;
-    width: 98%;
+    padding: 5px;
+    width: 100%;
     border: var(--borda-simples);
     border-radius: 20px;
-    padding: 10px;
-    margin: auto;
     box-sizing: border-box;
     background-color: white;
   }

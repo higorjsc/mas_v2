@@ -4,22 +4,10 @@
         class="main-pop-up"
     >
         <div class="referencias-container">
-            <h2
-                class="titulo-inside-pop-up"
-            >{{ $t('tituloReferencias') }}</h2>
+            <h2  class="titulo-inside-pop-up">
+                {{ $t('tituloMaisSobreAhp') }}
+            </h2>
             <ul>
-                <li>
-                    <a href="http://dx.doi.org/10.1590/0370-44672021760094" target="_blank">{{ $t('referenciaCardozoArtigo') }}</a>
-                </li>
-                <li>
-                    <a href="http://hdl.handle.net/10183/262393" target="_blank">{{ $t('referenciaCardozoTese') }}</a>
-                </li>
-                <li>
-                    <a href="" target="_blank">{{ $t('referenciaVergne') }}</a>
-                </li>
-                <li>
-                    <a href="" target="_blank">{{ $t('referenciaMoser') }}</a>
-                </li>
                 <li>
                     <a href="" target="_blank">{{ $t('referenciaBanda') }}</a>
                 </li>
@@ -28,6 +16,12 @@
                 </li>
                 <li>
                     <a href="" target="_blank">{{ $t('referenciaAtaei') }}</a>
+                </li>
+                <li>
+                    <a  href="https://doi.org/10.1016/0377-2217(90)90057-I"  target="_blank">{{ $t('referenciaSaaty') }}</a>
+                </li>
+                <li>
+                    <a href="https://doi.org/10.20985/1980-5160.2016.v11n3.988" target="_blank">{{ $t('referenciaRibeiro') }}</a>
                 </li>
             </ul>
         </div>
@@ -38,7 +32,7 @@
 <script>
 
 export default {
-    name: "vue-referencias-acessos"
+    name: "vue-referencias-ahp"
 }
 
 </script>

@@ -94,10 +94,10 @@
     </section>
 </template>
 <script>
-import vueMenuAhp from "@/components/mcdm/compartilhado/helpAhp.vue"
+import vueMenuAhp from "@/components/mcdm/compartilhado/menuAhp.vue"
 
 export default {
-    name: "vue-resultados-etapa-livre",
+    name: "vue-resultados-etapa-cardozo",
     components:{
         vueMenuAhp
     },

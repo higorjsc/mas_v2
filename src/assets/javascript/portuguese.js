@@ -24,7 +24,7 @@ const translation = {
     referenciasFooter: "Referências",
     reportarErroFooter: "Reportar Erro",
     // POPUP CREDITOS PORTUGUES
-    tituloPopUpCreditos: "CREDITOS",
+    creditosTituloPopUp: "CREDITOS",
     universidadeCreditos: "UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL",
     laboratorioCreditos: "LABORATÓRIO DE PROCESSAMENTO MINERAL",
     versaoCreditos: "VERSÃO 2.0",
@@ -36,14 +36,20 @@ const translation = {
     localizacaoCreditos: "Porto Alegre, Rio Grande do Sul, Brasil",
     dataCreditos: "2023",
     // POPUP REFERENCIAS PORTUGUES
-    tituloPopUpReferencias: "REFERENCIAS",
+    referenciasTituloPopUp: "REFERENCIAS",
+    maisSobreAhpTituloPopUp: "REFERENCIAS AHP",
     tituloReferencias: "REFERENCIAS",
     referenciaCardozoArtigo: "CARDOZO, F. A. C. et al. Choice of access for underground mining for feasibility studies. REM-International Engineering Journal, v. 76, p. 187-193, 2023.",
     referenciaCardozoTese: "CARDOZO, F. A. C. Modelagem de Escavações Subterrâneas: Contribuições para Escolha de Acessos de Mina. Doutorado—Porto Alegre: Universidade Federal do Rio Grande do Sul, 3 mar. 2023.",
     referenciaVergne: "LA VERGNE, Jack. Hard rock miner's handbook. Tempe/North Bay: McIntosh engineering. ISBN 0-968006-1-6, 2003.",
     referenciaMoser: "MOSER, P. Primary development of underground hard rock mines. In: Symposium On Mine Planning And Equipment Selection. 1996. São Paulo. Proceedings […]. São Paulo, 1996. p. 31-3.",
+    referenciaAtaei: "ATAEI, M. et al. Mining Method Selection By AHP Approach. Journal of the Southern African Institute of Mining and Metallurgy, v. 108, n. 12, p. 741–749, 2008.",
+    referenciaShariar: "SHAHRIAR, K. et al. A New Numerical Method And AHP For Mining Method Selection. Proc. 4th Int. Symp, on ‘High performance mine production. p. 289–306. 2007.",
+    referenciaBanda: "BANDA, W. An integrated framework comprising of AHP, expert questionnaire survey and sensitivity analysis for risk assessment in mining projects. International Journal of Management Science and Engineering Management, v. 14, n. 3, p. 180-192, 2019.",
+    referenciaSaaty: " SAATY, T. L. How to make a decision: the analytic hierarchy process. European journal of operational research, 48(1), 9-26. 1996",
+    referenciaRibeiro: " RIBEIRO, M. C. D. C. R., & da Silva Alves, A. Aplicação do método Analytic Hierarchy Process (AHP) com a mensuração absoluta num problema de seleção qualitativa. Sistemas & Gestão, 11(3), 270-281. 2016. ",
     // POP UP REPORTAR ERRO
-    tituloPopUpReportarErro: "REPORTAR ERRO",
+    reportarErroTituloPopUp: "REPORTAR ERRO",
     userNameReportarErro: "Seu nome:",
     userEmailReportarErro: "Seu e-mail:",
     userMessageReportarErro: "Sua mensagem:",
@@ -227,7 +233,7 @@ const translation = {
     shaftVergne: "Utilizar poço",
     correiaVergne: "Utilizar correia transportadora",
 
-    // MCDM PORTUGUES
+    // INPUTS MCDM PORTUGUES
     tituloMcdm: "SELEÇÃO DE ACESSOS PARA MINAS SUBTERRÂNEAS: Análise Multicriterial",
     paragrafoExplicacaoMcdm: ""
     + "A aplicação de metodologias de análise multicritérial vem sendo amplamente utilizadas para a "
@@ -241,25 +247,6 @@ const translation = {
     + "<br><br><strong>Observações:</strong>"
     + "- Diferentemente dos métodos empíricos, a análise multicriterial necessita da opinião de especistas em cada critério a ser avaliado."
     ,
-
-    templatesMcdmTitulo: "Método de decisão",
-    cardozoTemplateMcdm: "AHP Cardozo 2023",
-    segundaTemplateMcdm: "Segunda Template",
-    terceiraTemplateMcdm: "Terceira Template",
-    ahpPersonalizado: "AHP Personalizado",
-    mcdmTituloCriterios: "Critérios de decisão:",
-    mcdmTituloOptions: "Opções para comparação:",
-    helpEscalaSaaty: "ESCALA AHP",
-    matrizFluxogramaCardozo: "Fluxograma Empírico",
-    tituloMatrizSegundaEtapaAhp: "Comparação de Critérios",
-    matrizPrioridadesGlobais: "MATRIZ DE PRIORIDADES LOCAIS",
-    vetorPrioridadeGlobal: "VETOR DE PRIORIDADES GLOBAIS",
-    tituloPesoGlobal: "Peso do critério",
-    helpPrimeiraEtapa:"HELP ETAPA 1",
-    helpSegundaEtapa:"HELP ETAPA 2",
-    helpResultadosEtapa:"HELP RESULTADOS",
-    helpMaisSobreAhp:"MAIS SOBRE AHP",
-
 
     tituloSobreAhp: "Sobre o Analytic Hierarchy Process (AHP)",
     paragrafoExplicacaoAhp: ""
@@ -291,9 +278,18 @@ const translation = {
     + "<br> A execução de cada etapa varia em cada um dos diversos métodos de análise multicritério"
     ,
     legendaWordcloudMcdm: "Figura: métodos de análise multicriterial existentes.",
+    templatesMcdmTitulo: "Método de decisão",
+    cardozoTemplateMcdm: "AHP Cardozo 2023",
+    segundaTemplateMcdm: "Segunda Template",
+    terceiraTemplateMcdm: "Terceira Template",
+    ahpPersonalizado: "AHP Personalizado",
+    mcdmTituloCriterios: "Critérios de decisão:",
+    mcdmTituloOptions: "Opções para comparação:",
 
+    // PRIMEIRA ETAPA
+    matrizFluxogramaCardozo: "Fluxograma Empírico",
+    tituloMatrizSegundaEtapaAhp: "Comparação de Critérios",
 
-    // AHP CARDOZO PORTUGUES
     paragrafoExplicacaoAvalEconomica: "Cardozo (2023) sugere o uso de indicativos economicos, como VPL, TIR, Custo Capital (CAPEX) ou Custo Operacional (OPEX), "
     + "para determinação da melhor opção de acesso e transporte de minério"
     ,
@@ -328,8 +324,47 @@ const translation = {
     predefinido:"Pré-definido",
     personalizado:"Personalizado",
 
-    // TABELA SAATY ESCALA AHP PORTUGUES
-    tituloEscalaSaaty: "ESCALA DE COMPARAÇÃO DE PARES",
+    // RESULTADOS ETAPA
+    matrizPrioridadesGlobais: "MATRIZ DE PRIORIDADES LOCAIS",
+    vetorPrioridadeGlobal: "VETOR DE PRIORIDADES GLOBAIS",
+    tituloPesoGlobal: "Peso do critério",
+
+    // MENU LATERAL DIREITO AHP
+    helpEscalaSaaty: "ESCALA AHP",
+    helpMaisSobreAhp:"MAIS SOBRE AHP",
+    helpPrimeiraEtapa:"HELP ETAPA 1",
+    helpSegundaEtapa:"HELP ETAPA 2",
+    helpResultadosEtapa:"HELP RESULTADOS",
+
+    // POP UP MAIS SOBRE AHP
+    tituloMaisSobreAhp:"MAIS SOBRE AHP",
+
+    // POP UP HELP PRIMEIRA ETAPA
+    helpPrimeiraEtapaTituloPopUp:"HELP AHP PRIMEIRA ETAPA",
+    tituloHelpPrimeiraEtapa:"PRIMEIRA ETAPA",
+    paragrafoHelpPrimeiraEtapa:"Compare cada alternativa em relação aos critérios determinados (linha em relação a coluna)",
+    primeiraEtapaLiUm:"1) Opte entre o preenchinto personalizado ou pré-definido das matrizes de comparação de pares.",
+    primeiraEtapaLidois:"a) Se pré-definido, as matrizes serão preenchidas automáticamente, conforme as sugestões do autor do método selecionado.",
+    primeiraEtapaLiTrês:"I) A opção 'pré-definido' não estará disponível para todas as matrizes, de um método, e não estárá disponível em todos os métodos.",
+    primeiraEtapaLiQuatro:"b) Se personalizado, utilize os botões deslizantes para preencher a matriz triangular superior das matrizes de comparação de pares.",
+    primeiraEtapaLiCinco: "2) Verifique se a razão de consistencia (CR) está menor do que 0.1.",
+    primeiraEtapaLiSeis: "a) Se CR > 0.1, corrija as entradas inconsistentes da matriz",
+    primeiraEtapaLiSete: "b) Se CR < 0.1, prossiga à análise",
+
+    // POP UP HELP SEGUNDA ETAPA
+    helpSegundaEtapaTituloPopUp:"HELP AHP PRIMEIRA ETAPA",
+    tituloHelpSegundaEtapa:"PRIMEIRA ETAPA",
+    paragrafoHelpSegundaEtpa:"Compare cada alternativa em relação aos critérios determinados (linha em relação a coluna)",
+    segundaEtpaLiUm:"1) Opte entre o preenchinto personalizado ou pré-definido das matrizes de comparação de pares.",
+    segundaEtpaLidois:"a) Se pré-definido, as matrizes serão preenchidas automáticamente, conforme as sugestões do autor do método selecionado.",
+    segundaEtpaLiTrês:"I) A opção 'pré-definido' não estará disponível para todas as matrizes, de um método, e não estárá disponível em todos os métodos.",
+    segundaEtpaLiQuatro:"b) Se personalizado, utilize os botões deslizantes para preencher a matriz triangular superior das matrizes de comparação de pares.",
+    segundaEtpaLiCinco: "2) Verifique se a razão de consistencia (CR) está menor do que 0.1.",
+    segundaEtpaLiSeis: "a) Se CR > 0.1, corrija as entradas inconsistentes da matriz",
+    segundaEtpaLiSete: "b) Se CR < 0.1, prossiga à análise",
+
+    // POP UP TABELA SAATY ESCALA AHP PORTUGUES
+    tituloEscalaSaaty: "ESCALA DE COMPARAÇÃO",
     verbalEscalaSaaty: "Verbal",
     numericaEscalaSaaty: "Númerica",
     igualImportanciaEscalaSaaty: "Igual importância",

@@ -73,7 +73,7 @@ export default{
     flex-direction: column;
     background-color: white;
     z-index: 5;
-    width: 320px;
+    width: 230px;
     border-radius: 10px;
     border: var(--borda-simples);
 }

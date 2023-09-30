@@ -1,5 +1,7 @@
 
 <template>
+    <!-- Manter fora do main -->
+    <vueMenuAhp/>
 
     <main
         class="main-container-primeira"
@@ -110,7 +112,6 @@
         <section
             class="section-direita-primeira"
         >
-            <vueMenuAhp/>
             <!-- FLUXOGRAMA -->
             <div
                 class="matriz-container-primeira"
@@ -192,7 +193,7 @@ import vueSlider from "@/components/compartilhado/sliderButton.vue"
 import vueMatriz from "@/components/mcdm/compartilhado/matriz.vue"
 import vueVetor from "@/components/mcdm/compartilhado/vetor.vue"
 import vueConsistencia from "@/components/mcdm/compartilhado/consistencia.vue"
-import vueMenuAhp from "@/components/mcdm/compartilhado/helpAhp.vue"
+import vueMenuAhp from "@/components/mcdm/compartilhado/menuAhp.vue"
 import vuePreSelect from "@/components/mcdm/cardozo/preDefinicao.vue"
 import calculoAhpMixin from "@/components/mcdm/compartilhado/mixins/calculoAhpMixin.vue"
 import { throttle } from "lodash"

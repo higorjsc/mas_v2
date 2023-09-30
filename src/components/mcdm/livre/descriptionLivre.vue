@@ -22,6 +22,11 @@
                     {{ $t('paragrafoExplicacaoAhp') }}
                 </p>
             </div>
+            <img
+                id="img-mapa-ahp"
+                :src="require(`@/assets/Imagens/mapa_ahp_${this.$store.getters.currentLanguage}.png`)"
+                alt="fluxograma do metodo ahp"
+            />
         </div>
         <div
             class="container-fluxograma-ahp"
@@ -57,12 +62,17 @@ export default {
 
 .container-texto-description{
     grid-column: 1/2;
-    text-align: justify;
-
+    display: flex;
+    flex-direction: column;
 }
 .container-description-ahp{
     display: flex;
     flex-direction: column;
+}
+.container-description-cardozo{
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
 }
 .container-fluxograma-ahp{
     grid-column: 2/3;
@@ -70,11 +80,17 @@ export default {
     width: 100%;
     display: flex;
 }
+
 #img-fluxograma-ahp{
     position: relative;
     margin: auto;
     height: 90%;
     max-height: 760px;
 }
-
+#img-mapa-ahp{
+    position: relative;
+    margin: auto;
+    width: 90%;
+    max-height: 380px;
+}
 </style>

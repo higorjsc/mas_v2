@@ -21,48 +21,35 @@
             class="escala"
             v-if="mostrarEscala"
         />
-        <!-- menu PRIMEIRA ETAPA -->
+        <!-- HELP PRIMEIRA ETAPA -->
         <label
             class="label-menu-ahp"
             v-if="tabView === 'primeira'"
             id="label-menu-ahp-menu-primeira-etapa"
-            for="checkbox-menu-primeira-etapa"
+            for="button-menu-primeira-etapa"
         >
             {{ $t('helpPrimeiraEtapa') }}
         </label>
-        <input
-            type="checkbox"
-            class="checkbox-menu-ahp"
-            id="checkbox-menu-primeira-etapa"
-            v-model="mostrarHelpPrimeiraEtapa"
+        <button
+            class="button-menu-ahp"
+            id="button-menu-primeira-etapa"
+            @click="abrirPopUp('helpPrimeiraEtapa')"
         >
-        <p
-            class="paragrafo-menu"
-            v-html="$t('paragrafoHelpPrimeiraEtapa')"
-            v-if="mostrarHelpPrimeiraEtapa"
-        >
-        </p>
-        <!-- menu SEGUNDA ETAPA -->
+        </button>
+        <!-- HELP SEGUNDA ETAPA -->
         <label
             class="label-menu-ahp"
             v-if="tabView === 'segunda'"
             id="label-menu-ahp-menu-segunda-etapa"
-            for="checkbox-menu-segunda-etapa"
+            for="button-menu-segunda-etapa"
         >
             {{ $t('helpSegundaEtapa') }}
         </label>
-        <input
-            type="checkbox"
-            class="checkbox-menu-ahp"
-            id="checkbox-menu-segunda-etapa"
-            v-model="mostrarHelpSegundaEtapa"
-        >
-        <p
-            class="paragrafo-menu"
-            v-html="$t('paragrafoHelpSegundaEtapa')"
-            v-if="mostrarHelpSegundaEtapa"
-        >
-        </p>
+        <button
+            class="button-menu-ahp"
+            id="button-menu-segunda-etapa"
+            @click="abrirPopUp('helpSegundaEtapa')"
+        ></button>
         <!-- MENU RESULTADOS ETAPA -->
         <label
             class="label-menu-ahp"
@@ -95,7 +82,7 @@
         <button
             class="button-menu-ahp"
             id="button-mais-sobre-ahp"
-            @click="abrirPopUp('referencias')"
+            @click="abrirPopUp('maisSobreAhp')"
         >
         </button>
 
@@ -130,39 +117,40 @@ export default{
     }
 
 }
-</script><style scoped>
-            .menu-container {
-            position: fixed;
-            margin-top: 20px;
-            right: 2%;
-            display: flex;
-            flex-direction: column;
-            }
+</script>
+<style scoped>
+    .menu-container {
+        position: fixed;
+        margin-top: 20px;
+        right: 2%;
+        display: flex;
+        flex-direction: column;
+    }
 
-            .label-menu-ahp {
-            border: var(--borda-simples);
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 140px;
-            font-size: 10pt;
-            font-weight: bold;
-            position: relative;
-            align-self: flex-end;
-            }
+    .label-menu-ahp {
+    border: var(--borda-simples);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    font-size: 10pt;
+    font-weight: bold;
+    position: relative;
+    align-self: flex-end;
+    }
 
-            /* Correção aqui: */
-            .label-menu-ahp:hover {
-            cursor: pointer;
-            box-shadow: 0 0 10px var(--cor-hover);
-            transform: scale(1.1);
-            }
+    /* Correção aqui: */
+    .label-menu-ahp:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--cor-hover);
+    transform: scale(1.1);
+    }
 
-            .checkbox-menu-ahp {
-            display: none;
-            }
-            .button-menu-ahp{
-            display: none;
-            }
-        </style>
+    .checkbox-menu-ahp {
+    display: none;
+    }
+    .button-menu-ahp{
+    display: none;
+    }
+</style>

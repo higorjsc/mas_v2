@@ -30,7 +30,7 @@
         <section
             class="section-direita-segunda"
         >
-            <vueHelpAhp/>
+            <vueMenuAhp/>
 
             <div
                 class="matriz-container-segunda"
@@ -73,7 +73,7 @@ import vueSlider from "@/components/compartilhado/sliderButton.vue"
 import vueMatriz from "@/components/mcdm/compartilhado/matriz.vue"
 import vueVetor from "@/components/mcdm/compartilhado/vetor.vue"
 import vueConsistencia from "@/components/mcdm/compartilhado/consistencia.vue"
-import vueHelpAhp from "@/components/mcdm/compartilhado/helpAhp.vue"
+import vueMenuAhp from "@/components/mcdm/compartilhado/menuAhp.vue"
 import calculoAhpMixin from "@/components/mcdm/compartilhado/mixins/calculoAhpMixin.vue"
 import { throttle } from "lodash"
 import { RI } from "@/assets/javascript/globalConstants.js"
@@ -85,7 +85,7 @@ export default {
         vueMatriz,
         vueVetor,
         vueConsistencia,
-        vueHelpAhp
+        vueMenuAhp
     },
     mixins:[
         calculoAhpMixin
