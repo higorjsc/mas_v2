@@ -71,6 +71,20 @@
             v-if="mostrarHelpResultadosEtapa"
         >
         </p>
+        <!-- PASSO A PASSO AHP -->
+        <label
+            class="label-menu-ahp"
+            id="label-button-calculos-ahp"
+            for="button-calculos-ahp"
+        >
+            {{ $t('helpCalculosAhp') }}
+        </label>
+        <button
+            class="button-menu-ahp"
+            id="button-calculos-ahp"
+            @click="abrirPopUp('passosAhp')"
+        >
+        </button>
         <!-- MAIS SOBRE AHP-->
         <label
             class="label-menu-ahp"

@@ -372,7 +372,38 @@ const translation = {
     superiorEscalaSaaty: "Superior",
     muitoSuperiorEscalaSaaty: "Muito Superior",
     extremamenteSuperiorEscalaSaaty: "Extremamente superior",
-    legendaEscalaSaaty: "Os valores 2,4,6 e 8 são intermediários."
+    legendaEscalaSaaty: "Os valores 2,4,6 e 8 são intermediários.",
+
+    // POP UP PASSOS AHP
+    helpCalculosAhp:"PASSO A PASSO",
+    passosAhpTituloPopUp:"PASSO A PASSO AHP",
+    tituloAhpPassos: "PASSO A PASSO AHP",
+    ahpPassoUm:"1º - CRIAÇÃO DA MATRIZ DE COMPARAÇÃO DE PARES",
+    ahpPassoUmUm:"Utilizar a escala de comparação de pares AHP",
+    ahpPassoUmDois:"Julgar cada item das linhas da matriz em relação ao item da coluna",
+    ahpPassoDois:"2º - SOMATÓRIO DAS COLUNAS DA MATRIZ DE JULGAMENTO",
+    ahpPassoDoisUm:"Somar cada coluna individualmente (um valor de soma para cada critério).",
+    ahpPassoTres:"3º - NORMATIZAR A MATRIZ DE JULGAMENTO",
+    ahpPassoTresUm:"Dividir cada item das colunas da matriz pela soma de sua própria coluna",
+    ahpPassoQuatro:"4º - CALCULAR O VETOR DOS PESOS DE CADA CRITÉRIO (W)",
+    ahpPassoQuatroUm:"O peso de cadacritério é igual a média aritmética da linha, correspondente ao critério, na matriz normalizada.",
+    ahpPassoCinco:"5º - CALCULAR O VETOR SOMA PONDERADA (WS)",
+    ahpPassoCincoUm:"O vetor WS é o resultado da multiplicação da matriz de julgamento inicial pelo vetor dos pesos dos critérios",
+    ahpPassoSeis:"6º - CALCULAR O VETOR CONSISTENCIA",
+    ahpPassoSeisUm:"O vetor consistência é resultado da divisão do vetor WS pelo vetor dos pesos dos critérios (W)",
+    ahpPassoSete:"7º - CALCULAR O MÁXIMO AUTOVALOR DA MATRIZ DE JULGAMENTO",
+    ahpPassoSeteUm:"O máximo autovalor (𝜆max) é igual à média aritmética dos elementos do vetor consistência.",
+    ahpPassoOito:"8º - CALCULAR OÍNDICE DE CONSISTENCIA DO JULGAMENTO (CI)",
+    ahpPassoOitoUm:"𝐶𝐼 = (𝜆max − 𝑛)/(𝑛 − 1)>, onde n é a ordem da matriz.",
+    ahpPassoOitoDois:"Exemplo de inconsistência: A>B, B>C e C>A",
+    ahpPassoNove:"9º - OBTER O ÍNDICE DE ALEATÓRIEDADE PARA A MATRIZ DE JULGAMENTO (RI)",
+    ahpPassoNoveUm:"O índice de aleatoriedade é um valor tabelado (Saaty, 1991), que representa o índice de consistência médio de matrizes recíprocas, geradas por valores aleatórios.",
+    ahpPassoDez:"10º - CALCULAR A RAZÃO DE CONSISTENCIA (CR)",
+    ahpPassoDezUm:"O CR índica o quão consistente a matriz de julgamento está em relação a matrizes geradas aleatoriamente.",
+    ahpPassoDezDois:"𝐶𝑅 = 𝐶𝐼/𝑅𝐼",
+    ahpPassoOnze:"11º - ANÁLISAR OS RESULTADOS",
+    ahpPassoOnzeUm:"Se CR < 0.1, a matriz de julgamento foi construída com sucesso e os pesos podem ser utilizados.",
+    ahpPassoOnzeDois:"Se CR >= 0.1, a matriz de julgamento está inconsistente e o processo deve ser reiniciado (voltar ao passo 1)"
 
 }
 

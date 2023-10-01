@@ -163,12 +163,14 @@ export default {
 
     .menu-option li{
       color: var(--cor-texto-tema);
+      text-align: center;
     }
 
     .li-titulo{
       background-color: white;
       color: black;
       font-weight: bold;
+      text-align: center;
     }
 
     .escolhida{

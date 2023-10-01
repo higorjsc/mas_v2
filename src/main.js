@@ -9,7 +9,7 @@ import "@/assets/css/inputsMcdm.css"
 import "@/assets/css/segundaMcdm.css"
 import "@/assets/css/resultadosMcdm.css"
 import portuguese from "@/assets/javascript/portuguese.js"
-import english from "@/assets/javascript/english.js"
+// import english from "@/assets/javascript/english.js"
 import store from "./store" // Importe o arquivo de configuração do store
 
 const app = createApp(App)
@@ -24,7 +24,8 @@ app.config.globalProperties.$t = function (key) {
         return portuguese[key] ? portuguese[key] : key
     }
     if (this.$store.getters.currentLanguage === "en") {
-        return english[key] ? english[key] : key
+        return portuguese[key] ? portuguese[key] : key
+        // return english[key] ? english[key] : key
     }
 }
 
