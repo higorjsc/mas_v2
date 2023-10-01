@@ -92,7 +92,7 @@
 
 <script>
 import switchLanguage from "@/components/compartilhado/switchLanguage.vue"
-import inputsMixin from "@/components/acessos/mixins/inputsMixin.vue"
+import inputsMixin from "@/components/fluxogramas/mixins/inputsMixin.vue"
 
 export default {
     name: "vue-inputs-cardozo",
@@ -124,7 +124,7 @@ export default {
                 // Chama a função com a lógica do fluxograma
                 this.newValue()
                 // Altera o valor de cardozo na store VueExe
-                this.$store.dispatch("changeInputsAcessosCardozo", this.cardozo)
+                this.$store.dispatch("changeInputsAcessos", { metodo: "cardozo", value: this.cardozo })
             },
             deep: true // deep: true → O que estiver dentro da variável será observado
         }

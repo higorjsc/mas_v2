@@ -1,8 +1,8 @@
 <template>
 
     <section class="contaiener-tabview-resultados">
-        <vueInputsLivre
-            v-if="verificarTemplate === 'livre'"
+        <vueInputsPersonalizado
+            v-if="verificarTemplate === 'personalizado'"
         />
         <vueInputsCardozo
             v-if="verificarTemplate === 'cardozoTemplate'"
@@ -12,13 +12,13 @@
 </template>
 
 <script>
-import vueInputsLivre from "@/components/mcdm/livre/resultadosLivre.vue"
+import vueInputsPersonalizado from "@/components/mcdm/personalizado/resultadosPersonalizado.vue"
 import vueInputsCardozo from "@/components/mcdm/cardozo/resultadosCardozo.vue"
 
 export default {
     name: "vue-view-mcdm-resultados-etapa",
     components: {
-        vueInputsLivre,
+        vueInputsPersonalizado,
         vueInputsCardozo
     },
     computed: {

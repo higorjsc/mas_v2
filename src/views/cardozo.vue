@@ -38,9 +38,9 @@
 import vueNavBar from "@/components/compartilhado/navbar.vue"
 import vueHeader from "@/components/compartilhado/header.vue"
 import vueFooter from "@/components/compartilhado/footer.vue"
-import vueFluxograma from "@/components/acessos/fluxograma.vue"
-import vueIlustrations from "@/components/acessos/ilustrations.vue"
-import vueInputs from "@/components/acessos/inputsCardozo.vue"
+import vueFluxograma from "@/components/fluxogramas/fluxograma.vue"
+import vueIlustrations from "@/components/fluxogramas/ilustrations.vue"
+import vueInputs from "@/components/fluxogramas/inputsCardozo.vue"
 import { aplicarTema } from "@/assets/javascript/globalFunctions.js"
 
 export default {

@@ -5,7 +5,7 @@
     >
 
         <div
-            class="criterios-ahp-container-livre"
+            class="criterios-ahp-container-personalizado"
         >
             <h3
                 class="titulo-inputs-criterios"
@@ -37,7 +37,7 @@
 
         <!-- OPÇÕES E BOTÕES DE ADICIONAR OPÇÕES -->
         <div
-            class="options-ahp-container-livre"
+            class="options-ahp-container-personalizado"
         >
             <h3
                 class="titulo-inputs-criterios"
@@ -70,7 +70,7 @@
 </template>
 <script>
 export default {
-    name: "vue-inputs-etapa-livre",
+    name: "vue-inputs-etapa-personalizado",
     data() {
         return {
             slideres: [],
@@ -119,7 +119,11 @@ export default {
             }
         },
         removeCriterio(index) {
-            this.criteriosPrimeira.splice(index, 1)
+            if (this.criteriosPrimeira.length > 3) {
+                this.criteriosPrimeira.splice(index, 1)
+            } else {
+                window.alert("Você deve análisar no mínimo 3 critérios!")
+            }
         },
         addOption() {
             if (this.optionsPrimeira.length < 5) {
@@ -129,18 +133,22 @@ export default {
             }
         },
         removeOption(index) {
-            this.optionsPrimeira.splice(index, 1)
+            if (this.optionsPrimeira.length > 3) {
+                this.optionsPrimeira.splice(index, 1)
+            } else {
+                window.alert("Você deve análisar no mínimo 3 opções!")
+            }
         }
     }
 }
 </script>
 <style scoped>
 
-    .criterios-ahp-container-livre{
+    .criterios-ahp-container-personalizado{
         align-items: center;
         width: 100%;
     }
-    .criterios-ahp-container-livre div, .options-ahp-container-livre div{
+    .criterios-ahp-container-personalizado div, .options-ahp-container-personalizado div{
         display: flex;
         align-items: baseline;
     }

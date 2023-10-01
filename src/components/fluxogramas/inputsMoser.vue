@@ -127,7 +127,7 @@
 <script>
 
 import switchLanguage from "@/components/compartilhado/switchLanguage.vue"
-import inputsMixin from "@/components/acessos/mixins/inputsMixin.vue"
+import inputsMixin from "@/components/fluxogramas/mixins/inputsMixin.vue"
 
 export default {
     name: "vue-inputs-moser",
@@ -162,7 +162,7 @@ export default {
                 // Chama a função com a lógica do fluxograma
                 this.newValue()
                 // Altera o valor de moser na store VueExe
-                this.$store.dispatch("changeInputsAcessosMoser", this.moser)
+                this.$store.dispatch("changeInputsAcessos", { metodo: "moser", value: this.moser })
             },
             deep: true // deep: true → O que estiver dentro da variável será observado
         }

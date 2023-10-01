@@ -21,7 +21,6 @@ export default {
     components: {
         vueBalao,
         vuePopUp
-
     }
 }
 </script>

@@ -7,8 +7,8 @@
         />
         <vueTemplateSelector/>
 
-        <vueInputsLivre
-            v-if="verificarTemplate === 'livre'"
+        <vueInputsPersonalizado
+            v-if="verificarTemplate === 'personalizado'"
         />
 
         <vueInputsCardozo
@@ -21,8 +21,8 @@
         <vueDescriptionCardozo
             v-if="verificarTemplate === 'cardozoTemplate'"
         />
-        <vueDescriptionLivre
-            v-if="verificarTemplate === 'livre'"
+        <vueDescriptionPersonalizado
+            v-if="verificarTemplate === 'personalizado'"
         />
 
         <div
@@ -74,10 +74,10 @@
 </template>
 
 <script>
-import vueInputsLivre from "@/components/mcdm/livre/inputsLivre.vue"
+import vueInputsPersonalizado from "@/components/mcdm/personalizado/inputsPersonalizado.vue"
 import vueInputsCardozo from "@/components/mcdm/cardozo/inputsCardozo.vue"
 import vueDescriptionCardozo from "@/components/mcdm/cardozo/descriptionCardozo.vue"
-import vueDescriptionLivre from "@/components/mcdm/livre/descriptionLivre.vue"
+import vueDescriptionPersonalizado from "@/components/mcdm/personalizado/descriptionPersonalizado.vue"
 import vueTemplateSelector from "@/components/mcdm/compartilhado/templateSelector.vue"
 import criaSlideresMixin from "@/components/mcdm/compartilhado/mixins/criaSlideres.vue"
 import switchLanguage from "@/components/compartilhado/switchLanguage.vue"
@@ -86,12 +86,12 @@ import switchLanguage from "@/components/compartilhado/switchLanguage.vue"
 export default {
     name: "vue-view-mcdm-inputs-etapa",
     components: {
-        vueInputsLivre,
+        vueInputsPersonalizado,
         vueInputsCardozo,
         vueTemplateSelector,
         switchLanguage,
         vueDescriptionCardozo,
-        vueDescriptionLivre
+        vueDescriptionPersonalizado
     },
     mixins: [
         criaSlideresMixin

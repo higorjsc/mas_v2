@@ -40,9 +40,9 @@
 </template>
 
 <script>
-import vueCreditos from "@/components/acessos/creditos.vue"
+import vueCreditos from "@/components/compartilhado/creditos.vue"
 import vueReportarErro from "@/components/compartilhado/reportarErro.vue"
-import vueReferencias from "@/components/acessos/referencias.vue"
+import vueReferencias from "@/components/compartilhado/referencias.vue"
 import vueMaisSobreAhp from "@/components/mcdm/compartilhado/ahpReferencias.vue"
 import vueHelpPrimeiraEtapa from "@/components/mcdm/compartilhado/helpPrimeiraEtapa.vue"
 import vueHelpSegundaEtapa from "@/components/mcdm/compartilhado/helpSegundaEtapa.vue"

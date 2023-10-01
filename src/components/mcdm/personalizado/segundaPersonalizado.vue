@@ -79,7 +79,7 @@ import { throttle } from "lodash"
 import { RI } from "@/assets/javascript/globalConstants.js"
 
 export default {
-    name: "vue-segunda-etapa-livre",
+    name: "vue-segunda-etapa-personalizado",
     components: {
         vueSlider,
         vueMatriz,

@@ -96,7 +96,7 @@
 <script>
 import vueMenuAhp from "@/components/mcdm/compartilhado/menuAhp.vue"
 export default {
-    name: "vue-resultados-etapa-livre",
+    name: "vue-resultados-etapa-personalizado",
     components:{
         vueMenuAhp
     },

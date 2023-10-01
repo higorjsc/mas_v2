@@ -10,7 +10,7 @@
             <option value="cardozoTemplate">
                 {{ $t('cardozoTemplateMcdm') }}
             </option>
-            <option value="livre">
+            <option value="personalizado">
                 {{ $t('ahpPersonalizado') }}
             </option>
         </select>

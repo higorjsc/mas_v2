@@ -1,8 +1,8 @@
 <template>
 
     <section class="contaiener-tabview-primeira">
-        <vuePrimeiraLivre
-            v-if="verificarTemplate === 'livre'"
+        <vuePrimeiraPersonalizado
+            v-if="verificarTemplate === 'personalizado'"
         />
         <vuePrimeiraCardozo
             v-if="verificarTemplate === 'cardozoTemplate'"
@@ -12,13 +12,13 @@
 </template>
 
 <script>
-import vuePrimeiraLivre from "@/components/mcdm/livre/primeiraLivre.vue"
+import vuePrimeiraPersonalizado from "@/components/mcdm/personalizado/primeiraPersonalizado.vue"
 import vuePrimeiraCardozo from "@/components/mcdm/cardozo/primeiraCardozo.vue"
 
 export default {
     name: "vue-view-mcdm-primeira-etapa",
     components: {
-        vuePrimeiraLivre,
+        vuePrimeiraPersonalizado,
         vuePrimeiraCardozo
     },
     computed: {

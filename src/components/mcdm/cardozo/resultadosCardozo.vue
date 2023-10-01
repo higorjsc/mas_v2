@@ -92,14 +92,17 @@
             </table>
         </div>
     </section>
+    <vueMenuTools/>
 </template>
 <script>
 import vueMenuAhp from "@/components/mcdm/compartilhado/menuAhp.vue"
+import vueMenuTools from "@/components/mcdm/compartilhado/menuTools.vue"
 
 export default {
     name: "vue-resultados-etapa-cardozo",
     components:{
-        vueMenuAhp
+        vueMenuAhp,
+        vueMenuTools
     },
     computed: {
         matrizPrimeira() {

@@ -79,22 +79,8 @@ export default createStore({
         optionsSegunda: [
         ],
         tema: {
-            temaMAS: TEMAS.temaVermelho,
-            temaMMS: TEMAS.temaVermelho
         },
         color: {
-            start: CORES.fluxoVerde,
-            logistica: CORES.fluxoVerde,
-            rockMass: "white",
-            surfaceMaterial: "white",
-            openPit: "white",
-            prodCenter: "white",
-            prodLeft: "white",
-            depthCenter: "white",
-            depthLeft: "white",
-            correia: CORES.fluxoAzul,
-            rampa: CORES.fluxoAzul,
-            shaft: CORES.fluxoAzul
         },
         ilustrations: {
             orebody: true,
@@ -112,15 +98,6 @@ export default createStore({
     mutations: {
         setLanguage(state, data) {
             state.language = data
-        },
-        setInputsAcessosMoser(state, data) {
-            state.inputsAcessos.moser = data
-        },
-        setInputsAcessosCardozo(state, data) {
-            state.inputsAcessos.cardozo = data
-        },
-        setInputsAcessosVergne(state, data) {
-            state.inputsAcessos.vergne = data
         },
         setColor(state, data) {
             state.color = data
@@ -178,6 +155,9 @@ export default createStore({
         },
         setMatrizesPreDefinidas(state, { index, data }) {
             state.matrizesPreDefinidas[index] = data
+        },
+        setInputsAcessos(state, { metodo, data }) {
+            state.inputsAcessos[metodo] = data
         }
     },
     getters: {
@@ -198,12 +178,6 @@ export default createStore({
         },
         currentMetodo(state) {
             return state.metodo
-        },
-        currentTemaMAS(state) {
-            return state.temaMAS
-        },
-        currentTemaMMS(state) {
-            return state.temaMMS
         },
         currentBalao(state) {
             return state.balao
@@ -257,15 +231,6 @@ export default createStore({
     actions: {
         changeLanguage(context, data) {
             context.commit("setLanguage", data)
-        },
-        changeInputsAcessosCardozo(context, data) {
-            context.commit("setInputsAcessosCardozo", data)
-        },
-        changeInputsAcessosVergne(context, data) {
-            context.commit("setInputsAcessosVergne", data)
-        },
-        changeInputsAcessosMoser(context, data) {
-            context.commit("setInputsAcessosMoser", data)
         },
         changeColor(context, data) {
             context.commit("setColor", data)
@@ -323,6 +288,9 @@ export default createStore({
         },
         changeMatrizesPreDefinidas(context, { index, data }) {
             context.commit("setMatrizesPreDefinidas", { index, data })
+        },
+        changeInputsAcessos(context, { metodo, data }) {
+            context.commit("setInputsAcessos", { metodo, data })
         }
     }
 })

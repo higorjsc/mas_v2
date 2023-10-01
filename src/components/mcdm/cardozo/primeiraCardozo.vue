@@ -276,11 +276,9 @@ export default {
         handlePreDefinido(value) {
             const index = value[0]// O índice da matriz a ser atualizada
             const data = value[1] // Os novos dados da matriz
-
             this.$store.dispatch("changeMatrizesPreDefinidas", { index, data })
             this.changeMatrix()
         },
-
         trocaMatrizInputAtual(matrizName) {
             this.metodoDefinido = matrizName === "Aval. Econômica" ?  "personalizado" : this.metodoDefinido
             this.$store.dispatch("changeMatrizInputAtual", matrizName)

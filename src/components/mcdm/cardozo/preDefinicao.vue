@@ -206,6 +206,19 @@ export default{
         social() {
             this.$emit("matriz-definida", [4, this.matrizSocial[this.social]])
         }
+    },
+    created() {
+        this.armazenaMatrizesInicais()
+    },
+    methods:{
+        armazenaMatrizesInicais() {
+            console.log("oi")
+            this.$store.dispatch("changeMatrizesPreDefinidas", { index: 0, data:  this.matrizFluxograma.poco })
+            this.$store.dispatch("changeMatrizesPreDefinidas", { index: 1, data:  [] })
+            this.$store.dispatch("changeMatrizesPreDefinidas", { index: 2, data:  this.matrizEnergetico.baixo })
+            this.$store.dispatch("changeMatrizesPreDefinidas", { index: 3, data:  this.matrizEmissao })
+            this.$store.dispatch("changeMatrizesPreDefinidas", { index: 4, data:  this.matrizSocial.baixo })
+        }
     }
 
 }

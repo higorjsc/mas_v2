@@ -143,9 +143,9 @@ export default {
         left: 69%
     }
     #rampa-pit{
-        top: 25.8%;
-        left: 37%;
-        height: 200px;
+        top: 21.7%;
+        left: 43%;
+        height: 270px;
     }
     #rampa{
         top: 12.7%;
