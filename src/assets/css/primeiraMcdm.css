@@ -80,7 +80,7 @@
 }
 .matriz-vetor-container-primeira{
     display: flex;
-    gap: 1px;
+    gap: 10px;
     margin: auto;
 }
 .matriz-container-primeira:hover{

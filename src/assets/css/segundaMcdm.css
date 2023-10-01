@@ -65,7 +65,7 @@
 }
 .matriz-vetor-container-segunda{
     display: flex;
-    gap: 1px;
+    gap: 10px;
     margin: auto;
     width: 90%;
 }
