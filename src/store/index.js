@@ -1,9 +1,4 @@
 import { createStore } from "vuex"
-import { TEMAS, CORES } from "@/assets/javascript/globalConstants.js"
-
-// const fluxoRed  ='rgba(31, 191, 219, 0.493)'
-// const fluxoGreen = 'rgba(14, 224, 49, 0.8)'
-// const fluxoBlue  ='rgba(31, 191, 219, 0.493)'
 
 export default createStore({
     state: {
@@ -49,39 +44,16 @@ export default createStore({
         viewProgress: 1,
         tabViewAtual: null,
         inputsAcessos: {
-            moser: {
-                logistica: "",
-                rockMass: "",
-                surfaceMaterial: "",
-                openPit: "",
-                prod: "",
-                depth: ""
-            },
-            cardozo: {
-                surfaceMaterial: "",
-                rockMass: "",
-                prod: "",
-                depth: ""
-            },
-            vergne: {
-                surfaceMaterial: "",
-                rockMass: "",
-                prod: "",
-                depth: ""
-            }
+            moser: {},
+            cardozo: {},
+            vergne: {}
         },
-        criteriosPrimeira: [
-        ],
-        optionsPrimeira: [
-        ],
-        criteriosSegunda: [
-        ],
-        optionsSegunda: [
-        ],
-        tema: {
-        },
-        color: {
-        },
+        criteriosPrimeira: [],
+        optionsPrimeira: [],
+        criteriosSegunda: [],
+        optionsSegunda: [],
+        tema: {},
+        color: {},
         ilustrations: {
             orebody: true,
             superficie: true,
