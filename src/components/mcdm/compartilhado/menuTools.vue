@@ -3,17 +3,20 @@
         class="container-tools"
     >
         <button
-            class="button-tools button-print"
+            id="button-print-screen"
+            class="button-tools button-print-screen"
         >
             <img class="img-print" src="@\assets\Imagens\print.png" alt="icone botao print screen"/>
         </button>
         <button
+            id="button-imprimir"
             class="button-tools button-imprimir"
             @click="screenshotElement"
         >
             <img sclass="img-impressora" src="@\assets\Imagens\impressora.png" alt="botao imprimir relatorio (impresora)"/>
         </button>
         <button
+            id="button-salvar"
             class="button-tools button-salvar"
         >
             <img class="img-save" src="@\assets\Imagens\save.png" alt="icone botao save file"/>
@@ -49,6 +52,7 @@ export default {
     width: 40px;
     height: 40px;
     overflow: hidden;
+    /* z-index: 3; */
 }
 .button-tools:hover{
     cursor: pointer;

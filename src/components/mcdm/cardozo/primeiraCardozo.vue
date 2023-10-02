@@ -274,9 +274,8 @@ export default {
             this.changeMatrix()
         },
         handlePreDefinido(value) {
-            const index = value[0]// O índice da matriz a ser atualizada
-            const data = value[1] // Os novos dados da matriz
-            this.$store.dispatch("changeMatrizesPreDefinidas", { index, data })
+            this.$store.dispatch("changeMatrizesPreDefinidas", { index: value[0], data:  value[1] })
+            this.handleMetodoDefinido()
             this.changeMatrix()
         },
         trocaMatrizInputAtual(matrizName) {

@@ -41,6 +41,8 @@ import vueFooter from "@/components/compartilhado/footer.vue"
 import vueFluxograma from "@/components/fluxogramas/fluxograma.vue"
 import vueIlustrations from "@/components/fluxogramas/ilustrations.vue"
 import vueInputs from "@/components/fluxogramas/inputsMoser.vue"
+import vueBalao from "@/components/compartilhado/balao.vue"
+
 import { aplicarTema } from "@/assets/javascript/globalFunctions.js"
 
 export default {
@@ -53,6 +55,9 @@ export default {
         vueFooter,
         vueIlustrations
     },
+    mixins: [
+        vueBalao
+    ],
     beforeMount() {
         this.$store.dispatch("changeMetodo", "Moser")
         aplicarTema("temaVermelho")

@@ -18,11 +18,6 @@
 
     <vueFooter/>
 
-    <vueBalao
-        class="balao"
-    />
-
-
 </template>
 
 <script>
@@ -30,7 +25,6 @@ import vueNavBar from "@/components/compartilhado/navbar.vue"
 import vueHeader from "@/components/compartilhado/header.vue"
 import vueAhpHeader from "@/components/mcdm/compartilhado/mcdmHeader.vue"
 import vueFooter from "@/components/compartilhado/footer.vue"
-import vueBalao from "@/components/compartilhado/balao.vue"
 import { aplicarTema } from "@/assets/javascript/globalFunctions.js"
 
 export default {
@@ -39,12 +33,8 @@ export default {
         vueNavBar,
         vueHeader,
         vueFooter,
-        vueBalao,
         vueAhpHeader
     },
-    mixins: [
-
-    ],
     beforeCreate() {
         this.$store.dispatch("changeMetodo", "Mcdm")
         aplicarTema("temaVermelho")

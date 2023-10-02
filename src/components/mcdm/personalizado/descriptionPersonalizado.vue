@@ -26,6 +26,7 @@
                 id="img-mapa-ahp"
                 :src="require(`@/assets/Imagens/mapa_ahp_${this.$store.getters.currentLanguage}.png`)"
                 alt="fluxograma do metodo ahp"
+                :title="$t('tituloMapaAhp')"
             />
         </div>
         <div
@@ -36,6 +37,7 @@
                 id="img-fluxograma-ahp"
                 :src="require(`@/assets/Imagens/fluxograma_ahp_${this.$store.getters.currentLanguage}.png`)"
                 alt="fluxograma do metodo ahp"
+                :title="$t('tituloFluxogramaAhp')"
             />
         </div>
 

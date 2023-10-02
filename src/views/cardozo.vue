@@ -53,9 +53,6 @@ export default {
         vueFooter,
         vueIlustrations
     },
-    mixins: [
-
-    ],
     beforeMount() {
         this.$store.dispatch("changeMetodo", "Cardozo")
         aplicarTema("temaVermelho")

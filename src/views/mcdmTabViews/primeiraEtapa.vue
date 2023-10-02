@@ -14,6 +14,7 @@
 <script>
 import vuePrimeiraPersonalizado from "@/components/mcdm/personalizado/primeiraPersonalizado.vue"
 import vuePrimeiraCardozo from "@/components/mcdm/cardozo/primeiraCardozo.vue"
+import vueBalao from "@/components/compartilhado/balao.vue"
 
 export default {
     name: "vue-view-mcdm-primeira-etapa",
@@ -21,6 +22,9 @@ export default {
         vuePrimeiraPersonalizado,
         vuePrimeiraCardozo
     },
+    mixins: [
+        vueBalao
+    ],
     computed: {
         verificarTemplate() {
             return this.$store.getters.currentTemplateMcdm

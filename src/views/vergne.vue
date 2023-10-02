@@ -40,6 +40,7 @@ import vueFooter from "@/components/compartilhado/footer.vue"
 import vueFluxograma from "@/components/fluxogramas/fluxograma.vue"
 import vueIlustrations from "@/components/fluxogramas/ilustrations.vue"
 import vueInputs from "@/components/fluxogramas/inputsVergne.vue"
+import vueBalao from "@/components/compartilhado/balao.vue"
 import { aplicarTema } from "@/assets/javascript/globalFunctions.js"
 
 export default {
@@ -52,6 +53,9 @@ export default {
         vueHeader,
         vueFooter
     },
+    mixins: [
+        vueBalao
+    ],
     beforeMount() {
         this.$store.dispatch("changeMetodo", "Vergne")
         aplicarTema("temaVermelho")

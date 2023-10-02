@@ -25,14 +25,12 @@
         <label
             class="label-menu-ahp"
             v-if="tabView === 'primeira'"
-            id="label-menu-ahp-menu-primeira-etapa"
             for="button-menu-primeira-etapa"
         >
             {{ $t('helpPrimeiraEtapa') }}
         </label>
         <button
             class="button-menu-ahp"
-            id="button-menu-primeira-etapa"
             @click="abrirPopUp('helpPrimeiraEtapa')"
         >
         </button>
@@ -40,21 +38,18 @@
         <label
             class="label-menu-ahp"
             v-if="tabView === 'segunda'"
-            id="label-menu-ahp-menu-segunda-etapa"
             for="button-menu-segunda-etapa"
         >
             {{ $t('helpSegundaEtapa') }}
         </label>
         <button
             class="button-menu-ahp"
-            id="button-menu-segunda-etapa"
             @click="abrirPopUp('helpSegundaEtapa')"
         ></button>
         <!-- MENU RESULTADOS ETAPA -->
         <label
             class="label-menu-ahp"
             v-if="tabView == 'resultados'"
-            id="label-menu-ahp-menu-resultados-etapa"
             for="checkbox-menu-resultados-etapa"
         >
             {{ $t('helpResultadosEtapa') }}
@@ -74,28 +69,24 @@
         <!-- PASSO A PASSO AHP -->
         <label
             class="label-menu-ahp"
-            id="label-button-calculos-ahp"
             for="button-calculos-ahp"
         >
             {{ $t('helpCalculosAhp') }}
         </label>
         <button
             class="button-menu-ahp"
-            id="button-calculos-ahp"
             @click="abrirPopUp('passosAhp')"
         >
         </button>
         <!-- MAIS SOBRE AHP-->
         <label
             class="label-menu-ahp"
-            id="label-button-mais-sobre-ahp"
             for="button-mais-sobre-ahp"
         >
             {{ $t('helpMaisSobreAhp') }}
         </label>
         <button
             class="button-menu-ahp"
-            id="button-mais-sobre-ahp"
             @click="abrirPopUp('maisSobreAhp')"
         >
         </button>

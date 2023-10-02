@@ -250,19 +250,16 @@ const translation = {
 
     tituloSobreAhp: "Sobre o Analytic Hierarchy Process (AHP)",
     paragrafoExplicacaoAhp: ""
-    + "Inicialmente proposto por Thomas Saaty em 1980, o método AHP é eficiente na abordagem de sistemas complexos de tomada de decisão "
+    + "Proposto por Thomas Saaty em 1980, o método AHP é eficiente na abordagem de sistemas complexos de tomada de decisão "
     + "diante de múltiplos critérios (MCDM). O processo consiste em dividir o problema em uma estrutura hierárquica de objetivos, critérios e alternativas."
     + "Inicialmente, são comparadas as alternativas de solução do problema em relação a cada critério, para determinar as 'prioridades locais'."
     + " Em seguida, a comparação é realizada para determinar a importância de cada critério na tomada de decisão."
-    + " Por fim, as opções são classificadas somando-se suas prioridades locais, ponderadas pela importância de cada critério."
+    + " Por fim, as opções são classificadas somando-se suas prioridades locais, ponderadas pela importância de cada critério.<br><br>"
     ,
     tituloSobreMetodoCardozoAhp: "Sobre o Método Cardozo (2023)",
     paragrafoExplicacaoMetodoCardozoAhp: ""
-    + "Inicialmente proposto por Thomas Saaty em 1980, o método AHP é eficiente na abordagem de sistemas complexos de tomada de decisão "
-    + "diante de múltiplos critérios (MCDM). O processo consiste em dividir o problema em uma estrutura hierárquica de objetivos, critérios e alternativas."
-    + "Inicialmente, são comparadas as alternativas de solução do problema em relação a cada critério, para determinar as 'prioridades locais'."
-    + " Em seguida, a comparação é realizada para determinar a importância de cada critério na tomada de decisão."
-    + " Por fim, as opções são classificadas somando-se suas prioridades locais, ponderadas pela importância de cada critério."
+    + "Cardozo sugere a análise de fluxogramas empíricos para a seleção de opções de acesso, acompanhada pela avaliação econômica,da disponibilidade "
+    + "energética na região e a consideração dos custos sociais e ambientais associados a cada alternativa de acesso como critérios decisivos."
     ,
     tituloSobreAnaliseMulticriterial: "Sobre a Análise multicriterial",
     paragrafoExplicacaoAnaliseMulticriterio: ""
@@ -352,13 +349,13 @@ const translation = {
     primeiraEtapaLiSete: "b) Se CR < 0.1, prossiga à análise",
 
     // POP UP HELP SEGUNDA ETAPA
-    helpSegundaEtapaTituloPopUp:"HELP AHP PRIMEIRA ETAPA",
-    tituloHelpSegundaEtapa:"PRIMEIRA ETAPA",
-    paragrafoHelpSegundaEtpa:"Compare cada alternativa em relação aos critérios determinados (linha em relação a coluna)",
-    segundaEtpaLiUm:"1) Opte entre o preenchinto personalizado ou pré-definido das matrizes de comparação de pares.",
-    segundaEtpaLidois:"a) Se pré-definido, as matrizes serão preenchidas automáticamente, conforme as sugestões do autor do método selecionado.",
-    segundaEtpaLiTrês:"I) A opção 'pré-definido' não estará disponível para todas as matrizes, de um método, e não estárá disponível em todos os métodos.",
-    segundaEtpaLiQuatro:"b) Se personalizado, utilize os botões deslizantes para preencher a matriz triangular superior das matrizes de comparação de pares.",
+    helpSegundaEtapaTituloPopUp:"HELP AHP SEGUNDA ETAPA",
+    tituloHelpSegundaEtapa:"SEGUNDA ETAPA",
+    paragrafoHelpSegundaEtpa:"Determine a importância relativa de cada critério, comparando o valor de cada linha em relação ao valor da coluna da matriz de pares.",
+    segundaEtpaLiUm:"1) Opte entre o preenchinto personalizado ou pré-definido da matriz de comparação de pares.",
+    segundaEtpaLidois:"a) Se pré-definido, a matriz será preenchida automáticamente, conforme as sugestões do autor do método selecionado.",
+    segundaEtpaLiTrês:"I) A opção 'pré-definido' poderá não estar disponível no método selecionado.",
+    segundaEtpaLiQuatro:"b) Se personalizado, utilize os botões deslizantes para preencher a matriz triangular superior da matriz de comparação de pares.",
     segundaEtpaLiCinco: "2) Verifique se a razão de consistencia (CR) está menor do que 0.1.",
     segundaEtpaLiSeis: "a) Se CR > 0.1, corrija as entradas inconsistentes da matriz",
     segundaEtpaLiSete: "b) Se CR < 0.1, prossiga à análise",

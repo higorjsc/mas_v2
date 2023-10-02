@@ -14,6 +14,7 @@
 <script>
 import vueInputsPersonalizado from "@/components/mcdm/personalizado/resultadosPersonalizado.vue"
 import vueInputsCardozo from "@/components/mcdm/cardozo/resultadosCardozo.vue"
+import vueBalao from "@/components/compartilhado/balao.vue"
 
 export default {
     name: "vue-view-mcdm-resultados-etapa",
@@ -21,6 +22,9 @@ export default {
         vueInputsPersonalizado,
         vueInputsCardozo
     },
+    mixins: [
+        vueBalao
+    ],
     computed: {
         verificarTemplate() {
             return this.$store.getters.currentTemplateMcdm

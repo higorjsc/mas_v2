@@ -1,8 +1,11 @@
 <template>
     <div
-        id="balao"
-        v-html="`${$t(texto)}`"
+        id="balao" ref="balao" class="balao-help"
     >
+        <p
+            v-html="$t(`${texto}`)"
+        >
+        </p>
     </div>
 </template>
 
@@ -18,17 +21,49 @@ export default {
     computed: {
         texto() {
             return this.$store.getters.currentBalao
+        },
+        metodo() {
+            return this.$store.getters.currentMetodo
         }
     },
     mounted() {
         this.balao = document.getElementById("balao")
-        // Adiciona o listner para mover o balão
-        document.addEventListener("mousemove", this.balaoPosition)
+        this.addPageListeners()
+        this.addBalaoListener()
     },
     beforeUnmount() {
-        document.removeEventListener("mousemove", this.balaoPosition)
+        this.removePageListeners()
     },
     methods: {
+        addPageListeners() {
+            document.querySelectorAll("label").forEach(element => {
+                element.addEventListener("mouseover", () => this.balaoEntra(element.id))
+                element.addEventListener("mouseleave", this.balaoSai)
+            })
+
+        },
+        removePageListeners() {
+            document.querySelectorAll("label").forEach(element => {
+                element.removeEventListener("mouseover", () => this.balaoEntra(element.id))
+                element.removeEventListener("mouseleave", this.balaoSai)
+            })
+        },
+        addBalaoListener() {
+            document.addEventListener("mousemove", this.balaoPosition)
+        },
+        balaoEntra(id) {
+            this.$store.dispatch("changeBalao", this.formataId(id))
+            if(this.texto !== "") {
+                this.balao.style.display = "block"
+            }
+        },
+        balaoSai() {
+            this.balao.style.display = "none"
+        },
+        balaoPosition(event) {
+            this.balao.style.top = event.clientY - 40 + window.scrollY + "px"
+            this.balao.style.left = event.clientX + 40 + "px"
+        },
         formataId(id) {
             // Dividir a string em partes usando "-" como separador
             let idFormatado = id.split("-")
@@ -43,28 +78,13 @@ export default {
             // Remove os sufixos "-menor" e "-maior" que diferenciam os ids dos labels dos radio buttons
             idFormatado = idFormatado.replace(/Menor/g, "").replace(/Nao/g, "").replace(/Sim/g, "").replace(/Maior/g, "")
             return idFormatado
-        },
-        balaoEntra(id) {
-            this.$store.dispatch("changeBalao", this.formataId(id))
-            this.balao.style.display = "block"
-        },
-        balaoSai() {
-            this.balao.style.display = "none"
-        },
-        balaoPosition(event) {
-            if (this.balao) {
-                this.balao.style.top = event.clientY + -40 + window.scrollY + "px"
-                this.balao.style.left = event.clientX + 40 + "px"
-            }
         }
-
     }
 }
 </script>
 
-<style>
-
-#balao {
+  <style scoped>
+  .balao-help {
     display: none;
     position: absolute;
     background-color: white;
@@ -75,6 +95,5 @@ export default {
     min-width: 100px;
     z-index: 999;
     padding: 5px;
-}
-
-</style>
+  }
+  </style>

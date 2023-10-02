@@ -9,6 +9,26 @@
         >
 
             <div
+                class="container-texto-description"
+            >
+                <div
+                    class="container-description-ahp"
+                >
+
+                    <h4
+                        class="titulo-description-metodo-mcdm"
+                    >
+                        {{ $t('tituloSobreAhp')}}
+                    </h4>
+                    <p
+                        class="paragrafo-explicacao-metodo-mcdm"
+                        v-html="$t('paragrafoExplicacaoAhp')"
+                    >
+                    </p>
+                </div>
+            </div>
+
+            <div
                 class="container-description-cardozo"
             >
 
@@ -19,8 +39,8 @@
                 </h4>
                 <p
                     class="paragrafo-explicacao-metodo-mcdm"
+                    v-html="$t('paragrafoExplicacaoMetodoCardozoAhp')"
                 >
-                    {{ $t('paragrafoExplicacaoMetodoCardozoAhp') }}
                 </p>
                 <br>
                 <br>
@@ -28,8 +48,11 @@
                     id="img-mapa-cardozo-ahp"
                     :src="require(`@/assets/Imagens/mapa_cardozo_ahp_${this.$store.getters.currentLanguage}.png`)"
                     alt="Mapa da decisão por AHP no métodoo Cardozo"
+                    :title="$t('tituloMapaCardozo')"
                 >
             </div>
+
+
         </div>
         <div
             class="container-fluxograma-ahp"
@@ -38,6 +61,7 @@
                 id="img-fluxograma-ahp"
                 :src="require(`@/assets/Imagens/fluxograma_ahp_${this.$store.getters.currentLanguage}.png`)"
                 alt="fluxograma do metodo ahp"
+                :title="$t('tituloFluxogramaAhp')"
             />
         </div>
 
@@ -89,15 +113,9 @@ export default {
 #img-mapa-cardozo-ahp{
     position: relative;
     margin: auto;
-    width: 100%;
+    width: 90%;
     max-height: 380px;
     /* transform: translateX(-20px); */
-
 }
-/* #img-mapa-cardozo-ahp:hover{
-    transform: translateY(-80px)scale(1.5);
-    cursor: pointer;
-    z-index: 2;
-    border: var(--borda-simples);
-} */
+
 </style>

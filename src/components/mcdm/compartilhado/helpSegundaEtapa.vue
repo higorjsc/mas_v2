@@ -3,7 +3,7 @@
         class="container-pop-up-help"
     >
         <h2  class="titulo-inside-pop-up">
-            {{ $t('tituloHelpSegundaEtpa') }}
+            {{ $t('tituloHelpSegundaEtapa') }}
         </h2>
         <div
             class="paragrafo-help"

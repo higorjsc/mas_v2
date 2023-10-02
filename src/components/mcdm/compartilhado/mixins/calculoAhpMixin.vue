@@ -72,6 +72,7 @@ export default{
             ]
 
             const slider = document.getElementsByName(value[3])[0]
+            // console.log(slideres)
 
             slider.addEventListener("input", () => {
                 // Define a cor vermelha enquanto o slider está sendo movido.
@@ -80,9 +81,7 @@ export default{
                 td[1].style.boxShadow = "0 0 20px var(--cor-tema)"
                 td[1].style.transform = "scale(1.02)"
             })
-
             slider.addEventListener("mouseup", () => {
-                // Define a cor de fundo original quando o slider é solto.
                 td[0].style.boxShadow = "none"
                 td[1].style.boxShadow = "none"
                 td[0].style.transform = "scale(1)"

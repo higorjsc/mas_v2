@@ -48,6 +48,7 @@
                     id="img-wordcloud-mcdm"
                     :src="require(`@/assets/Imagens/wordcloud_mcdm.png`)"
                     alt="Nuvem de Palavras MCDM"
+                    :title="$t('tituloWordCloud')"
                 />
                 <span
                     class="legenda-wordcloud-mcdm"
@@ -62,8 +63,8 @@
                     id="img-fluxograma-mcdm"
                     :src="require(`@/assets/Imagens/fluxograma_mcdm_${this.$store.getters.currentLanguage}.png`)"
                     alt="Fluxograma do processo de tomada de decisão por análise multicritério"
+                    :title="$t('tituloFluxogramaMcdm')"
                 />
-
             </div>
 
         </div>
@@ -81,6 +82,7 @@ import vueDescriptionPersonalizado from "@/components/mcdm/personalizado/descrip
 import vueTemplateSelector from "@/components/mcdm/compartilhado/templateSelector.vue"
 import criaSlideresMixin from "@/components/mcdm/compartilhado/mixins/criaSlideres.vue"
 import switchLanguage from "@/components/compartilhado/switchLanguage.vue"
+import vueBalao from "@/components/compartilhado/balao.vue"
 
 
 export default {
@@ -94,7 +96,8 @@ export default {
         vueDescriptionPersonalizado
     },
     mixins: [
-        criaSlideresMixin
+        criaSlideresMixin,
+        vueBalao
     ],
     computed: {
         verificarTemplate() {
@@ -173,6 +176,7 @@ export default {
     width: 100%;
 }
 #img-fluxograma-mcdm{
+    margin-top: 35px;
     height: 50%;
 }
 
