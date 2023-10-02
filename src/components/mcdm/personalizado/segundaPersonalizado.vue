@@ -117,6 +117,9 @@ export default {
     mounted() {
         this.$store.dispatch("changeMatrizInputAtual", "matriz-segunda-etapa")
         this.changeMatrixColor()
+        setTimeout(() => {
+            this.hoverSlider("segunda")
+        }, 200)
     },
     created() {
         this.sliderStore = this.$store.getters.currentSlideresSegunda
@@ -129,7 +132,7 @@ export default {
     methods: {
         handleInputValue(value) {
             this.sliderStore[value[1]].valor = Number(value[2])
-            this.hoverInput(value, "segunda")
+            this.mouseDownSlider(value, "segunda")
             const throttledDefineMatriz = throttle(this.changeMatrix, 50)
             throttledDefineMatriz()
         },

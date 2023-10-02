@@ -3,7 +3,7 @@
     <!-- TEMPLASTES MCDM -->
     <div class="templates-mcdm-container">
         <h3>{{ $t('templatesMcdmTitulo') }}</h3>
-        <select v-model="template">
+        <select v-model="template" id="select-template-cardozo-">
             <option value="">
                 selecione
             </option>

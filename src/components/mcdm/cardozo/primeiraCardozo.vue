@@ -259,6 +259,9 @@ export default {
     mounted() {
         this.trocaMatrizInputAtual("Fluxograma")
         this.changeMatrixColor()
+        setTimeout(() => {
+            this.hoverSlider("primeira")
+        }, 200)
     },
     beforeUnmount() {
         this.$store.dispatch("changeSlideresPrimeira", this.sliderStore)
@@ -283,10 +286,13 @@ export default {
             this.$store.dispatch("changeMatrizInputAtual", matrizName)
             this.$store.dispatch("changeSlideresPrimeira", this.sliderStore)
             this.changeMatrixColor()
+            setTimeout(() => {
+                this.hoverSlider("primeira")
+            }, 200)
         },
         handleInputValue(value) {
             this.sliderStore[value[0]][value[1]].valor = Number(value[2])
-            this.hoverInput(value, "primeira")
+            this.mouseDownSlider(value, "primeira")
             const throttledDefineMatriz = throttle(this.changeMatrix, 50)
             throttledDefineMatriz()
         },

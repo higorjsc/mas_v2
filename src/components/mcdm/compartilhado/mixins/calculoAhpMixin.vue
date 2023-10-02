@@ -2,12 +2,6 @@
 
 export default{
     name: "vue-calculo-ahp-mixin",
-    data() {
-
-        return{
-
-        }
-    },
     methods:{
         conveterEscala(valorOriginal) {
             let minDesejado
@@ -44,35 +38,70 @@ export default{
                 })
             })
         },
-        hoverInput(value, chamada) {
-
-            const coordenada = (numero, numColunas)=>{
-                // console.log(numero)
-                let contador = 0
-                for (let i = 1; i <= numColunas; i++) {
-                    for (let j = 1; j <= numColunas; j++) {
-                        contador = j > i ? contador + 1 : contador
-                        if(contador === numero) {
-                            return { i: i.toString(), j: j.toString() }
-                        }
+        tdMatrizCoordenada(numero, numColunas) {
+            // console.log(numero)
+            let contador = 0
+            for (let i = 1; i <= numColunas; i++) {
+                for (let j = 1; j <= numColunas; j++) {
+                    contador = j > i ? contador + 1 : contador
+                    if(contador === numero) {
+                        return { i: i.toString(), j: j.toString() }
                     }
                 }
-                return contador
             }
+            return contador
+        },
+        colorirTd(name, tamanho) {
+            const sliderIndex = Number(name.split("-")[2]) - 1
+            const matriz = document.getElementsByName(`${this.matrizAtual}`)[0]
+            const position = this.tdMatrizCoordenada(sliderIndex, tamanho)
+            const td = [
+                matriz.querySelector(`#td-${position.i}${position.j}`),
+                matriz.querySelector(`#td-${position.j}${position.i}`)
+            ]
+            td[0].style.boxShadow = "0 0 20px var(--cor-tema)"
+            td[0].style.transform = "scale(1.02)"
+            td[1].style.boxShadow = "0 0 20px var(--cor-tema)"
+            td[1].style.transform = "scale(1.02)"
+        },
+        descolorirTd(name, tamanho) {
+            const sliderIndex = Number(name.split("-")[2]) - 1
+            const matriz = document.getElementsByName(`${this.matrizAtual}`)[0]
+            const position = this.tdMatrizCoordenada(sliderIndex, tamanho)
+            const td = [
+                matriz.querySelector(`#td-${position.i}${position.j}`),
+                matriz.querySelector(`#td-${position.j}${position.i}`)
+            ]
+            td[0].style.boxShadow = "none"
+            td[1].style.boxShadow = "none"
+            td[0].style.transform = "scale(1)"
+            td[1].style.transform = "scale(1)"
+        },
+        hoverSlider(chamada) {
+            const tamanho = chamada === "primeira" ? this.optionsPrimeira.length : this.criteriosSegunda.length
+            const slideres = document.querySelectorAll("input[type='range']")
+            slideres.forEach(element =>{
+                element.addEventListener("mouseover", () => {
+                    this.colorirTd(element.name, tamanho)
+                })
+                element.addEventListener("mouseout", () => {this.descolorirTd(element.name, tamanho) })
+            })
+        },
+        mouseDownSlider(value, chamada) {
+
             const tamanho = chamada === "primeira" ? this.optionsPrimeira.length : this.criteriosSegunda.length
             const sliderIndex = Number(value[3].split("-")[2]) - 1
-            const position = coordenada(sliderIndex, tamanho)
-            const matriz = document.getElementsByName(`${this.matrizAtual}`)[0]
-            const i = position.i
-            const j = position.j
 
+            //matriz atual é uma computed em primeiraEtapa.vue e segundaEtapa.vue
+            const matriz = document.getElementsByName(`${this.matrizAtual}`)[0]
+
+            const position = this.tdMatrizCoordenada(sliderIndex, tamanho)
             const td = [
-                matriz.querySelector(`#td-${i}${j}`),
-                matriz.querySelector(`#td-${j}${i}`)
+                matriz.querySelector(`#td-${position.i}${position.j}`),
+                matriz.querySelector(`#td-${position.j}${position.i}`)
             ]
 
             const slider = document.getElementsByName(value[3])[0]
-            // console.log(slideres)
 
             slider.addEventListener("input", () => {
                 // Define a cor vermelha enquanto o slider está sendo movido.

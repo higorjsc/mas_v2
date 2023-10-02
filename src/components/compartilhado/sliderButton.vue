@@ -19,27 +19,26 @@
             ref="slider"
             :name="name"
         >
-        <div class="label-container">
-            <div class="left-label-container">
-                <label id="left-label">1/9</label>
-                <label id="center-label">1/8</label>
-                <label id="center-label">1/7</label>
-                <label id="center-label">1/6</label>
-                <label id="center-label">1/5</label>
-                <label id="center-label">1/4</label>
-                <label id="center-label">1/3</label>
-                <label id="center-label">1/2</label>
+        <div class="span-container">
+            <div class="left-span-container">
+                <span class="slider-span" draggable="false">1/8</span>
+                <span class="slider-span" draggable="false">1/7</span>
+                <span class="slider-span" draggable="false">1/6</span>
+                <span class="slider-span" draggable="false">1/5</span>
+                <span class="slider-span" draggable="false">1/4</span>
+                <span class="slider-span" draggable="false">1/3</span>
+                <span class="slider-span" draggable="false">1/2</span>
             </div>
-            <div class="right-label-container">
-                <label id="center-label">1</label>
-                <label id="center-label">2</label>
-                <label id="right-label">3</label>
-                <label id="right-label">4</label>
-                <label id="right-label">5</label>
-                <label id="right-label">6</label>
-                <label id="right-label">7</label>
-                <label id="right-label">8</label>
-                <label id="right-label">9</label>
+            <div class="right-span-container">
+                <span class="slider-span" draggable="false">1</span>
+                <span class="slider-span" draggable="false">2</span>
+                <span class="slider-span" draggable="false">3</span>
+                <span class="slider-span" draggable="false">4</span>
+                <span class="slider-span" draggable="false">5</span>
+                <span class="slider-span" draggable="false">6</span>
+                <span class="slider-span" draggable="false">7</span>
+                <span class="slider-span" draggable="false">8</span>
+                <span class="slider-span" draggable="false">9</span>
             </div>
         </div>
 
@@ -140,26 +139,29 @@ h3 {
 .text-container{
     text-align: center;
 }
-.label-container {
+.span-container {
     width: 100%;
     display: flex;
     font-size: 8pt;
     gap: 15px;
 }
-.left-label-container{
+.left-span-container{
     width: 52%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.right-label-container  {
+.right-span-container  {
     width: 57.9%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-
+.slider-span{
+    user-select: none;
+    -webkit-user-drag: none;
+}
 input {
   width: 100%;
   height: 6px;
@@ -172,6 +174,13 @@ input {
   transition: .2s;
   transition: opacity .2s;
   position: relative;
+  z-index: 5;
+}
+input:hover{
+    background-color: red;
+    transform: scale(1.01);
+    box-shadow: 0 0 5px var(--cor-tema);
+    cursor: pointer;
 }
 
 /* THUMB do CHROME */
@@ -183,6 +192,7 @@ input::-webkit-slider-thumb {
   background: var(--cor-tema);
   border: var(--borda-simples) ;
   cursor: pointer;
+  z-index: 6;
 }
 
 /* THUMB do MOZILA */

@@ -118,6 +118,9 @@ export default {
             return this.$store.getters.currentOptionsSegunda
         }
     },
+    mounted() {
+
+    },
     methods: {
         resultadoFinal() {
             const primeira = this.matrizPrimeira

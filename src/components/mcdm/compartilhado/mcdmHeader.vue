@@ -1,21 +1,21 @@
 <template>
 
     <div class="etapas-container">
-        <label class="buttons-etapas" ref="label-inputs">
+        <span class="buttons-etapas" ref="span-inputs">
             <a class="link" @click.prevent="handleLink(0,'/mcdm/inputs')">INPUTS</a>
-        </label>
+        </span>
 
-        <label class="buttons-etapas" ref="label-primeira">
+        <span class="buttons-etapas" ref="span-primeira">
             <a class="link" @click.prevent="handleLink(1,'/mcdm/primeira')">ETAPA 1</a>
-        </label>
+        </span>
 
-        <label class="buttons-etapas" ref="label-segunda">
+        <span class="buttons-etapas" ref="span-segunda">
             <a class="link" @click.prevent="handleLink(2,'/mcdm/segunda')">ETAPA 2</a>
-        </label>
+        </span>
 
-        <label class="buttons-etapas" ref="label-resultados">
+        <span class="buttons-etapas" ref="span-resultados">
             <a class="link" @click.prevent="handleLink(3,'/mcdm/resultados')">RESULTADOS</a>
-        </label>
+        </span>
 
     </div>
 
@@ -54,13 +54,14 @@ export default {
             document.querySelectorAll(".buttons-etapas").forEach((element) => {
                 element.style.opacity = 0.6
             })
+            const span = document.querySelector(".etapas-container").querySelectorAll("span")
             for(let i = 0; (i <= this.viewProgress && i < 4); i++) {
-                document.querySelectorAll("label")[i].style.opacity = 0.85
+                span[i].style.opacity = 0.85
             }
         },
         changeAtualTab(atual) {
             atual = atual.split("/")[2]
-            this.$refs[`label-${atual}`].style.opacity = 1
+            this.$refs[`span-${atual}`].style.opacity = 1
             this.$store.dispatch("changeTabViewAtual", atual)
         },
         handleLink(index, route) {

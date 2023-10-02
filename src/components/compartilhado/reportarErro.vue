@@ -4,19 +4,19 @@
         class="main-pop-up"
     >
         <!-- O uso do atributo "name" em cada input é obrigatório pela API -->
-        <form :action="formAtual" method="POST">
-            <div class="dados">
-                <span>{{ $t('userNameReportarErro') }}</span>
-                <input type="text" name="Nome">
-                <span>{{ $t('userEmailReportarErro') }}</span>
-                <input type="email" name="E-mail">
+        <form :action="formAtual" method="POST" id="formulario-reportar-bug" name="report-issue">
+            <div class="dados" id="div-dados-formulario">
+                <span id="span-user-name-formulario">{{ $t('userNameReportarErro') }}</span>
+                <input type="text" id="input-name-formulario" name="Nome">
+                <span id="span-user-email-formulario">{{ $t('userEmailReportarErro') }}</span>
+                <input type="email" id="input-email-formulario" name="E-mail">
             </div>
             <br>
-            <div class="message">
-                <span id="span-message">{{ $t('userMessageReportarErro') }}</span>
+            <div class="message" id="div-message-formulario">
+                <span id="span-message-formulario">{{ $t('userMessageReportarErro') }}</span>
                 <textarea id='area-message' name="Mensagem"></textarea>
             </div>
-            <button type="submit" @click="enviarErro($event)">
+            <button type="submit" @click="enviarErro($event)" id="botao-enviar-formulario">
                 {{ $t('botaoEnviarReportarErro') }}
             </button>
         </form>
