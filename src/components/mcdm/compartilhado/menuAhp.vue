@@ -51,23 +51,16 @@
         <!-- MENU RESULTADOS ETAPA -->
         <label
             class="label-menu-ahp"
-            v-if="tabView == 'resultados'"
-            for="checkbox-menu-resultados-etapa"
+            v-if="tabView === 'resultados'"
+            for="button-menu-resultados-etapa"
         >
             {{ $t('helpResultadosEtapa') }}
         </label>
-        <input
-            type="checkbox"
-            class="checkbox-menu-ahp"
-            id="checkbox-menu-resultados-etapa"
-            v-model="mostrarHelpResultadosEtapa"
-        >
-        <p
-            class="paragrafo-menu"
-            v-html="$t('paragrafoHelpResultadosEtapa')"
-            v-if="mostrarHelpResultadosEtapa"
-        >
-        </p>
+        <button
+            class="button-menu-ahp"
+            id="button-menu-resultados-etapa"
+            @click="abrirPopUp('helpResultadosEtapa')"
+        ></button>
         <!-- PASSO A PASSO AHP -->
         <label
             class="label-menu-ahp"

@@ -33,6 +33,7 @@
             <vueMaisSobreAhp v-if="aberto === 'maisSobreAhp'"/>
             <vueHelpPrimeiraEtapa v-if="aberto === 'helpPrimeiraEtapa'"/>
             <vueHelpSegundaEtapa v-if="aberto === 'helpSegundaEtapa'"/>
+            <vueHelpResultadosEtapa v-if="aberto === 'helpResultadosEtapa'"/>
             <vueHelpPassosAhp v-if="aberto === 'passosAhp'"/>
         </div>
 
@@ -47,6 +48,7 @@ import vueReferencias from "@/components/compartilhado/referencias.vue"
 import vueMaisSobreAhp from "@/components/mcdm/compartilhado/ahpReferencias.vue"
 import vueHelpPrimeiraEtapa from "@/components/mcdm/compartilhado/helpPrimeiraEtapa.vue"
 import vueHelpSegundaEtapa from "@/components/mcdm/compartilhado/helpSegundaEtapa.vue"
+import vueHelpResultadosEtapa from "@/components/mcdm/compartilhado/helpResultadosEtapa.vue"
 import vueHelpPassosAhp from "@/components/mcdm/compartilhado/helpPassosAhp.vue"
 export default {
     components: {
@@ -56,6 +58,7 @@ export default {
         vueMaisSobreAhp,
         vueHelpPrimeiraEtapa,
         vueHelpSegundaEtapa,
+        vueHelpResultadosEtapa,
         vueHelpPassosAhp
     },
     data() {
