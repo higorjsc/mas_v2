@@ -31,6 +31,7 @@
         </label>
         <button
             class="button-menu-ahp"
+            id="button-menu-primeira-etapa"
             @click="abrirPopUp('helpPrimeiraEtapa')"
         >
         </button>
@@ -44,6 +45,7 @@
         </label>
         <button
             class="button-menu-ahp"
+            id="button-menu-segunda-etapa"
             @click="abrirPopUp('helpSegundaEtapa')"
         ></button>
         <!-- MENU RESULTADOS ETAPA -->
@@ -75,6 +77,7 @@
         </label>
         <button
             class="button-menu-ahp"
+            id="button-calculos-ahp"
             @click="abrirPopUp('passosAhp')"
         >
         </button>
@@ -87,6 +90,7 @@
         </label>
         <button
             class="button-menu-ahp"
+            id="button-mais-sobre-ahp"
             @click="abrirPopUp('maisSobreAhp')"
         >
         </button>
