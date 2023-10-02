@@ -136,7 +136,7 @@
                         tituloVetor="Peso"
                         idVetor="Fluxograma"
                         :valueVetor="vetorPeso(0)"
-                        @click="trocaMatrizInputAtual(itemCriterio)"
+                        @click="trocaMatrizInputAtual('Fluxograma')"
                     />
                     <vueConsistencia
                         :RI="consistencia(0, 'ri')"
@@ -293,8 +293,8 @@ export default {
         handleInputValue(value) {
             this.sliderStore[value[0]][value[1]].valor = Number(value[2])
             this.mouseDownSlider(value, "primeira")
-            const throttledDefineMatriz = throttle(this.changeMatrix, 50)
-            throttledDefineMatriz()
+            const throttledChangeMatrix =  throttle(this.changeMatrix, 5000)
+            throttledChangeMatrix() // Chame a função throttled aqui
         },
         matrizMaker(index) {
             const dirValue = (key) => {
@@ -320,6 +320,7 @@ export default {
             return matriz
         },
         changeMatrix() {
+            console.log("oi")
             let matrizPrimeira = Array.from({ length: 5 })
             matrizPrimeira[0] = this.matrizesPreDefinidas[0]
             // console.log(this.matrizesPreDefinidas[3])

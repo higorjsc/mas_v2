@@ -5,6 +5,7 @@
     "eslint-plugin-vue": "^9.17.0"
   },
   "dependencies": {
+    "lodash": "^4.17.21",
     "vue-router": "^4.2.5",
     "vuex": "^4.0.2"
   },
