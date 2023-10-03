@@ -66,8 +66,8 @@ export default {
                         transform: "rotate(-90deg)"
                     },
                     {
-                        id: "rampa-cardozo",
-                        backgroundKey: "rampa",
+                        id: "correia-cardozo",
+                        backgroundKey: "correia",
                         top: "385px",
                         left: "60px",
                         width: "180px",
@@ -84,8 +84,8 @@ export default {
                         transform: "rotate(-90deg)"
                     },
                     {
-                        id: "correia-cardozo",
-                        backgroundKey: "correia",
+                        id: "rampa-cardozo",
+                        backgroundKey: "rampa",
                         top: "250px",
                         left: "270px",
                         width: "200px",
@@ -222,8 +222,8 @@ export default {
                         transform: "rotate(-90deg)"
                     },
                     {
-                        id: "rampa-vergne",
-                        backgroundKey: "rampa",
+                        id: "correia-vergne",
+                        backgroundKey: "correia",
                         top: "385px",
                         left: "60px",
                         width: "180px",
@@ -240,8 +240,8 @@ export default {
                         transform: "rotate(-90deg)"
                     },
                     {
-                        id: "correia-vergne",
-                        backgroundKey: "correia",
+                        id: "rampa-vergne",
+                        backgroundKey: "rampa",
                         top: "250px",
                         left: "270px",
                         width: "200px",
@@ -278,13 +278,13 @@ export default {
                         left: "213px",
                         Text: "YES"
                     },
-                    { // depthCenter - correia
-                        top: "252px",
+                    { // prodCenter - correia
+                        top: "254px",
                         left: "320px",
                         Text: "NO"
                     },
                     { // depthLeft - prodLeft
-                        top: "313px",
+                        top: "315.5px",
                         left: "117px",
                         Text: "NO"
                     },
@@ -299,7 +299,7 @@ export default {
                         Text: "NO"
                     },
                     { // depthCenter - shaft
-                        top: "192px",
+                        top: "195px",
                         left: "110px",
                         Text: "NO"
                     },
@@ -314,7 +314,7 @@ export default {
                         Text: "(very poor-soil)"
                     },
                     { // surfaceMaterial - shaft
-                        top: "71px",
+                        top: "74px",
                         left: "102px",
                         Text: ">70 m"
                     }
@@ -357,13 +357,13 @@ export default {
                         Text: "<600 m"
                     },
                     { // rockMass - shaft
-                        top: "75px",
+                        top: "78px",
                         left: "180px",
                         width: "65px",
                         Text: "class VI-VII"
                     },
                     { // surfaceMaterial - shaft
-                        top: "150px",
+                        top: "152px",
                         left: "195px",
                         Text: ">70 m",
                         width: "40px"
@@ -375,7 +375,7 @@ export default {
                         width: "60px"
                     },
                     { // depthCenter - shaft
-                        top: "225px",
+                        top: "227px",
                         left: "265px",
                         Text: ">500 m",
                         width: "41px"
@@ -387,31 +387,31 @@ export default {
                         width: "80px"
                     },
                     { // prodCenter - shaft
-                        top: "307px",
+                        top: "310px",
                         left: "270px",
                         Text: ">400 k ton/year",
                         width: "80px"
                     },
                     { // prodleft - shaft
-                        top: "387px",
+                        top: "390px",
                         left: "125px",
                         Text: ">600 k ton/year",
                         width: "80px"
                     },
                     { // prodleft - rampa
-                        top: "423px",
+                        top: "425px",
                         left: "72px",
-                        Text: ">600 k ton/year",
+                        Text: "<600 k ton/year",
                         width: "80px"
                     },
                     { // depthleft - shaft
-                        top: "314.5px",
+                        top: "317px",
                         left: "118px",
                         Text: ">600 m",
                         width: "40px"
                     },
                     { // openPit - depthCenter
-                        top: "223px",
+                        top: "228px",
                         left: "126px",
                         Text: "No",
                         width: "20px"

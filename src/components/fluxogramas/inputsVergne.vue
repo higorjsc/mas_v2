@@ -136,6 +136,7 @@ export default {
     },
     methods: {
         newValue() {
+            this.resultado = ""
             // SURFACE MATERIAL
             if (this.vergne.surfaceMaterial === "maior") {
                 this.resultado = "resultadoShaftVergne"

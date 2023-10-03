@@ -123,6 +123,8 @@ export default {
                 this.defaultImages()
                 // Chama a função com a lógica do fluxograma
                 this.newValue()
+                // Reseta o resultado
+                this.resultado = ""
                 // Altera o valor de cardozo na store VueExe
                 this.$store.dispatch("changeInputsAcessos", { metodo: "cardozo", value: this.cardozo })
             },
@@ -139,7 +141,7 @@ export default {
         newValue() {
             // SURFACE MATERIAL
             if (this.cardozo.surfaceMaterial === "maior") {
-                this.resultado = "shaftCardozo"
+                this.resultado = "resultadoShaftCardozo"
                 this.showImages(["shaft"])
                 this.setColorRed()
                 this.setColorGreen(["start", "surfaceMaterial", "shaft"])
@@ -150,7 +152,7 @@ export default {
 
             // ROCK MASS
             if (this.cardozo.surfaceMaterial === "menor" && this.cardozo.rockMass === "maior") {
-                this.resultado = "shaftCardozo"
+                this.resultado = "resultadoShaftCardozo"
                 this.showImages(["shaft"])
                 this.setColorRed()
                 this.setColorGreen(["start", "surfaceMaterial", "rockMass", "shaft"])
@@ -161,7 +163,7 @@ export default {
 
             // PROFUNDIDADE
             if (this.cardozo.surfaceMaterial === "menor" && this.cardozo.rockMass === "menor" && this.cardozo.depth === "maior") {
-                this.resultado = "shaftCardozo"
+                this.resultado = "resultadoShaftCardozo"
                 this.showImages(["shaft"])
                 this.setColorRed()
                 this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "shaft"])
@@ -172,22 +174,22 @@ export default {
 
             // PRODUÇÃO
             if (this.cardozo.surfaceMaterial === "menor" && this.cardozo.rockMass === "menor" && (this.cardozo.depth === "entre" || this.cardozo.depth === "menor") && this.cardozo.prod === "maior") {
-                this.resultado = "correiaCardozo"
+                this.resultado = "resultadoCorreiaCardozo"
                 this.showImages(["correia"])
                 this.setColorRed()
                 this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "correia"])
             } else if (this.cardozo.surfaceMaterial === "menor" && this.cardozo.rockMass === "menor" && (this.cardozo.depth === "entre" || this.cardozo.depth === "menor") && (this.cardozo.prod === "menor" || this.cardozo.prod === "entre") && this.cardozo.depth === "menor") {
-                this.resultado = "rampaCardozo"
+                this.resultado = "resultadoRampaCardozo"
                 this.showImages(["rampa", "truck"])
                 this.setColorRed()
                 this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "rampa"])
             } else if (this.cardozo.surfaceMaterial === "menor" && this.cardozo.rockMass === "menor" && (this.cardozo.depth === "entre" || this.cardozo.depth === "menor") && this.cardozo.prod === "menor" && this.cardozo.depth === "entre") {
-                this.resultado = "rampaCardozo"
+                this.resultado = "resultadoRampaCardozo"
                 this.showImages(["rampa", "truck"])
                 this.setColorRed()
                 this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "prodLeft", "rampa"])
             } else if (this.cardozo.surfaceMaterial === "menor" && this.cardozo.rockMass === "menor" && (this.cardozo.depth === "entre" || this.cardozo.depth === "menor") && this.cardozo.prod === "entre" && this.cardozo.depth === "entre") {
-                this.resultado = "shaftCardozo"
+                this.resultado = "resultadoShaftCardozo"
                 this.showImages(["shaft"])
                 this.setColorRed()
                 this.setColorGreen(["start", "surfaceMaterial", "rockMass", "depthCenter", "prodCenter", "depthLeft", "prodLeft", "shaft"])

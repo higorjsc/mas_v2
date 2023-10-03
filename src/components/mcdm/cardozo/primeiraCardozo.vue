@@ -320,7 +320,6 @@ export default {
             return matriz
         },
         changeMatrix() {
-            console.log("oi")
             let matrizPrimeira = Array.from({ length: 5 })
             matrizPrimeira[0] = this.matrizesPreDefinidas[0]
             // console.log(this.matrizesPreDefinidas[3])

@@ -2,16 +2,13 @@
 
     <!-- WAY CONTAINER-->
     <div
-        class="container"
+        class="container-way"
         :style="{
             top: Top,
             left: Left,
             width: Width,
             height: Height,
             transform: Transform,
-            backgroundColor: BackgroundColor,
-            fontSize: FontSize,
-            color: FontColor,
         }"
     >
         <!-- WAY TEXT -->
@@ -28,10 +25,7 @@
 export default {
     name: "vue-ways-fluxograma",
     props: {
-        BackgroundColor: {
-            type: String,
-            default: "white"
-        },
+
         Width: {
             type: String,
             default: "auto"
@@ -52,18 +46,6 @@ export default {
             type: String,
             default: "rotate(0deg)"
         },
-        FontSize: {
-            type: String,
-            default: "9pt"
-        },
-        FontColor: {
-            type: String,
-            default: "black"
-        },
-        TextAlign: {
-            type: String,
-            default: "center"
-        },
         Text: {
             type: String,
             default: ""
@@ -81,16 +63,26 @@ export default {
         padding: 0;
     }
 
-    .container{
+    .container-way{
         position: absolute;
         border-radius: 20;
         z-index: 5;
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: transparent;
+        font-size: 9pt;
+        text-shadow:
+            -1px -2px 2px #fff,
+            1px -2px 2px #fff,
+            -1px 2px 2px #fff,
+            1px 2px 2px #fff;
+        -webkit-text-stroke-width: 0.07px;
+        /* -webkit-text-stroke-color: white; */
     }
     .texto-way{
         z-index: 8;
+        text-shadow:1px 1px 1px white;
     }
 
 </style>

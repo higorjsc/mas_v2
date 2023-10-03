@@ -175,6 +175,7 @@ export default {
     },
     methods: {
         newValue() {
+            this.resultado = ""
             // LOGISTICA
             if (this.moser.logistica === "sim") {
                 this.enableObjects("rm")
