@@ -54,7 +54,7 @@ export default createStore({
         optionsSegunda: [],
         tema: {},
         color: {},
-        colorFonte: {},
+        fontColor: {},
         ilustrations: {}
     },
     mutations: {
@@ -64,8 +64,8 @@ export default createStore({
         setColor(state, data) {
             state.color = data
         },
-        setColorFonte(state) {
-            return state.colorFonte
+        setFontColor(state, data) {
+            state.fontColor = data
         },
         setIlustrations(state, data) {
             state.ilustrations = data
@@ -135,8 +135,8 @@ export default createStore({
         currentColor(state) {
             return state.color
         },
-        currentColorFonte(state) {
-            return state.colorFonte
+        currentFontColor(state) {
+            return state.fontColor
         },
         currentIlustrations(state) {
             return state.ilustrations
@@ -203,8 +203,8 @@ export default createStore({
         changeColor(context, data) {
             context.commit("setColor", data)
         },
-        changeColorFonte(context, data) {
-            context.commit("setColorFonte", data)
+        changeFontColor(context, data) {
+            context.commit("setFontColor", data)
         },
         changeIlustrations(context, data) {
             context.commit("setIlustrations", data)

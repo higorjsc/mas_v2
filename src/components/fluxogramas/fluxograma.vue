@@ -20,6 +20,7 @@
                     top: item.top,
                     left: item.left,
                     background: this.$store.getters.currentColor[`${item.backgroundKey}`],
+                    color: this.$store.getters.currentFontColor[`${item.backgroundKey}`],
                     transform: item.transform,
                     width: item.width,
                     height: item.height
@@ -70,7 +71,6 @@ import Seta from "./seta.vue"
 import Way from "./way.vue"
 import fluxoDataMixin from "@/components/fluxogramas/mixins/fluxoDataMixin.vue"
 import Balao from "@/components/compartilhado/balao.vue"
-import { CORES } from "@/assets/javascript/globalConstants.js"
 
 export default {
     name: "vue-fluxograma-acessos",
@@ -82,24 +82,6 @@ export default {
         fluxoDataMixin,
         Balao
     ],
-    data() {
-        return{
-            color: {
-                start: CORES.fluxoVerde,
-                logistica: CORES.fluxoVerde,
-                rockMass: "white",
-                surfaceMaterial: "white",
-                openPit: "white",
-                prodCenter: "white",
-                prodLeft: "white",
-                depthCenter: "white",
-                depthLeft: "white",
-                correia: CORES.fluxoAzul,
-                rampa: CORES.fluxoAzul,
-                shaft: CORES.fluxoAzul
-            }
-        }
-    },
     computed: {
         objeto() {
             // Retorna os objetos principais do fluxograma de cada método

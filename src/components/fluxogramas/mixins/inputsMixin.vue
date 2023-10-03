@@ -1,6 +1,6 @@
 
 <script>
-import { CORES } from "@/assets/javascript/globalConstants.js"
+import { CORES, IMGS } from "@/assets/javascript/globalConstants.js"
 
 export default {
 
@@ -8,58 +8,10 @@ export default {
         return {
             resultado: "",
             color: {
-                start: "",
-                logistica: "",
-                rockMass: "",
-                surfaceMaterial: "",
-                openPit: "",
-                prodCenter: "",
-                prodLeft: "",
-                depthCenter: "",
-                depthLeft: "",
-                correia: "",
-                rampa: "",
-                shaft: ""
             },
-            defaultColor: {
-                start: CORES.fluxoVerde,
-                logistica: CORES.fluxoVerde,
-                rockMass: "white",
-                surfaceMaterial: "white",
-                openPit: "white",
-                prodCenter: "white",
-                prodLeft: "white",
-                depthCenter: "white",
-                depthLeft: "white",
-                correia: CORES.fluxoAzul,
-                rampa: CORES.fluxoAzul,
-                shaft: CORES.fluxoAzul
+            fontColor: {
             },
             ilustrations: {
-                orebody: true,
-                superficie: true,
-                superficiePit: false,
-                ventilacao: true,
-                usina: true,
-                shaft: false,
-                rampa: false,
-                rampaPit: false,
-                truck: false,
-                correia: false,
-                pit: false
-            },
-            defaultIlustrations: {
-                orebody: true,
-                superficie: true,
-                superficiePit: false,
-                ventilacao: true,
-                usina: true,
-                shaft: false,
-                rampa: false,
-                rampaPit: false,
-                truck: false,
-                correia: false,
-                pit: false
             }
         }
     },
@@ -67,6 +19,12 @@ export default {
         color: {
             handler() {
                 this.$store.dispatch("changeColor", this.color)
+            },
+            deep: true // deep: true → O que estiver dentro da variável será observado
+        },
+        fontColor: {
+            handler() {
+                this.$store.dispatch("changeFontColor", this.fontColor)
             },
             deep: true // deep: true → O que estiver dentro da variável será observado
         },
@@ -80,25 +38,31 @@ export default {
             this.$store.dispatch("changeResultado", this.resultado)
         }
     },
+    mounted() {
+        this.fontColor = JSON.parse(JSON.stringify(CORES.defaultFontColor))
+        this.color = JSON.parse(JSON.stringify(CORES.defaultColor))
+        this.ilustrations = JSON.parse(JSON.stringify(IMGS.defaultIlustrations))
+    },
     methods: {
         setDefaultColor() {
-            for (const key in this.color) {
-                this.color[key] = this.defaultColor[key]
-            }
+            this.fontColor = JSON.parse(JSON.stringify(CORES.defaultFontColor))
+            this.color = JSON.parse(JSON.stringify(CORES.defaultColor))
         },
         setColorRed() {
             for (const key in this.color) {
                 this.color[key] = CORES.fluxoVermelho
+                this.fontColor[key] = "white"
             }
         },
         setColorGreen(objetos = []) {
             // Muda a cor dos objetos do array para verde
-            objetos.forEach((objeto) => {
-                this.color[objeto] = CORES.fluxoVerde
+            objetos.forEach((key) => {
+                this.color[key] = CORES.fluxoVerde
+                this.fontColor[key] = "black"
             })
         },
         defaultImages() {
-            this.ilustrations = JSON.parse(JSON.stringify(this.defaultIlustrations))
+            this.ilustrations = JSON.parse(JSON.stringify(IMGS.defaultIlustrations))
         },
         showImages(itens) {
             itens.forEach(item => {
