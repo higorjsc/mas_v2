@@ -153,6 +153,7 @@ export default {
     watch: {
         moser: {
             handler() {
+                this.resultado = ""
                 // Desabilita os inputs e altera a opacidade das divs
                 this.disableObject(["rm", "sm", "op", "depth", "prod"])
                 // Muda a cor de todos os elementos para o padrão definido
@@ -174,8 +175,8 @@ export default {
         this.disableObject(["rm", "sm", "op", "depth", "prod"])
     },
     methods: {
+
         newValue() {
-            this.resultado = ""
             // LOGISTICA
             if (this.moser.logistica === "sim") {
                 this.enableObjects("rm")
