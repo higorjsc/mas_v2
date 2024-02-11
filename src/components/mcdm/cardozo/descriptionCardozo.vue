@@ -3,59 +3,38 @@
     <div
         class="container-description"
     >
-
         <div
-            class="container-texto-description"
+            class="column bigger"
         >
-
-            <div
-                class="container-texto-description"
+            <h4
+                class="titulo-description-metodo-mcdm"
             >
-                <div
-                    class="container-description-ahp"
-                >
-
-                    <h4
-                        class="titulo-description-metodo-mcdm"
-                    >
-                        {{ $t('tituloSobreAhp')}}
-                    </h4>
-                    <p
-                        class="paragrafo-explicacao-metodo-mcdm"
-                        v-html="$t('paragrafoExplicacaoAhp')"
-                    >
-                    </p>
-                </div>
-            </div>
-
-            <div
-                class="container-description-cardozo"
+                {{ $t('tituloSobreAhp')}}
+            </h4>
+            <p
+                class="paragrafo-explicacao-metodo-mcdm"
+                v-html="$t('paragrafoExplicacaoAhp')"
             >
-
-                <h4
-                    class="titulo-description-metodo-mcdm"
-                >
-                    {{ $t('tituloSobreMetodoCardozoAhp') }}
-                </h4>
-                <p
-                    class="paragrafo-explicacao-metodo-mcdm"
-                    v-html="$t('paragrafoExplicacaoMetodoCardozoAhp')"
-                >
-                </p>
-                <br>
-                <br>
-                <img
-                    id="img-mapa-cardozo-ahp"
-                    :src="require(`@/assets/Imagens/mapa_cardozo_ahp_${this.$store.getters.currentLanguage}.png`)"
-                    alt="Mapa da decisão por AHP no métodoo Cardozo"
-                    :title="$t('tituloMapaCardozo')"
-                >
-            </div>
-
-
+            </p>
+            <h4
+                class="titulo-description-metodo-mcdm"
+            >
+                {{ $t('tituloSobreMetodoCardozoAhp') }}
+            </h4>
+            <p
+                class="paragrafo-explicacao-metodo-mcdm"
+                v-html="$t('paragrafoExplicacaoMetodoCardozoAhp')"
+            >
+            </p>
+            <img
+                id="img-mapa-cardozo-ahp"
+                :src="require(`@/assets/Imagens/mapa_cardozo_ahp_${this.$store.getters.currentLanguage}.png`)"
+                alt="Mapa da decisão por AHP no métodoo Cardozo"
+                :title="$t('tituloMapaCardozo')"
+            >
         </div>
         <div
-            class="container-fluxograma-ahp"
+            class="column"
         >
             <img
                 id="img-fluxograma-ahp"
@@ -76,46 +55,14 @@ export default {
 }
 </script>
 <style scoped>
-.container-description{
-    position: relative;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-gap: 0;
-    column-gap: 30px;
-    height: 100%;
-    max-height: 100%;
-}
 
-.container-texto-description{
-    grid-column: 1/2;
-}
-.container-description-ahp{
-    display: flex;
-    flex-direction: column;
-}
-.container-description-cardozo{
-    display: flex;
-    flex-direction: column;
-    text-align: justify;
-}
-.container-fluxograma-ahp{
-    grid-column: 2/3;
-    height: 100%;
-    width: 100%;
-    display: flex;
+
+
+#img-mapa-cardozo-ahp{
+    width: 90%;
 }
 #img-fluxograma-ahp{
-    position: relative;
-    margin: auto;
-    height: 90%;
-    max-height: 760px;
+    margin-top: 35px;
+    width: 100%;
 }
-#img-mapa-cardozo-ahp{
-    position: relative;
-    margin: auto;
-    width: 90%;
-    max-height: 380px;
-    /* transform: translateX(-20px); */
-}
-
 </style>

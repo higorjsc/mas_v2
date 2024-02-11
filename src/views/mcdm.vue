@@ -50,6 +50,7 @@ export default {
   grid-template-columns: 1fr 5fr; /* Deixando a barra de navegação com o tamanho necessário e o restante para a seção principal */
   box-sizing: border-box;
   width: 100%;
+  min-width: 1000px;
   max-height: 840px;
   overflow: hidden !important;
   display: grid;

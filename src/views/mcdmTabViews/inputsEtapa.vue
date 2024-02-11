@@ -5,6 +5,7 @@
             class="switch-language"
             id="switch-language-mcdm"
         />
+
         <vueTemplateSelector/>
 
         <vueInputsPersonalizado
@@ -27,11 +28,11 @@
 
         <div
             v-if="verificarTemplate === ''"
-            class="container-software-description"
+            class="container-description"
         >
             <!-- ABOUT -->
             <div
-                class="container-about"
+                class="column bigger"
             >
                 <h4
                     class="titulo-description-metodo-mcdm"
@@ -57,7 +58,7 @@
                 </span>
             </div>
             <div
-                class="container-fluxograma"
+                class="column"
             >
                 <img
                     id="img-fluxograma-mcdm"
@@ -120,74 +121,26 @@ export default {
 }
 </script>
 <style scoped>
-.section-esquerda-inputs{
-    position: relative;
-    grid-column: 1/2;
-    grid-row: 2/3;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-right: var(--borda-simples);
-    width: 100%;
-    height: 100%;
-    padding-bottom: 5%;
-    padding-left: 2%;
-    box-sizing: border-box;
-    overflow: scroll;
-}
-
-.section-direita-inputs{
-    grid-column: 2/3;
-    grid-row: 2/3;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-right: var(--borda-simples);
-    width: 100%;
-    height: 100%;
-    padding-left: 2%;
-    padding-right: 1%;
-    box-sizing: border-box;
-}
-#switch-language-mcdm{
+.switch-language{
     position: absolute;
-    top: -3%;
+    margin-top: -14%;
     opacity: 1;
 }
-.container-software-description{
-    display: grid;
-    grid-template-columns:1.4fr 1fr ;
-    height: 100%;
-}
 
-.container-about{
-    padding: 5px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    grid-column: 1/2;
-    text-align: justify;
-}
-.container-fluxograma{
-    display: flex;
-    justify-content: center;
-    position: relative;
-    grid-column: 2/3;
-    margin: auto;
-    height: 100%;
-    width: 100%;
-}
 #img-fluxograma-mcdm{
     margin-top: 35px;
-    height: 50%;
+    height: 700px;
 }
 
 p{
     padding: 0;
     margin: 0;
+
 }
 #img-wordcloud-mcdm{
     align-self: center;
     justify-self: center;
-    width: 80%;
+    width: 90%;
     max-height: 325px;
 }
 #img-wordcloud-mcdm:hover{

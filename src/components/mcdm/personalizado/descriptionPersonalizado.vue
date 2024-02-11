@@ -3,25 +3,19 @@
     <div
         class="container-description"
     >
-
         <div
-            class="container-texto-description"
+            class="column bigger"
         >
-            <div
-                class="container-description-ahp"
+            <h4
+                class="titulo-description-metodo-mcdm"
             >
-
-                <h4
-                    class="titulo-description-metodo-mcdm"
-                >
-                    {{ $t('tituloSobreAhp')}}
-                </h4>
-                <p
-                    class="paragrafo-explicacao-metodo-mcdm"
-                >
-                    {{ $t('paragrafoExplicacaoAhp') }}
-                </p>
-            </div>
+                {{ $t('tituloSobreAhp')}}
+            </h4>
+            <p
+                class="paragrafo-explicacao-metodo-mcdm"
+                v-html="`${$t('paragrafoExplicacaoAhp')}`"
+            >
+            </p>
             <img
                 id="img-mapa-ahp"
                 :src="require(`@/assets/Imagens/mapa_ahp_${this.$store.getters.currentLanguage}.png`)"
@@ -30,9 +24,8 @@
             />
         </div>
         <div
-            class="container-fluxograma-ahp"
+            class="column"
         >
-
             <img
                 id="img-fluxograma-ahp"
                 :src="require(`@/assets/Imagens/fluxograma_ahp_${this.$store.getters.currentLanguage}.png`)"
@@ -40,8 +33,8 @@
                 :title="$t('tituloFluxogramaAhp')"
             />
         </div>
-
     </div>
+
 
 </template>
 <script>
@@ -52,47 +45,25 @@ export default {
 }
 </script>
 <style scoped>
-.container-description{
-    position: relative;
+.grid-description{
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-gap: 0;
-    column-gap: 30px;
-    height: 100%;
-    max-height: 100%;
-}
-
-.container-texto-description{
-    grid-column: 1/2;
-    display: flex;
+    justify-items: center;
     flex-direction: column;
-}
-.container-description-ahp{
-    display: flex;
-    flex-direction: column;
-}
-.container-description-cardozo{
-    display: flex;
-    flex-direction: column;
-    text-align: justify;
-}
-.container-fluxograma-ahp{
-    grid-column: 2/3;
-    height: 100%;
+    flex-wrap: wrap;
     width: 100%;
-    display: flex;
 }
-
+.grid-description-coluna-1{
+    grid-column: 1/2;
+    width: 100%;
+}
 #img-fluxograma-ahp{
-    position: relative;
-    margin: auto;
-    height: 90%;
-    max-height: 760px;
+    grid-column: 2/3;
+    width: 100%;
 }
 #img-mapa-ahp{
     position: relative;
     margin: auto;
     width: 90%;
-    max-height: 380px;
 }
 </style>
